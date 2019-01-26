@@ -1,0 +1,7 @@
+<view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="how-to-play-mask" id="mask"></view>
+    <view class="body">
+        <image src="./how-to-play-bg.png" class="how-to-play-bg"/>
+        <image src="./how-to-play-return.png" class="how-to-play-return" bindtap="handleHide"/>
+    </view>
+</view>

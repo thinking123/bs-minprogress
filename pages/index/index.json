@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "how-to-play-dialog": "../../components/how-to-play-dialog/index"
+  }
+}

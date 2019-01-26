@@ -1,0 +1,10 @@
+
+<view class="container">
+    <image src="./home-bg.png" class="img"/>
+    <view class="how-to-play" bindtap="handleHowtoplay"/>
+    <image src="./home-start-music-tour-btn.png" bindtap="handleStarttour" class="home-start-music-tour-btn"/>
+
+    <how-to-play-dialog
+            visible="{{howToplayVisible}}"
+            bind:hidetap="handleHidetap"/>
+</view>

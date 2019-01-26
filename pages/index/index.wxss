@@ -1,0 +1,30 @@
+
+.container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin:0;
+  padding:0;
+
+}
+.img{
+  height: 100%;
+  width: 100%;
+}
+
+.home-start-music-tour-btn{
+  position: absolute;
+  bottom:108rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 126rpx;
+  width: 474rpx;
+}
+
+.how-to-play{
+  position: absolute;
+  top:48rpx;
+  right:18rpx;
+  height: 154rpx;
+  width: 42rpx;
+}
