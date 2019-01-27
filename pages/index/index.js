@@ -4,26 +4,27 @@ const app = getApp()
 
 Page({
     data: {
-        howToplayVisible: false
+
     },
-    handleStarttour: function () {
-        // wx.navigateTo({
-        //     url: '../logs/logs'
-        // })
-        console.log('handleStarttour')
-    },
-    handleHowtoplay: function () {
-        this.setData({
-            howToplayVisible: true
+    handleRegister: function () {
+        console.log('handleRegister')
+        wx.navigateTo({
+            url:'/pages/register/index?from=home'
         })
-        console.log('how to play')
+    },
+    handleMyMusic: function () {
+        console.log('handleMyMusic')
+    },
+    handleListen: function () {
+        console.log('handleListen')
+    },
+    handleRankList: function () {
+        console.log('handleRankList')
+    },
+    handleUserInfo: function () {
+        console.log('handleUserInfo')
     },
     onLoad: function () {
 
-    },
-    handleHidetap(){
-        this.setData({
-            howToplayVisible: false
-        })
     }
 })

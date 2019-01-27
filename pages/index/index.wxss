@@ -7,24 +7,49 @@
   padding:0;
 
 }
+
+
 .img{
   height: 100%;
   width: 100%;
 }
 
-.home-start-music-tour-btn{
+.register{
   position: absolute;
-  bottom:108rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 126rpx;
-  width: 474rpx;
+  top:66.87%;
+  left:204rpx;
+  height: 7.34%;
+  width: 344rpx;
 }
 
-.how-to-play{
+.my-music{
   position: absolute;
-  top:48rpx;
-  right:18rpx;
-  height: 154rpx;
-  width: 42rpx;
+  top:76.76%;
+  left:204rpx;
+  height: 7.34%;
+  width: 344rpx;
+}
+
+.listen{
+  position: absolute;
+  top:86.98%;
+  left:82rpx;
+  height: 3.59%;
+  width: 176rpx;
+}
+
+.rank-list{
+  position: absolute;
+  top:86.98%;
+  left:288rpx;
+  height: 3.59%;
+  width: 176rpx;
+}
+
+.user-info{
+  position: absolute;
+  top:86.98%;
+  left:492rpx;
+  height: 3.59%;
+  width: 176rpx;
 }

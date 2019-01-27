@@ -1,0 +1,68 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.ph-cs{
+    color:#004990;
+    font-size:35rpx;
+    margin-left: 16rpx;
+    font-weight: bolder;
+}
+.picker-wrap{
+
+}
+.input-name{
+    position: absolute;
+    top:41.77%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-phone{
+    position: absolute;
+    top:47.75%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-school{
+    position: absolute;
+    top:53.59%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-region{
+    position: absolute;
+    top:59.58%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-game{
+    position: absolute;
+    top:65.42%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
