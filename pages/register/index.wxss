@@ -66,3 +66,28 @@
 
     background-color: white;
 }
+
+.drop-down-item1{
+    position: absolute;
+    top:54.34%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}
+.drop-down-item2{
+    position: absolute;
+    top:60.33%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}
+.drop-down-item3{
+    position: absolute;
+    top:66.17%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}

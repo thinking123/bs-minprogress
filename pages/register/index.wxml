@@ -4,6 +4,9 @@
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
     />
+    <image src="./dropdown.png" class="drop-down-item1"/>
+    <image src="./dropdown.png" class="drop-down-item2"/>
+    <image src="./dropdown.png" class="drop-down-item3"/>
     <input class=" input-phone"
            placeholder-class="ph-cs" placeholder="电话"/>
 
