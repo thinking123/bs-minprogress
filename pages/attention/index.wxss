@@ -1,0 +1,108 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.singer-icon{
+    position: absolute;
+    top:14.53%;
+    left:498rpx;
+    height: 9.28%;
+    width: 120rpx;
+}
+
+.content-wrap{
+    position: absolute;
+    top:34.63%;
+    left:118rpx;
+    height: 3.75%;
+    width: 520rpx;
+
+    color:white;
+    font-size:18rpx
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.row1{
+    margin-bottom: 8rpx;
+}
+.text{
+    margin: 0 10rpx;
+}
+.header-icon{
+    position: absolute;
+    top:24.42%;
+    left:310rpx;
+    height: 124rpx;
+    width: 124rpx;
+    border-radius: 124rpx;
+}
+.center-icon{
+    position: absolute;
+    top:43.86%;
+    left:154rpx;
+    height: 17.22%;
+    width: 450rpx;
+}
+
+
+.attention-list-wrap{
+    position: absolute;
+    top:40.33%;
+    left:176rpx;
+    height: 34.73%;
+    width: 414rpx;
+    color:white;
+    font-size:20rpx
+}
+.attention-item{
+    display: flex;
+    flex-direction: row;
+    height: 36rpx;
+    justify-content: space-around;
+    margin-bottom: 5.17%;
+}
+.song-text{
+    width:248rpx;
+    display: flex;
+    justify-content: center;
+}
+.attention-btn-wrap{
+    width:120rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.attention-btn{
+    width:100%;
+    height: 100%;
+}
+.gz{
+    position: absolute;
+    top:86.21%;
+    left:128rpx;
+    height: 4.65%;
+    width: 226rpx;
+}
+
+
+.return-btn{
+    position: absolute;
+    top:83.06%;
+    left:206rpx;
+    height: 7.05%;
+    width: 340rpx;
+}
+

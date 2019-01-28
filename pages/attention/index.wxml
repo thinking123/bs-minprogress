@@ -1,0 +1,30 @@
+<view class="container">
+    <image src="./bg.png" class="img"/>
+
+
+    <view class="attention-list-wrap">
+        <view wx:for="{{attentionList}}"
+              wx:for-item="item"
+              wx:key="index"
+              class="attention-item"
+        >
+            <view class="attention-name">
+                {{item.name}}
+            </view>
+            <view class="attention-num">
+                {{item.num}}
+            </view>
+            <view class="attention-btn-wrap">
+                <image src="./btn.png" class="attention-btn"/>
+            </view>
+
+        </view>
+    </view>
+
+
+
+    <view bindtap="handleReturn" class="return-btn"/>
+
+
+</view>
+

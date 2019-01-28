@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/attention/index",
     "pages/singer-home/index",
     "pages/rank-list/index",
     "pages/upload-music/index",
