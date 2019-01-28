@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "register-error-dialog":"../../components/register-error-dialog/index"
+  }
 }

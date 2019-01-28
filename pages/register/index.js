@@ -1,87 +1,119 @@
-// pages/register/index.js
+import {isEmpty} from "../../utils/util";
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        showError:false,
         schools: ['学校', 'xuexiao'],
-        schoolIndex:-1,
+        schoolIndex: -1,
         games: ['shaidiansdf', 'shaidian'],
-        gameIndex:-1,
-        region: ['广东省', '广州市', '海珠区'],
-        customItem: '全部'
+        gameIndex: -1,
+        regionIndex: -1,
+        name:'',
+        phone:'',
+        provinces: [
+            "北京",
+            "天津",
+            "河北",
+            "山西",
+            "内蒙古",
+            "辽宁",
+            "吉林",
+            "黑龙江",
+            "上海",
+            "江苏",
+            "浙江省",
+            "安徽",
+            "福建",
+            "江西",
+            "山东",
+            "河南",
+            "湖北",
+            "湖南",
+            "广东",
+            "广西",
+            "海南",
+            "重庆",
+            "四川",
+            "贵州",
+            "云南",
+            "西藏",
+            "陕西",
+            "甘肃省",
+            "青海",
+            "宁夏",
+            "新疆",
+            "台湾",
+            "香港",
+            "澳门"
+        ]
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
 
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
     handleSchool(e) {
         console.log('handleSchool')
         this.setData({
             schoolIndex: e.detail.value
         })
-    }, handleRegion(e) {
+    },
+    handleRegion(e) {
         console.log('handleRegion')
         this.setData({
-            region: e.detail.value
+            regionIndex: e.detail.value
         })
-    }, handleGame(e) {
+    },
+    handleGame(e) {
         console.log('handleGame')
         this.setData({
             gameIndex: e.detail.value
         })
+    },
+    handleSubmit(e) {
+
+
+        if(this.verifySubmit()){
+            console.log('handleSubmit ok')
+        }else{
+            console.log('handleSubmit error')
+            this.setData({
+                showError : true
+            })
+        }
+
+    },
+    verifySubmit(){
+        const pReg=/^[1][3,4,5,7,8][0-9]{9}$/;
+
+        console.log(this.data.name,
+            this.data.phone,
+            this.data.schoolIndex,
+            this.data.gameIndex,
+            this.data.regionIndex
+            )
+        return !(isEmpty(this.data.name) ||
+            !pReg.test(this.data.phone) ||
+            this.data.schoolIndex === -1 ||
+            this.data.gameIndex === -1 ||
+            this.data.regionIndex === -1)
+    },
+    hidetap(){
+        this.setData({
+            showError : false
+        })
+    },
+    bindNameInput(e){
+        this.setData({
+            name: e.detail.value
+        })
+    },
+    bindPhoneInput(e){
+        this.setData({
+            phone: e.detail.value
+        })
     }
+
+
 })

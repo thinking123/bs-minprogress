@@ -91,3 +91,10 @@
     width: 42rpx;
     z-index: 100;
 }
+.submit{
+    position: absolute;
+    top:82.78%;
+    left:208rpx;
+    height: 7.19%;
+    width: 342rpx;
+}

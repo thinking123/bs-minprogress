@@ -5,7 +5,10 @@ Component({
     properties: {
         visible: {
             type: Boolean,
-            value: false
+            value: false,
+            observer(newVal, oldVal, changedPath) {
+                console.log('visible change ' , newVal , oldVal ,changedPath)
+            }
         }
     },
     data: {},
