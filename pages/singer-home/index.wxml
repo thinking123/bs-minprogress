@@ -1,0 +1,57 @@
+<view class="container">
+    <image src="./bg.png" class="img"/>
+
+    <image src="./icon.png" class="singer-icon"/>
+
+
+
+    <view class="content-wrap">
+        <view class="row1 row">
+            <view class="text">
+                姓名:{{name}}
+            </view>
+            <view class="text">
+                学校:{{school}}
+            </view>
+        </view>
+        <view class="row2 row">
+            <view class="text">主打歌:《{{song}}》
+
+            </view>
+            <view class="text">
+                票数:{{vote}}
+            </view>
+            <view class="text">
+                区域排名:{{rank}}
+            </view>
+        </view>
+    </view>
+
+
+    <view class="song-list-wrap">
+        <view wx:for="{{songList}}"
+              wx:for-item="songItem"
+              wx:key="index"
+              class="song-item"
+        >
+            <view class="song-text">
+                《{{songItem}}》
+            </view>
+            <view class="song-btn-wrap">
+                <image src="./btn.png" class="song-btn"/>
+            </view>
+
+        </view>
+    </view>
+
+    <image src="./header.png" class="header-icon"/>
+    <image src="./bg.png" class="center-icon"/>
+
+
+
+    <view bindtap="handlegz" class="gz"/>
+    <view bindtap="handlevote" class="vote"/>
+
+
+</view>
+

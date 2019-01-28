@@ -7,7 +7,7 @@ Component({
             type: Boolean,
             value: false,
             observer(newVal, oldVal, changedPath) {
-                console.log('visible change ' , newVal , oldVal ,changedPath)
+                console.log('visible change ', newVal, oldVal, changedPath)
             }
         }
     },
