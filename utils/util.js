@@ -15,9 +15,9 @@ const formatNumber = n => {
 }
 
 export function isEmpty(str) {
-  if(!typeof str === 'string' || !str){
-    return false
-  }
+  // if(typeof str !== 'string' || !str){
+  //   return false
+  // }
   str = str.trim()
   return str.length === 0
 }

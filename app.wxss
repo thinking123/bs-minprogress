@@ -13,3 +13,10 @@ page{
   height: 100%;
   width: 100%;
 }
+
+.ph-cs{
+   color:#004990;
+   font-size:35rpx;
+   margin-left: 16rpx;
+   font-weight: bolder;
+ }

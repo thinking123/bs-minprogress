@@ -1,0 +1,106 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.upload{
+    position: absolute;
+    top:30.39%;
+    left:294rpx;
+    height: 10.93%;
+    width: 170rpx;
+}
+
+.progress-bar-text{
+    position: absolute;
+    top:43.86%;
+    left:552rpx;
+    height: 20rpx;
+    width: 36rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-size: 18rpx;
+}
+
+.input-name{
+    position: absolute;
+    top:48.65%;
+    left:158rpx;
+    height: 4.34%;
+    width: 436rpx;
+    background-color: white;
+}
+
+.submit{
+    position: absolute;
+    top:83.08%;
+    left:206rpx;
+    height: 7.19%;
+    width: 342rpx;
+}
+.item{
+    height: 12rpx;
+    width: 12rpx;
+}
+.checked{
+    position: absolute;
+    top:54.19%;
+    left:388rpx;
+}
+.unchecked{
+    position: absolute;
+    top:54.19%;
+    left:466rpx;
+}
+.progress-bar-wrap{
+    position: absolute ;
+    top:43.86% ;
+    left:166rpx ;
+    height: 20rpx ;
+    width: 382rpx ;
+    border-radius: 10rpx;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+
+}
+
+.progress-bar{
+    height: 20rpx;
+    background-image: linear-gradient(135deg, #00A0E9 25%, transparent 25%, transparent 50%,#00A0E9 50%, #00A0E9 75%, transparent 75%, transparent);
+    background-size: 20rpx 20rpx;
+    animation: progress-bar-loading 1s linear infinite;
+}
+@keyframes progress-bar-loading {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40rpx 0;
+    }
+}
+
+.image-swap{
+    position: absolute;
+    top:83.08%;
+    left:206rpx;
+    height: 7.19%;
+    width: 342rpx;
+}
+
+.music-swiper{
+    position: absolute;
+    top:59.13%;
+    left:168rpx;
+}

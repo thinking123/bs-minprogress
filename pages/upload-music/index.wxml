@@ -1,0 +1,42 @@
+<view class="container">
+    <image src="./upload-music-bg.png" class="img"/>
+
+    <div class="upload">
+
+    </div>
+    <input class=" input-name" placeholder="歌曲名称"
+           placeholder-class="ph-cs"
+           value="{{name}}"
+           bindinput="bindNameInput"
+           auto-focus
+    />
+
+    <image id="checked" src="{{checked?'./checked.png':'./unchecked.png'}}" class="checked item"
+           bindtap="handleChecked"/>
+    <image id="unchecked" src="{{checked ? './unchecked.png':'./checked.png'}}" class="unchecked item"
+           bindtap="handleChecked"/>
+
+    <view class="progress-bar-wrap">
+        <view class="progress-bar" style="width:{{progress}}">
+
+        </view>
+    </view>
+    <view class="progress-bar-text">
+        {{progress}}
+    </view>
+    <!--<progress percent="{{progress}}" show-info class="progress-bar" active/>-->
+    <!--<div class="progress-bar-text">-->
+    <!--{{progress}}%-->
+    <!--</div>-->
+    <div class="image-swap">
+
+    </div>
+
+    <view class="submit" bindtap="handleSubmit"/>
+    <dialog-wrap visible="{{showDialog}}" bg="{{bg}}"
+                           bind:hidetap="hidetap"/>
+
+
+    <cascade-swiper class="music-swiper" images="{{images}}"/>
+</view>
+

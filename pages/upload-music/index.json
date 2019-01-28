@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cascade-swiper":"../../components/cascade-swiper/index",
+    "dialog-wrap":"../../components/dialog-wrap/index"
+  }
+}

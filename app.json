@@ -1,7 +1,9 @@
 {
   "pages":[
+    "pages/upload-music/index",
     "pages/index/index",
     "pages/register/index"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
