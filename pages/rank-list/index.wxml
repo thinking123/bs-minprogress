@@ -1,0 +1,31 @@
+<view class="container">
+    <image src="./rank-list-bg.png" class="img"/>
+
+    <image src="./rank-list-bg.png" class="img-title"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <input class=" input-name" placeholder="输入选手姓名和编号"
+           placeholder-class="ph-cs-search"
+           value="{{name}}"
+           bindinput="bindNameInput"
+           auto-focus
+    />
+    <image src="./search.png" class="search-icon"/>
+</view>
+

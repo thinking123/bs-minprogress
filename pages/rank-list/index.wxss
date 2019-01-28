@@ -1,0 +1,46 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.img-title{
+    position: absolute;
+    top:12.28%;
+    left:74rpx;
+    height: 18.11%;
+    width: 604rpx;
+}
+
+.input-name{
+    position: absolute;
+    top:89.07%;
+    left:216rpx;
+    border-radius: 10rpx;
+    height: 3.59%;
+    width: 302rpx;
+    background-color: white;
+}
+.ph-cs-search{
+    color: #DBDBDB;
+    font-size:25rpx;
+    margin-left: 16rpx;
+    font-weight: bolder;
+}
+.search-icon{
+    position: absolute;
+    top:89.37%;
+    left:460rpx;
+    border-radius: 10rpx;
+    height: 3.59%;
+    width: 52rpx;
+    z-index: 1;
+}
