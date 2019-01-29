@@ -2,6 +2,7 @@
 
     <view class="rank-card-content-border"/>
     <view class="rank-card-disk"
+          id="rank-card-disk"
           style="width:{{diskWidth}};height:{{diskHeight}};border-radius:{{diskRadius}}"
     >
         <image src="{{headerSrc}}" class="rank-card-header"/>

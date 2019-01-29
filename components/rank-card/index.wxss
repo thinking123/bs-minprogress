@@ -82,15 +82,16 @@
 }
 
 .disk-dot{
-    background-color: green;
+    /*background-color: green;*/
     position: absolute;
     top: 64.66%;
     left: 74.31%;
     /*left: 78.31%;*/
     height: 30rpx;
     width: 30rpx;
+    border: 1px solid green;
     transform: translate(-50%,-50%);
-    border-radius: 30rpx;
+    /*border-radius: 30rpx;*/
 }
 
 .rank-card-content-wrap{
