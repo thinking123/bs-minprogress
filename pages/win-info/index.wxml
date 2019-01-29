@@ -1,0 +1,28 @@
+<view class="container">
+    <image src="./bg.png" class="img"/>
+
+
+    <view class="win-list-wrap">
+        <view wx:for="{{achieveList}}"
+              wx:for-item="item"
+              wx:key="index"
+              class="win-item"
+        >
+            <view class="win-name">
+                {{item.name}}
+            </view>
+            <view class="win-time">
+                {{item.time}}
+            </view>
+            <view class="win-btn-wrap">
+                <image src="./got.png" class="win-btn" wx:if="{{item.hadGot}}"/>
+                <image src="./get.png" class="win-btn" wx:else/>
+            </view>
+
+        </view>
+    </view>
+
+
+    <view bindtap="handleReturn" class="return-btn"/>
+</view>
+

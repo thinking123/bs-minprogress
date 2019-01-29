@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/win-info/index",
     "pages/my-achieve/index",
     "pages/attention/index",
     "pages/singer-home/index",
