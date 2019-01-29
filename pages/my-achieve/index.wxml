@@ -32,8 +32,6 @@
 
     <view bindtap="handleReturn" class="return-btn"/>
 
-<!--<info-confirm-dialog name="定积分" phone="15966656956"-->
-                     <!--visible="{{testShow}}"-->
-                     <!--address="北京市海淀区XXXXXXXSADFLKJDSXXXXX"/>-->
+
 </view>
 

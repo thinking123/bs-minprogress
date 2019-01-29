@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/win-info-input/index",
     "pages/win-info/index",
     "pages/my-achieve/index",
     "pages/attention/index",

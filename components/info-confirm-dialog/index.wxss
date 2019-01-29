@@ -81,3 +81,12 @@
 
     line-height: 150%;
 }
+.address-content-title{
+    display: inline;
+    float:left;
+}
+.address-content{
+    display: inline;
+    word-wrap:break-word;
+
+}

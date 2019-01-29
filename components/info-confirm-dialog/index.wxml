@@ -17,7 +17,12 @@
             手机：{{phone}}
         </view>
         <view class="info-address">
-            邮寄地址：{{address}}
+            <view class="address-content-title">
+                邮寄地址：
+            </view>
+            <view class="address-content">
+            {{address}}
+        </view>
         </view>
     </view>
 

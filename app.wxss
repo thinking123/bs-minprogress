@@ -20,3 +20,7 @@ page{
    margin-left: 16rpx;
    font-weight: bolder;
  }
+
+input,textarea{
+    border-radius: 6rpx;
+}
