@@ -9,7 +9,7 @@ Component({
             type: String,
             value: '',
             observer(level) {
-                return;
+                // return;
                 if (level.length === 0) {
                     return
                 }
@@ -37,15 +37,111 @@ Component({
                     let q = this.createSelectorQuery()
                     const dot = q.select("#disk-dot")
                     const rank = q.select('#rank-card-disk')
+                    const wrap = q.select('#rank-card-wrap')
 
+                    rank.boundingClientRect(rect => {
+                        let w = rect.width
+                        let h = rect.height
+
+                        let v = h + 'px'
+                        this.setData({
+                            diskWidth: v,
+                            diskRadius: v
+                        })
+                    }).exec()
+                    return
                     if (dot && rank) {
-                        rank.boundingClientRect(rect => {
-                            const w = rect.width
-                            const h = rect.height
-                            this.initW = w
-                            this.initH = h
-                            this.adjust3(w, dot, rank)
+                        wrap.boundingClientRect(rectWrap => {
+                            const wrapWidth = rectWrap.width
+                            const wrapHeight = rectWrap.height
+                            console.log('wrapWidth', wrapWidth)
+
+                            rank.boundingClientRect(rect => {
+                                let w = rect.width
+                                let h = rect.height
+
+                                let rw = w / wrapWidth
+                                let rh = h / wrapHeight
+                                let count = 0
+                                while (rh > 0.6467) {
+                                    h -= 2
+                                    rh = h / wrapHeight
+                                    count++
+
+                                    if (count > 100) {
+                                        break
+                                    }
+                                }
+                                count = 0
+                                while (rw > 0.8037) {
+                                    w -= 2
+                                    rw = w / wrapWidth
+                                    count++
+
+                                    if (count > 100) {
+                                        break
+                                    }
+                                }
+
+
+                                let ph = h / wrapWidth
+
+                                if (ph < 0.8037) {
+                                    let v = h + 'px'
+                                    this.setData({
+                                        diskWidth: v,
+                                        diskHeight: v,
+                                        diskRadius: v
+                                    })
+                                } else {
+                                    let v = w + 'px'
+                                    this.setData({
+                                        diskWidth: v,
+                                        diskHeight: v,
+                                        diskRadius: v
+                                    })
+                                }
+
+
+                                // while (rh > 0.6467 || rw > 0.8037) {
+                                //     h -= 2
+                                //     w -= 2
+                                //     rw = w / wrapWidth
+                                //     rh = h / wrapHeight
+                                //     count++
+                                //
+                                //     if (count > 100) {
+                                //         let p = '64.67%'
+                                //         this.setData({
+                                //             diskWidth: p,
+                                //             diskHeight: p,
+                                //             diskRadius: p
+                                //         })
+                                //         console.log('count', count)
+                                //         return
+                                //     }
+                                // }
+
+
+                                // h += 'px'
+                                //
+                                //
+                                // /*width: 80.37%;
+                                // *    height: 64.67%;
+                                // * */
+                                //
+                                // console.log(h)
+                                // this.setData({
+                                //     diskWidth: v,
+                                //     diskHeight: v,
+                                //     diskRadius: v
+                                // })
+
+                                // this.adjust3(w, dot, rank)
+                            }).exec()
+
                         }).exec()
+
 
                     }
 
@@ -85,9 +181,10 @@ Component({
     },
     data: {
         playing: false,
-        diskWidth: '10rpx',
-        diskHeight: '10rpx',
-        diskRadius: '10rpx',
+        diskWidth: '100rpx',
+        diskHeight: '100rpx',
+        diskRadius: '100rpx',
+        poleLeft: '10rpx',
         _observer: {}
     },
     methods: {
@@ -123,19 +220,19 @@ Component({
         },
         adjust3(rW, dot, rank) {
             let step = 2
-            let width = rW +  step
+            let width = rW + step
             const w = width
             if (width > 1000) {
                 return
             }
-            width = width  + 'px'
+            width = width + 'px'
             this.setData({
                 diskWidth: width,
                 diskHeight: width,
                 diskRadius: width,
             }, () => {
-                wx.nextTick(()=>{
-                    this.checkIntersection(dot, rank).then(([isInter , dW]) => {
+                wx.nextTick(() => {
+                    this.checkIntersection(dot, rank).then(([isInter, dW]) => {
                         if (!isInter) {
                             this.adjust3(dW, dot, rank)
                         } else {
@@ -171,7 +268,7 @@ Component({
                 //     res(isInter)
                 // })
 
-                return [isInter , rankR.width]
+                return [isInter, rankR.width]
             })
         },
         adjust1(dot, rank, ratio) {

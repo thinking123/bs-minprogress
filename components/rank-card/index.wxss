@@ -47,9 +47,9 @@
     position: absolute;
     top: 3.17%;
     left: 7.34%;
-    /*height: 178rpx;*/
-    /*height: 66.92%;*/
-    /*height: 178rpx;*/
+    height: 64.67%;
+
+    /*width: 80.37%;*/
     /*width: 178rpx;*/
     border: 2rpx solid;
     /*border-radius: 178rpx;*/
@@ -74,11 +74,14 @@
 
 .rank-card-pole{
     position: absolute;
-    top: 6.77%;
-    left: 74.31%;
-    /*left: 78.31%;*/
-    height: 59.4%;
-    width: 18.35%;
+    top: 4.65%;
+    left:88%;
+    /*left:84.88%;*/
+
+    height: 89.53%;
+    width: 24.45%;
+
+    /*transition: transform 0.3s;*/
 }
 
 .disk-dot{

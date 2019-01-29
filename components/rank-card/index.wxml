@@ -3,20 +3,21 @@
     <view class="rank-card-content-border"/>
     <view class="rank-card-disk"
           id="rank-card-disk"
-          style="width:{{diskWidth}};height:{{diskHeight}};border-radius:{{diskRadius}}"
+          style="width:{{diskWidth}};border-radius:{{diskRadius}};"
     >
         <image src="{{headerSrc}}" class="rank-card-header"/>
         <image src="{{playStatusSrc}}"
                bindtap="handlePlay"
                class="play-btn-icon"/>
+        <image src="./pole.png"
+               style="transform: {{poleTransform}}"
+               id="rank-card-pole"
+               class="rank-card-pole"/>
     </view>
-    <image src="./pole.png"
-           style="transform: {{poleTransform}}"
-           id="rank-card-pole"
-           class="rank-card-pole"/>
-    <view class="disk-dot" id="disk-dot">
 
-    </view>
+    <!--<view class="disk-dot" id="disk-dot">-->
+
+    <!--</view>-->
 
     <view class="rank-card-content-wrap">
         <view class="rank-card-content">
