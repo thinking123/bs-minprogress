@@ -1,0 +1,24 @@
+<view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="info-confirm-mask" id="mask"></view>
+    <!--<view class="body">-->
+        <!--<image src="./bg.png" class="how-to-play-bg"/>-->
+        <!--<image src="./confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>-->
+        <!--<image src="./retry-btn.png" class="retry-btn" bindtap="handleRetry"/>-->
+        <!---->
+    <!--</view>-->
+    <image src="./bg.png" class="info-confirm-bg"/>
+    <image src="./confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>
+    <image src="./retry-btn.png" class="retry-btn" bindtap="handleRetry"/>
+    <view class="content-wrap">
+        <view class="info-name">
+            姓名：{{name}}
+        </view>
+        <view class="info-phone">
+            手机：{{phone}}
+        </view>
+        <view class="info-address">
+            邮寄地址：{{address}}
+        </view>
+    </view>
+
+</view>

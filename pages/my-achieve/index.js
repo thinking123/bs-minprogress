@@ -45,9 +45,10 @@ Page({
                 name:'我为原创代言',
                 progress:"20%",
                 text:'上传原创歌曲'
-            },
-
+            }
         ]
+        // ,
+        // testShow:true
     },
     handleReturn() {
 
