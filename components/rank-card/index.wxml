@@ -1,7 +1,52 @@
-<view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
-    <view class="how-to-play-mask" id="mask"></view>
-    <view class="body">
-        <image src="./error-dialog.png" class="how-to-play-bg"/>
-        <image src="./return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
+<view class="wrapper" id="rank-card-wrap">
+
+    <view class="rank-card-content-border"/>
+    <view class="rank-card-disk"
+          style="width:{{diskWidth}};height:{{diskHeight}};border-radius:{{diskRadius}}"
+    >
+        <image src="{{headerSrc}}" class="rank-card-header"/>
+        <image src="{{playStatusSrc}}"
+               bindtap="handlePlay"
+               class="play-btn-icon"/>
+    </view>
+    <image src="./pole.png"
+           style="transform: {{poleTransform}}"
+           id="rank-card-pole"
+           class="rank-card-pole"/>
+    <view class="disk-dot" id="disk-dot">
+
+    </view>
+
+    <view class="rank-card-content-wrap">
+        <view class="rank-card-content">
+            <view>
+                姓名：{{info.name}}
+            </view>
+            <view>
+                学校：{{info.school}}
+            </view>
+        </view>
+        <view class="rank-card-content">
+            <view>
+                主打歌：{{info.song}}
+            </view>
+            <view>
+                票数：{{info.vote}}
+            </view>
+        </view>
+        <view class="rank-card-content">
+            <view bindtap="handleFollow" class="btn">
+                <image src="./attention-icon.png" class="btn-icon"/>
+                <view>
+                    关注
+                </view>
+            </view>
+            <view bindtap="handleVote" class="btn">
+                <image src="./vote-icon.png" class="btn-icon"/>
+                <view>
+                    投票
+                </view>
+            </view>
+        </view>
     </view>
 </view>

@@ -44,3 +44,137 @@
     width: 52rpx;
     z-index: 1;
 }
+
+.city-list{
+    position: absolute;
+    top:31.93%;
+    left:140rpx;
+    border-radius: 10rpx;
+    height: 2.4%;
+    width: 462rpx;
+    display: flex;
+    flex-direction: row;
+    color:white;
+    font-size:26rpx;
+
+    align-items: center;
+}
+.city-before{
+    position: absolute;
+    left:-30rpx;
+    width: 30rpx;
+
+}
+.city-list-wrap{
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.city-item{
+}
+.city-after{
+    position: absolute;
+    right:-30rpx;
+    width: 30rpx;
+}
+
+.rank-list-other{
+    position: absolute;
+    top:59.07%;
+    left:70rpx;
+    /*height: 190px;*/
+    height: 28.49%;
+    width: 612rpx;
+
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    font-size: 18rpx;
+    color:white;
+}
+.rank-item-other-wrap{
+    /*height: 23px;*/
+    /*height: 12.11%;*/
+    height: 46rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0079D8;
+    margin-bottom: 10rpx;
+}
+.rank-btn{
+    height: 40rpx;
+    width: 64rpx;
+}
+.rank-num{
+    height: 28rpx;
+    width: 28rpx;
+    position: absolute;
+    left:12rpx;
+    border:2rpx solid white;
+    border-radius: 28rpx;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rank-header-icon{
+    position: absolute;
+    left:54rpx;
+    width: 34rpx;
+    height: 42rpx;
+}
+/*//35*/
+.rank-name{
+    position: absolute;
+    left:110rpx;
+}
+.rank-region{
+    position: absolute;
+    left:190rpx;
+}
+.rank-school{
+    position: absolute;
+    left:288rpx;
+}
+.rank-vote{
+    position: absolute;
+    left:384rpx;
+}
+.rank-followed,.rank-attention {
+    position: absolute;
+    left:458rpx;
+}
+.rank-vote-btn{
+    position: absolute;
+    left:534rpx;
+}
+
+
+.rank-card-gold{
+    position: absolute;
+    left:268rpx;
+    top:38.23%;
+    width: 214rpx;
+    height: 19.79%;
+}
+
+.rank-card-silver{
+    position: absolute;
+    left:74rpx;
+    top:40.78%;
+    width: 184rpx;
+    height: 17.24%;
+}
+.rank-card-cuprum{
+    position: absolute;
+    left:492rpx;
+    top:40.78%;
+    width: 184rpx;
+    height: 17.24%;
+}
+
