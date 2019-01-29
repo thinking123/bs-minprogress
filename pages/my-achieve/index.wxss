@@ -1,0 +1,154 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.singer-icon{
+    position: absolute;
+    top:14.53%;
+    left:498rpx;
+    height: 9.28%;
+    width: 120rpx;
+}
+
+.content-wrap{
+    position: absolute;
+    top:34.63%;
+    left:118rpx;
+    height: 3.75%;
+    width: 520rpx;
+
+    color:white;
+    font-size:18rpx
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.row1{
+    margin-bottom: 8rpx;
+}
+.text{
+    margin: 0 10rpx;
+}
+.header-icon{
+    position: absolute;
+    top:24.42%;
+    left:310rpx;
+    height: 124rpx;
+    width: 124rpx;
+    border-radius: 124rpx;
+}
+.center-icon{
+    position: absolute;
+    top:43.86%;
+    left:154rpx;
+    height: 17.22%;
+    width: 450rpx;
+}
+
+
+.achieve-list-wrap{
+    position: absolute;
+    top:43.18%;
+    left:150rpx;
+    height: 22.79%;
+    width: 448rpx;
+    color:white;
+    font-size:20rpx;
+    overflow-y: auto;
+}
+.achieve-item{
+    display: flex;
+    flex-direction: row;
+    height: 36rpx;
+    justify-content: space-around;
+    margin-bottom: 28rpx;
+    position: relative;
+}
+.achieve-name{
+    position: absolute;
+    left:0;
+
+}
+.song-text{
+    width:248rpx;
+    display: flex;
+    justify-content: center;
+}
+.achieve-btn-wrap{
+    position: absolute;
+    right:0;
+    width:110rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.achieve-btn{
+    width:100%;
+    height: 100%;
+}
+.gz{
+    position: absolute;
+    top:86.21%;
+    left:128rpx;
+    height: 4.65%;
+    width: 226rpx;
+}
+
+
+.return-btn{
+    position: absolute;
+    top:82.91%;
+    left:202rpx;
+    height: 7.35%;
+    width: 344rpx;
+}
+
+.achieve-progress{
+    position: absolute;
+    left:150rpx;
+    /*width: 210rpx;*/
+    width: 36.88%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.achieve-text{
+    font-size: 16rpx;
+}
+.progress-bar-wrap{
+    height: 6rpx ;
+    width: 100% ;
+    border-radius: 6rpx;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 4rpx;
+}
+
+.progress-bar{
+    height: 20rpx;
+    background-image: linear-gradient(135deg, #00A0E9 25%, transparent 25%, transparent 50%,#00A0E9 50%, #00A0E9 75%, transparent 75%, transparent);
+    background-size: 20rpx 20rpx;
+    animation: progress-bar-loading 1s linear infinite;
+}
+@keyframes progress-bar-loading {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40rpx 0;
+    }
+}

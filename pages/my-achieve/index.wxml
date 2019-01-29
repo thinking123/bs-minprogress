@@ -1,0 +1,37 @@
+<view class="container">
+    <image src="./bg.png" class="img"/>
+
+
+    <view class="achieve-list-wrap">
+        <view wx:for="{{achieveList}}"
+              wx:for-item="item"
+              wx:key="index"
+              class="achieve-item"
+        >
+            <view class="achieve-name">
+                {{item.name}}
+            </view>
+            <view class="achieve-progress">
+                <view class="progress-bar-wrap">
+                    <view class="progress-bar" style="width:{{item.progress}}">
+
+                    </view>
+                </view>
+                <view class="achieve-text">
+                    {{item.text}}
+                </view>
+
+            </view>
+            <view class="achieve-btn-wrap">
+                <image src="./btn.png" class="achieve-btn"/>
+            </view>
+
+        </view>
+    </view>
+
+
+    <view bindtap="handleReturn" class="return-btn"/>
+
+
+</view>
+

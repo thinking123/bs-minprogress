@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/my-achieve/index",
     "pages/attention/index",
     "pages/singer-home/index",
     "pages/rank-list/index",
