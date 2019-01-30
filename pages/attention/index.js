@@ -33,10 +33,29 @@ Page({
             {
                 name:'历史的',
                 num:'007'
+            },
+            {
+                name:'历史的',
+                num:'007'
+            },
+            {
+                name:'历史的',
+                num:'007'
+            },
+            {
+                name:'历史的',
+                num:'007'
+            },
+            {
+                name:'历史的',
+                num:'007'
             }
         ]
     },
     handleReturn() {
-
+        console.log('handleReturn')
+        wx.navigateBack({
+            delta: 1
+        })
     }
 })

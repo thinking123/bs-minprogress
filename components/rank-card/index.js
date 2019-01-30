@@ -155,7 +155,7 @@ Component({
         info: Object
     },
     detached() {
-        if (this.data._observer) this.data._observer.disconnect()
+        // if (this.data._observer) this.data._observer.disconnect()
     },
     computed: {
         poleTransform() {

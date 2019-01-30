@@ -1,20 +1,81 @@
 {
-  "pages":[
-    "pages/rank-list/index",
-    "pages/win-info-input/index",
-    "pages/win-info/index",
-    "pages/my-achieve/index",
-    "pages/attention/index",
-    "pages/singer-home/index",
-    "pages/upload-music/index",
-    "pages/index/index",
-    "pages/register/index"
-
+  "pages": [
+    "home/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "subpackages": [
+    {
+      "root": "pages/win-info-input/",
+      "name": "win-info-input",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/win-info/",
+      "name": "win-info",
+      "pages": [
+        "index"
+      ],
+      "independent": true
+    },
+    {
+      "root": "pages/rank-list",
+      "name": "rank-list",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/my-achieve",
+      "name": "my-achieve",
+      "pages": [
+        "index"
+      ],
+      "independent": true
+    },
+    {
+      "root": "pages/user-info",
+      "name": "user-info",
+      "pages": [
+        "index"
+      ],
+      "independent": true
+    },
+    {
+      "root": "pages/attention",
+      "name": "attention",
+      "pages": [
+        "index"
+      ],
+      "independent": true
+    },
+    {
+      "root": "pages/singer-home",
+      "name": "singer-home",
+      "pages": [
+        "index"
+      ],
+      "independent": true
+    },
+    {
+      "root": "pages/upload-music",
+      "name": "upload-music",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/register",
+      "name": "register",
+      "pages": [
+        "index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

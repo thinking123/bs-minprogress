@@ -2,7 +2,7 @@
     <image src="./bg.png" class="img"/>
 
 
-    <view class="win-list-wrap">
+    <scroll-view class="win-list-wrap" scroll-y>
         <view wx:for="{{achieveList}}"
               wx:for-item="item"
               wx:key="index"
@@ -16,11 +16,11 @@
             </view>
             <view class="win-btn-wrap">
                 <image src="./got.png" class="win-btn" wx:if="{{item.hadGot}}"/>
-                <image src="./get.png" class="win-btn" wx:else/>
+                <image src="./get.png" class="win-btn" wx:else bindtap="handleGetWin" data-win="{{item}}"/>
             </view>
 
         </view>
-    </view>
+    </scroll-view>
 
 
     <view bindtap="handleReturn" class="return-btn"/>

@@ -76,6 +76,9 @@ Page({
 
         if(this.verifySubmit()){
             console.log('handleSubmit ok')
+            wx.navigateTo({
+                url:'/pages/upload-music/index'
+            })
         }else{
             console.log('handleSubmit error')
             this.setData({

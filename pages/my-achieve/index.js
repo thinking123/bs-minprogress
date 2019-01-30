@@ -51,6 +51,8 @@ Page({
         // testShow:true
     },
     handleReturn() {
-
+        wx.navigateBack({
+            delta: 1
+        })
     }
 })

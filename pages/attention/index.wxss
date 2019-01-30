@@ -1,11 +1,14 @@
-
+page{
+    height: 100%;
+    width: 100%;
+}
 .container{
     height: 100%;
     width: 100%;
     position: relative;
     margin:0;
     padding:0;
-
+    overflow: hidden;
 }
 .img{
     height: 100%;
@@ -65,7 +68,8 @@
     height: 34.73%;
     width: 414rpx;
     color:white;
-    font-size:20rpx
+    font-size:20rpx;
+    overflow: hidden;
 }
 .attention-item{
     display: flex;

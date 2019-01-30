@@ -1,11 +1,14 @@
-
+page{
+    height: 100%;
+    width: 100%;
+}
 .container{
     height: 100%;
     width: 100%;
     position: relative;
     margin:0;
     padding:0;
-
+    overflow:hidden;
 }
 .img{
     height: 100%;
@@ -62,10 +65,11 @@
     position: absolute;
     top:68.97%;
     left:160rpx;
-    height: 17.22%;
+    height: 9.9%;
     width: 445rpx;
     color:white;
-    font-size:20rpx
+    font-size:20rpx;
+    overflow: hidden;
 }
 .song-item{
     display: flex;

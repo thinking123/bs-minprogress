@@ -20,9 +20,15 @@ Page({
     },
     handleRankList: function () {
         console.log('handleRankList')
+        wx.navigateTo({
+            url:'/pages/rank-list/index'
+        })
     },
     handleUserInfo: function () {
         console.log('handleUserInfo')
+        wx.navigateTo({
+            url:'/pages/user-info/index'
+        })
     },
     onLoad: function () {
 

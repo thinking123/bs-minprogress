@@ -50,5 +50,16 @@ Page({
     },
     handleReturn() {
         console.log('handleReturn')
+        wx.navigateBack({
+            delta: 1
+        })
+    },
+    handleGetWin(e){
+        const data = e.target.dataset.win
+        console.log('handleGetWin' , data)
+        wx.navigateTo({
+            url:'/pages/win-info-input/index'
+        })
+
     }
 })

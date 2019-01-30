@@ -9,13 +9,20 @@ Page({
         songList:[
             '删丹丹开花红艳艳',
             '删丹丹开花红艳艳',
-            '删丹丹开花红艳艳',
+            '删丹丹开21花红艳艳',
+            '删丹丹dsf开花红艳艳',
+            '删丹丹开花dsf红艳艳',
+            '删丹丹开花红ds艳艳',
+            '删丹丹dsf红ds艳艳',
         ]
     },
     handlegz(){
-
+        console.log('handlegz')
+        wx.navigateTo({
+            url:'/pages/attention/index'
+        })
     },
     handlevote(){
-
+        console.log('handlevote')
     },
 })

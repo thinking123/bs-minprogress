@@ -2,7 +2,7 @@
     <image src="./bg.png" class="img"/>
 
 
-    <view class="attention-list-wrap">
+    <scroll-view class="attention-list-wrap" scroll-y>
         <view wx:for="{{attentionList}}"
               wx:for-item="item"
               wx:key="index"
@@ -19,7 +19,10 @@
             </view>
 
         </view>
-    </view>
+    </scroll-view>
+    <!--<view class="attention-list-wrap">-->
+      <!---->
+    <!--</view>-->
 
 
 

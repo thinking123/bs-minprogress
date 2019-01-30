@@ -2,7 +2,8 @@
     <image src="./bg.png" class="img"/>
 
 
-    <view class="achieve-list-wrap">
+    <scroll-view class="achieve-list-wrap" scroll-y>
+
         <view wx:for="{{achieveList}}"
               wx:for-item="item"
               wx:key="index"
@@ -27,7 +28,10 @@
             </view>
 
         </view>
-    </view>
+    </scroll-view>
+    <!--<view class="achieve-list-wrap">-->
+    <!---->
+    <!--</view>-->
 
 
     <view bindtap="handleReturn" class="return-btn"/>

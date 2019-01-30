@@ -1,0 +1,15 @@
+
+<view class="container">
+    <view class="user-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="user-nick">
+        <open-data type="userNickName"></open-data>
+    </view>
+
+    <image src="./bg.png" class="img"/>
+    <view class="singer-home" bindtap="handleSingerHome"/>
+    <view class="my-achieve" bindtap="handleMyAchieve"/>
+    <view class="win-info" bindtap="handleWinInfo"/>
+    <view class="attention-list" bindtap="handleAttentionList"/>
+</view>

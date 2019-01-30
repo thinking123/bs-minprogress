@@ -1,0 +1,73 @@
+page{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+/*.container view{*/
+    /*border: 2px solid gold;*/
+/*}*/
+
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.singer-home{
+    position: absolute;
+    top:63.41%;
+    left:174rpx;
+    height: 3.75%;
+    width: 182rpx;
+}
+
+.my-achieve{
+    position: absolute;
+    top:63.41%;
+    left:392rpx;
+    height: 3.75%;
+    width: 182rpx;
+}
+
+.win-info{
+    position: absolute;
+    top:71.06%;
+    left:174rpx;
+    height: 3.75%;
+    width: 182rpx;
+}
+
+.attention-list{
+    position: absolute;
+    top:71.06%;
+    left:392rpx;
+    height: 3.75%;
+    width: 182rpx;
+}
+
+
+
+.user-avatar{
+    position: absolute;
+    top:40.93%;
+    left:50%;
+    transform: translateX(-50%);
+    height: 168rpx;
+    width: 168rpx;
+    border-radius: 168rpx;
+    overflow: hidden;
+}
+.user-nick{
+    position: absolute;
+    top:56.42%;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 28rpx;
+    color: white;
+}

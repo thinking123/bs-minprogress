@@ -28,7 +28,7 @@
     </view>
 
 
-    <view class="song-list-wrap">
+    <scroll-view class="song-list-wrap" scroll-y>
         <view wx:for="{{songList}}"
               wx:for-item="songItem"
               wx:key="index"
@@ -42,7 +42,7 @@
             </view>
 
         </view>
-    </view>
+    </scroll-view>
 
     <image src="./header.png" class="header-icon"/>
     <image src="./bg.png" class="center-icon"/>
