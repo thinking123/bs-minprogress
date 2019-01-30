@@ -1,6 +1,10 @@
-// pages/singer-home/index.js
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'singer-home/'
+const url = `${baseUrl}${page}`
 Page({
     data: {
+        url:url,
         name: '刘德华',
         school: '北京大学',
         song: '歌曲',

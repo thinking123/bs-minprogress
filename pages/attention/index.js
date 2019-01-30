@@ -1,10 +1,10 @@
-// pages/attention/index.js
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'attention/'
+const url = `${baseUrl}${page}`
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
+        url:url,
         attentionList: [
             {
                 name:'历史的',

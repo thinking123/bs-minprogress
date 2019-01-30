@@ -1,14 +1,14 @@
 <view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
     <view class="info-confirm-mask" id="mask"></view>
     <!--<view class="body">-->
-        <!--<image src="./bg.png" class="how-to-play-bg"/>-->
-        <!--<image src="./confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>-->
-        <!--<image src="./retry-btn.png" class="retry-btn" bindtap="handleRetry"/>-->
+        <!--<image src="{{url}}bg.png" class="how-to-play-bg"/>-->
+        <!--<image src="{{url}}confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>-->
+        <!--<image src="{{url}}retry-btn.png" class="retry-btn" bindtap="handleRetry"/>-->
         <!---->
     <!--</view>-->
-    <image src="./bg.png" class="info-confirm-bg"/>
-    <image src="./confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>
-    <image src="./retry-btn.png" class="retry-btn" bindtap="handleRetry"/>
+    <image src="{{url}}bg.png" class="info-confirm-bg"/>
+    <image src="{{url}}confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>
+    <image src="{{url}}retry-btn.png" class="retry-btn" bindtap="handleRetry"/>
     <view class="content-wrap">
         <view class="info-name">
             姓名：{{name}}

@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="./bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
 
     <scroll-view class="win-list-wrap" scroll-y>
@@ -15,8 +15,8 @@
                 {{item.time}}
             </view>
             <view class="win-btn-wrap">
-                <image src="./got.png" class="win-btn" wx:if="{{item.hadGot}}"/>
-                <image src="./get.png" class="win-btn" wx:else bindtap="handleGetWin" data-win="{{item}}"/>
+                <image src="{{url}}got.png" class="win-btn" wx:if="{{item.hadGot}}"/>
+                <image src="{{url}}get.png" class="win-btn" wx:else bindtap="handleGetWin" data-win="{{item}}"/>
             </view>
 
         </view>

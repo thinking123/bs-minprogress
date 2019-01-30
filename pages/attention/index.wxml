@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="./bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
 
     <scroll-view class="attention-list-wrap" scroll-y>
@@ -15,7 +15,7 @@
                 {{item.num}}
             </view>
             <view class="attention-btn-wrap">
-                <image src="./btn.png" class="attention-btn"/>
+                <image src="{{url}}btn.png" class="attention-btn"/>
             </view>
 
         </view>

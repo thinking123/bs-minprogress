@@ -1,4 +1,9 @@
 const computedBehavior = require('miniprogram-computed')
+const app = getApp()
+const baseComponentUrl = app.globalData.baseComponentUrl
+const component = 'dialog-wrap/'
+const url = `${baseComponentUrl}${component}`
+
 Component({
 
     behaviors: [computedBehavior],
@@ -13,11 +18,13 @@ Component({
         },
         bg: String
     },
-    data: {},
+    data: {
+        url:url
+    },
     computed: {
         src() {
             console.log('src' , this.data.bg)
-            return `./${this.data.bg}.png`
+            return `${url}${this.data.bg}.png`
         }
     },
     methods: {

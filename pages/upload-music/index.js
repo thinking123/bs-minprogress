@@ -1,26 +1,27 @@
 // pages/upload-music/index.js
 import {isEmpty} from "../../utils/util";
 
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'upload-music/'
+const url = `${baseUrl}${page}`
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
+        url:url,
         name: '',
         checked: false,
         progress: '20%',
         isUploaded: false,
         musicBg: '',
         images: [
-            "./1.jpg",
-            "./2.jpg",
-            "./3.jpg",
-            "./4.jpg",
-            "./5.jpg",
-            "./6.jpg",
-            "./7.jpg",
-            "./8.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg",
+            "6.jpg",
+            "7.jpg",
+            "8.jpg"
         ],
         showUploadFail: false,
         showSubmitOk: false,

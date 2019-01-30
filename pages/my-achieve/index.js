@@ -1,10 +1,10 @@
-// pages/my-achieve/index.js
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'my-achieve/'
+const url = `${baseUrl}${page}`
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
+        url:url,
         achieveList:[
             {
                 name:'我为原创代言',

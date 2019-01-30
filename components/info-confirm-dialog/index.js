@@ -1,3 +1,8 @@
+const app = getApp()
+const baseComponentUrl = app.globalData.baseComponentUrl
+const component = 'info-confirm-dialog/'
+const url = `${baseComponentUrl}${component}`
+
 Component({
     properties: {
         visible: {
@@ -8,7 +13,9 @@ Component({
         phone: String,
         address: String,
     },
-    data: {},
+    data: {
+        url:url
+    },
     methods: {
         handleConfirm() {
             console.log('handleConfirm')

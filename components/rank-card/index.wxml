@@ -9,7 +9,7 @@
         <image src="{{playStatusSrc}}"
                bindtap="handlePlay"
                class="play-btn-icon"/>
-        <image src="./pole.png"
+        <image src="{{url}}pole.png"
                style="transform: {{poleTransform}}"
                id="rank-card-pole"
                class="rank-card-pole"/>
@@ -38,13 +38,13 @@
         </view>
         <view class="rank-card-content">
             <view bindtap="handleFollow" class="btn">
-                <image src="./attention-icon.png" class="btn-icon"/>
+                <image src="{{url}}attention-icon.png" class="btn-icon"/>
                 <view>
                     关注
                 </view>
             </view>
             <view bindtap="handleVote" class="btn">
-                <image src="./vote-icon.png" class="btn-icon"/>
+                <image src="{{url}}vote-icon.png" class="btn-icon"/>
                 <view>
                     投票
                 </view>

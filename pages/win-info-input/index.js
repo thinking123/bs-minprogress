@@ -1,12 +1,13 @@
 // pages/win-info-input/index.js
 import {isEmpty} from "../../utils/util";
 
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'win-info-input/'
+const url = `${baseUrl}${page}`
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
+        url:url,
         name: '',
         phone: '',
         address: '',

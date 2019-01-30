@@ -4,19 +4,18 @@
   ],
   "subpackages": [
     {
-      "root": "pages/win-info-input/",
+      "root": "pages/win-info-input",
       "name": "win-info-input",
       "pages": [
         "index"
       ]
     },
     {
-      "root": "pages/win-info/",
+      "root": "pages/win-info",
       "name": "win-info",
       "pages": [
         "index"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "pages/rank-list",
@@ -30,32 +29,28 @@
       "name": "my-achieve",
       "pages": [
         "index"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "pages/user-info",
       "name": "user-info",
       "pages": [
         "index"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "pages/attention",
       "name": "attention",
       "pages": [
         "index"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "pages/singer-home",
       "name": "singer-home",
       "pages": [
         "index"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "pages/upload-music",

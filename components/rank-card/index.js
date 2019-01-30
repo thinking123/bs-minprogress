@@ -1,4 +1,9 @@
 const computedBehavior = require('miniprogram-computed')
+const app = getApp()
+const baseComponentUrl = app.globalData.baseComponentUrl
+const component = 'rank-card/'
+const url = `${baseComponentUrl}${component}`
+
 Component({
 
     behaviors: [computedBehavior],
@@ -163,11 +168,11 @@ Component({
             return `rotate(${angle})`
         },
         headerSrc() {
-            return `./${this.data.level}.png`
+            return `${this.data.url}${this.data.level}.png`
         },
         playStatusSrc() {
             const url = this.data.playing ? 'playing' : 'play'
-            return `./${url}.png`
+            return `${this.data.url}${url}.png`
         },
         // diskWidth(){
         //     let rank = wx.createSelectorQuery().select('#rank-card-wrap')
@@ -185,7 +190,8 @@ Component({
         diskHeight: '100rpx',
         diskRadius: '100rpx',
         poleLeft: '10rpx',
-        _observer: {}
+        _observer: {},
+        url:url
     },
     methods: {
 

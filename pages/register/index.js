@@ -1,11 +1,12 @@
 import {isEmpty} from "../../utils/util";
 
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'register/'
+const url = `${baseUrl}${page}`
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
+        url:url,
         showError:false,
         schools: ['学校', 'xuexiao'],
         schoolIndex: -1,

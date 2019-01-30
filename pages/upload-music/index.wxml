@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="./upload-music-bg.png" class="img"/>
+    <image src="{{url}}upload-music-bg.png" class="img"/>
 
     <div class="upload">
 
@@ -11,9 +11,11 @@
            auto-focus
     />
 
-    <image id="checked" src="{{checked?'./checked.png':'./unchecked.png'}}" class="checked item"
+    <image id="checked" src="{{checked ? (url + 'checked.png'): (url + 'unchecked.png')}}"
+           class="checked item"
            bindtap="handleChecked"/>
-    <image id="unchecked" src="{{checked ? './unchecked.png':'./checked.png'}}" class="unchecked item"
+
+    <image id="unchecked" src="{{checked ? (url + 'unchecked.png'): (url + 'checked.png')}}" class="unchecked item"
            bindtap="handleChecked"/>
 
     <view class="progress-bar-wrap">

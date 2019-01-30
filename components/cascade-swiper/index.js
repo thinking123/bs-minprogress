@@ -1,4 +1,9 @@
 const computedBehavior = require('miniprogram-computed')
+const app = getApp()
+const baseComponentUrl = app.globalData.baseComponentUrl
+const component = 'cascade-swiper/'
+const url = `${baseComponentUrl}${component}`
+
 Component({
     behaviors: [computedBehavior],
 
@@ -18,6 +23,7 @@ Component({
 
                     const m = images.map((image, index) => {
                         let css = null
+                        image = `${url}${image}`
                         if (index < left1Index) {
                             //left hide
                             css = {
@@ -170,8 +176,8 @@ Component({
         startX: 0,
         endX: 0,
         centerIndex: 0,
-        lists:[]
-
+        lists:[],
+        url:url
 
         // images: [
         //     "./1.jpg",
@@ -232,6 +238,7 @@ Component({
 
             const m = this.data.images.map((image, index) => {
                 let css = null
+                image = `${url}${image}`
                 if (index < left1Index) {
                     //left hide
                     css = {
@@ -311,6 +318,7 @@ Component({
 
             const m = this.data.images.map((image, index) => {
                 let css = null
+                image = `${url}${image}`
                 if (index < left1Index) {
                     //left hide
                     css = {

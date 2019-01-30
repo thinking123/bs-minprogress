@@ -1,6 +1,6 @@
 
 <view class="container">
-    <image src="./home-bg.png" class="img"/>
+    <image src="{{baseUrl}}bg.png" class="img"/>
     <view class="register" bindtap="handleRegister"/>
     <view class="my-music" bindtap="handleMyMusic"/>
     <view class="listen" bindtap="handleListen"/>

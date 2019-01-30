@@ -1,7 +1,7 @@
 <view class="container">
-    <image src="./rank-list-bg.png" class="img"/>
+    <image src="{{url}}rank-list-bg.png" class="img"/>
 
-    <image src="./rank-list-bg.png" class="img-title"/>
+    <image src="{{url}}rank-list-bg.png" class="img-title"/>
 
     <rank-card class="rank-card-silver"
                info="{{gold}}" level="silver"/>
@@ -46,7 +46,7 @@
             <view class="rank-num">
                 {{index + 4}}
             </view>
-            <image src="./followed.png"
+            <image src="{{url}}followed.png"
                    class="rank-header-icon  rank-btn"/>
 
             <view class="rank-name">
@@ -61,18 +61,18 @@
             <view class="rank-vote">
                 {{rankOther.vote}}票
             </view>
-            <image src="./followed.png"
+            <image src="{{url}}followed.png"
                    wx:if="{{rankOther.followed}}"
                    data-rank="{{rankOther}}"
                    bindtap="handleFollowed"
                    class="rank-followed rank-btn"/>
-            <image src="./attention.png"
+            <image src="{{url}}attention.png"
                    bindtap="handleNotFollowed"
                     wx:else
                    data-rank="{{rankOther}}"
                    class="rank-attention  rank-btn"/>
 
-            <image src="./vote.png"
+            <image src="{{url}}vote.png"
                    data-rank="{{rankOther}}"
                    bindtap="handleVote"
                    class="rank-vote-btn rank-btn"/>
@@ -102,6 +102,6 @@
            bindinput="bindNameInput"
            auto-focus
     />
-    <image src="./search.png" class="search-icon"/>
+    <image src="{{url}}search.png" class="search-icon"/>
 </view>
 

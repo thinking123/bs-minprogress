@@ -1,3 +1,7 @@
+const app = getApp()
+const baseComponentUrl = app.globalData.baseComponentUrl
+const component = 'register-error-dialog/'
+const url = `${baseComponentUrl}${component}`
 Component({
 
     behaviors: [],
@@ -11,7 +15,9 @@ Component({
             }
         }
     },
-    data: {},
+    data: {
+        url:url
+    },
     methods: {
         handleHide() {
             this.triggerEvent('hidetap')

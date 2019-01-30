@@ -1,10 +1,10 @@
-//index.js
-//获取应用实例
 const app = getApp()
-
+const baseUrl = app.globalData.baseUrl
+const page = 'home/'
+const url = `${baseUrl}${page}`
 Page({
     data: {
-
+        baseUrl:url
     },
     handleRegister: function () {
         console.log('handleRegister')

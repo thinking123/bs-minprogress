@@ -1,10 +1,11 @@
-// pages/rank-list/index.js
-Page({
 
-    /**
-     * 页面的初始数据
-     */
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'rank-list/'
+const url = `${baseUrl}${page}`
+Page({
     data: {
+        url:url,
         showCityList: [
             '北京',
             '上海',

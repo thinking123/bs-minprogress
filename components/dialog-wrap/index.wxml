@@ -2,6 +2,6 @@
     <view class="how-to-play-mask" id="mask"></view>
     <view class="body">
         <image src="{{src}}" class="how-to-play-bg" wx:if="!!src"/>
-        <image src="./return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
+        <image src="{{url}}return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
     </view>
 </view>

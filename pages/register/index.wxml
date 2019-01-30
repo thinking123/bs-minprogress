@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="./register-bg.png" class="img"/>
+    <image src="{{url}}register-bg.png" class="img"/>
 
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
@@ -7,9 +7,9 @@
            bindinput="bindNameInput"
            auto-focus
     />
-    <image src="./dropdown.png" class="drop-down-item1"/>
-    <image src="./dropdown.png" class="drop-down-item2"/>
-    <image src="./dropdown.png" class="drop-down-item3"/>
+    <image src="{{url}}dropdown.png" class="drop-down-item1"/>
+    <image src="{{url}}dropdown.png" class="drop-down-item2"/>
+    <image src="{{url}}dropdown.png" class="drop-down-item3"/>
     <input class=" input-phone"
            placeholder-class="ph-cs" placeholder="电话"
            bindinput="bindPhoneInput"

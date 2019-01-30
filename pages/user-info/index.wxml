@@ -7,7 +7,7 @@
         <open-data type="userNickName"></open-data>
     </view>
 
-    <image src="./bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
     <view class="singer-home" bindtap="handleSingerHome"/>
     <view class="my-achieve" bindtap="handleMyAchieve"/>
     <view class="win-info" bindtap="handleWinInfo"/>

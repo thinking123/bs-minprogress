@@ -1,9 +1,11 @@
-//index.js
-//获取应用实例
-const app = getApp()
 
+const app = getApp()
+const baseUrl = app.globalData.baseUrl
+const page = 'user-info/'
+const url = `${baseUrl}${page}`
 Page({
     data: {
+        url:url,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     onLoad() {

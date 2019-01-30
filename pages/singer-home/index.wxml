@@ -1,7 +1,7 @@
 <view class="container">
-    <image src="./bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
-    <image src="./icon.png" class="singer-icon"/>
+    <image src="{{url}}icon.png" class="singer-icon"/>
 
 
 
@@ -38,14 +38,14 @@
                 《{{songItem}}》
             </view>
             <view class="song-btn-wrap">
-                <image src="./btn.png" class="song-btn"/>
+                <image src="{{url}}btn.png" class="song-btn"/>
             </view>
 
         </view>
     </scroll-view>
 
-    <image src="./header.png" class="header-icon"/>
-    <image src="./bg.png" class="center-icon"/>
+    <image src="{{url}}header.png" class="header-icon"/>
+    <image src="{{url}}bg.png" class="center-icon"/>
 
 
 
