@@ -1,5 +1,9 @@
-const baseUrl = '../../asserts/image/pages/'
-const baseComponentUrl = '../../asserts/image/components/'
+// const baseUrl = '../../asserts/image/pages/'
+// const baseComponentUrl = '../../asserts/image/components/'
+const base = 'http://pm4uud0ld.bkt.clouddn.com/'
+// const base = '../../'
+const baseUrl = `${base}asserts/image/pages/`
+const baseComponentUrl = `${base}asserts/image/components/`
 App({
     onLaunch: function () {
         // 展示本地存储能力
