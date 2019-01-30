@@ -1,0 +1,10 @@
+
+<view class="container">
+    <image src="./bg.png" class="img"/>
+    <view class="select-bar" style="left:{{left}}"/>
+    <view class="rhythm rhythm1" bindtap="handleRhythm" data-rhythm="0"/>
+    <view class="rhythm rhythm2" bindtap="handleRhythm" data-rhythm="1"/>
+    <view class="rhythm rhythm3" bindtap="handleRhythm" data-rhythm="2"/>
+    <view class="play-rhythm" bindtap="handlePlayRhythm"/>
+    <view class="song-rhythm" bindtap="handleSongRhythm"/>
+</view>

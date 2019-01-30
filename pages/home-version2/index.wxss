@@ -1,0 +1,63 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.register{
+    position: absolute;
+    top:65.07%;
+    left:210rpx;
+    height: 6.9%;
+    width: 334rpx;
+}
+
+.my-music{
+    position: absolute;
+    top:74.36%;
+    left:210rpx;
+    height: 6.9%;
+    width: 334rpx;
+}
+
+.listen{
+    position: absolute;
+    top:83.66%;
+    left:188rpx;
+    height: 3.45%;
+    width: 168rpx;
+}
+
+.rank-list{
+    position: absolute;
+    top:83.66%;
+    left:400rpx;
+    height: 3.45%;
+    width: 168rpx;
+}
+
+.user-info{
+    position: absolute;
+    top:88.31%;
+    left:188rpx;
+    height: 3.45%;
+    width: 168rpx;
+}
+
+.origin-rank-list{
+    position: absolute;
+    top:88.31%;
+    left:400rpx;
+    height: 3.45%;
+    width: 168rpx;
+}

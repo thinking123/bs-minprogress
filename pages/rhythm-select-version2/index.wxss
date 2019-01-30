@@ -1,0 +1,56 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+/*.container > view {*/
+    /*background-color: yellow;*/
+/*}*/
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.select-bar{
+    position: absolute;
+    height: 6rpx;
+    width: 146rpx;
+    top:38.23%;
+}
+
+
+.rhythm{
+    position: absolute;
+    width: 146rpx;
+    height: 3.3%;
+    top:39.13%;
+}
+.rhythm1{
+    left:145rpx;
+}
+.rhythm2{
+    left:298rpx;
+}
+.rhythm3{
+    left:460rpx;
+}
+.play-rhythm{
+    position: absolute;
+    height: 3.9%;
+    width: 188rpx;
+    top:68.67%;
+    left:278rpx;
+}
+
+.song-rhythm{
+    position: absolute;
+    height: 7.05%;
+    width: 336rpx;
+    top:82.31%;
+    left:209rpx;
+}

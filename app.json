@@ -1,5 +1,8 @@
 {
   "pages":[
+    "pages/record-version2/index",
+    "pages/rhythm-select-version2/index",
+    "pages/home-version2/index",
     "pages/rank-list/index",
     "pages/win-info-input/index",
     "pages/win-info/index",

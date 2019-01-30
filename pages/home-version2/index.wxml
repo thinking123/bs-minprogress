@@ -1,0 +1,11 @@
+
+<view class="container">
+    <image src="./bg.png" class="img"/>
+    <view class="register" bindtap="handleRegister"/>
+    <view class="my-music" bindtap="handleMyMusic"/>
+    <view class="listen" bindtap="handleListen"/>
+    <view class="rank-list" bindtap="handleRankList"/>
+    <view class="user-info" bindtap="handleUserInfo"/>
+    <view class="origin-rank-list" bindtap="handleOriginRankList"/>
+    <!--<re-recording-dialog visible="true"/>-->
+</view>

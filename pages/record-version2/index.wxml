@@ -1,0 +1,33 @@
+<view class="container">
+    <image src="./bg.png" class="img"/>
+
+
+    <image src="./record-btn.png" class="record-btn"
+           bindtap="handleRecord"/>
+    <view class="record-text" bindtap="handleRecord">
+        {{isRecording ? '录制' : "停止"}}
+    </view>
+
+    <image src="./stop-btn.png" class="play-btn"
+           bindtap="handlePlay"
+           wx:if="{{isPlaying}}"/>
+    <image src="./play-btn.png" class="play-btn"
+           bindtap="handlePlay"
+           wx:else/>
+
+    <view class="re-record-btn" bindtap="handleReRecord"/>
+
+    <view class="select-bar" style="left:{{left}}"/>
+    <view class="lyric lyric1" bindtap="handleLyric" data-lyric="0"/>
+    <view class="lyric lyric2" bindtap="handleLyric" data-lyric="1"/>
+    <view class="lyric lyric3" bindtap="handleLyric" data-lyric="2"/>
+    <scroll-view class="lyric-list" scroll-y>
+        <view class="lyric-text">
+            {{lyric}}
+        </view>
+    </scroll-view>
+
+    <view class="upload-my-music"
+          bindtap="handleUploadMusic"/>
+
+</view>

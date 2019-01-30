@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "re-recording-dialog":"../../components/re-recording-dialog/index"
+  }
+}

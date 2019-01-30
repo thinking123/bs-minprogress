@@ -1,0 +1,105 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+/*.container > view {*/
+/*background-color: yellow;*/
+/*}*/
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.record-btn{
+    position: absolute;
+    height: 3.74%;
+    width: 132rpx;
+    top:41.08%;
+    left:226rpx;
+}
+
+.play-btn{
+    position: absolute;
+    height: 3.74%;
+    width: 132rpx;
+    top:41.08%;
+    left:382rpx;
+}
+.re-record-btn{
+    position: absolute;
+    height: 3.75%;
+    width: 184rpx;
+    top:47.38%;
+    left:280rpx;
+}
+
+
+
+.select-bar{
+    position: absolute;
+    height: 6rpx;
+    width: 146rpx;
+    top:56.37%;
+    background-color: white;
+}
+
+
+.lyric{
+    position: absolute;
+    width: 146rpx;
+    height: 3.6%;
+    top:57.12%;
+}
+.lyric1{
+    left:136rpx;
+}
+.lyric2{
+    left:300rpx;
+}
+.lyric3{
+    left:460rpx;
+}
+.upload-my-music{
+    position: absolute;
+    height: 7.2%;
+    width: 336rpx;
+    top:82.91%;
+    left:206rpx;
+}
+.lyric-list{
+    position: absolute;
+    height: 12.74%;
+    width: 446rpx;
+    top:61.62%;
+    left:144rpx;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.lyric-text{
+    width: 100%;
+    font-size: 20rpx;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.record-text{
+    position: absolute;
+    height: 1.8%;
+    /*width: 336rpx;*/
+    top:42.13%;
+    left:274rpx;
+    font-size: 24rpx;
+    color:white;
+}
+
+

@@ -1,0 +1,12 @@
+<view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="info-confirm-mask" id="mask"></view>
+
+    <image src="./bg.png" class="info-confirm-bg"/>
+
+
+    <view class="body">
+        <image src="./confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>
+        <image src="./return-btn.png" class="return-btn" bindtap="handleReturn"/>
+    </view>
+
+</view>
