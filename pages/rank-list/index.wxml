@@ -78,30 +78,14 @@
                    class="rank-vote-btn rank-btn"/>
         </view>
     </scroll-view>
+    <view class="input-name-wrap">
+        <input class=" input-name" placeholder="输入选手姓名和编号"
+               placeholder-class="ph-cs-search"
+               value="{{name}}"
+               bindinput="bindNameInput"
+        />
+        <image src="{{url}}search.png" class="search-icon"/>
+    </view>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <input class=" input-name" placeholder="输入选手姓名和编号"
-           placeholder-class="ph-cs-search"
-           value="{{name}}"
-           bindinput="bindNameInput"
-           auto-focus
-    />
-    <image src="{{url}}search.png" class="search-icon"/>
 </view>
 

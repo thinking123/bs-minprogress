@@ -5,38 +5,28 @@
            placeholder-class="ph-cs"
            value="{{name}}"
            bindinput="bindNameInput"
-           auto-focus
+
     />
     <image src="{{url}}dropdown.png" class="drop-down-item1"/>
     <image src="{{url}}dropdown.png" class="drop-down-item2"/>
-    <image src="{{url}}dropdown.png" class="drop-down-item3"/>
+    <!--<image src="{{url}}dropdown.png" class="drop-down-item3"/>-->
     <input class=" input-phone"
            placeholder-class="ph-cs" placeholder="电话"
            bindinput="bindPhoneInput"
            value="{{phone}}"/>
 
-    <picker class=" input-school"
-            range="{{schools}}"
-            value="{{index}}"
-            bindchange="handleSchool"
-    >
-        <view class="ph-cs picker-wrap">
-            <view wx:if="{{schoolIndex === -1}}">学校</view>
-            <view>{{schools[schoolIndex]}}</view>
-        </view>
-    </picker>
-
-    <picker class=" input-region"
+    <picker class="  input-school"
             range="{{provinces}}"
             value="{{regionIndex}}"
             bindchange="handleRegion"
     >
         <view class="ph-cs picker-wrap">
-            <view wx:if="{{regionIndex === -1}}">省市</view>
+            <view wx:if="{{regionIndex === -1}}">省区</view>
             <view>{{provinces[regionIndex]}}</view>
         </view>
     </picker>
-    <picker class=" input-game"
+
+    <picker class=" input-region "
             range="{{games}}"
             value="{{gameIndex}}"
             bindchange="handleGame"
@@ -46,6 +36,28 @@
             <view>{{schools[gameIndex]}}</view>
         </view>
     </picker>
+
+    <input class=" input-game" placeholder="学校"
+           placeholder-class="ph-cs"
+           value="{{school}}"
+           bindinput="bindSchoolInput"
+
+    />
+
+    <!--<picker class=" input-game "-->
+            <!--range="{{schools}}"-->
+            <!--value="{{index}}"-->
+            <!--bindchange="handleSchool"-->
+    <!--&gt;-->
+        <!--<view class="ph-cs picker-wrap">-->
+            <!--<view wx:if="{{schoolIndex === -1}}">学校</view>-->
+            <!--<view>{{schools[schoolIndex]}}</view>-->
+        <!--</view>-->
+    <!--</picker>-->
+
+
+
+
     <view class="submit" bindtap="handleSubmit"/>
     <register-error-dialog visible="{{showError}}"
                            bind:hidetap="hidetap"/>

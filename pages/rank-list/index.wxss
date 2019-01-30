@@ -20,29 +20,51 @@
     width: 604rpx;
 }
 
-.input-name{
+.input-name-wrap{
     position: absolute;
-    top:89.07%;
+    top:89.21%;
     left:216rpx;
     border-radius: 10rpx;
-    height: 3.59%;
+    height: 3.6%;
     width: 302rpx;
     background-color: white;
 }
+.input-name{
+    width: 100%;
+    height: 100%;
+    /*position: absolute;*/
+    /*top:89.21%;*/
+    /*left:216rpx;*/
+    /*border-radius: 10rpx;*/
+    /*height: 3.6%;*/
+    /*width: 302rpx;*/
+    /*background-color: white;*/
+}
+.search-icon{
+    position: absolute;
+    /*top:89.37%;*/
+    top:50%;
+    transform: translateY(-50%);
+    left:80.79%;
+    border-radius: 10rpx;
+    height: 87%;
+    width: 52rpx;
+    z-index: 1;
+    /*20*/
+    /*position: absolute;*/
+    /*top:89.37%;*/
+    /*left:460rpx;*/
+    /*border-radius: 10rpx;*/
+    /*height: 3.14%;*/
+    /*width: 52rpx;*/
+    /*z-index: 1;*/
+}
+
 .ph-cs-search{
     color: #DBDBDB;
     font-size:25rpx;
     margin-left: 16rpx;
     font-weight: bolder;
-}
-.search-icon{
-    position: absolute;
-    top:89.37%;
-    left:460rpx;
-    border-radius: 10rpx;
-    height: 3.59%;
-    width: 52rpx;
-    z-index: 1;
 }
 
 .city-list{

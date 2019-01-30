@@ -21,6 +21,6 @@ page{
    font-weight: bolder;
  }
 
-input,textarea{
+input,textarea,picker{
     border-radius: 6rpx;
 }

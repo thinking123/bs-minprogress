@@ -10,6 +10,8 @@ Page({
         showError:false,
         schools: ['学校', 'xuexiao'],
         schoolIndex: -1,
+
+        school:'',
         games: ['shaidiansdf', 'shaidian'],
         gameIndex: -1,
         regionIndex: -1,
@@ -62,12 +64,19 @@ Page({
     },
     handleRegion(e) {
         console.log('handleRegion')
+        if(e.detail.value == -1){
+            return
+        }
         this.setData({
             regionIndex: e.detail.value
         })
     },
     handleGame(e) {
         console.log('handleGame')
+        console.log(e.detail.value)
+        if(e.detail.value == -1){
+            return
+        }
         this.setData({
             gameIndex: e.detail.value
         })
@@ -116,6 +125,11 @@ Page({
     bindPhoneInput(e){
         this.setData({
             phone: e.detail.value
+        })
+    },
+    bindSchoolInput(e){
+        this.setData({
+            school: e.detail.value
         })
     }
 
