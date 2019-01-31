@@ -4,6 +4,10 @@ const base = 'http://pm4uud0ld.bkt.clouddn.com/'
 // const base = '../../'
 const baseUrl = `${base}asserts/image/pages/`
 const baseComponentUrl = `${base}asserts/image/components/`
+
+
+const myMusicPersonality = 'https://www.lizikeji.cn'
+// const myMusicPersonality = 'https://mp.weixin.qq.com/'
 App({
     onLaunch: function () {
         // 展示本地存储能力
@@ -41,6 +45,7 @@ App({
     globalData: {
         userInfo: null,
         baseUrl: baseUrl,
-        baseComponentUrl: baseComponentUrl
+        baseComponentUrl: baseComponentUrl,
+        myMusicPersonality:myMusicPersonality
     }
 })
