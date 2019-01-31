@@ -1,7 +1,10 @@
 <view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
     <view class="how-to-play-mask" id="mask"></view>
-    <view class="body">
-        <image src="{{url}}error-dialog.png" class="how-to-play-bg"/>
-        <image src="{{url}}return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
-    </view>
+    <!--<view class="body">-->
+        <!--<image src="{{url}}error-dialog.png" class="dialog-bg"/>-->
+        <!--<image src="{{url}}return-btn.png" class="how-to-play-return" bindtap="handleHide"/>-->
+    <!--</view>-->
+
+    <image src="{{url}}error-dialog.png" class="dialog-bg"/>
+    <image src="{{url}}return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
 </view>

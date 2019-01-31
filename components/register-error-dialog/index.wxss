@@ -28,17 +28,28 @@
 
 .body{
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:12%;
+
 }
 
-.how-to-play-bg{
-
+.dialog-bg{
+    position: absolute;
+    z-index: 2;
+    top:12%;
+    width: 590rpx;
+    height: 60.12%;
 }
 .how-to-play-return{
-    margin-top: 34px;
-    width: 340rpx;
-    height: 90rpx;
+    position: absolute;
+    z-index: 2;
+    top:76.76%;
+    width: 416rpx;
+    height: 8.55%;
 }
