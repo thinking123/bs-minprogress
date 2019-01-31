@@ -19,6 +19,13 @@ App({
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                console.log('login info' , res)
+
+                this.globalData.code = res.code
+                //此处通过code 获取 服务端token
+            },
+            fail: err => {
+                console.log('login error' , err)
             }
         })
         // 获取用户信息
@@ -46,6 +53,7 @@ App({
         userInfo: null,
         baseUrl: baseUrl,
         baseComponentUrl: baseComponentUrl,
-        myMusicPersonality:myMusicPersonality
+        myMusicPersonality:myMusicPersonality,
+        code:''
     }
 })
