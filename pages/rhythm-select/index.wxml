@@ -34,4 +34,18 @@
            class="music-person-btn"
            bindtap="handleMusicPerson"/>
 
+    <!--<view class="music-btn row1 music-btn1"-->
+          <!--data-index="0" data-key="do"-->
+          <!--bindtap="handleTapMusicBtn"-->
+          <!--style="background-image: url('{{url}}btn-wrap.png'">-->
+        <!--Do-->
+    <!--</view>-->
+    <music-btn music-btn-external="music-btn row1 music-btn1" text="Do" bind:touching="handleTouching" key="do"/>
+    <music-btn music-btn-external="music-btn row1 music-btn2" text="Re" bind:touching="handleTouching" key="re"/>
+    <music-btn music-btn-external="music-btn row1 music-btn3" text="Mi" bind:touching="handleTouching" key="mi"/>
+    <music-btn music-btn-external="music-btn row1 music-btn4" text="Fa" bind:touching="handleTouching" key="fa"/>
+    <music-btn music-btn-external="music-btn row2 music-btn5" text="Sol" bind:touching="handleTouching" key="sol"/>
+    <music-btn music-btn-external="music-btn row2 music-btn6" text="La" bind:touching="handleTouching" key="la"/>
+    <music-btn music-btn-external="music-btn row2 music-btn7" text="Xi" bind:touching="handleTouching" key="xi"/>
+    <music-btn music-btn-external="music-btn row2 music-btn8" text="Do" bind:touching="handleTouching" key="duo"/>
 </view>

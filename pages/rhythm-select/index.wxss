@@ -104,3 +104,38 @@
     left:206rpx;
 }
 
+.music-btn{
+    /*z-index: 100;*/
+    /*position: absolute;*/
+    height: 7.8%;
+    width: 96rpx;
+
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*font-weight: bold;*/
+    /*color: #0094FF;*/
+    /*font-size: 50rpx;*/
+}
+
+.row1{
+    top:44.08%;
+}
+.row2{
+    top:52.62%;
+}
+.music-btn1 , .music-btn5{
+    left:160rpx;
+}
+
+.music-btn2,.music-btn6{
+    left:270rpx;
+}
+.music-btn3,.music-btn7{
+    left:380rpx;
+}
+.music-btn4,.music-btn8{
+    left:490rpx;
+}

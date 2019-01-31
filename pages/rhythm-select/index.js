@@ -1,8 +1,8 @@
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'register/'
-// const url = `${baseUrl}${page}`
-const url = './'
+const page = 'rhythm-select/'
+const url = `${baseUrl}${page}`
+// const url = './'
 
 Page({
 
@@ -60,5 +60,13 @@ Page({
         wx.navigateTo({
             url:'/pages/rhythm-share/index'
         })
+    },
+    handleTapMusicBtn(e) {
+        const {index , key} = e.target.dataset
+        console.log('handleTapMusicBtn' , index , key)
+    },
+    handleTouching(e){
+        const key = e.detail
+        console.log('handleTouching' , key)
     }
 })
