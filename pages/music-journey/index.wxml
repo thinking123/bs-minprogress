@@ -3,4 +3,7 @@
     <image src="{{baseUrl}}bg.png" class="img"/>
     <view class="how-to-play" bindtap="handleHowToPlay"/>
     <view class="start-my-music-journey" bindtap="handleStartMyMusicJourney"/>
+
+    <how-to-play-dialog visible="{{showDialog}}"
+                        bind:hidetap="hidetap"/>
 </view>

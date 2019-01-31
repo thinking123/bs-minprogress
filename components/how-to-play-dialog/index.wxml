@@ -1,7 +1,5 @@
 <view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
-    <view class="how-to-play-mask" id="mask"></view>
-    <view class="body">
-        <image src="{{src}}" class="how-to-play-bg" wx:if="!!src"/>
-        <image src="{{url}}return-btn.png" class="how-to-play-return" bindtap="handleHide"/>
-    </view>
+    <view class="dialog-mask" id="mask"></view>
+    <image src="{{url}}bg.png" class="dialog-bg" wx:if="!!src"/>
+    <image src="{{url}}return-btn.png" class="return-btn" bindtap="handleHide"/>
 </view>

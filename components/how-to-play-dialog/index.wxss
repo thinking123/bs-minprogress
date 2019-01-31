@@ -7,13 +7,13 @@
     top:0;
     bottom: 0;
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 
-.how-to-play-mask{
+.dialog-mask{
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -26,19 +26,23 @@
     opacity: 0.9;
 }
 
-.body{
+
+.dialog-bg{
+    position: absolute;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.how-to-play-bg{
+    top:17.84%;
+    height: 49.18%;
+    width: 596rpx;
+    left:50%;
+    transform: translateX(-50%);
 
 }
-.how-to-play-return{
-    margin-top: 34px;
-    width: 340rpx;
-    height: 90rpx;
+.return-btn{
+    position: absolute;
+    z-index: 2;
+    top:69.72%;
+    height: 7.35%;
+    width: 348rpx;
+    left:50%;
+    transform: translateX(-50%);
 }

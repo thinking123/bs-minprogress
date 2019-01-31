@@ -11,9 +11,6 @@ page{
     overflow: hidden;
 }
 
-.container view{
-    background-color: gold;
-}
 .img{
     height: 100%;
     width: 100%;
