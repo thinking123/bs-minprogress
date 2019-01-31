@@ -1,8 +1,8 @@
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'register/'
-// const url = `${baseUrl}${page}`
-const url = './'
+const page = 'rhythm-share/'
+const url = `${baseUrl}${page}`
+// const url = './'
 
 Page({
 

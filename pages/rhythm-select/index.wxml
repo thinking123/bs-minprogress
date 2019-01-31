@@ -30,7 +30,7 @@
     <view class="dev dev3" bindtap="handleDev" data-dev="2"/>
 
 
-    <image src="./music-person-btn.png"
+    <image src="{{url}}music-person-btn.png"
            class="music-person-btn"
            bindtap="handleMusicPerson"/>
 
