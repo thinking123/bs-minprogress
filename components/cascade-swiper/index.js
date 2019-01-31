@@ -20,7 +20,6 @@ Component({
                     const right2Index = centerIndex + 1
                     const right1Index = centerIndex + 2
 
-
                     const m = images.map((image, index) => {
                         let css = null
                         image = `${url}${image}`
@@ -92,83 +91,6 @@ Component({
 
         }
     },
-    // computed: {
-    //     lists1() {
-    //         console.log('list coomputed')
-    //         const len = this.data.images.length
-    //         const centerIndex = parseInt((len + 1) / 2) - 1
-    //         const left1Index = centerIndex - 2
-    //         const left2Index = centerIndex - 1
-    //         const right2Index = centerIndex + 1
-    //         const right1Index = centerIndex + 2
-    //
-    //         this.setData({
-    //             centerIndex: centerIndex
-    //         })
-    //         const m = this.data.images.map((image, index) => {
-    //             let css = null
-    //             if (index < left1Index) {
-    //                 //left hide
-    //                 css = {
-    //                     src: image,
-    //                     zIndex: 0,
-    //                     left: '-22.22%',
-    //                 }
-    //             } else if (index > right1Index) {
-    //                 //right hide
-    //                 css = {
-    //                     src: image,
-    //                     zIndex: 0,
-    //                     left: '100%',
-    //                 }
-    //             } else {
-    //                 //center  show
-    //                 switch (index) {
-    //                     case left1Index:
-    //                         css = {
-    //                             src: image,
-    //                             zIndex: 1,
-    //                             left: '0',
-    //                         }
-    //                         break
-    //                     case left2Index:
-    //                         css = {
-    //                             src: image,
-    //                             zIndex: 2,
-    //                             left: '12.1%',
-    //                         }
-    //                         break
-    //                     case centerIndex:
-    //                         css = {
-    //                             src: image,
-    //                             zIndex: 6,
-    //                             left: '30.92%',
-    //                         }
-    //                         break
-    //                     case right2Index:
-    //                         css = {
-    //                             src: image,
-    //                             zIndex: 2,
-    //                             left: '48.31%',
-    //                         }
-    //                         break
-    //                     case right1Index:
-    //                         css = {
-    //                             src: image,
-    //                             zIndex: 1,
-    //                             left: '60.39%',
-    //                         }
-    //                         break
-    //
-    //                 }
-    //             }
-    //
-    //             return css
-    //         })
-    //
-    //         return m
-    //     }
-    // },
     attached() {
 
     },

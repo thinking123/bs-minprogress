@@ -1,7 +1,7 @@
 <view class="container">
     <image src="{{url}}upload-music-bg.png" class="img"/>
 
-    <div class="upload">
+    <div class="upload" bindtap="handleUpload">
 
     </div>
     <input class=" input-name" placeholder="歌曲名称"

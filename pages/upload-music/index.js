@@ -12,6 +12,7 @@ Page({
         checked: false,
         progress: '20%',
         isUploaded: false,
+        isUploading:false,
         musicBg: '',
         images: [
             "1.jpg",
@@ -78,6 +79,49 @@ Page({
                 })
                 break
         }
+    },
+    uploadFile(file , url){
+
+        this.uploadTask = wx.uploadFile({
+            url: url,
+            filePath: file,
+            name: 'file',
+            formData: {
+                user: 'test'
+            },
+            success(res) {
+                const data = res.data
+                this.setData({
+                    isUploading:false,
+                    progress:0
+                })
+
+                this.uploadTask = null
+            }
+        })
+
+        this.uploadTask.onProgressUpdate((res) => {
+
+            const p = res.progress + '%'
+            this.setData({
+                progress:p
+            })
+            console.log('上传进度', res.progress)
+            console.log('已经上传的数据长度', res.totalBytesSent)
+            console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+        })
+    },
+    handleUpload(){
+        console.log('upload file')
+        if(this.data.isUploading){
+            this.uploadTask.abort()
+            this.uploadTask = null
+        }
+
+        this.setData({
+            isUploading:true,
+            progress:0
+        })
     }
 
 })
