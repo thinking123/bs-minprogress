@@ -1,10 +1,18 @@
 <view class="wrapper" id="rank-card-wrap">
 
     <view class="rank-card-content-border"/>
+
+
     <view class="rank-card-disk"
-          id="rank-card-disk"
+          id="rank-card-disk">
+        <!--<view>
+
           style="width:{{diskWidth}};border-radius:{{diskRadius}};"
-    >
+        </view>-->
+        <image src="{{url}}gd.png" class="gd"
+               id="gd"
+               style="animation-play-state: {{playing ? 'running' : 'paused'}};width:{{diskWidth}};height:{{diskWidth}}"
+        />
         <image src="{{headerSrc}}" class="rank-card-header"/>
         <image src="{{playStatusSrc}}"
                bindtap="handlePlay"
@@ -14,10 +22,6 @@
                id="rank-card-pole"
                class="rank-card-pole"/>
     </view>
-
-    <!--<view class="disk-dot" id="disk-dot">-->
-
-    <!--</view>-->
 
     <view class="rank-card-content-wrap">
         <view class="rank-card-content">

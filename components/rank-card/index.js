@@ -14,10 +14,41 @@ Component({
             type: String,
             value: '',
             observer(level) {
-                // return;
+
+
                 if (level.length === 0) {
                     return
                 }
+
+                wx.nextTick(() => {
+                    let q = this.createSelectorQuery()
+
+                    const rank = q.select('#rank-card-disk')
+                    // const gd = q.select('#gd')
+
+                    rank.boundingClientRect(rect => {
+                        if(rect){
+
+                            let w = rect.width
+                            let h = rect.height
+
+                            let v = Math.min(w , h)
+                            v = v + 'px'
+
+                            console.log(w , h , ' ,set w' , v)
+                            this.setData({
+                                diskWidth: v,
+                                diskRadius: v
+                            })
+
+                        }
+
+                    }).exec()
+                })
+
+
+                return;
+
                 wx.nextTick(() => {
                     // this.isIntersection = false
                     // const _observer = this.createIntersectionObserver(this, {
@@ -41,14 +72,16 @@ Component({
 
                     let q = this.createSelectorQuery()
                     const dot = q.select("#disk-dot")
+
                     const rank = q.select('#rank-card-disk')
-                    const wrap = q.select('#rank-card-wrap')
+                    const gd = q.select('#gd')
 
                     rank.boundingClientRect(rect => {
                         let w = rect.width
                         let h = rect.height
 
-                        let v = h + 'px'
+                        let v = Math.min(w , h)
+                         v = v + 'px'
                         this.setData({
                             diskWidth: v,
                             diskRadius: v
