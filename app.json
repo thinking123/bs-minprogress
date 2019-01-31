@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/rhythm-select/index",
     "pages/music-journey/index",
     "home/index/index"
   ],
