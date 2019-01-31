@@ -37,7 +37,7 @@
     left:160rpx;
     height: 13.94%;
     width: 438rpx;
-
+    z-index: 0;
     background-color: white;
 }
 

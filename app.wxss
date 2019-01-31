@@ -23,4 +23,10 @@ page{
 
 input,textarea,picker{
     border-radius: 6rpx;
+
+
+    color:#004990;
+    font-size:35rpx;
+    padding-left: 16rpx;
+    font-weight: bolder;
 }

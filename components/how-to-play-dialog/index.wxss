@@ -1,0 +1,44 @@
+.wrapper{
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-play-mask{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color: #333333;
+    opacity: 0.9;
+}
+
+.body{
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-play-bg{
+
+}
+.how-to-play-return{
+    margin-top: 34px;
+    width: 340rpx;
+    height: 90rpx;
+}

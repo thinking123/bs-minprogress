@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/music-journey/index",
     "home/index/index"
   ],
   "subpackages": [

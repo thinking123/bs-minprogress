@@ -45,6 +45,9 @@
     top:12%;
     width: 590rpx;
     height: 60.12%;
+
+    left:50%;
+    transform: translateX(-50%);
 }
 .how-to-play-return{
     position: absolute;
@@ -52,4 +55,6 @@
     top:76.76%;
     width: 416rpx;
     height: 8.55%;
+    left:50%;
+    transform: translateX(-50%);
 }

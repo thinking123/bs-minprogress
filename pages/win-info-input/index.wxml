@@ -11,9 +11,11 @@
            placeholder-class="ph-cs" placeholder="电话"
            bindinput="bindPhoneInput"
            value="{{phone}}"/>
+    <!--textarea为原生组件，默认覆盖着最顶层，所以弹窗的时候隐藏 -->
     <textarea class=" input-address"
               placeholder-class="ph-cs"
               bindinput="addressInput"
+              wx:if="{{!showDialog}}"
               value="{{address}}"/>
 
 
