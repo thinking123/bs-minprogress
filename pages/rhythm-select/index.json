@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "music-btn":"../../components/music-btn/index"
+    "music-btn":"../../components/music-btn/index",
+    "start-recording-bar":"../../components/start-recording-bar/index"
   }
 }

@@ -104,6 +104,14 @@
     left:206rpx;
 }
 
+.start-recording-bar{
+    position: absolute;
+    /*height: 7.2%;*/
+    /*width: 336rpx;*/
+    top:62.52%;
+    left:306rpx;
+}
+
 .music-btn{
     /*z-index: 100;*/
     /*position: absolute;*/

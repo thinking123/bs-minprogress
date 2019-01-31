@@ -1,0 +1,7 @@
+<view class="loading-bar start-recording-bar-external">
+    <view class="bar"></view>
+    <view class="bar"></view>
+    <view class="bar"></view>
+    <view class="bar"></view>
+    <view class="bar"></view>
+</view>

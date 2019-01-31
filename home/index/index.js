@@ -15,7 +15,7 @@ Page({
     handleMyMusic: function () {
         console.log('handleMyMusic')
         wx.navigateTo({
-            url:'/pages/my-music-personality/index'
+            url:'/pages/music-journey/index'
         })
     },
     handleListen: function () {

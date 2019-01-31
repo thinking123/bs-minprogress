@@ -34,6 +34,7 @@
            class="music-person-btn"
            bindtap="handleMusicPerson"/>
 
+    <start-recording-bar start-recording-bar-external="start-recording-bar"  wx:if="{{isRecording}}"/>
     <!--<view class="music-btn row1 music-btn1"-->
           <!--data-index="0" data-key="do"-->
           <!--bindtap="handleTapMusicBtn"-->

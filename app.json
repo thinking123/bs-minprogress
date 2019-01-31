@@ -1,11 +1,30 @@
 {
   "pages": [
-    "pages/music-journey/index",
-    "pages/rhythm-select/index",
-    "pages/rhythm-share/index",
     "home/index/index"
   ],
   "subpackages": [
+    {
+      "root": "pages/rhythm-select",
+      "name": "rhythm-select",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/music-journey",
+      "name": "music-journey",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/rhythm-share",
+      "name": "rhythm-share",
+      "pages": [
+        "index"
+      ]
+    },
+
     {
       "root": "pages/win-info-input",
       "name": "win-info-input",

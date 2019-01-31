@@ -1,8 +1,6 @@
 .loading-bar {
-    /*.square(32px);*/
     width: 74rpx;
     height: 48rpx;
-    /*display: block;*/
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -13,11 +11,8 @@
 .bar {
     margin-left:1rpx;
     margin-right:1rpx;
-    /*width: 3px;*/
     width: 6rpx;
     height: 48rpx;
-    /*height: 15px;*/
-    /*animation: loading 1s 1s linear infinite normal;*/
     animation-name: loading;
     background-color: white;
     animation-duration: 0.5s;
