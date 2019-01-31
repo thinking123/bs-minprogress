@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "share-music-playing-bar":"../../components/share-music-playing-bar/index"
+  }
+}

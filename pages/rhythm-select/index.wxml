@@ -1,2 +1,37 @@
-<!--pages/rhythm-select/index.wxml-->
-<text>pages/rhythm-select/index.wxml</text>
+<view class="container">
+    <image src="{{url}}bg.png" class="img"/>
+
+    <image src="{{url}}record-btn.png"
+           class="record-btn btn-middle"
+           bindtap="handleRecord"/>
+
+
+    <image src="{{url}}pause-btn.png"
+           class="stop-btn btn-middle"
+           wx:if="{{isPlaying}}"
+           bindtap="handlePlay"/>
+    <image src="{{url}}play-btn.png"
+           class="stop-btn btn-middle"
+           wx:else
+           bindtap="handlePlay"/>
+
+    <image src="{{url}}save-btn.png"
+           class="save-btn btn-middle"
+           bindtap="handleSave"/>
+
+
+    <image src="{{url}}music.png"
+           class="music"/>
+
+
+    <view class="select-bar" style="left:{{left}}"/>
+    <view class="dev dev1" bindtap="handleDev" data-dev="0"/>
+    <view class="dev dev2" bindtap="handleDev" data-dev="1"/>
+    <view class="dev dev3" bindtap="handleDev" data-dev="2"/>
+
+
+    <image src="./music-person-btn.png"
+           class="music-person-btn"
+           bindtap="handleMusicPerson"/>
+
+</view>

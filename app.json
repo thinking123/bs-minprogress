@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/rhythm-select/index",
     "pages/music-journey/index",
+    "pages/rhythm-share/index",
+    "pages/rhythm-select/index",
     "home/index/index"
   ],
   "subpackages": [

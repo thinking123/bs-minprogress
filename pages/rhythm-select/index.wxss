@@ -1,1 +1,106 @@
-/* pages/rhythm-select/index.wxss */
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+/*.container > view {*/
+/*background-color: yellow;*/
+/*}*/
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.btn-middle{
+    position: absolute;
+    height: 5.1%;
+    width: 208rpx;
+}
+
+.record-btn{
+    top:60.87%;
+    left:50%;
+    transform: translateX(-50%);
+}
+.stop-btn{
+    top:75.26%;
+    left:174rpx;
+}
+.save-btn{
+    top:75.26%;
+    left:386rpx;
+}
+
+
+
+.re-record-btn{
+    position: absolute;
+    height: 3.75%;
+    width: 184rpx;
+    top:47.38%;
+    left:280rpx;
+}
+.music{
+    position: absolute;
+    top:66.27%;
+    height: 7.95%;
+    width: 394rpx;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+
+.music-person-btn{
+    position: absolute;
+    top:85.16%;
+    height: 7.78%;
+    width: 394rpx;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+.select-bar{
+    position: absolute;
+    height: 6rpx;
+    width: 148rpx;
+    top:38.23%;
+    background-color: white;
+}
+
+
+.dev{
+    position: absolute;
+    width: 146rpx;
+    height: 3.6%;
+    top:38.98%;
+    /*background-color: gold;*/
+}
+.dev1{
+    left:136rpx;
+}
+.dev2{
+    left:300rpx;
+}
+.dev3{
+    left:460rpx;
+}
+.upload-my-music{
+    position: absolute;
+    height: 7.2%;
+    width: 336rpx;
+    top:82.91%;
+    left:206rpx;
+}
+

@@ -1,0 +1,20 @@
+<view class="container">
+    <image src="{{url}}bg.png" class="img"/>
+
+
+
+    <image src="{{url}}playing.png"
+           class="stop-btn btn-small"
+           wx:if="{{isPlaying}}"
+           bindtap="handlePlay"/>
+    <image src="{{url}}play.png"
+           class="stop-btn btn-small"
+           wx:else
+           bindtap="handlePlay"/>
+
+    <view class="btn-share btn-middle" bindtap="handleShare"/>
+    <view class="btn-register btn-middle" bindtap="handleRegister"/>
+
+    <share-music-playing-bar class="share-music-playing-bar" wx:if="{{isPlaying}}"/>
+
+</view>

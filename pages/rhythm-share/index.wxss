@@ -1,0 +1,45 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+.stop-btn{
+    position: absolute;
+    /*height: 4.65%;*/
+    height: 60rpx;
+    width: 145rpx;
+    right: 0;
+    top:20.67%
+}
+
+.btn-middle{
+    position: absolute;
+    height: 8.25%;
+    width: 322rpx;
+}
+
+
+.btn-share{
+    top:75.56%;
+    left:214rpx;
+}
+.btn-register{
+    top:83.51%;
+    left:214rpx;
+}
+
+.share-music-playing-bar{
+    position: absolute;
+    left:670rpx;
+    top:21.29%;
+}

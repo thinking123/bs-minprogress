@@ -1,0 +1,123 @@
+.loading-bar {
+    /*.square(32px);*/
+    width: 74rpx;
+    height: 48rpx;
+    /*display: block;*/
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    z-index: 2;
+
+}
+
+.bar {
+    margin-left:1rpx;
+    margin-right:1rpx;
+    /*width: 3px;*/
+    width: 6rpx;
+    height: 48rpx;
+    /*height: 15px;*/
+    /*animation: loading 1s 1s linear infinite normal;*/
+    animation-name: loading;
+    background-color: white;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+.bar:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.bar:nth-child(3) {
+    /*animation-delay: 0.3s;*/
+}
+
+.bar:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.bar:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(7) {
+    animation-delay: 0.15s;
+}
+
+.bar:nth-child(9) {
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(10) {
+    animation-delay: 0.25s;
+}
+
+.bar:nth-child(11) {
+    animation-delay: 0.35s;
+}
+
+.bar:nth-child(12) {
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(13) {
+    animation-delay: 0.15s;
+}
+
+.bar:nth-child(15) {
+    animation-delay: 0.15s;
+}
+
+@keyframes loading {
+    0% {
+        margin-top: 0rpx;
+        height: 48rpx;
+    }
+    10% {
+        margin-top: 3rpx;
+        height: 42rpx;
+        margin-bottom: 3rpx;
+    }
+    20% {
+        margin-top: 6rpx;
+        height: 36rpx;
+        margin-bottom: 6rpx;
+    }
+    30% {
+        margin-top: 9rpx;
+        height: 30rpx;
+        margin-bottom: 9rpx;
+    }
+    40% {
+        margin-top: 12rpx;
+        height: 24rpx;
+        margin-bottom: 12rpx;
+    }
+    50% {
+        margin-top: 15rpx;
+        height: 18rpx;
+        margin-bottom: 15rpx;
+    }
+    60% {
+        margin-top: 18rpx;
+        height: 12rpx;
+        margin-bottom: 18rpx;
+    }
+    80% {
+        margin-top: 21rpx;
+        height: 6rpx;
+        margin-bottom: 21rpx;
+    }
+    100% {
+        margin-top: 23rpx;
+        height: 1rpx;
+        margin-bottom: 23rpx;
+    }
+}

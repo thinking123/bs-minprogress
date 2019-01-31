@@ -6,7 +6,7 @@ const url = './'
 Page({
     data: {
         baseUrl:url,
-        showDialog:true
+        showDialog:false
     },
     handleHowToPlay: function () {
         console.log('handleRegister')
@@ -16,9 +16,9 @@ Page({
     },
     handleStartMyMusicJourney: function () {
         console.log('handleMyMusic')
-        // wx.navigateTo({
-        //     url:'/pages/my-music-personality/index'
-        // })
+        wx.navigateTo({
+            url:'/pages/rhythm-select/index'
+        })
     },
     hidetap(){
         this.setData({
