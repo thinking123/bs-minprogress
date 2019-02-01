@@ -23,11 +23,11 @@ Component({
             })
             this.triggerEvent('touching', this.data.key)
             this.time = setInterval(() => {
-                console.log('开始按钮')
+                // console.log('开始按钮')
                 this.triggerEvent('touching', this.data.key)
             }, 300)
 
-            console.log('开始按钮')
+            // console.log('开始按钮')
 
 
         },
@@ -39,7 +39,7 @@ Component({
             })
             clearInterval(this.time)
             this.time = null
-            console.log('结束按钮')
+            // console.log('结束按钮')
         }
     },
     detached() {

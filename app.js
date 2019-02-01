@@ -3,6 +3,7 @@
 const base = 'http://pm4uud0ld.bkt.clouddn.com/'
 // const base = '../../'
 const baseUrl = `${base}asserts/image/pages/`
+const baseAudioUrl = `${base}asserts/audio/`
 const baseComponentUrl = `${base}asserts/image/components/`
 
 
@@ -53,6 +54,7 @@ App({
         userInfo: null,
         baseUrl: baseUrl,
         baseComponentUrl: baseComponentUrl,
+        baseAudioUrl: baseAudioUrl,
         myMusicPersonality:myMusicPersonality,
         code:''
     }

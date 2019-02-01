@@ -1,15 +1,9 @@
 {
   "pages": [
+    "pages/rhythm-select/index",
     "home/index/index"
   ],
   "subpackages": [
-    {
-      "root": "pages/rhythm-select",
-      "name": "rhythm-select",
-      "pages": [
-        "index"
-      ]
-    },
     {
       "root": "pages/music-journey",
       "name": "music-journey",
