@@ -22,3 +22,6 @@ export function isEmpty(str) {
   return str.length === 0
 }
 
+export function showMsg(msg , title = '') {
+    console.log(msg , title)
+}

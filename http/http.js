@@ -28,7 +28,7 @@ function http(url, data, header, method = 'GET') {
             header: header,
             method: method,
             success: res => {
-                resolve(res)
+                resolve(res ? res.data : null)
                 queue.pop()
             },
             fail: err => {

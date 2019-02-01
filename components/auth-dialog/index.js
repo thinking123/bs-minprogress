@@ -17,15 +17,23 @@ Component({
         url:url
     },
     methods: {
-        handleOutHide(e){
-            e
+        handlemove(e){
+
         },
         handleGotUserInfo(e){
-            console.log(e.detail.errMsg)
-            console.log(e.detail.userInfo)
-            console.log(e.detail.rawData)
+            try{
+                console.log(e.detail.errMsg)
+                console.log(e.detail.userInfo)
+                console.log(e.detail.rawData)
 
-            this.triggerEvent('getuserinfo', e.detail.userInfo)
+                if(e.detail.userInfo){
+                    this.triggerEvent('getuserinfo', e.detail.userInfo)
+                }
+
+            }catch (e) {
+                console.log('用户拒绝授权')
+            }
+
         }
     }
 

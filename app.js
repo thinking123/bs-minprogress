@@ -19,15 +19,22 @@ App({
         try{
             initHttp(this.globalData)
             const code = await _wxLogin()
+            console.log('code' , code)
+            // return
             const {authSetting} = await _wxGetSetting()
             if(authSetting['scope.userInfo']){
-                const {userInfo} = await _wxGetUserInfo()
+                // const {userInfo} = await _wxGetUserInfo()
+                const userInfo = await _wxGetUserInfo()
+
                 this.globalData.userInfo = userInfo
 
                 const res = await wxLogin(code ,
                     userInfo.avatarUrl ,
                     userInfo.nickName,
                     userInfo.gender)
+
+                const token = res.rows.token
+                this.globalData.token = token
                 console.log(userInfo )
                 console.log(res )
                 console.log(authSetting )

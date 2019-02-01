@@ -6,5 +6,7 @@
     <view class="listen" bindtap="handleListen"/>
     <view class="rank-list" bindtap="handleRankList"/>
     <view class="user-info" bindtap="handleUserInfo"/>
-    <auth-dialog visible="true"/>
+    <auth-dialog
+            bind:getuserinfo="handleGetUserInfo"
+            visible="{{showDialog}}"/>
 </view>
