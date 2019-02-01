@@ -1,3 +1,7 @@
+import regeneratorRuntime from './libs/regenerator-runtime/runtime.js'
+import {initHttp} from "./http/http";
+import {wxLogin} from "./http/index";
+import {_wxGetSetting, _wxGetUserInfo, _wxLogin} from "./utils/wx";
 // const baseUrl = '../../asserts/image/pages/'
 // const baseComponentUrl = '../../asserts/image/components/'
 const base = 'http://pm4uud0ld.bkt.clouddn.com/'
@@ -6,49 +10,31 @@ const baseUrl = `${base}asserts/image/pages/`
 const baseAudioUrl = `${base}asserts/audio/`
 const baseComponentUrl = `${base}asserts/image/components/`
 
-
+const mockToken ='z2OZe8yh1BCChkB5Z9BGiTQT/7wbJdGztqoXVhz8F/A'
 const myMusicPersonality = 'https://www.lizikeji.cn'
 // const myMusicPersonality = 'https://mp.weixin.qq.com/'
 App({
-    onLaunch: function () {
-        // 展示本地存储能力
-        var logs = wx.getStorageSync('logs') || []
-        logs.unshift(Date.now())
-        wx.setStorageSync('logs', logs)
+    onLaunch: async function () {
 
-        // 登录
-        wx.login({
-            success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                console.log('login info' , res)
+        try{
+            initHttp(this.globalData)
+            const code = await _wxLogin()
+            const {authSetting} = await _wxGetSetting()
+            if(authSetting['scope.userInfo']){
+                const {userInfo} = await _wxGetUserInfo()
+                this.globalData.userInfo = userInfo
 
-                this.globalData.code = res.code
-                //此处通过code 获取 服务端token
-            },
-            fail: err => {
-                console.log('login error' , err)
+                const res = await wxLogin(code ,
+                    userInfo.avatarUrl ,
+                    userInfo.nickName,
+                    userInfo.gender)
+                console.log(userInfo )
+                console.log(res )
+                console.log(authSetting )
             }
-        })
-        // 获取用户信息
-        wx.getSetting({
-            success: res => {
-                if (res.authSetting['scope.userInfo']) {
-                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                    wx.getUserInfo({
-                        success: res => {
-                            // 可以将 res 发送给后台解码出 unionId
-                            this.globalData.userInfo = res.userInfo
-
-                            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                            // 所以此处加入 callback 以防止这种情况
-                            if (this.userInfoReadyCallback) {
-                                this.userInfoReadyCallback(res)
-                            }
-                        }
-                    })
-                }
-            }
-        })
+        }catch (e) {
+            console.log('on lanuch error' , e)
+        }
     },
     globalData: {
         userInfo: null,
@@ -56,6 +42,8 @@ App({
         baseComponentUrl: baseComponentUrl,
         baseAudioUrl: baseAudioUrl,
         myMusicPersonality:myMusicPersonality,
-        code:''
+        code:'',
+        requestQueue:[],
+        token:mockToken
     }
 })

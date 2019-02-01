@@ -1,0 +1,114 @@
+.wrapper{
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: fixed;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.mask{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color: #333333;
+    opacity: 0.9;
+}
+/*
+H:340
+W:314
+
+h:138
+w:192
+*/
+.dialog-body{
+    z-index: 2;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50% , -50%);
+    /*height: 51%;*/
+    height: 680rpx;
+    width: 628rpx;
+    background-color: white;
+    border-radius: 16rpx;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dialog-title{
+    padding: 36rpx 0;
+    border-bottom: 2rpx solid #D8D8D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    font-size: 30rpx;
+    color: #555555;
+    font-weight:bold;
+}
+.dialog-content{
+    color:#D8D8D8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 26rpx;
+    margin-top: 30rpx;
+    margin-bottom: 48rpx;
+    color: #666666;
+}
+
+
+.dialog-bg-wrap{
+    width: 384rpx;
+    height: 276rpx;
+    margin-bottom: 72rpx;
+    position: relative;
+}
+.dialog-bg{
+    width: 100%;
+    height: 100%;
+}
+
+.circle-wrap{
+    position: absolute;
+    width: 138rpx;
+    height: 138rpx;
+    border-radius: 138rpx;
+    border: 8rpx solid #FFFFFF;
+    background-color: #F9F7FA;
+    color:#1CA907;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    right: -38rpx;
+    bottom: -34rpx;
+}
+.auth-btn{
+    color:white;
+    background-color: #04BE01 !important;
+    height: 66rpx;
+    width: 498rpx;
+    border-radius: 66rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32rpx;
+    white-space: 2em !important;
+    font-size: 34rpx;
+}

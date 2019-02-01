@@ -11,10 +11,7 @@ Component({
     properties: {
         visible: {
             type: Boolean,
-            value: false,
-            observer(newVal, oldVal, changedPath) {
-                console.log('visible change ', newVal, oldVal, changedPath)
-            }
+            value: false
         },
         bg: String
     },
@@ -23,7 +20,6 @@ Component({
     },
     computed: {
         src() {
-            console.log('src' , this.data.bg)
             return `${url}${this.data.bg}.png`
         }
     },
