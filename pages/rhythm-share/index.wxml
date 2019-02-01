@@ -12,7 +12,8 @@
            wx:else
            bindtap="handlePlay"/>
 
-    <view class="btn-share btn-middle" bindtap="handleShare"/>
+    <!--<view class="btn-share btn-middle" bindtap="handleShare"/>-->
+    <button class="btn-share btn-middle" open-type="share"/>
     <view class="btn-register btn-middle" bindtap="handleRegister"/>
 
     <share-music-playing-bar class="share-music-playing-bar" wx:if="{{isPlaying}}"/>

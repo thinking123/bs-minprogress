@@ -99,8 +99,23 @@ Page({
             this.showModal('您还没有录音')
             return
         }
+
+        // if(this.ctx){
+        //     this.ctx.stop()
+        // }
+        // if(this.time){
+        //     clearInterval(this.time)
+        //     this.time = null
+        // }
+        // if(this.recorderManager){
+        //     this.recorderManager.stop()
+        // }
+
+
+        const url = `/pages/rhythm-share/index?temppath=${this.data.tempFilePath}`
+        console.log('url' , url)
         wx.navigateTo({
-            url: '/pages/rhythm-share/index'
+            url: url
         })
     },
     handleTouching(e) {
@@ -262,5 +277,35 @@ Page({
                 }
             }
         })
+    },
+    clearResource(){
+        if(this.ctx){
+            this.ctx.stop()
+            this.ctx.destroy()
+            this.ctx = null
+        }
+        if(this.time){
+            clearInterval(this.time)
+            this.time = null
+        }
+        if(this.recorderManager){
+            this.recorderManager.stop()
+            this.recorderManager = null
+        }
+    },
+    onHide(){
+        if(this.ctx){
+           this.data.isPlaying && this.ctx.stop()
+        }
+        if(this.time){
+            clearInterval(this.time)
+            this.time = null
+        }
+        if(this.recorderManager){
+            this.data.isRecording && this.recorderManager.stop()
+        }
+    },
+    onUnload(){
+        this.clearResource()
     }
 })
