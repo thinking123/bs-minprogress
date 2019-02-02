@@ -54,3 +54,16 @@ page{
   height: 3.59%;
   width: 176rpx;
 }
+
+.disable-mask{
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left:0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  background-color: #333333;
+  opacity: 0.9;
+}

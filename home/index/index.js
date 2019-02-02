@@ -9,7 +9,8 @@ const url = `${baseUrl}${page}`
 Page({
     data: {
         baseUrl: url,
-        showDialog: false
+        showDialog: false,
+        // showMask:true
     },
     handleRegister: function () {
         console.log('handleRegister')
@@ -39,35 +40,58 @@ Page({
         })
     },
     onLoad: function () {
-        const {token, userInfo} = app.globalData
-        if (!userInfo) {
-            this.setData({
-                showDialog: true
-            })
+        wx.showLoading({
+            title: '获取用户信息',
+            mask: true
+        })
+        app.globalData.getUserInfoCb = this.getUserInfoCb
+    },
+
+    async getUserInfoCb(userInfo) {
+        try {
+            wx.hideLoading()
+            if (!!userInfo) {
+                await this.login(userInfo)
+            } else {
+                //没有授权过用户信息 , 显示授权dialog
+                this.setData({
+                    showDialog: true
+                })
+            }
+        } catch (e) {
+            showMsg(e)
         }
     },
     handleGetUserInfo(userInfo) {
-        this.getUserInfo()
+        //从授权dialog返回
+        this.getUserInfo(userInfo)
     },
     async getUserInfo(userInfo) {
         try {
             if (!!userInfo) {
+                //获取用户信息
                 this.setData({
                     showDialog: false
                 })
 
-                app.globalData.userInfo = userInfo
-                const res = await wxLogin(code,
-                    userInfo.avatarUrl,
-                    userInfo.nickName,
-                    userInfo.gender)
-
-                const token = res.rows.token
-                this.globalData.token = token
+                await this.login(userInfo)
             }
         } catch (e) {
             showMsg(e)
         }
 
+    },
+    async login(userInfo) {
+        app.globalData.userInfo = userInfo
+        //登入获取 token
+        const res = await wxLogin(app.globalData.code,
+            userInfo.avatarUrl,
+            userInfo.nickName,
+            userInfo.gender)
+
+        const {token} = res
+        app.globalData.token = token
+
+        console.log('get usre info' , userInfo, token, app.globalData.code)
     }
 })

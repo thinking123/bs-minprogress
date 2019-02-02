@@ -1,5 +1,6 @@
 
 <view class="container">
+    <!--<view class="disable-mask" wx:if="showMask"/>-->
     <image src="{{baseUrl}}bg.png" class="img"/>
     <view class="register" bindtap="handleRegister"/>
     <view class="my-music" bindtap="handleMyMusic"/>
