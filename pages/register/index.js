@@ -55,7 +55,10 @@ Page({
         ]
     },
 
-
+    handleSeleted(item){
+        console.log('select school item' , item)
+        this.school = item.name
+    },
     handleSchool(e) {
         console.log('handleSchool')
         this.setData({

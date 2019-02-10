@@ -73,6 +73,14 @@
     background-color: white;
 }
 
+
+.search-input-school{
+    top:65.42%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+}
+
 .drop-down-item1{
     position: absolute;
     top:54.34%;

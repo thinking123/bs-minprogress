@@ -4,6 +4,7 @@
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
            value="{{name}}"
+           cursor-spacing="100rpx"
            bindinput="bindNameInput"
 
     />
@@ -13,6 +14,7 @@
     <input class=" input-phone"
            placeholder-class="ph-cs" placeholder="电话"
            bindinput="bindPhoneInput"
+           cursor-spacing="100rpx"
            value="{{phone}}"/>
 
     <picker class="  input-school"
@@ -37,12 +39,19 @@
         </view>
     </picker>
 
-    <input class=" input-game" placeholder="学校"
-           placeholder-class="ph-cs"
-           value="{{school}}"
-           bindinput="bindSchoolInput"
+    <!--<input class=" input-game" placeholder="学校"-->
+           <!--placeholder-class="ph-cs"-->
+           <!--value="{{school}}"-->
+           <!--bindinput="bindSchoolInput"-->
+           <!--cursor-spacing="600rpx"-->
 
-    />
+    <!--/>-->
+
+
+    <search-input bind:selected="handleSeleted"
+                  provinceId="provinceIdstr"
+                  pointId="pointIdstr"
+                  search-input-external="search-input-school"/>
 
     <!--<picker class=" input-game "-->
             <!--range="{{schools}}"-->

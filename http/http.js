@@ -48,10 +48,10 @@ function http(url, data, loadingText, header, method = 'GET') {
     })
 }
 
-export function get(url, params, loadingText = null,headers = {}) {
+export function get(url, params = {}, loadingText = null,headers = {}) {
     return http(url, params, loadingText, headers)
 }
 
-export function post(url, data, loadingText = null, headers = {}) {
+export function post(url, data = {}, loadingText = null, headers = {}) {
     return http(url, data, loadingText, headers, 'POST')
 }

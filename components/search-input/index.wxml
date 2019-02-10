@@ -1,0 +1,28 @@
+<view class="search-input search-input-external">
+    <view class="input-wrap">
+        <input type="text"
+               class="input"
+               placeholder="学校"
+               placeholder-class="ph-cs"
+               value="{{inputVal}}"
+               focus="{{inputShowed}}"
+               cursor-spacing="600rpx"
+               bindinput="handleInput"/>
+        <view class="search-loading"
+                wx:if="{{isSearching}}"/>
+    </view>
+
+    <scroll-view
+            scroll-y
+            class="search-result"
+          wx:if="{{resultList.length > 0}}">
+        <view wx:for="{{resultList}}"
+              class="search-item"
+              wx:for-item="item"
+              data-item="{{item}}"
+              bindtap="handleItemTap"
+              wx:key="id">
+            {{item.shcoolName}}
+        </view>
+    </scroll-view>
+</view>
