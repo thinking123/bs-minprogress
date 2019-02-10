@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/register/index",
     "home/index/index"
   ],
   "subpackages": [
@@ -77,13 +78,6 @@
     {
       "root": "pages/upload-music",
       "name": "upload-music",
-      "pages": [
-        "index"
-      ]
-    },
-    {
-      "root": "pages/register",
-      "name": "register",
       "pages": [
         "index"
       ]

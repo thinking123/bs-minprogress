@@ -1,3 +1,5 @@
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
+
 import {getSchool} from "../../http/index";
 import {throttle, debounce} from "../../utils/util";
 const computedBehavior = require('miniprogram-computed')
@@ -17,21 +19,54 @@ Component({
         url: url,
         inputShowed: false,
         inputVal: "",
-        resultList: []
+        resultList: [],
+        showList:false,
+        focus:false
     },
     computed: {
         isSearching() {
-            return this.data.queue.length > 0
+            return this.queue && this.queue.length > 0
         }
     },
     methods: {
         handleItemTap(e){
+            const item = e.target.dataset.item
             console.log('school : ', e.target.dataset.item)
             this.setData({
                 inputVal: item.name
             });
 
             this.triggerEvent('selected', item)
+        },
+        handleFocus(e){
+
+            this.setData({
+                showList: true
+            });
+        },
+        handleTapView(e){
+            console.log('handleTapView')
+            clearInterval(this.time)
+            this.time = null
+            this.setData({
+                focus: true
+            });
+        },
+        handleScroll(e){
+            clearInterval(this.time)
+            this.time = null
+        },
+        handleBlur(e){
+            console.log('handleBlur')
+            this.time = setTimeout(()=>{
+                this.setData({
+                    showList: false
+                });
+            } , 100)
+            // wx.nextTick(() => {
+            //
+            // })
+
         },
         handleInput: function (e) {
             this.setData({

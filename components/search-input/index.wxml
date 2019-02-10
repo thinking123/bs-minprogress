@@ -5,24 +5,30 @@
                placeholder="学校"
                placeholder-class="ph-cs"
                value="{{inputVal}}"
-               focus="{{inputShowed}}"
                cursor-spacing="600rpx"
+               bindblur="handleBlur"
+               bindfocus="handleFocus"
+               focus="{{focus}}"
                bindinput="handleInput"/>
         <view class="search-loading"
                 wx:if="{{isSearching}}"/>
     </view>
 
     <scroll-view
+            id="search-result"
             scroll-y
             class="search-result"
-          wx:if="{{resultList.length > 0}}">
+            bindscroll="handleScroll"
+            bindtap="handleTapView"
+          wx:if="{{showList && resultList.length > 0}}">
         <view wx:for="{{resultList}}"
+              id="search-result-item-{{item.id}}"
               class="search-item"
               wx:for-item="item"
               data-item="{{item}}"
               bindtap="handleItemTap"
               wx:key="id">
-            {{item.shcoolName}}
+            {{item.name}}
         </view>
     </scroll-view>
 </view>
