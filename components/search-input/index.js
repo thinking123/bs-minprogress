@@ -1,6 +1,6 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 
-import {getSchool} from "../../http/index";
+import {getSchool} from "../../http/http-business";
 import {throttle, debounce} from "../../utils/util";
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
@@ -13,7 +13,43 @@ Component({
     behaviors: [computedBehavior],
     properties: {
         provinceId: String,
-        pointId: String
+        pointId: String,
+        showSearchList:{
+            type:Boolean,
+            value:false
+        },
+        clear:{
+            type:Boolean,
+            value:false,
+            observer(newVal, oldVal, changedPath) {
+                console.log('clear')
+                if(newVal){
+                    this.setData({
+                        inputVal: ''
+                    });
+                }
+            }
+        },
+        selectedProvince:{
+            type:Object,
+            value: null
+        },
+        selectedPoint:{
+            type:Object,
+            value: null
+        },
+        selectedSchool:{
+            type:Object,
+            value: null,
+            observer(newVal, oldVal, changedPath) {
+                console.log('newVal' , newVal)
+                if(newVal === null){
+                    this.setData({
+                        inputVal: ''
+                    });
+                }
+            }
+        }
     },
     data: {
         url: url,
@@ -21,7 +57,8 @@ Component({
         inputVal: "",
         resultList: [],
         showList:false,
-        focus:false
+        focus:false,
+        isInnerTap:false
     },
     computed: {
         isSearching() {
@@ -30,53 +67,26 @@ Component({
     },
     methods: {
         handleItemTap(e){
+            console.log('handleItemTap')
             const item = e.target.dataset.item
-            console.log('school : ', e.target.dataset.item)
+            // console.log('school : ', e.target.dataset.item)
             this.setData({
                 inputVal: item.name
             });
 
-            this.triggerEvent('selected', item)
-        },
-        handleFocus(e){
 
-            this.setData({
-                showList: true
-            });
-        },
-        handleTapView(e){
-            console.log('handleTapView')
-            clearInterval(this.time)
-            this.time = null
-            this.setData({
-                focus: true
-            });
-        },
-        handleScroll(e){
-            clearInterval(this.time)
-            this.time = null
-        },
-        handleBlur(e){
-            console.log('handleBlur')
-            this.time = setTimeout(()=>{
-                this.setData({
-                    showList: false
-                });
-            } , 100)
-            // wx.nextTick(() => {
-            //
-            // })
+            this.triggerEvent('selected', item)
 
         },
         handleInput: function (e) {
             this.setData({
                 inputVal: e.detail.value
             });
-
+            this.triggerEvent('input', e.detail.value)
             this.throttleGetData()
         },
         async getData() {
-            if (this.data.provinceId && this.data.pointId) {
+            if (this.data.selectedPoint && this.data.selectedProvince) {
                 this.queue.push({})
                 this.lastSearch = this.data.inputVal
                 if(!!this.cache[this.data.inputVal]){
@@ -88,7 +98,8 @@ Component({
                     return
                 }
                 try{
-                    const res = await getSchool(this.data.provinceId , this.data.pointId)
+                    const res = await getSchool(this.data.selectedProvince.id ,
+                        this.data.selectedPoint.id , this.data.inputVal)
                     this.cache[this.data.inputVal] = res
                     if(this.lastSearch === this.data.inputVal){
                         this.setData({
@@ -107,10 +118,10 @@ Component({
     },
     created() {
         this.lastSearch = ''
-        this.cache = {'sc' : [{'id':'sd' , name:'北京大学'},{'id':'ssd' , name:'北京s大学'}]}
+        this.cache = {}
         this.queue = []
         this.throttleGetData = throttle(this.getData,
-            3000)
+            1000)
     }
 
 })

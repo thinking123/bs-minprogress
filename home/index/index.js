@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {wxLogin} from "../../http/index";
+import {wxLogin} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()

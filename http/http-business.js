@@ -75,25 +75,26 @@ export function getPoint(provinceId) {
 export function getSchool(provinceId, pointId , name) {
 
 
-    return new Promise((res , rej) => {
-        let r = []
-        for(let i = 0 ; i< 20 ; i++){
-            r.push({
-                id:`key${i}`,
-                name:`schoolName${i}`
-            })
-        }
-        res(r)
-    })
-    const url = '/api/singUp/point'
-    const loadingText = '获取学校...'
+    // return new Promise((res , rej) => {
+    //     let r = []
+    //     for(let i = 0 ; i< 20 ; i++){
+    //         r.push({
+    //             id:`key${i}`,
+    //             name:`schoolName${i}`
+    //         })
+    //     }
+    //     res(r)
+    // })
+    console.log('get school ' , provinceId, pointId , name)
+    const url = '/api/singUp/school'
+    // const loadingText = '获取学校...'
     const errMsg = '获取学校失败'
     const data = {
         provinceId: provinceId,
         pointId: pointId,
         name:name
     }
-    return get(url, data, loadingText).then(res => parseRes(res, errMsg))
+    return get(url, data).then(res => parseRes(res, errMsg))
 }
 
 

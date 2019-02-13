@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtouchstart="handleTouchstart">
     <image src="{{url}}register-bg.png" class="img"/>
 
     <input class=" input-name" placeholder="姓名"
@@ -19,23 +19,25 @@
 
     <picker class="  input-school"
             range="{{provinces}}"
+            range-key="provinceName"
             value="{{regionIndex}}"
             bindchange="handleRegion"
     >
         <view class="ph-cs picker-wrap">
             <view wx:if="{{regionIndex === -1}}">省区</view>
-            <view>{{provinces[regionIndex]}}</view>
+            <view>{{provinces[regionIndex].provinceName}}</view>
         </view>
     </picker>
 
     <picker class=" input-region "
             range="{{games}}"
+            range-key="pointName"
             value="{{gameIndex}}"
             bindchange="handleGame"
     >
         <view class="ph-cs picker-wrap">
             <view wx:if="{{gameIndex === -1}}">赛点</view>
-            <view>{{schools[gameIndex]}}</view>
+            <view>{{games[gameIndex].pointName}}</view>
         </view>
     </picker>
 
@@ -48,9 +50,17 @@
     <!--/>-->
 
 
-    <search-input bind:selected="handleSeleted"
+    <search-input
+            id="search-input-wrap"
+            bind:selected="handleSeletedSchool"
+            bind:input="handleInputSchool"
+            clear="{{clearInput}}"
                   provinceId="provinceIdstr"
                   pointId="pointIdstr"
+                  showSearchList="{{showSearchList}}"
+            selectedProvince="{{selectedProvince}}"
+            selectedPoint="{{selectedPoint}}"
+            selectedSchool="{{selectedSchool}}"
                   search-input-external="search-input-school"/>
 
     <!--<picker class=" input-game "-->
