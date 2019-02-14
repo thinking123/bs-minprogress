@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {wxLogin} from "../../http/http-business";
+import {wxLogin , isSignUp} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()
@@ -12,11 +12,24 @@ Page({
         showDialog: false,
         // showMask:true
     },
+    async _isSignUp(){
+        try {
+            const res = await isSignUp()
+            if(res){
+                showMsg('已经报名')
+            }else{
+                wx.navigateTo({
+                    url: '/pages/register/index?from=home'
+                })
+            }
+            console.log('_isSignUp' , res)
+        }catch (e) {
+            showMsg(e)
+        }
+    },
     handleRegister: function () {
         console.log('handleRegister')
-        wx.navigateTo({
-            url: '/pages/register/index?from=home'
-        })
+        this._isSignUp()
     },
     handleMyMusic: function () {
         console.log('handleMyMusic')

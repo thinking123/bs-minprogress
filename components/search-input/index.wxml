@@ -26,7 +26,7 @@
               data-item="{{item}}"
               bindtap="handleItemTap"
               wx:key="id">
-            {{item.pointName}}
+            {{item.schoolName}}
         </view>
     </scroll-view>
 </view>

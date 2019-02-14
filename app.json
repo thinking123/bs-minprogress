@@ -1,9 +1,15 @@
 {
   "pages": [
-    "pages/register/index",
     "home/index/index"
   ],
   "subpackages": [
+    {
+      "root": "pages/register",
+      "name": "register",
+      "pages": [
+        "index"
+      ]
+    },
     {
       "root": "pages/rhythm-select",
       "name": "rhythm-select",
@@ -88,5 +94,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 20000
   }
 }

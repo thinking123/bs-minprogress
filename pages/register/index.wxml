@@ -51,6 +51,7 @@
 
 
     <search-input
+            wx:if="{{!showError}}"
             id="search-input-wrap"
             bind:selected="handleSeletedSchool"
             bind:input="handleInputSchool"

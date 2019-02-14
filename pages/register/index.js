@@ -52,6 +52,22 @@ Page({
         }
 
     },
+    async _signUp(){
+      try {
+          const res = await signUp(this.data.name ,
+              this.data.phone ,
+              this.data.selectedProvince.id,
+              this.data.selectedPoint.id,
+              this.data.selectedSchool.id,
+              )
+          console.log(res)
+          wx.navigateTo({
+              url: '/pages/upload-music/index'
+          })
+      }  catch (e) {
+          showMsg(e)
+      }
+    },
     handleTouchstart(e) {
         let show = e.target.id.indexOf('search') > -1
         console.log('show ', show, e.target.id, e)
@@ -64,7 +80,7 @@ Page({
         // this.selectedSchool = item.name
 
         this.setData({
-            selectedSchool: item
+            selectedSchool: item.detail
         })
     },
     handleInputSchool(v){
@@ -137,9 +153,8 @@ Page({
 
         if (this.verifySubmit()) {
             console.log('handleSubmit ok')
-            wx.navigateTo({
-                url: '/pages/upload-music/index'
-            })
+            this._signUp()
+
         } else {
             console.log('handleSubmit error')
             this.setData({

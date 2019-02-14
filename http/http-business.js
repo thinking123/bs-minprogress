@@ -1,11 +1,12 @@
 import {get, post} from "./http";
 
 
-function parseRes(res, errMsg) {
-    if (!!res && res.status == '200' && !!res.rows) {
-        return res.rows
+function parseRes(res, errMsg, resolveStatus = []) {
+    if (!!res && res.status.indexOf('2') > -1) {
+        return res.rows ? res.rows : res
     } else {
-        throw new Error(errMsg ? errMsg : 'error')
+        const msg = res && res.message ? res.message : errMsg
+        throw new Error(msg ? msg : 'error')
     }
 }
 
@@ -25,10 +26,19 @@ export function wxLogin(code, userHead, userName, userSex) {
 
 
 //是否注册过
-export function isSingUp() {
+export function isSignUp() {
     const url = '/api/singUp/isSingUp'
     const data = {}
-    return post(url, data).then(res => parseRes(res))
+    return post(url, data).then(res => {
+        console.log('isSignUp', res)
+        if (res && res.status == '9006') {
+            return true
+        } else if (res && res.status == '9007') {
+            return false
+        } else {
+            throw new Error(res.message ? res.message : '请求失败')
+        }
+    })
 }
 
 //注册
@@ -72,7 +82,7 @@ export function getPoint(provinceId) {
 }
 
 //获取学校接口
-export function getSchool(provinceId, pointId , name) {
+export function getSchool(provinceId, pointId, name) {
 
 
     // return new Promise((res , rej) => {
@@ -85,14 +95,14 @@ export function getSchool(provinceId, pointId , name) {
     //     }
     //     res(r)
     // })
-    console.log('get school ' , provinceId, pointId , name)
+    console.log('get school ', provinceId, pointId, name)
     const url = '/api/singUp/school'
     // const loadingText = '获取学校...'
     const errMsg = '获取学校失败'
     const data = {
         provinceId: provinceId,
         pointId: pointId,
-        name:name
+        name: name
     }
     return get(url, data).then(res => parseRes(res, errMsg))
 }
@@ -100,17 +110,17 @@ export function getSchool(provinceId, pointId , name) {
 
 //发布音乐
 export function singMusic(isOriginal,
-                            musicCover,
-                            musicName,
-                            musicUrl) {
+                          musicCover,
+                          musicName,
+                          musicUrl) {
     const url = '/api/singUp/singMusic'
     const loadingText = '发布音乐...'
     const errMsg = '发布音乐失败'
     const data = {
-        isOriginal:isOriginal,
-        musicCover:musicCover,
-        musicName:musicName,
-        musicUrl:musicUrl
+        isOriginal: isOriginal,
+        musicCover: musicCover,
+        musicName: musicName,
+        musicUrl: musicUrl
     }
     return post(url, data).then(res => parseRes(res, errMsg))
 }

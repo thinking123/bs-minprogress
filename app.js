@@ -49,6 +49,6 @@ App({
         myMusicPersonality:myMusicPersonality,
         code:'',
         requestQueue:[],
-        token:mockToken
+        token:null
     }
 })

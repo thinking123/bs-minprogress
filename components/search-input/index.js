@@ -71,7 +71,7 @@ Component({
             const item = e.target.dataset.item
             // console.log('school : ', e.target.dataset.item)
             this.setData({
-                inputVal: item.name
+                inputVal: item && item.schoolName ? item.schoolName : ''
             });
 
 
@@ -86,7 +86,11 @@ Component({
             this.throttleGetData()
         },
         async getData() {
-            if (this.data.selectedPoint && this.data.selectedProvince) {
+            //输入至少四个汉字
+            const inputReg = /^[\u4e00-\u9fa5]{4,}$/
+            if (this.data.selectedPoint &&
+                this.data.selectedProvince &&
+                inputReg.test(this.data.inputVal)) {
                 this.queue.push({})
                 this.lastSearch = this.data.inputVal
                 if(!!this.cache[this.data.inputVal]){
