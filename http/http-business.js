@@ -83,18 +83,6 @@ export function getPoint(provinceId) {
 
 //获取学校接口
 export function getSchool(provinceId, pointId, name) {
-
-
-    // return new Promise((res , rej) => {
-    //     let r = []
-    //     for(let i = 0 ; i< 20 ; i++){
-    //         r.push({
-    //             id:`key${i}`,
-    //             name:`schoolName${i}`
-    //         })
-    //     }
-    //     res(r)
-    // })
     console.log('get school ', provinceId, pointId, name)
     const url = '/api/singUp/school'
     // const loadingText = '获取学校...'
@@ -121,6 +109,54 @@ export function singMusic(isOriginal,
         musicCover: musicCover,
         musicName: musicName,
         musicUrl: musicUrl
+    }
+    return post(url, data).then(res => parseRes(res, errMsg))
+}
+
+//作用: 音乐排行榜
+export function getRankingList(pageNum,
+                          provinceId,
+                          musicPlayerName = '',
+                          musicPlayerCode = '') {
+    const url = '/api/rankingList/all'
+    const loadingText = '获取音乐排行榜...'
+    const errMsg = '获取音乐排行榜失败'
+    const data = {
+        pageNum: pageNum,
+        provinceId: provinceId,
+        musicPlayerName: musicPlayerName,
+        musicPlayerCode: musicPlayerCode
+    }
+    return get(url, data).then(res => parseRes(res, errMsg))
+}
+//关注音乐
+export function followMusic(musicId) {
+    const url = '/api/rankingList/followMusic'
+    const loadingText = '关注音乐...'
+    const errMsg = '关注音乐失败'
+    const data = {
+        musicId: musicId
+    }
+    return post(url, data).then(res => parseRes(res, errMsg))
+}
+
+//取消关注音乐
+export function putfollowMusic(musicId) {
+    const url = '/api/rankingList/putfollowMusic'
+    const loadingText = '取消关注音乐...'
+    const errMsg = '取消关注音乐失败'
+    const data = {
+        musicId: musicId
+    }
+    return post(url, data).then(res => parseRes(res, errMsg))
+}
+//投票
+export function voteMusic(musicId) {
+    const url = '/api/rankingList/voteMusic'
+    const loadingText = '投票...'
+    const errMsg = '投票失败'
+    const data = {
+        musicId: musicId
     }
     return post(url, data).then(res => parseRes(res, errMsg))
 }

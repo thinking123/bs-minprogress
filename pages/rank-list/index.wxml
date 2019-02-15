@@ -4,11 +4,20 @@
     <image src="{{url}}rank-list-bg.png" class="img-title"/>
 
     <rank-card class="rank-card-silver"
-               info="{{gold}}" level="silver"/>
+               wx:if="{{silver}}"
+               bind:follow="handleCardFollow"
+               bind:vote="handleCardVote"
+               info="{{silver}}" level="silver"/>
     <rank-card class="rank-card-gold"
+               wx:if="{{gold}}"
+               bind:follow="handleCardFollow"
+               bind:vote="handleCardVote"
                info="{{gold}}" level="gold"/>
     <rank-card class="rank-card-cuprum"
-               info="{{gold}}" level="cuprum"/>
+               wx:if="{{cuprum}}"
+               bind:follow="handleCardFollow"
+               bind:vote="handleCardVote"
+               info="{{cuprum}}" level="cuprum"/>
 
 
 
@@ -24,9 +33,9 @@
               wx:for-item="city"
               class="city-list-wrap"
         >
-            <view class="city-item" data-city="{{city}}"
+            <view class="city-item {{selectedCity && selectedCity.id == city.id ? 'selected-city' : ''}}" data-city="{{city}}"
             bindtap="handleSelectCity">
-                {{city}}
+                {{city.provinceName}}
             </view>
         </view>
         <view class="city-after"
@@ -36,7 +45,10 @@
         </view>
     </view>
 
-    <scroll-view class="rank-list-other" scroll-y>
+    <scroll-view
+            bindscrolltolower="handleScrollBottom"
+            class="rank-list-other"
+            scroll-y>
         <view
                 wx:for="{{rankListOther}}"
                 wx:key="index"
@@ -46,11 +58,11 @@
             <view class="rank-num">
                 {{index + 4}}
             </view>
-            <image src="{{url}}followed.png"
+            <image src="{{rankOther.musicCover}}"
                    class="rank-header-icon  rank-btn"/>
 
             <view class="rank-name">
-                {{rankOther.name}}
+                {{rankOther.musicName}}
             </view>
             <view class="rank-region">
                 {{rankOther.region}}
@@ -59,10 +71,10 @@
                 {{rankOther.school}}
             </view>
             <view class="rank-vote">
-                {{rankOther.vote}}票
+                {{rankOther.followNum ? rankOther.followNum : 0}}票
             </view>
             <image src="{{url}}followed.png"
-                   wx:if="{{rankOther.followed}}"
+                   wx:if="{{rankOther.followState == 1}}"
                    data-rank="{{rankOther}}"
                    bindtap="handleFollowed"
                    class="rank-followed rank-btn"/>
@@ -81,10 +93,12 @@
     <view class="input-name-wrap">
         <input class=" input-name" placeholder="输入选手姓名和编号"
                placeholder-class="ph-cs-search"
-               value="{{name}}"
-               bindinput="bindNameInput"
+               value="{{searchKey}}"
+               bindinput="handleSearchKeyInput"
         />
-        <image src="{{url}}search.png" class="search-icon"/>
+        <image src="{{url}}search.png"
+               bindtap="handleSearch"
+               class="search-icon"/>
     </view>
 
 </view>

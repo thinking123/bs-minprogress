@@ -26,7 +26,7 @@
     <view class="rank-card-content-wrap">
         <view class="rank-card-content">
             <view>
-                姓名：{{info.name}}
+                姓名：{{info.musicUserName}}
             </view>
             <view>
                 学校：{{info.school}}
@@ -34,10 +34,10 @@
         </view>
         <view class="rank-card-content">
             <view>
-                主打歌：{{info.song}}
+                主打歌：{{info.musicName}}
             </view>
             <view>
-                票数：{{info.vote}}
+                票数：{{info.num ? info.num : 0}}
             </view>
         </view>
         <view class="rank-card-content">

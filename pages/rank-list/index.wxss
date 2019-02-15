@@ -95,6 +95,10 @@
 }
 .city-item{
 }
+
+.city-item.selected-city{
+    color:red;
+}
 .city-after{
     position: absolute;
     right:-30rpx;

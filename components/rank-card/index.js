@@ -10,6 +10,7 @@ Component({
     externalClasses: ['rank-card-external'],
 
     properties: {
+
         level: {
             type: String,
             value: '',
@@ -364,10 +365,10 @@ Component({
             })
         },
         handleFollow() {
-            this.triggerEvent('handleFollow')
+            this.triggerEvent('follow' , this.data.info)
         },
         handleVote() {
-            this.triggerEvent('handleVote')
+            this.triggerEvent('vote', this.data.info)
         },
         handleHide() {
             this.triggerEvent('hidetap')
