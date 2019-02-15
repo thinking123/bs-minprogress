@@ -9,12 +9,12 @@
               class="attention-item"
         >
             <view class="attention-name">
-                {{item.name}}
+                {{item.singName}}
             </view>
             <view class="attention-num">
                 {{item.num}}
             </view>
-            <view class="attention-btn-wrap">
+            <view class="attention-btn-wrap" bindtap="handlePutFollow" data-attention="{{item}}">
                 <image src="{{url}}btn.png" class="attention-btn"/>
             </view>
 

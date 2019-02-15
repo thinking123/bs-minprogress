@@ -359,7 +359,10 @@ Component({
             })
         },
         handlePlay() {
-            this.triggerEvent('handlePlay')
+            //现在不显示播放动画，点击后进入歌手home page
+            console.log('handlePlay')
+            this.triggerEvent('play' , this.data.info)
+            return
             this.setData({
                 playing: !this.data.playing
             })
@@ -369,14 +372,6 @@ Component({
         },
         handleVote() {
             this.triggerEvent('vote', this.data.info)
-        },
-        handleHide() {
-            this.triggerEvent('hidetap')
-        },
-        handleOutHide(e) {
-            if (e && e.target && e.target.id === 'mask') {
-                this.triggerEvent('hidetap')
-            }
         }
     }
 

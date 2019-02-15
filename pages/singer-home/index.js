@@ -1,3 +1,6 @@
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
+import {getUser} from "../../http/http-business";
+import {showMsg} from "../../utils/util";
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
 const page = 'singer-home/'
@@ -18,7 +21,8 @@ Page({
             '删丹丹开花dsf红艳艳',
             '删丹丹开花红ds艳艳',
             '删丹丹dsf红ds艳艳',
-        ]
+        ],
+        user:null
     },
     handlegz(){
         console.log('handlegz')
@@ -28,5 +32,21 @@ Page({
     },
     handlevote(){
         console.log('handlevote')
+    },
+    async onLoad(option) {
+        try {
+            const id = option ? option.id : ''
+
+            const user = await getUser(id)
+            this.setData({
+                user:user
+            })
+            console.log('user' , user)
+        }catch (e) {
+            showMsg(e)
+        }
+
+
+
     },
 })

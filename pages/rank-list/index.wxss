@@ -5,7 +5,7 @@
     position: relative;
     margin:0;
     padding:0;
-
+    overflow: hidden;
 }
 .img{
     height: 100%;
@@ -28,6 +28,9 @@
     height: 3.6%;
     width: 302rpx;
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .input-name{
     width: 100%;
@@ -40,24 +43,18 @@
     /*width: 302rpx;*/
     /*background-color: white;*/
 }
+
 .search-icon{
-    position: absolute;
-    /*top:89.37%;*/
-    top:50%;
-    transform: translateY(-50%);
-    left:80.79%;
-    border-radius: 10rpx;
+    /*position: absolute;*/
+    /*top:50%;*/
+    /*transform: translateY(-50%);*/
+    /*left:80.79%;*/
+    /*border-radius: 10rpx;*/
     height: 87%;
     width: 52rpx;
-    z-index: 1;
-    /*20*/
-    /*position: absolute;*/
-    /*top:89.37%;*/
-    /*left:460rpx;*/
-    /*border-radius: 10rpx;*/
-    /*height: 3.14%;*/
-    /*width: 52rpx;*/
     /*z-index: 1;*/
+    margin-right: 6rpx;
+
 }
 
 .ph-cs-search{
@@ -131,6 +128,7 @@
     align-items: center;
     background-color: #0079D8;
     margin-bottom: 10rpx;
+    position: relative;
 }
 .rank-btn{
     height: 40rpx;
@@ -139,7 +137,6 @@
 .rank-num{
     height: 28rpx;
     width: 28rpx;
-    position: absolute;
     left:12rpx;
     border:2rpx solid white;
     border-radius: 28rpx;
@@ -149,34 +146,35 @@
     align-items: center;
 }
 .rank-header-icon{
-    position: absolute;
     left:54rpx;
     width: 34rpx;
     height: 42rpx;
 }
 /*//35*/
-.rank-name{
+.rank-center{
     position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+
+}
+.rank-name{
+
     left:110rpx;
 }
 .rank-region{
-    position: absolute;
     left:190rpx;
 }
 .rank-school{
-    position: absolute;
     left:288rpx;
+    flex:2;
 }
 .rank-vote{
-    position: absolute;
-    left:384rpx;
+    left:405rpx;
 }
 .rank-followed,.rank-attention {
-    position: absolute;
     left:458rpx;
 }
 .rank-vote-btn{
-    position: absolute;
     left:534rpx;
 }
 

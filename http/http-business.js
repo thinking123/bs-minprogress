@@ -1,5 +1,5 @@
 import {get, post} from "./http";
-
+import {urlParams} from "../utils/util";
 
 function parseRes(res, errMsg, resolveStatus = []) {
     if (!!res && res.status.indexOf('2') > -1) {
@@ -127,36 +127,65 @@ export function getRankingList(pageNum,
         musicPlayerName: musicPlayerName,
         musicPlayerCode: musicPlayerCode
     }
-    return get(url, data).then(res => parseRes(res, errMsg))
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
 }
 //关注音乐
 export function followMusic(musicId) {
-    const url = '/api/rankingList/followMusic'
+    let url = '/api/rankingList/followMusic'
     const loadingText = '关注音乐...'
     const errMsg = '关注音乐失败'
-    const data = {
+    const params = {
         musicId: musicId
     }
-    return post(url, data).then(res => parseRes(res, errMsg))
+    url = urlParams(url , params)
+    return post(url, {},loadingText).then(res => parseRes(res, errMsg))
 }
 
 //取消关注音乐
 export function putfollowMusic(musicId) {
-    const url = '/api/rankingList/putfollowMusic'
+    let url = '/api/rankingList/putfollowMusic'
     const loadingText = '取消关注音乐...'
     const errMsg = '取消关注音乐失败'
-    const data = {
+    const params = {
         musicId: musicId
     }
-    return post(url, data).then(res => parseRes(res, errMsg))
+    url = urlParams(url , params)
+    return post(url, {},loadingText).then(res => parseRes(res, errMsg))
 }
 //投票
 export function voteMusic(musicId) {
-    const url = '/api/rankingList/voteMusic'
+    let url = '/api/rankingList/voteMusic'
     const loadingText = '投票...'
     const errMsg = '投票失败'
-    const data = {
+    // const header = {
+    //     "Content-Type":"application/x-www-form-urlencoded"
+    // }
+    // header["Content-Type"] = "application/json"
+
+    const params = {
         musicId: musicId
+    }
+
+    url = urlParams(url , params)
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}
+
+
+//关注列表
+export function getFollow() {
+    const url = '/api/follow/getFollow'
+    const loadingText = '获取关注列表...'
+    const errMsg = '获取关注列表失败'
+    const data = {}
+    return post(url, data).then(res => parseRes(res, errMsg))
+}
+//获取用户信息
+export function getUser(menu = '') {
+    const url = '/api/user/getUser'
+    const loadingText = '获取用户信息...'
+    const errMsg = '获取用户信息失败'
+    const data = {
+        menu:menu
     }
     return post(url, data).then(res => parseRes(res, errMsg))
 }

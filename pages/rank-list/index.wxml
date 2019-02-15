@@ -7,16 +7,19 @@
                wx:if="{{silver}}"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
+               bind:play="handleCardSingerHome"
                info="{{silver}}" level="silver"/>
     <rank-card class="rank-card-gold"
                wx:if="{{gold}}"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
+               bind:play="handleCardSingerHome"
                info="{{gold}}" level="gold"/>
     <rank-card class="rank-card-cuprum"
                wx:if="{{cuprum}}"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
+               bind:play="handleCardSingerHome"
                info="{{cuprum}}" level="cuprum"/>
 
 
@@ -55,39 +58,41 @@
                 wx:for-item="rankOther"
                 class="rank-item-other-wrap"
         >
-            <view class="rank-num">
-                {{index + 4}}
+            <view class="rank-num rank-center">
+                {{rankOther.rank}}
             </view>
             <image src="{{rankOther.musicCover}}"
-                   class="rank-header-icon  rank-btn"/>
+                   data-rank="{{rankOther}}"
+                   bindtap="handleSingerHome"
+                   class="rank-header-icon  rank-btn rank-center"/>
 
-            <view class="rank-name">
+            <view class="rank-name rank-center">
                 {{rankOther.musicName}}
             </view>
-            <view class="rank-region">
+            <view class="rank-region rank-center">
                 {{rankOther.region}}
             </view>
-            <view class="rank-school">
+            <view class="rank-school rank-center">
                 {{rankOther.school}}
             </view>
-            <view class="rank-vote">
-                {{rankOther.followNum ? rankOther.followNum : 0}}票
+            <view class="rank-vote rank-center">
+                {{rankOther.num ? rankOther.num : 0}}票
             </view>
             <image src="{{url}}followed.png"
                    wx:if="{{rankOther.followState == 1}}"
                    data-rank="{{rankOther}}"
                    bindtap="handleFollowed"
-                   class="rank-followed rank-btn"/>
+                   class="rank-followed rank-btn rank-center"/>
             <image src="{{url}}attention.png"
                    bindtap="handleNotFollowed"
                     wx:else
                    data-rank="{{rankOther}}"
-                   class="rank-attention  rank-btn"/>
+                   class="rank-attention  rank-btn rank-center"/>
 
             <image src="{{url}}vote.png"
                    data-rank="{{rankOther}}"
                    bindtap="handleVote"
-                   class="rank-vote-btn rank-btn"/>
+                   class="rank-vote-btn rank-btn rank-center"/>
         </view>
     </scroll-view>
     <view class="input-name-wrap">
@@ -99,6 +104,7 @@
         <image src="{{url}}search.png"
                bindtap="handleSearch"
                class="search-icon"/>
+
     </view>
 
 </view>

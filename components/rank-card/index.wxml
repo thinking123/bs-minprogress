@@ -4,6 +4,7 @@
 
 
     <view class="rank-card-disk"
+          bindtap="handlePlay"
           id="rank-card-disk">
         <!--<view>
 
@@ -15,7 +16,7 @@
         />
         <image src="{{headerSrc}}" class="rank-card-header"/>
         <image src="{{playStatusSrc}}"
-               bindtap="handlePlay"
+
                class="play-btn-icon"/>
         <image src="{{url}}pole.png"
                style="transform: {{poleTransform}}"

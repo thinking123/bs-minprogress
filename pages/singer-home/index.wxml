@@ -8,10 +8,10 @@
     <view class="content-wrap">
         <view class="row1 row">
             <view class="text">
-                姓名:{{name}}
+                姓名:{{user ? user.userName : ''}}
             </view>
             <view class="text">
-                学校:{{school}}
+                学校:{{user ? user.schoolName : ''}}
             </view>
         </view>
         <view class="row2 row">
@@ -44,7 +44,7 @@
         </view>
     </scroll-view>
 
-    <image src="{{url}}header.png" class="header-icon"/>
+    <image src="{{user ? user.userHead : ''}}" class="header-icon"/>
     <image src="{{url}}bg.png" class="center-icon"/>
 
 

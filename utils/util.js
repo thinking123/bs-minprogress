@@ -121,3 +121,13 @@ export function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
     }
 }
+
+export function urlParams(url , params) {
+    const p =  Object.keys(params).map(function(key) {
+        return [key, params[key]].map(encodeURIComponent).join("=");
+    }).join("&");
+    if(p.length === 0){
+        return url
+    }
+    return `${url}?${p}`
+}
