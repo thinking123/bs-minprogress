@@ -4,10 +4,12 @@
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
            value="{{name}}"
+           wx:if="{{!showDialog}}"
            bindinput="bindNameInput"
            auto-focus
     />
     <input class=" input-phone"
+           wx:if="{{!showDialog}}"
            placeholder-class="ph-cs" placeholder="电话"
            bindinput="bindPhoneInput"
            value="{{phone}}"/>

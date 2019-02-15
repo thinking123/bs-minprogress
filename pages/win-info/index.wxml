@@ -3,7 +3,7 @@
 
 
     <scroll-view class="win-list-wrap" scroll-y>
-        <view wx:for="{{achieveList}}"
+        <view wx:for="{{prizeList}}"
               wx:for-item="item"
               wx:key="index"
               class="win-item"

@@ -180,12 +180,50 @@ export function getFollow() {
     return post(url, data).then(res => parseRes(res, errMsg))
 }
 //获取用户信息
-export function getUser(menu = '') {
-    const url = '/api/user/getUser'
+export function getUser(uId = '') {
+    let url = '/api/user/getUser'
     const loadingText = '获取用户信息...'
     const errMsg = '获取用户信息失败'
-    const data = {
-        menu:menu
+    const params = {
+        uId:uId
     }
+    url = urlParams(url , params)
+    return post(url, {} , loadingText).then(res => parseRes(res, errMsg))
+}
+
+//获取我的成就
+export function getAchievement() {
+    const url = '/api/achievement/getAchievement'
+    const loadingText = '获取获取我的成就...'
+    const errMsg = '获取获取我的成就失败'
+    const data = {}
     return post(url, data).then(res => parseRes(res, errMsg))
+}
+
+//获取中奖记录
+export function getPrizeRecord() {
+    const url = '/api/prizeRecord/getPrizeRecord'
+    const loadingText = '获取中奖记录...'
+    const errMsg = '获取中奖记录失败'
+    const data = {}
+    return post(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+
+//领取奖品
+export function receivePrize(id,
+                               prizeName,
+                               prizePhone,
+                               prizeAddress) {
+    let url = '/api/prizeRecord/receivePrize'
+    const loadingText = '领取奖品...'
+    const errMsg = '领取奖品失败'
+    const params = {
+        id:id,
+        prizeName:prizeName,
+        prizePhone:prizePhone,
+        prizeAddress:prizeAddress,
+    }
+    url = urlParams(url , params)
+
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }

@@ -35,6 +35,7 @@ Page({
     },
     async onLoad(option) {
         try {
+            console.log('onload' , option)
             const id = option ? option.id : ''
 
             const user = await getUser(id)

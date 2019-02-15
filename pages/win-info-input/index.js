@@ -1,5 +1,6 @@
-// pages/win-info-input/index.js
-import {isEmpty} from "../../utils/util";
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
+import {isEmpty, showMsg} from "../../utils/util";
+import {receivePrize} from "../../http/http-business";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -7,61 +8,82 @@ const page = 'win-info-input/'
 const url = `${baseUrl}${page}`
 Page({
     data: {
-        url:url,
+        url: url,
         name: '',
         phone: '',
         address: '',
-        showDialog:false
+        showDialog: false
+    },
+    onLoad(option){
+      this.id = option.id
     },
     handleSubmit(e) {
-        if(this.verifySubmit()){
+        if (this.verifySubmit()) {
             console.log('handleSubmit ok')
             this.setData({
-                showDialog : true
+                showDialog: true
             })
-        }else{
+        } else {
             console.log('handleSubmit error')
         }
 
     },
-    verifySubmit(){
-        const pReg=/^[1][3,4,5,7,8][0-9]{9}$/;
+    async _receivePrize() {
+        try {
+            const res = await receivePrize(this.id,
+                this.data.name,
+                this.data.phone,
+                this.data.address)
+            console.log(res)
+            wx.navigateBack({
+                delta: 1
+            })
+        } catch (e) {
+            showMsg(e)
+        }
+    },
+    verifySubmit() {
+        const pReg = /^[1][3,4,5,7,8][0-9]{9}$/;
 
         return !isEmpty(this.data.name) ||
             !isEmpty(this.data.address) ||
             !pReg.test(this.data.phone)
     },
-    bindNameInput(e){
+    bindNameInput(e) {
         this.setData({
             name: e.detail.value
         })
     },
-    bindPhoneInput(e){
+    bindPhoneInput(e) {
         this.setData({
             phone: e.detail.value
         })
     },
-    addressInput(e){
+    addressInput(e) {
         this.setData({
             address: e.detail.value
         })
     },
-    confirmtap(){
+    confirmtap() {
         console.log('confirmtap')
         this.setData({
-            showDialog : false
+            showDialog: false
         })
+
+
+        this._receivePrize()
+
     },
-    retrytap(){
+    retrytap() {
         console.log('retrytap')
         this.setData({
-            showDialog : false
+            showDialog: false
         })
     },
-    hidetap(){
+    hidetap() {
         console.log('hidetap')
         this.setData({
-            showDialog : false
+            showDialog: false
         })
     }
 

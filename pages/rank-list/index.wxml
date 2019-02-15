@@ -70,7 +70,7 @@
                 {{rankOther.musicName}}
             </view>
             <view class="rank-region rank-center">
-                {{rankOther.region}}
+                {{rankOther.pointName}}
             </view>
             <view class="rank-school rank-center">
                 {{rankOther.school}}

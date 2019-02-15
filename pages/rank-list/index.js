@@ -261,12 +261,12 @@ Page({
         })
     },
     handleSingerHome(e) {
-        const id = e.target.dataset.rank.id
+        const id = e.target.dataset.rank.userId
         this.gotoSingerHome(id)
     },
     handleCardSingerHome(e) {
         console.log('handleCardSingerHome', e)
-        this.gotoSingerHome(e.detail.id)
+        this.gotoSingerHome(e.detail.userId)
     },
     gotoSingerHome(id) {
         const url = `/pages/singer-home/index?id=${id}`
