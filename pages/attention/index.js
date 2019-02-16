@@ -19,8 +19,13 @@ Page({
     },
     async handlePutFollow(e){
         try {
-            let music = e.dataset.attention
-            const res = await putfollowMusic(music.id)
+            console.log(e)
+            let music = e.target.dataset.attention
+            const res = await putfollowMusic(music.musicId)
+            const attentionList = await getFollow()
+            this.setData({
+                attentionList:attentionList
+            })
         }catch (e) {
             showMsg(e)
         }

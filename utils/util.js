@@ -22,18 +22,33 @@ export function isEmpty(str) {
     return str.length === 0
 }
 
+export function showLoading(title , mask = true) {
+    wx.showLoading({
+        title: title,
+        mask: mask
+    })
+}
+
+export function hideLoading() {
+    wx.hideLoading()
+}
+
 export function showMsg(title , showIcon = false) {
     if(!title){
         return
     }
 
     let icon = 'success'
-    let isError = title instanceof Error || typeof title !== 'string'
+    let isError = title instanceof Error ||
+        typeof title !== 'string' ||
+        //小程序 系统error
+        (title.errMsg && title.errMsg.length > 0)
 
     if (isError) {
         //本地图标
         icon = 'fail'
-        title = title.message ? title.message : Object.prototype.toString.call(title)
+        title = title.message ? title.message : title.errMsg
+        title = title ? title : 'error'
     }
 
     let options = {

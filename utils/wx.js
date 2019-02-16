@@ -33,3 +33,49 @@ export function _wxGetUserInfo() {
     })
 }
 
+
+export function join(dir , file) {
+    return `${dir}/${file}`
+}
+export function wx_isExist(fs , filedirName) {
+    return new Promise((resolve , reject) => {
+        fs.access({
+            path:filedirName,
+            success:r=>resolve(true),
+            fail:r=>resolve(false)
+        })
+    })
+}
+export function wx_mkDir(fs , dirPath , recursive = true) {
+    return new Promise((resolve , reject) => {
+        fs.mkdir({
+            dirPath:dirPath,
+            recursive:recursive,
+            success:resolve,
+            fail:reject
+        })
+    })
+}
+
+export function wx_rmdir(fs , dirPath , recursive = true) {
+    return new Promise((resolve , reject) => {
+        fs.rmdir({
+            dirPath:dirPath,
+            recursive:recursive,
+            success:resolve,
+            fail:reject
+        })
+    })
+}
+
+export function
+wx_saveFile(fs ,tempFilePath , filePath) {
+    return new Promise((resolve , reject) => {
+        fs.saveFile({
+            filePath:filePath,
+            tempFilePath:tempFilePath,
+            success:resolve,
+            fail:reject
+        })
+    })
+}

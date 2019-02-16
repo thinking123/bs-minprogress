@@ -5,7 +5,7 @@
     <scroll-view class="attention-list-wrap" scroll-y>
         <view wx:for="{{attentionList}}"
               wx:for-item="item"
-              wx:key="index"
+              wx:key="musicId"
               class="attention-item"
         >
             <view class="attention-name">
@@ -14,8 +14,8 @@
             <view class="attention-num">
                 {{item.num}}
             </view>
-            <view class="attention-btn-wrap" bindtap="handlePutFollow" data-attention="{{item}}">
-                <image src="{{url}}btn.png" class="attention-btn"/>
+            <view class="attention-btn-wrap" bindtap="handlePutFollow" >
+                <image src="{{url}}btn.png" class="attention-btn" data-attention="{{item}}"/>
             </view>
 
         </view>

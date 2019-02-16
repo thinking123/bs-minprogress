@@ -1,3 +1,8 @@
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
+import {showMsg , showLoading ,hideLoading} from "../../utils/util";
+import {saveFile} from "../../utils/file";
+import {recordDir} from "../../utils/constant";
+
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
 const baseAudioUrl = app.globalData.baseAudioUrl
@@ -92,7 +97,22 @@ Page({
             this.showModal('您还没有录音')
             return
         }
+        this._saveFile()
         console.log('handleSave')
+    },
+    async _saveFile(){
+        try {
+            showLoading('正在保存...')
+            console.log('this.data.tempFilePath' , this.data.tempFilePath)
+            const path = await saveFile(this.data.tempFilePath , recordDir)
+            this.setData({
+                tempFilePath:path
+            })
+        }catch (e) {
+            showMsg(e)
+        }finally {
+            hideLoading()
+        }
     },
     handleMusicPerson(e) {
         if (!this.isHadRecord()) {

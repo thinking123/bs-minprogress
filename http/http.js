@@ -21,7 +21,7 @@ function http(url, data, loadingText, header, method = 'GET') {
     }
 
     // Content-Type: application/json
-    // header["Content-Type"] = "application/json"
+    header["Content-Type"] = "application/json"
     const _url = `${baseUrl}${url}`
     console.log('url', _url)
     queue.push(url)

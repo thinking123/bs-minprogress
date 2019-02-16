@@ -12,11 +12,33 @@ Page({
         bsMusicEntityList:[],
         mainSong:null
     },
-    handlegz(){
-        console.log('handlegz')
+    async handlegz(){
+        try {
+            if(this.data.mainSong){
+
+                const id = this.data.mainSong.id.replace(/'/g , '')
+                console.log('mainSong' , id)
+                await this._followMusic(id)
+                await this._getUser()
+            }else{
+                showMsg('请先设置主打歌')
+            }
+        }catch (e) {
+            showMsg(e)
+        }
     },
-    handlevote(){
-        console.log('handlevote')
+    async handlevote(){
+        try {
+            if(this.data.mainSong){
+                const id = this.data.mainSong.id.replace(/'/g , '')
+                await this._voteMusic(id)
+                await this._getUser()
+            }else{
+                showMsg('请先设置主打歌')
+            }
+        }catch (e) {
+            showMsg(e)
+        }
     },
     async handleSetMainSong(e){
         try {

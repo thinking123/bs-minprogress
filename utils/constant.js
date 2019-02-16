@@ -36,3 +36,4 @@ export const mockProvinces = [
     "香港",
     "澳门"
 ]
+export const recordDir = 'rhythm-select-record-dir'
