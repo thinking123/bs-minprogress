@@ -40,3 +40,9 @@
 .search-item:nth-child(odd){
     background-color: lightgray;
 }
+.ph-cs{
+    color:#004990;
+    font-size:35rpx;
+    margin-left: 16rpx;
+    font-weight: bolder;
+}

@@ -10,34 +10,25 @@ Page({
         url:url,
         user:null,
         bsMusicEntityList:[],
-        mainSong:null
+        mainSong:null,
+        isSelf:false
     },
-    async handlegz(){
-        try {
-            if(this.data.mainSong){
+     handlegz(){
+         if(this.data.mainSong){
 
-                const id = this.data.mainSong.id.replace(/'/g , '')
-                console.log('mainSong' , id)
-                await this._followMusic(id)
-                await this._getUser()
-            }else{
-                showMsg('请先设置主打歌')
-            }
-        }catch (e) {
-            showMsg(e)
-        }
+             const id = this.data.mainSong.id.replace(/'/g , '')
+             console.log('mainSong' , id)
+             this._followMusic(id)
+         }else{
+             showMsg('请先设置主打歌')
+         }
     },
     async handlevote(){
-        try {
-            if(this.data.mainSong){
-                const id = this.data.mainSong.id.replace(/'/g , '')
-                await this._voteMusic(id)
-                await this._getUser()
-            }else{
-                showMsg('请先设置主打歌')
-            }
-        }catch (e) {
-            showMsg(e)
+        if(this.data.mainSong){
+            const id = this.data.mainSong.id.replace(/'/g , '')
+            await this._voteMusic(id)
+        }else{
+            showMsg('请先设置主打歌')
         }
     },
     async handleSetMainSong(e){
@@ -51,9 +42,9 @@ Page({
     },
     async _getUser(){
         const user = await getUser(this.id)
-        const mainSong = user.bsMusicEntityList.find(f=>{
+        const mainSong = user.bsMusicEntityList ? user.bsMusicEntityList.find(f=>{
             return f.isMain == 1
-        })
+        }) : null
         this.setData({
             user:user,
             bsMusicEntityList:user.bsMusicEntityList,
@@ -65,7 +56,10 @@ Page({
         try {
             console.log('onload' , option)
             this.id = option && option.id ? option.id : app.globalData.uId
-
+            const isSelf = this.id === app.globalData.uId
+            this.setData({
+                isSelf:isSelf
+            })
             await this._getUser()
         }catch (e) {
             showMsg(e)

@@ -15,13 +15,26 @@ Page({
     async _isSignUp(){
         try {
             const res = await isSignUp()
-            if(res){
+
+            if (res == '9006') {
                 showMsg('已经报名')
-            }else{
+            } else if (res == '9007') {
                 wx.navigateTo({
                     url: '/pages/register/index?from=home'
                 })
+            } else if (res == '9008') {
+                wx.navigateTo({
+                    url: '/pages/upload-music/index?from=home'
+                })
             }
+
+            // if(res){
+            //     showMsg('已经报名')
+            // }else{
+            //     wx.navigateTo({
+            //         url: '/pages/register/index?from=home'
+            //     })
+            // }
             console.log('_isSignUp' , res)
         }catch (e) {
             showMsg(e)
