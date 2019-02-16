@@ -9,10 +9,10 @@
               class="attention-item"
         >
             <view class="attention-name">
-                {{item.singName}}
+                {{item.musicName}}
             </view>
             <view class="attention-num">
-                {{item.num}}
+                编号：{{item.userCode}}
             </view>
             <view class="attention-btn-wrap" bindtap="handlePutFollow" >
                 <image src="{{url}}btn.png" class="attention-btn" data-attention="{{item}}"/>

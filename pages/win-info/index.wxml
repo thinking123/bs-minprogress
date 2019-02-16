@@ -9,13 +9,13 @@
               class="win-item"
         >
             <view class="win-name">
-                {{item.name}}
+                {{item.prizeName}}
             </view>
             <view class="win-time">
-                {{item.time}}
+                {{item.winTime}}
             </view>
             <view class="win-btn-wrap">
-                <image src="{{url}}got.png" class="win-btn" wx:if="{{item.hadGot}}"/>
+                <image src="{{url}}got.png" class="win-btn" wx:if="{{item.isReceive == 1}}"/>
                 <image src="{{url}}get.png" class="win-btn" wx:else bindtap="handleGetWin" data-win="{{item}}"/>
             </view>
 

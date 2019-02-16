@@ -25,6 +25,7 @@ Page({
             })
         } else {
             console.log('handleSubmit error')
+            showMsg('信息填写错误')
         }
 
     },
@@ -45,9 +46,9 @@ Page({
     verifySubmit() {
         const pReg = /^[1][3,4,5,7,8][0-9]{9}$/;
 
-        return !isEmpty(this.data.name) ||
-            !isEmpty(this.data.address) ||
-            !pReg.test(this.data.phone)
+        return !isEmpty(this.data.name) &&
+            !isEmpty(this.data.address) &&
+            pReg.test(this.data.phone)
     },
     bindNameInput(e) {
         this.setData({

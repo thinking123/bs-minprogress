@@ -113,15 +113,23 @@ Page({
     },
     handleUpload(){
         console.log('upload file')
-        if(this.data.isUploading){
-            this.uploadTask.abort()
-            this.uploadTask = null
-        }
-
-        this.setData({
-            isUploading:true,
-            progress:0
+        wx.chooseVideo({
+            success:res=>{
+                console.log('res' , res)
+            },
+            fail:err=>{
+                console.log('err' , err)
+            }
         })
+        // if(this.data.isUploading){
+        //     this.uploadTask.abort()
+        //     this.uploadTask = null
+        // }
+        //
+        // this.setData({
+        //     isUploading:true,
+        //     progress:0
+        // })
     }
 
 })

@@ -51,6 +51,7 @@ Page({
     },
     async handleGet(e){
         const item = e.target.dataset.item
+        console.log('handleGet' , item)
         if(item.canGet == 0){
             showMsg('还未完成')
         }else if(item.canGet == 1){
@@ -71,7 +72,7 @@ Page({
         const list = [...this.data.achieveList]
         //1 已经领取 0 不能领取 2 可领取
         list[0].progress = res.ycdy == 2 || res.ycdy == 1 ? '100%' : '0'
-        list[0].canGet = res.ycdy + '%'
+        list[0].canGet = res.ycdy
         list[0].type = 'ycdy'
 
         list[1].progress = res.zazsNum / 15 + '%'

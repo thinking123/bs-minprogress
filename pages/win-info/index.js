@@ -9,13 +9,7 @@ const url = `${baseUrl}${page}`
 Page({
     data: {
         url:url,
-        prizeList:[
-            {
-                name:'我为原创代言',
-                time:"2019.3.2",
-                hadGot:false
-            },
-        ]
+        prizeList:[]
     },
     handleReturn() {
         console.log('handleReturn')
@@ -34,8 +28,13 @@ Page({
     },
     async onLoad(){
         try {
-            const prizeList = await getPrizeRecord()
+            let prizeList = await getPrizeRecord()
             console.log('prizeList' , prizeList)
+            prizeList = prizeList.map(m=>{
+                const l = m.createTime.split(' ')
+                m.winTime = l[0]
+                return m
+            })
             this.setData({
                 prizeList:prizeList
             })
