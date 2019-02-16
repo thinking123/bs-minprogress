@@ -12,7 +12,9 @@
     <image src="{{url}}dropdown.png" class="drop-down-item2"/>
     <!--<image src="{{url}}dropdown.png" class="drop-down-item3"/>-->
     <input class=" input-phone"
-           placeholder-class="ph-cs" placeholder="电话"
+           placeholder-class="ph-cs"
+           type="number"
+           placeholder="电话"
            bindinput="bindPhoneInput"
            cursor-spacing="100rpx"
            value="{{phone}}"/>

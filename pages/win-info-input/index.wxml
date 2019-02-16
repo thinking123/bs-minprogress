@@ -10,7 +10,9 @@
     />
     <input class=" input-phone"
            wx:if="{{!showDialog}}"
-           placeholder-class="ph-cs" placeholder="电话"
+           placeholder-class="ph-cs"
+           type="number"
+           placeholder="电话"
            bindinput="bindPhoneInput"
            value="{{phone}}"/>
     <!--textarea为原生组件，默认覆盖着最顶层，所以弹窗的时候隐藏 -->

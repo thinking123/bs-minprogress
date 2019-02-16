@@ -102,9 +102,10 @@ Page({
             userInfo.nickName,
             userInfo.gender)
 
-        const {token} = res
+        const {token , uId} = res
         app.globalData.token = token
+        app.globalData.uId = uId
 
-        console.log('get usre info' , userInfo, token, app.globalData.code)
+        console.log('get usre info' , userInfo, token, app.globalData.code , uId)
     }
 })

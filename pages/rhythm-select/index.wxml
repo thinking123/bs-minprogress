@@ -27,8 +27,8 @@
     <view class="select-bar" style="left:{{left}}"/>
     <!-- todo 删除吉他和古筝 ， 只需要钢琴的-->
     <view class="dev dev1" bindtap="handleDev" data-dev="0"/>
-    <view class="dev dev2" bindtap="handleDev" data-dev="1"/>
-    <view class="dev dev3" bindtap="handleDev" data-dev="2"/>
+    <!--<view class="dev dev2" bindtap="handleDev" data-dev="1"/>-->
+    <!--<view class="dev dev3" bindtap="handleDev" data-dev="2"/>-->
 
 
     <image src="{{url}}music-person-btn.png"

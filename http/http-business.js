@@ -200,6 +200,18 @@ export function getAchievement() {
     return post(url, data).then(res => parseRes(res, errMsg))
 }
 
+//领取成就
+export function receiveAchievement(type) {
+    let url = '/api/achievement/receiveAchievement'
+    const loadingText = '领取成就...'
+    const errMsg = '领取成就失败'
+    const params = {
+        type:type
+    }
+    url = urlParams(url , params)
+    return post(url, {},loadingText).then(res => parseRes(res, errMsg))
+}
+
 //获取中奖记录
 export function getPrizeRecord() {
     const url = '/api/prizeRecord/getPrizeRecord'

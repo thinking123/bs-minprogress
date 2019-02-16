@@ -1,6 +1,7 @@
 <view class="container">
     <image src="{{url}}upload-music-bg.png" class="img"/>
 
+    <input type="file" />
     <div class="upload" bindtap="handleUpload">
 
     </div>

@@ -14,30 +14,33 @@
                 学校:{{user ? user.schoolName : ''}}
             </view>
         </view>
-        <view class="row2 row">
-            <view class="text">主打歌:《{{song}}》
+        <view class="row2 row" wx:if="{{!!mainSong}}">
+            <view class="text">主打歌:《{{mainSong.musicName}}》
 
             </view>
             <view class="text">
-                票数:{{vote}}
+                票数:{{mainSong.num}}
             </view>
             <view class="text">
-                区域排名:{{rank}}
+                区域排名:{{mainSong.rank}}
             </view>
         </view>
     </view>
 
 
     <scroll-view class="song-list-wrap" scroll-y>
-        <view wx:for="{{songList}}"
+        <view wx:for="{{bsMusicEntityList}}"
               wx:for-item="songItem"
-              wx:key="index"
+              wx:key="id"
               class="song-item"
         >
             <view class="song-text">
-                《{{songItem}}》
+                《{{songItem.musicName}}》
             </view>
-            <view class="song-btn-wrap">
+            <view class="song-btn-wrap"
+                  bindtap="handleSetMainSong"
+                  data-song="{{songItem}}"
+                  wx:if="{{songItem.isMain === 0}}">
                 <image src="{{url}}btn.png" class="song-btn"/>
             </view>
 
@@ -45,7 +48,7 @@
     </scroll-view>
 
     <image src="{{user ? user.userHead : ''}}" class="header-icon"/>
-    <image src="{{url}}bg.png" class="center-icon"/>
+    <image src="{{mainSong.musicCover}}" wx:if="{{!!mainSong}}" class="center-icon"/>
 
 
 

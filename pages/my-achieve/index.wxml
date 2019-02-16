@@ -23,8 +23,10 @@
                 </view>
 
             </view>
-            <view class="achieve-btn-wrap">
-                <image src="{{url}}btn.png" class="achieve-btn"/>
+            <view class="achieve-btn-wrap"
+
+                  bindtap="handleGet">
+                <image src="{{url}}btn.png" class="achieve-btn"   data-item="{{item}}"/>
             </view>
 
         </view>

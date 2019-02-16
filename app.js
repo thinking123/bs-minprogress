@@ -49,6 +49,7 @@ App({
         myMusicPersonality:myMusicPersonality,
         code:'',
         requestQueue:[],
-        token:null
+        token:null,
+        uId:null
     }
 })

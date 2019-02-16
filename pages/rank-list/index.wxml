@@ -54,7 +54,7 @@
             scroll-y>
         <view
                 wx:for="{{rankListOther}}"
-                wx:key="index"
+                wx:key="id"
                 wx:for-item="rankOther"
                 class="rank-item-other-wrap"
         >

@@ -130,6 +130,7 @@ page{
 }
 .achieve-text{
     font-size: 16rpx;
+    white-space:nowrap;
 }
 .progress-bar-wrap{
     height: 6rpx ;
