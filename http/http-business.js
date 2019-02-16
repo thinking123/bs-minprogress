@@ -191,6 +191,20 @@ export function getUser(uId = '') {
     return post(url, {} , loadingText).then(res => parseRes(res, errMsg))
 }
 
+//设置主打歌曲
+export function mainMusic(musicId = '') {
+    let url = '/api/user/mainMusic'
+    const loadingText = '设置主打歌曲...'
+    const errMsg = '设置主打歌曲失败'
+    const params = {
+        musicId:musicId
+    }
+    url = urlParams(url , params)
+    return post(url, {} , loadingText).then(res => parseRes(res, errMsg))
+}
+
+
+
 //获取我的成就
 export function getAchievement() {
     const url = '/api/achievement/getAchievement'

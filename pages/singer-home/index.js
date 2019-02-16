@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {followMusic, getUser, putfollowMusic, voteMusic} from "../../http/http-business";
+import {followMusic, getUser, putfollowMusic, voteMusic , mainMusic} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -17,6 +17,15 @@ Page({
     },
     handlevote(){
         console.log('handlevote')
+    },
+    async handleSetMainSong(e){
+        try {
+            const item = e.target.dataset.song
+            await mainMusic(item.id)
+            await this._getUser()
+        }catch (e) {
+            showMsg(e)
+        }
     },
     async _getUser(){
         const user = await getUser(this.id)

@@ -74,6 +74,7 @@ page{
 .song-item{
     display: flex;
     flex-direction: row;
+    align-items:center;
 }
 .song-text{
     width:248rpx;

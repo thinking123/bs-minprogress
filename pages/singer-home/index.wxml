@@ -39,9 +39,9 @@
             </view>
             <view class="song-btn-wrap"
                   bindtap="handleSetMainSong"
-                  data-song="{{songItem}}"
                   wx:if="{{songItem.isMain === 0}}">
-                <image src="{{url}}btn.png" class="song-btn"/>
+                <image src="{{url}}btn.png" class="song-btn"
+                       data-song="{{songItem}}"/>
             </view>
 
         </view>
