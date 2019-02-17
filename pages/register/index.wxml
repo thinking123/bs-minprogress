@@ -8,8 +8,8 @@
            bindinput="bindNameInput"
 
     />
-    <image src="{{url}}dropdown.png" class="drop-down-item1"/>
-    <image src="{{url}}dropdown.png" class="drop-down-item2"/>
+    <!--<image src="{{url}}dropdown.png" class="drop-down-item1"/>-->
+    <!--<image src="{{url}}dropdown.png" class="drop-down-item2"/>-->
     <!--<image src="{{url}}dropdown.png" class="drop-down-item3"/>-->
     <input class=" input-phone"
            placeholder-class="ph-cs"
@@ -28,6 +28,7 @@
         <view class="ph-cs picker-wrap">
             <view wx:if="{{regionIndex === -1}}">省区</view>
             <view>{{provinces[regionIndex].provinceName}}</view>
+            <image src="{{url}}dropdown.png" class="drop-down-item"/>
         </view>
     </picker>
 
@@ -40,6 +41,7 @@
         <view class="ph-cs picker-wrap">
             <view wx:if="{{gameIndex === -1}}">赛点</view>
             <view>{{games[gameIndex].pointName}}</view>
+            <image src="{{url}}dropdown.png" class="drop-down-item"/>
         </view>
     </picker>
 

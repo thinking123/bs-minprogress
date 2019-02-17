@@ -19,7 +19,17 @@
     font-weight: bolder;
 }
 .picker-wrap{
+    position: relative;
+    width: 378rpx;
+}
 
+.drop-down-item{
+    position: absolute;
+    right: 14rpx;
+    top:50%;
+    transform: translateY(-50%);
+    height: 40rpx;
+    width: 42rpx;
 }
 .input-name{
     position: absolute;
@@ -97,6 +107,7 @@
     width: 42rpx;
     z-index: 100;
 }
+
 .drop-down-item3{
     position: absolute;
     top:66.17%;
