@@ -1,0 +1,44 @@
+page{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+
+.container > video{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.cover-view{
+    position: absolute;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+    overflow: hidden;
+    top:32rpx;
+    right:32rpx;
+}
+
+
+
+.cover-view button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+button::before{
+    border: none;
+}

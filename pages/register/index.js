@@ -61,7 +61,10 @@ Page({
               this.data.selectedSchool.id,
               )
           console.log(res)
-          wx.navigateTo({
+          // wx.navigateTo({
+          //     url: '/pages/upload-music/index'
+          // })
+          wx.redirectTo({
               url: '/pages/upload-music/index'
           })
       }  catch (e) {

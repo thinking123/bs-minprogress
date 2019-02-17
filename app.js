@@ -25,17 +25,17 @@ App({
             console.log('code' , code)
             this.globalData.code = code
             // return
-            const {authSetting} = await _wxGetSetting()
-            let userInfo = null
-            if(authSetting['scope.userInfo']){
-                //授权过用户信息
-                const data = await _wxGetUserInfo()
-                userInfo = data.userInfo
-            }
-
-            if(this.globalData.getUserInfoCb){
-                this.globalData.getUserInfoCb(userInfo)
-            }
+            // const {authSetting} = await _wxGetSetting()
+            // let userInfo = null
+            // if(authSetting['scope.userInfo']){
+            //     //授权过用户信息
+            //     const data = await _wxGetUserInfo()
+            //     userInfo = data.userInfo
+            // }
+            //
+            // if(this.globalData.getUserInfoCb){
+            //     this.globalData.getUserInfoCb(userInfo)
+            // }
         }catch (e) {
             console.log('on lanuch error' , e)
             showMsg(e)

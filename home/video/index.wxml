@@ -1,0 +1,30 @@
+<view class="container">
+
+    <video
+            id="myVideo"
+            src="{{url}}video.mp4"
+
+            direction="0"
+            autoplay
+            show-progress="{{noShow}}"
+            show-fullscreen-btn="{{noShow}}"
+            show-play-btn="{{noShow}}"
+            show-center-play-btn="{{noShow}}"
+            enable-progress-gesture="{{noShow}}"
+            object-fit="fill"
+            controls="{{false}}"
+
+            bindplay="hangleStartPlay"
+            bindended="hangleEndPlay"
+            bindwaiting="hangleWaiting"
+            binderror="hangleError"
+            bindprogress="handleProgress"
+    >
+        <cover-view class="cover-view">
+            <button bindtap="handleSkip" class="skip-btn">
+                跳过
+            </button>
+        </cover-view>
+
+    </video>
+</view>

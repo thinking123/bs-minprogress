@@ -85,6 +85,7 @@ Component({
             this.triggerEvent('input', e.detail.value)
             this.throttleGetData()
         },
+
         async getData() {
             //输入至少四个汉字
             const inputReg = /^[\u4e00-\u9fa5]{4,}$/

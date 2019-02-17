@@ -1,5 +1,6 @@
 {
   "pages": [
+    "home/video/index",
     "home/index/index"
   ],
   "subpackages": [

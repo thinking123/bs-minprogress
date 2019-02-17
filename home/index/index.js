@@ -1,6 +1,7 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {wxLogin , isSignUp} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
+import {_wxGetSetting, _wxGetUserInfo} from "../../utils/wx";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -65,12 +66,46 @@ Page({
             url: '/pages/user-info/index'
         })
     },
+    async init(){
+        try{
+            wx.showLoading({
+                title: '获取用户信息',
+                mask: true
+            })
+
+            const {authSetting} = await _wxGetSetting()
+            let userInfo = null
+            if(authSetting['scope.userInfo']){
+                //授权过用户信息
+                const data = await _wxGetUserInfo()
+                userInfo = data.userInfo
+            }
+
+            await this.getUserInfoCb(userInfo)
+        }catch (e) {
+            showMsg(e)
+        }
+
+    },
     onLoad: function () {
-        wx.showLoading({
-            title: '获取用户信息',
-            mask: true
-        })
-        app.globalData.getUserInfoCb = this.getUserInfoCb
+        this.init()
+        // wx.showLoading({
+        //     title: '获取用户信息',
+        //     mask: true
+        // })
+        // app.globalData.getUserInfoCb = this.getUserInfoCb
+
+        // const {authSetting} = await _wxGetSetting()
+        // let userInfo = null
+        // if(authSetting['scope.userInfo']){
+        //     //授权过用户信息
+        //     const data = await _wxGetUserInfo()
+        //     userInfo = data.userInfo
+        // }
+
+        // if(this.globalData.getUserInfoCb){
+        //     this.globalData.getUserInfoCb(userInfo)
+        // }
     },
 
     async getUserInfoCb(userInfo) {

@@ -232,6 +232,12 @@ Page({
     handleVote(e) {
         this._voteMusic(e.target.dataset.rank.id)
     },
+    filterSpecWord(str){
+        const reg = /[^\u4e00-\u9fa50-9a-fA-F]/g
+        str = str.replace(reg , '')
+        console.log('str' , str)
+        return str
+    },
     async handleSearch(e) {
         console.log('handleSearch : ')
         const reg = /\d+/
@@ -256,8 +262,9 @@ Page({
 
     },
     handleSearchKeyInput(e) {
+        const input = this.filterSpecWord(e.detail.value)
         this.setData({
-            searchKey: e.detail.value
+            searchKey: input
         })
     },
     handleSingerHome(e) {
