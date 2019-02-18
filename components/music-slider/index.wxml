@@ -1,0 +1,17 @@
+<view class='slider slider__bg music-slider-external'
+      id="slider"
+      style="width: {{pgWidth}}rpx; height: {{pgHeight}}rpx; border-radius: {{pgRadius}}rpx;" bindtap='sliderTap'>
+
+  <view
+          id="slider-step"
+          class="slider-step-wrap"
+          style="left:{{value}};"
+          bindtouchstart='sliderStart'
+        bindtouchmove='sliderChange'
+        bindtouchend='sliderEnd'
+        bindtouchcancel='sliderCancel'>
+    <slot></slot>
+  </view>
+</view>
+
+

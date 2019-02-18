@@ -5,7 +5,8 @@ import {_wxGetSetting, _wxGetUserInfo, _wxLogin} from "./utils/wx";
 import {showMsg} from "./utils/util";
 // const baseUrl = '../../asserts/image/pages/'
 // const baseComponentUrl = '../../asserts/image/components/'
-const base = 'http://pm4uud0ld.bkt.clouddn.com/'
+const base = 'http://pn3yoa4tm.bkt.clouddn.com/'
+// const base = 'http://pm4uud0ld.bkt.clouddn.com/'
 // const base = '../../'
 const baseUrl = `${base}asserts/image/pages/`
 const baseAudioUrl = `${base}asserts/audio/`

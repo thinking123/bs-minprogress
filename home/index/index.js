@@ -48,7 +48,8 @@ Page({
     handleMyMusic: function () {
         console.log('handleMyMusic')
         wx.navigateTo({
-            url: '/pages/music-journey/index'
+            url: '/pages/music-journey/ind' +
+                'ex'
         })
     },
     handleListen: function () {

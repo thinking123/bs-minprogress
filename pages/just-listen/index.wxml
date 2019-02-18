@@ -1,0 +1,117 @@
+<view class="container">
+    <image src="{{url}}bg.png" class="img"/>
+
+    <view class="swiper-wrap"
+          bindtouchstart='handleSliderStart'
+          bindtouchend='handleSliderEnd'>
+        <image class="swiper-item center top" src="{{url}}no-screen-bg.png"/>
+        <view class="swiper-item center bottom1"/>
+        <view class="swiper-item center bottom2"/>
+    </view>
+
+    <view class="attention-wrap">
+        <view class="icon-wrap" bindtap="handleVote">
+            <image class="attention-icon" src="{{url}}heart-icon.svg"/>
+            <view>
+                {{curMusic.num}}
+            </view>
+        </view>
+        <view class="icon-wrap" bindtap="handleAttention">
+            <image class="attention-icon" src="{{url}}attention-icon.svg"/>
+            <view>
+                关注
+            </view>
+        </view>
+    </view>
+    <!--<music-slider-->
+    <!--class="music-progress"-->
+    <!--max="124"-->
+    <!--pgHeight="8"-->
+    <!--value="50%"-->
+    <!--pgWidth="358">-->
+    <!--<view class="music-site">-->
+
+    <!--</view>-->
+    <!--</music-slider>-->
+
+    <!--<music-slider-->
+    <!--music-slider-external="music-progress"-->
+    <!--max="124"-->
+    <!--pgHeight="8"-->
+    <!--value="50%"-->
+    <!--pgWidth="358">-->
+    <!--<view class="music-site">-->
+
+    <!--</view>-->
+    <!--</music-slider>-->
+    <!--<view class="music-progress">-->
+    <view class="cur-time">
+        {{curTime}}
+    </view>
+    <view class="total-time">
+        {{totalTime}}
+    </view>
+    <view class="music-progress-wrap">
+
+
+        <music-slider
+                music-slider-external="music-progress"
+                max="1"
+                pgHeight="8"
+                value="50%"
+                pgWidth="358">
+            <view class="music-site">
+
+            </view>
+        </music-slider>
+
+    </view>
+    <view class="music-info-wrap">
+        <view class="title">
+            {{curMusic.musicName}}
+        </view>
+        <view class="other-info-wrap">
+            <view>
+                演唱者：{{curMusic.musicUserName}}
+            </view>
+            <view>
+                学校：{{curMusic.school}}
+            </view>
+        </view>
+    </view>
+    <view class="control-wrap">
+        <image class="control-pre"
+               bindtap="handlePreSong"
+               src="{{url}}pre-song.png"/>
+        <image class="control-play"
+               bindtap="handlePlaySong"
+               src="{{url}}play.png"/>
+        <image class="control-next"
+               bindtap="handleNextSong"
+               src="{{url}}next-song.png"/>
+    </view>
+
+    <view class="voice-wrap">
+        <music-slider
+                music-slider-external="voice-progress"
+                max="0.95"
+                pgHeight="6"
+                value="50%"
+                pgWidth="258">
+            <view class="voice-site">
+
+            </view>
+        </music-slider>
+    </view>
+
+    <view class="btn-group">
+        <view bindtap="handleVote"
+              class="btn btn-vote"/>
+        <view bindtap="handleShare"
+              class="btn share-vote"/>
+    </view>
+
+
+
+</view>
+

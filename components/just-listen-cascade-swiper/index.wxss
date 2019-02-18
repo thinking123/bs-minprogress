@@ -1,0 +1,66 @@
+.cascade-swiper{
+    width: 414rpx;
+    height: 162rpx;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    background-color: white;
+
+}
+.cascade-swiper-mask{
+    background-color: #333333;
+    opacity: 0.5;
+    z-index: 3;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: absolute;
+}
+
+
+.card{
+    width: 164rpx;
+    height: 162rpx;
+    transition: left 1s;
+    position: absolute;
+}
+
+.left{
+
+    left:-22.22%;
+}
+
+.left-1{
+
+    left:0;
+    z-index: 1;
+}
+.left-2{
+
+    left:12.1%;
+    z-index: 2;
+}
+.center{
+
+    left:30.92%;
+    z-index: 5;
+}
+.right-2{
+
+    left:48.31%;
+    z-index: 2;
+}
+.right-1{
+
+    left:60.39%;
+    z-index: 1;
+}
+.right{
+
+    left:100%;
+}

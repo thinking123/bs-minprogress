@@ -1,0 +1,10 @@
+.slider {
+  position: relative;
+  background-color: white;
+
+}
+.slider-step-wrap{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}

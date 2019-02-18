@@ -1,0 +1,11 @@
+<view class="cascade-swiper"
+      bindtouchstart='handleTouchStart'
+      bindtouchend='handleTouchEnd'>
+   <image wx:for="{{lists}}"
+          id="item-{{index}}"
+          wx:key="image.src"
+          class="card" wx:for-item="image"
+          style="z-index:{{image.zIndex}};left:{{image.left}}"
+          src="{{image.src}}"/>
+   <view class="cascade-swiper-mask"/>
+</view>
