@@ -28,7 +28,11 @@ Component({
         },
         max: {
             type: [Number, String],
-            value: 100
+            value: 1
+        },
+        canUpdateSelf:{
+            type:Boolean,
+            value:true
         }
     },
     data: {
@@ -56,7 +60,10 @@ Component({
                 value = offset / pxW
 
                 value = value * 100 + '%'
-                this.setData({value: value})
+                if(this.data.canUpdateSelf){
+                    this.setData({value: value})
+                }
+
                 this.triggerEvent('sliderTap', value);
             }
         },
@@ -104,7 +111,10 @@ Component({
                     value = this.data.max
                 }
                 value = value * 100 + '%'
-                this.setData({value: value})
+                if(this.data.canUpdateSelf){
+                    this.setData({value: value})
+                }
+                // this.setData({value: value})
                 let detail = e.changedTouches;
                 let option = {};
                 this.triggerEvent('sliderChange', value);

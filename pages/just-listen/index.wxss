@@ -105,8 +105,8 @@ page{
     left: 184rpx;
     display: inline-block;
 
-    /*border-top:25rpx solid transparent;*/
-    /*border-bottom:25rpx solid transparent;*/
+    /*border-top:25rpx solid red;*/
+    /*border-bottom:25rpx solid red;*/
     /*box-sizing: content-box;*/
 
 
@@ -128,7 +128,7 @@ page{
     height: 26rpx;
     width: 4rpx;
     background-color: white;
-    /*border: 25rpx solid transparent;*/
+    border: 25rpx solid transparent;
     border-left: 0;
 
 

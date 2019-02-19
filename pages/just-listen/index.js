@@ -32,13 +32,17 @@ Page({
 
 
         curTime: '0',
+        curProgress:'0',
         totalTime: '0',
         startX: 0,
         endX: 0,
 
 
+        isDraging:false,
+        canDraging:true,
         isPlaying: false,
-        maxBuffer: '0'
+        maxBuffer: '0',
+        isSeeking:false
     },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
@@ -208,26 +212,32 @@ Page({
             const totalTime = secondToMinus(duration)
             this.setData({
                 isPlaying: true,
-                totalTime: totalTime
+                totalTime: totalTime,
+                canDraging:true,
+                isSeeking:false
             })
 
         })
         ctx.onPause(() => {
             console.log('onPause')
             this.setData({
-                isPlaying: false
+                isPlaying: false,
+                isSeeking:false
             })
+
         })
         ctx.onStop(() => {
             console.log('onStop')
             this.setData({
-                isPlaying: false
+                isPlaying: false,
+                isSeeking:false
             })
         })
         ctx.onEnded(() => {
             console.log('onEnded')
             this.setData({
-                isPlaying: false
+                isPlaying: false,
+                isSeeking:false
             })
         })
         ctx.onTimeUpdate(() => {
@@ -236,47 +246,130 @@ Page({
             const curTime = secondToMinus(currentTime)
             const buffered = ctx.buffered
 
-            console.log('maxBuffer', buffered)
-            const maxBuffer = buffered / ctx.duration
+
+
+
+
             const duration = Math.round(ctx.duration)
             const totalTime = secondToMinus(duration)
 
+            let curProgress = this.data.curProgress
+            if(duration > 0 && !this.data.isDraging){
+                 curProgress = (currentTime * 1.0 / duration) * 100  + '%'
+            }
 
+
+            let maxBuffer = this.data.maxBuffer
+
+            if(duration > 0){
+                maxBuffer = buffered  * 1.0 / ctx.duration
+
+                console.log('maxBuffer', maxBuffer)
+            }
+
+            if(this.data.isSeeking){
+                return
+            }
             this.setData({
                 curTime: curTime,
                 maxBuffer: maxBuffer,
-                totalTime: totalTime,
+                totalTime: totalTime
             })
+
+            if(!this.data.isDraging){
+                this.setData({
+                    curProgress:curProgress
+                })
+            }else{
+                console.log('isDragingisDragingisDraging')
+            }
         })
         ctx.onError(() => {
             console.log('onError')
             this.setData({
-                isPlaying: false
+                isPlaying: false,
+                canDraging:false,
+                isSeeking:false
             })
         })
         ctx.onWaiting(() => {
             console.log('onWaiting')
+            this.setData({
+                canDraging:false,
+                isSeeking:false
+            })
         })
         ctx.onSeeking((e) => {
             console.log('onSeeking', e)
+            // this.setData({
+            //     isSeeking:true
+            // })
         })
         ctx.onSeeked((e) => {
             console.log('onSeeked', e)
+            this.setData({
+                isSeeking:false,
+                canDraging:true,
+            })
         })
 
     },
-    handleSliderMusicProgress(e) {
+    handleSliderVoiceProgress(e) {
         let seek = e.detail
         seek = parseFloat(seek) / 100
         console.log('seek', seek)
+        this.setAudioVoice(seek)
+    },
+    setAudioVoice(seek) {
+        if (this.ctx && seek < 1 && seek > 0) {
+            console.log('setAudioVoice voice', seek)
+            this.ctx.volume = seek
+        }
+    },
+    handleStartSliderMusicProgress(e) {
+        this.setData({
+            isDraging:true
+        })
+    },
+    handleChangeSliderMusicProgress(e) {
+        let seek = e.detail
+        let seekRadio = parseFloat(seek) / 100
+        if(seekRadio > 0 && seekRadio < 1 && seekRadio < this.data.maxBuffer){
+            this.setData({
+                curProgress:seek
+            })
+        }
 
+    },
+    handleCancelSliderMusicProgress(e) {
+        this.setData({
+            isDraging:false
+        })
+    },
+    handleSliderMusicProgress(e) {
+        this.setData({
+            isDraging:false
+        })
+
+        let seek = e.detail
+        seek = parseFloat(seek) / 100
+        console.log('seek', seek)
+        this.seekAudio(seek)
     },
     seekAudio(seek) {
 
-
-        if (this.ctx && seek < 1 && seek > 0) {
+        console.log('seek', seek , this.data.canDraging)
+        if (this.ctx && seek < 1 && seek > 0 && this.data.canDraging) {
+            if(!this.data.isPlaying){
+                const curProgress = seek * 100 + '%'
+                this.setData({
+                    curProgress:curProgress
+                })
+            }
             seek = seek * this.ctx.duration
+            console.log('seek time', secondToMinus(Math.round(seek)))
             this.ctx.seek(seek)
+
         }
     },
     async init() {

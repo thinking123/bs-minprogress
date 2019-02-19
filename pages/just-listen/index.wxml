@@ -35,12 +35,16 @@
             {{totalTime}}
         </view>
         <music-slider
+                bind:sliderStart="handleStartSliderMusicProgress"
+                bind:sliderCancel="handleCancelSliderMusicProgress"
+                bind:sliderChange="handleChangeSliderMusicProgress"
                 bind:sliderEnd="handleSliderMusicProgress"
                 bind:sliderTap="handleSliderMusicProgress"
                 music-slider-external="music-progress"
-                max="1"
+                max="maxBuffer"
                 pgHeight="8"
-                value="50%"
+                value="{{curProgress}}"
+                canUpdateSelf="{{false}}"
                 pgWidth="386">
             <view class="music-site">
 
@@ -85,6 +89,9 @@
         <image class="voice-icon"
                src="{{url}}voice-icon.svg"/>
         <music-slider
+                bind:sliderEnd="handleSliderVoiceProgress"
+                bind:sliderTap="handleSliderVoiceProgress"
+                bind:sliderChange="handleSliderVoiceProgress"
                 music-slider-external="voice-progress"
                 max="0.95"
                 pgHeight="6"
