@@ -24,15 +24,15 @@
             </view>
         </view>
     </view>
-    <view class="cur-time">
-        {{curTime}}
-    </view>
-    <view class="total-time">
-        {{totalTime}}
-    </view>
+
     <view class="music-progress-wrap">
 
-
+        <view class="cur-time">
+            {{curTime}}
+        </view>
+        <view class="total-time">
+            {{totalTime}}
+        </view>
         <music-slider
                 music-slider-external="music-progress"
                 max="1"
@@ -71,6 +71,11 @@
     </view>
 
     <view class="voice-wrap">
+
+        <image class="voice-no-icon"
+               src="{{url}}voice-no-icon.svg"/>
+        <image class="voice-icon"
+               src="{{url}}voice-icon.svg"/>
         <music-slider
                 music-slider-external="voice-progress"
                 max="0.95"
