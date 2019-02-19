@@ -27,22 +27,23 @@ Page({
             voteState: 0,
             followState: 0,
         },
+        preMusic: null,
         currentNum: 1,
         isHasNext: false,
 
 
         curTime: '0',
-        curProgress:'0',
+        curProgress: '0',
         totalTime: '0',
         startX: 0,
         endX: 0,
 
 
-        isDraging:false,
-        canDraging:true,
+        isDraging: false,
+        canDraging: true,
         isPlaying: false,
         maxBuffer: '0',
-        isSeeking:false
+        isSeeking: false
     },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
@@ -79,19 +80,56 @@ Page({
     },
     async nextSong() {
         console.log('nextSong')
+        try {
+            // this.playAudio(true)
+            const oldMusic = await this._casualListen()
+            await addCasualListenHistory(oldMusic.musicId)
+            // await this._casualListenHistory()
+            // await this._casualListenHistory()
+        } catch (e) {
+            showMsg(e)
+        }
+
     },
     async preSong() {
         console.log('preSong')
-    },
-    async handlePreSong(e) {
         try {
-            this.preSong()
+            await this._casualListenHistory()
+            await this._casualListenTopFive()
+            // if (this.data.isHasNext) {
+            //     const bsCasual = await this._casualListenHistory()
+            //     if (!this.data.preMusic) {
+            //         showMsg('没有上一首歌曲了')
+            //     } else {
+            //         this.setData({
+            //             bsCasual: bsCasual
+            //         })
+            //
+            //         this.setAudioSrc(bsCasual.musicUrl)
+            //     }
+            // } else {
+            //     showMsg('没有上一首歌曲了')
+            // }
+
         } catch (e) {
             showMsg(e)
         }
     },
+    handlePreSong(e) {
+        this.preSong()
+    },
     handlePlaySong(e) {
         this.playAudio()
+    },
+    handleSingerHome(e) {
+        const id = e.target.dataset.rank.userId
+        this.gotoSingerHome(id)
+    },
+    gotoSingerHome(id) {
+        const url = `/pages/singer-home/index?id=${id}`
+        wx.navigateTo({
+            url: url
+        })
     },
     async handleNextSong(e) {
         try {
@@ -129,9 +167,12 @@ Page({
     },
     async handleCurVote(e) {
         try {
-            const curMusic = await this._voteMusic(this.data.curMusic.musicId)
+            const {id, num, followState, voteState} = await this._voteMusic(this.data.curMusic.musicId)
+            this.data.curMusic.num = num
+            this.data.curMusic.followState = followState
+            this.data.curMusic.voteState = voteState
             this.setData({
-                curMusic: curMusic,
+                curMusic: this.data.curMusic,
             })
 
         } catch (e) {
@@ -141,10 +182,25 @@ Page({
     },
     async handleCurAttention(e) {
         try {
-            const curMusic = await this._followMusic(this.data.curMusic.musicId)
-            this.setData({
-                curMusic: curMusic,
-            })
+            if (this.data.curMusic.followState == 0) {
+                const {id, num, followState, voteState} = await this._followMusic(this.data.curMusic.musicId)
+                this.data.curMusic.num = num
+                this.data.curMusic.followState = followState
+                this.data.curMusic.voteState = voteState
+                this.setData({
+                    curMusic: this.data.curMusic,
+                })
+            } else {
+                //已经关注
+                const {id, num, followState, voteState} = await this._putfollowMusic(this.data.curMusic.musicId)
+                this.data.curMusic.num = num
+                this.data.curMusic.followState = followState
+                this.data.curMusic.voteState = voteState
+                this.setData({
+                    curMusic: this.data.curMusic,
+                })
+            }
+
         } catch (e) {
             showMsg(e)
         }
@@ -152,25 +208,32 @@ Page({
     },
     async _casualListen() {
         try {
+
+            this.stopAudio()
             const {bsCasual} = await casualListen()
+            const oldMusic = this.data.curMusic
             this.setData({
                 curMusic: bsCasual
             })
 
             this.setAudioSrc(bsCasual.musicUrl)
+
+            return oldMusic
         } catch (e) {
             showMsg(e)
         }
     },
     async _casualListenHistory() {
         try {
+            this.stopAudio()
             const {bsCasual, currentNum, isHasNext, musicList} = await casualListenHistory(this.data.currentNum)
             this.setData({
                 curMusic: bsCasual,
                 currentNum: currentNum,
                 isHasNext: isHasNext,
-                rankListOther: musicList,
             })
+            this.setAudioSrc(bsCasual.musicUrl)
+            return bsCasual
         } catch (e) {
             showMsg(e)
         }
@@ -178,7 +241,18 @@ Page({
     onLoad() {
         this.init()
     },
-
+    onHide() {
+        if (this.ctx) {
+            this.ctx.pause()
+        }
+    },
+    onUnload() {
+        if (this.ctx) {
+            this.ctx.stop()
+            this.ctx.destroy()
+            this.ctx = null
+        }
+    },
     async _casualListenTopFive() {
         const list = await casualListenTopFive(this.data.curMusic.schoolId, this.data.curMusic.musicId)
         this.setData({
@@ -200,12 +274,12 @@ Page({
     setAudioSrc(src) {
         if (this.ctx) {
             this.ctx.src = src
+            this.ctx.play()
         }
-
     },
     initAudio() {
         const ctx = this.ctx = wx.createInnerAudioContext()
-        ctx.autoplay = true
+        ctx.autoplay = false
         ctx.onPlay(() => {
             console.log('开始播放')
             const duration = Math.round(ctx.duration)
@@ -213,8 +287,8 @@ Page({
             this.setData({
                 isPlaying: true,
                 totalTime: totalTime,
-                canDraging:true,
-                isSeeking:false
+                canDraging: true,
+                isSeeking: false
             })
 
         })
@@ -222,7 +296,7 @@ Page({
             console.log('onPause')
             this.setData({
                 isPlaying: false,
-                isSeeking:false
+                isSeeking: false
             })
 
         })
@@ -230,14 +304,14 @@ Page({
             console.log('onStop')
             this.setData({
                 isPlaying: false,
-                isSeeking:false
+                isSeeking: false
             })
         })
         ctx.onEnded(() => {
             console.log('onEnded')
             this.setData({
                 isPlaying: false,
-                isSeeking:false
+                isSeeking: false
             })
         })
         ctx.onTimeUpdate(() => {
@@ -247,27 +321,24 @@ Page({
             const buffered = ctx.buffered
 
 
-
-
-
             const duration = Math.round(ctx.duration)
             const totalTime = secondToMinus(duration)
 
             let curProgress = this.data.curProgress
-            if(duration > 0 && !this.data.isDraging){
-                 curProgress = (currentTime * 1.0 / duration) * 100  + '%'
+            if (duration > 0 && !this.data.isDraging) {
+                curProgress = (currentTime * 1.0 / duration) * 100 + '%'
             }
 
 
             let maxBuffer = this.data.maxBuffer
 
-            if(duration > 0){
-                maxBuffer = buffered  * 1.0 / ctx.duration
+            if (duration > 0) {
+                maxBuffer = buffered * 1.0 / ctx.duration
 
                 console.log('maxBuffer', maxBuffer)
             }
 
-            if(this.data.isSeeking){
+            if (this.data.isSeeking) {
                 return
             }
             this.setData({
@@ -276,11 +347,11 @@ Page({
                 totalTime: totalTime
             })
 
-            if(!this.data.isDraging){
+            if (!this.data.isDraging) {
                 this.setData({
-                    curProgress:curProgress
+                    curProgress: curProgress
                 })
-            }else{
+            } else {
                 console.log('isDragingisDragingisDraging')
             }
         })
@@ -288,15 +359,15 @@ Page({
             console.log('onError')
             this.setData({
                 isPlaying: false,
-                canDraging:false,
-                isSeeking:false
+                canDraging: false,
+                isSeeking: false
             })
         })
         ctx.onWaiting(() => {
             console.log('onWaiting')
             this.setData({
-                canDraging:false,
-                isSeeking:false
+                // canDraging: false,
+                isSeeking: false
             })
         })
         ctx.onSeeking((e) => {
@@ -308,8 +379,8 @@ Page({
         ctx.onSeeked((e) => {
             console.log('onSeeked', e)
             this.setData({
-                isSeeking:false,
-                canDraging:true,
+                isSeeking: false,
+                canDraging: true,
             })
         })
 
@@ -328,27 +399,27 @@ Page({
     },
     handleStartSliderMusicProgress(e) {
         this.setData({
-            isDraging:true
+            isDraging: true
         })
     },
     handleChangeSliderMusicProgress(e) {
         let seek = e.detail
         let seekRadio = parseFloat(seek) / 100
-        if(seekRadio > 0 && seekRadio < 1 && seekRadio < this.data.maxBuffer){
+        if (seekRadio > 0 && seekRadio < 1 && seekRadio < this.data.maxBuffer) {
             this.setData({
-                curProgress:seek
+                curProgress: seek
             })
         }
 
     },
     handleCancelSliderMusicProgress(e) {
         this.setData({
-            isDraging:false
+            isDraging: false
         })
     },
     handleSliderMusicProgress(e) {
         this.setData({
-            isDraging:false
+            isDraging: false
         })
 
         let seek = e.detail
@@ -358,12 +429,12 @@ Page({
     },
     seekAudio(seek) {
 
-        console.log('seek', seek , this.data.canDraging)
+        console.log('seek', seek, this.data.canDraging)
         if (this.ctx && seek < 1 && seek > 0 && this.data.canDraging) {
-            if(!this.data.isPlaying){
+            if (!this.data.isPlaying) {
                 const curProgress = seek * 100 + '%'
                 this.setData({
-                    curProgress:curProgress
+                    curProgress: curProgress
                 })
             }
             seek = seek * this.ctx.duration
@@ -377,6 +448,7 @@ Page({
             this.initAudio()
             await this._casualListen()
             await this._casualListenTopFive()
+            // await this._casualListenHistory()
         } catch (e) {
             showMsg(e)
         }
@@ -384,6 +456,11 @@ Page({
     playAudio() {
         if (this.ctx) {
             this.data.isPlaying ? this.ctx.pause() : this.ctx.play()
+        }
+    },
+    stopAudio(){
+        if (this.ctx) {
+            this.ctx.stop()
         }
     },
     onShareAppMessage(obj) {

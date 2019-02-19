@@ -65,6 +65,8 @@ page{
 }
 
 .attention-wrap{
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     top:34.18%;
     width: 382rpx;
@@ -200,6 +202,8 @@ page{
 }
 
 .music-info-wrap{
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     top:43.03%;
     display: flex;
@@ -207,9 +211,11 @@ page{
     align-items: center;
 }
 .other-info-wrap{
+
     font-size: 20rpx;
     display: flex;
     flex-direction: row;
+    white-space: nowrap;
 }
 .other-info-wrap > view{
     margin: 0 18rpx;
@@ -219,6 +225,8 @@ page{
 }
 .control-wrap{
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top:50.37%;
     height: 3.75%;
 }
@@ -240,6 +248,8 @@ page{
     width: 340rpx;
 }
 .btn-group{
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     height: 6.6%;
     top:61.02%;
