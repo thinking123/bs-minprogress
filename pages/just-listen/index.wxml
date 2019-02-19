@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="{{url}}bg.png" class="img"/>
+    <image src="{{url}}bg1.png" class="img"/>
 
     <view class="swiper-wrap"
           bindtouchstart='handleSliderStart'
@@ -11,40 +11,19 @@
 
     <view class="attention-wrap">
         <view class="icon-wrap" bindtap="handleVote">
-            <image class="attention-icon" src="{{url}}heart-icon.svg"/>
+            <image class="attention-icon"
+                   src="{{url}}heart-icon{{curMusic.voteState == 0 ? '' :'-active'}}.svg"/>
             <view>
                 {{curMusic.num}}
             </view>
         </view>
         <view class="icon-wrap" bindtap="handleAttention">
-            <image class="attention-icon" src="{{url}}attention-icon.svg"/>
+            <image class="attention-icon" src="{{url}}attention-icon{{curMusic.followState == 0 ? '' :'-active'}}.svg"/>
             <view>
                 关注
             </view>
         </view>
     </view>
-    <!--<music-slider-->
-    <!--class="music-progress"-->
-    <!--max="124"-->
-    <!--pgHeight="8"-->
-    <!--value="50%"-->
-    <!--pgWidth="358">-->
-    <!--<view class="music-site">-->
-
-    <!--</view>-->
-    <!--</music-slider>-->
-
-    <!--<music-slider-->
-    <!--music-slider-external="music-progress"-->
-    <!--max="124"-->
-    <!--pgHeight="8"-->
-    <!--value="50%"-->
-    <!--pgWidth="358">-->
-    <!--<view class="music-site">-->
-
-    <!--</view>-->
-    <!--</music-slider>-->
-    <!--<view class="music-progress">-->
     <view class="cur-time">
         {{curTime}}
     </view>
@@ -105,11 +84,63 @@
     </view>
 
     <view class="btn-group">
-        <view bindtap="handleVote"
+        <image bindtap="handleVote"
+               src="{{url}}vote-btn.png"
               class="btn btn-vote"/>
-        <view bindtap="handleShare"
+        <!--<image bindtap="handleVote"-->
+               <!--src="{{url}}voted-btn.png"-->
+               <!--class="btn btn-vote"/>-->
+        <image bindtap="handleShare"
+               src="{{url}}share-btn.png"
               class="btn share-vote"/>
     </view>
+    <scroll-view
+            class="rank-list-other"
+            scroll-y>
+        <view
+                wx:for="{{rankListOther}}"
+                wx:key="id"
+                wx:for-item="rankOther"
+                class="rank-item-other-wrap"
+        >
+            <view class="rank-num rank-center">
+                {{rankOther.rank}}
+            </view>
+            <image src="{{rankOther.musicCover}}"
+                   data-rank="{{rankOther}}"
+                   bindtap="handleSingerHome"
+                   class="rank-header-icon  rank-btn rank-center"/>
+
+            <view class="rank-name rank-center">
+                {{rankOther.musicName}}
+            </view>
+            <view class="rank-region rank-center">
+                {{rankOther.pointName}}
+            </view>
+            <view class="rank-school rank-center">
+                {{rankOther.school}}
+            </view>
+            <view class="rank-vote rank-center">
+                {{rankOther.num ? rankOther.num : 0}}票
+            </view>
+            <image src="{{url}}followed.png"
+                   wx:if="{{rankOther.followState == 1}}"
+                   data-rank="{{rankOther}}"
+                   bindtap="handleFollowed"
+                   class="rank-followed rank-btn rank-center"/>
+            <image src="{{url}}attention.png"
+                   bindtap="handleNotFollowed"
+                   wx:else
+                   data-rank="{{rankOther}}"
+                   class="rank-attention  rank-btn rank-center"/>
+
+            <image src="{{url}}vote.png"
+                   data-rank="{{rankOther}}"
+                   bindtap="handleVote"
+                   class="rank-vote-btn rank-btn rank-center"/>
+        </view>
+    </scroll-view>
+
 
 
 

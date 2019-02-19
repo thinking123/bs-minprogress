@@ -48,12 +48,14 @@ Page({
     handleMyMusic: function () {
         console.log('handleMyMusic')
         wx.navigateTo({
-            url: '/pages/music-journey/ind' +
-                'ex'
+            url: '/pages/music-journey/index'
         })
     },
     handleListen: function () {
         console.log('handleListen')
+        wx.navigateTo({
+            url: '/pages/just-listen/index'
+        })
     },
     handleRankList: function () {
         console.log('handleRankList')

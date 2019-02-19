@@ -255,3 +255,39 @@ export function receivePrize(id,
 
     return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }
+
+
+
+//随便听听
+export function casualListen(showLoading = false) {
+    const url = '/api/casuallisten/all'
+    const loadingText = showLoading ? '获取音乐排行榜...' : null
+    const errMsg = '获取音乐排行榜失败'
+    const data = {
+    }
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+
+//随便听听历史记录
+export function casualListenHistory(currentNum) {
+    const url = '/api/casuallisten/history'
+    const loadingText = '获取随便听听历史记录...'
+    const errMsg = '获取随便听听历史记录失败'
+    const data = {
+        currentNum:currentNum
+    }
+
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+//新增随便听听历史记录
+export function addCasualListenHistory(musicId) {
+    let url = '/api/casuallisten/history'
+    const loadingText = '新增随便听听历史记录...'
+    const errMsg = '新增随便听听历史记录失败'
+    const params = {
+        musicId:musicId
+    }
+    url = urlParams(url , params)
+
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}

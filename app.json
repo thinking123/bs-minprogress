@@ -1,5 +1,6 @@
 {
   "pages": [
+
     "pages/just-listen/index",
     "home/video/index",
     "home/index/index"
@@ -94,7 +95,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "百事校园最强音",
     "navigationBarTextStyle": "black"
   },
   "networkTimeout": {

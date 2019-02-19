@@ -22,56 +22,56 @@ page{
 
 .swiper-wrap{
     position: absolute;
-    top:16.49%;
-    height: 31.78%;
+    top:11.99%;
+    height: 21.14%;
     width: 100%;
 }
 
 .swiper-item{
     position: absolute;
 
-    width:356rpx;
+
 }
 /*
-212px
-191
-164
+141px
+130
+115
 */
 .swiper-item.center{
     left:50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,0);
 
 }
 .swiper-item.top{
     z-index: 3;
     height: 100%;
+    width:380rpx;
 }
 .swiper-item.bottom1{
     background-color: white;
     opacity: 0.5;
-    width: 428rpx;
+    width: 470rpx;
     z-index: 2;
-    height: 90.1%;
+    height: 92.2%;
 
 }
 
 .swiper-item.bottom2{
     background-color: white;
     opacity: 0.3;
-    width: 498rpx;
+    width: 558rpx;
     z-index: 1;
-    height: 77.36%;
+    height: 81.56%;
 }
 
 .attention-wrap{
     position: absolute;
-    top:49.78%;
-    width: 356rpx;
+    top:34.18%;
+    width: 382rpx;
     height: 2.55%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     color: white;
     font-size: 28rpx;
 }
@@ -90,19 +90,27 @@ page{
 
 .music-progress-wrap{
     position: absolute;
-    top:54.12%;
+    top:37.18%;
 
     width: 100%;
+}
+.music-slider-com{
+    top:0;
 }
 .music-progress-wrap > view{
     display: inline-block;
 }
 .music-progress {
-    top:54.12%;
+    top:0;
     left: 188rpx;
     display: inline-block;
+
     /*border-top:25rpx solid transparent;*/
     /*border-bottom:25rpx solid transparent;*/
+    /*box-sizing: content-box;*/
+
+
+    /*box-shadow: 0 0 0 16rpx rgba(79,194,233,0.15);*/
 }
 
 .music-site{
@@ -115,7 +123,7 @@ page{
 
 .voice-wrap{
     position: absolute;
-    top:71.51%;
+    top:55%;
 
     width: 100%;
 }
@@ -150,7 +158,7 @@ page{
 }
 
 .voice-progress{
-    top:54.12%;
+    top:53.12%;
     left: 252rpx;
     display: inline-block;
     /*border-top:15rpx solid yellow;*/
@@ -164,19 +172,19 @@ page{
 }
 .cur-time{
     position: absolute;
-    top:55.12%;
+    top:39.18%;
     left: 145rpx;
     font-size: 18rpx;
 }
 .total-time{
     position: absolute;
-    top:55.12%;
+    top:39.18%;
     left: 560rpx;
     font-size: 18rpx;
 }
 .music-info-wrap{
     position: absolute;
-    top:57.57%;
+    top:43.03%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -194,7 +202,7 @@ page{
 }
 .control-wrap{
     position: absolute;
-    top:64.67%;
+    top:50.37%;
     height: 3.75%;
 }
 .control-wrap > image{
@@ -217,7 +225,7 @@ page{
 .btn-group{
     position: absolute;
     height: 6.6%;
-    top:76.31%;
+    top:61.02%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -228,7 +236,86 @@ page{
     width: 266rpx;
     height: 100%;
     /*background-color: yellow;*/
-    border: 1px solid yellow;
-    margin: 0 10rpx;
+    /*border: 1px solid yellow;*/
+    margin: 0 5rpx;
 
+}
+
+
+.rank-list-other{
+    position: absolute;
+    top:79.31%;
+    left:70rpx;
+    /*height: 190px;*/
+    height: 10.19%;
+    width: 612rpx;
+
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    font-size: 18rpx;
+    color:white;
+}
+.rank-item-other-wrap{
+    /*height: 23px;*/
+    /*height: 12.11%;*/
+    height: 46rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0079D8;
+    margin-bottom: 10rpx;
+    position:
+
+            relative;
+}
+.rank-btn{
+    height: 40rpx;
+    width: 64rpx;
+}
+.rank-num{
+    height: 28rpx;
+    width: 28rpx;
+    left:12rpx;
+    border:2rpx solid white;
+    border-radius: 28rpx;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rank-header-icon{
+    left:54rpx;
+    width: 34rpx;
+    height: 42rpx;
+}
+/*//35*/
+.rank-center{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+
+}
+.rank-name{
+
+    left:110rpx;
+}
+.rank-region{
+    left:190rpx;
+}
+.rank-school{
+    left:288rpx;
+    flex:2;
+}
+.rank-vote{
+    left:405rpx;
+}
+.rank-followed,.rank-attention {
+    left:458rpx;
+}
+.rank-vote-btn{
+    left:534rpx;
 }

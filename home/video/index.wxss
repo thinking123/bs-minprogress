@@ -37,6 +37,16 @@ page{
     justify-content: center;
     align-items: center;
     font-size: 28rpx;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+}
+
+.wx-button-cover-view-wrapper,wx-button-cover-view-inner{
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+
 }
 
 button::before{

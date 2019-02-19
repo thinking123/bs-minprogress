@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {getFollow , putfollowMusic} from "../../http/http-business";
+import {getFollow , putfollowMusic , casualListen} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()
@@ -15,6 +15,8 @@ Page({
             musicName:'斯蒂芬斯蒂芬',
             musicUserName:'士大夫',
             school:'北京大学',
+            voteState:0,
+            followState:0,
         },
         curTime:'1:09',
         totalTime:'2:04',
@@ -88,12 +90,19 @@ Page({
     },
     async handleVote(e){
         try {
+            console.log('handleVote')
+            this.setData({
+                'curMusic.voteState':1
+            })
         }catch (e) {
             showMsg(e)
         }
     },
     async handleAttention(e){
         try {
+            this.setData({
+                'curMusic.followState':1
+            })
         }catch (e) {
             showMsg(e)
         }
