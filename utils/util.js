@@ -22,7 +22,7 @@ export function isEmpty(str) {
     return str.length === 0
 }
 
-export function showLoading(title , mask = true) {
+export function showLoading(title, mask = true) {
     wx.showLoading({
         title: title,
         mask: mask
@@ -33,8 +33,8 @@ export function hideLoading() {
     wx.hideLoading()
 }
 
-export function showMsg(title , showIcon = false) {
-    if(!title){
+export function showMsg(title, showIcon = false) {
+    if (!title) {
         return
     }
 
@@ -52,14 +52,14 @@ export function showMsg(title , showIcon = false) {
     }
 
     let options = {
-        title:title,
-        mask:true
+        title: title,
+        mask: true
     }
 
-    options = Object.assign(options , {icon : showIcon ? icon : 'none'})
+    options = Object.assign(options, {icon: showIcon ? icon : 'none'})
     wx.showToast(options)
 
-    console.log(title , icon , isError)
+    console.log(title, icon, isError)
 }
 
 export function throttle(func, wait, options) {
@@ -67,13 +67,13 @@ export function throttle(func, wait, options) {
     let timeout = null;
     let previous = 0;
     if (!options) options = {};
-    let later = function() {
+    let later = function () {
         previous = options.leading === false ? 0 : Date.now();
         timeout = null;
         result = func.apply(context, args);
         if (!timeout) context = args = null;
     };
-    return function() {
+    return function () {
         let now = Date.now();
         if (!previous && options.leading === false) previous = now;
         let remaining = wait - (now - previous);
@@ -101,7 +101,7 @@ export function debounce(func, wait, immediate) {
     var timeout;
 
     // Calling debounce returns a new anonymous function
-    return function() {
+    return function () {
         // reference the context and args for the setTimeout function
         var context = this,
             args = arguments;
@@ -117,7 +117,7 @@ export function debounce(func, wait, immediate) {
         clearTimeout(timeout);
 
         // Set the new timeout
-        timeout = setTimeout(function() {
+        timeout = setTimeout(function () {
 
             // Inside the timeout function, clear the timeout variable
             // which will let the next execution run when in 'immediate' mode
@@ -137,12 +137,16 @@ export function debounce(func, wait, immediate) {
     }
 }
 
-export function urlParams(url , params) {
-    const p =  Object.keys(params).map(function(key) {
+export function urlParams(url, params) {
+    const p = Object.keys(params).map(function (key) {
         return [key, params[key]].map(encodeURIComponent).join("=");
     }).join("&");
-    if(p.length === 0){
+    if (p.length === 0) {
         return url
     }
     return `${url}?${p}`
+}
+
+export function secondToMinus(s) {
+    return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s
 }

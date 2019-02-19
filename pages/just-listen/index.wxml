@@ -4,20 +4,21 @@
     <view class="swiper-wrap"
           bindtouchstart='handleSliderStart'
           bindtouchend='handleSliderEnd'>
-        <image class="swiper-item center top" src="{{url}}no-screen-bg.png"/>
+        <image wx:if="curMusic.musicCover" class="swiper-item center top" src="{{curMusic.musicCover}}"/>
+        <image wx:else class="swiper-item center top" src="{{url}}no-screen-bg.png"/>
         <view class="swiper-item center bottom1"/>
         <view class="swiper-item center bottom2"/>
     </view>
 
     <view class="attention-wrap">
-        <view class="icon-wrap" bindtap="handleVote">
+        <view class="icon-wrap" bindtap="handleCurVote">
             <image class="attention-icon"
                    src="{{url}}heart-icon{{curMusic.voteState == 0 ? '' :'-active'}}.svg"/>
             <view>
                 {{curMusic.num}}
             </view>
         </view>
-        <view class="icon-wrap" bindtap="handleAttention">
+        <view class="icon-wrap" bindtap="handleCurAttention">
             <image class="attention-icon" src="{{url}}attention-icon{{curMusic.followState == 0 ? '' :'-active'}}.svg"/>
             <view>
                 关注
@@ -34,11 +35,13 @@
             {{totalTime}}
         </view>
         <music-slider
+                bind:sliderEnd="handleSliderMusicProgress"
+                bind:sliderTap="handleSliderMusicProgress"
                 music-slider-external="music-progress"
                 max="1"
                 pgHeight="8"
                 value="50%"
-                pgWidth="358">
+                pgWidth="386">
             <view class="music-site">
 
             </view>
@@ -47,7 +50,7 @@
     </view>
     <view class="music-info-wrap">
         <view class="title">
-            {{curMusic.musicName}}
+            《{{curMusic.musicName}}》
         </view>
         <view class="other-info-wrap">
             <view>
@@ -64,6 +67,11 @@
                src="{{url}}pre-song.png"/>
         <image class="control-play"
                bindtap="handlePlaySong"
+               wx:if="{{isPlaying}}"
+               src="{{url}}playing.png"/>
+        <image class="control-play"
+               bindtap="handlePlaySong"
+               wx:else
                src="{{url}}play.png"/>
         <image class="control-next"
                bindtap="handleNextSong"
@@ -89,15 +97,22 @@
     </view>
 
     <view class="btn-group">
-        <image bindtap="handleVote"
+        <image bindtap="handleCurVote"
+               wx:if="curMusic.voteState == 0"
                src="{{url}}vote-btn.png"
+              class="btn btn-vote"/>
+        <image bindtap="handleCurVote"
+               wx:else
+               src="{{url}}voted-btn.png"
               class="btn btn-vote"/>
         <!--<image bindtap="handleVote"-->
                <!--src="{{url}}voted-btn.png"-->
                <!--class="btn btn-vote"/>-->
-        <image bindtap="handleShare"
-               src="{{url}}share-btn.png"
-              class="btn share-vote"/>
+        <view  class="btn share-vote">
+            <button open-type="share" />
+            <image src="{{url}}share-btn.png"/>
+        </view>
+
     </view>
     <scroll-view
             class="rank-list-other"
@@ -139,7 +154,12 @@
                    data-rank="{{rankOther}}"
                    class="rank-attention  rank-btn rank-center"/>
 
+            <image src="{{url}}voted.png"
+                   wx:if="{{rankOther.voteState == 1}}"
+                   data-rank="{{rankOther}}"
+                   class="rank-vote-btn rank-btn rank-center"/>
             <image src="{{url}}vote.png"
+                   wx:else
                    data-rank="{{rankOther}}"
                    bindtap="handleVote"
                    class="rank-vote-btn rank-btn rank-center"/>

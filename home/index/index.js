@@ -158,5 +158,10 @@ Page({
         app.globalData.uId = uId
 
         console.log('get usre info' , userInfo, token, app.globalData.code , uId)
+
+
+        wx.navigateTo({
+            url: '/pages/just-listen/index'
+        })
     }
 })

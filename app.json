@@ -1,8 +1,9 @@
 {
   "pages": [
 
-    "pages/just-listen/index",
+
     "home/video/index",
+    "pages/just-listen/index",
     "home/index/index"
   ],
   "subpackages": [

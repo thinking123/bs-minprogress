@@ -102,7 +102,7 @@ page{
 }
 .music-progress {
     top:0;
-    left: 188rpx;
+    left: 184rpx;
     display: inline-block;
 
     /*border-top:25rpx solid transparent;*/
@@ -120,7 +120,7 @@ page{
 }
 .total-time{
     position: absolute;
-    left: 560rpx;
+    left: 572rpx;
     top:0;
     font-size: 18rpx;
 }
@@ -257,7 +257,24 @@ page{
     margin: 0 5rpx;
 
 }
-
+.btn.share-vote{
+    position: relative;
+}
+.btn.share-vote button{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+.btn.share-vote button::before{
+    border: none;
+}
+.btn.share-vote image{
+    width: 100%;
+    height: 100%;
+}
 
 .rank-list-other{
     position: absolute;

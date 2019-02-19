@@ -261,9 +261,21 @@ export function receivePrize(id,
 //随便听听
 export function casualListen(showLoading = false) {
     const url = '/api/casuallisten/all'
-    const loadingText = showLoading ? '获取音乐排行榜...' : null
+    const loadingText = showLoading ? '获取歌曲...' : null
+    const errMsg = '获取歌曲失败'
+    const data = {
+    }
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+
+//随便听听音乐排行榜 前五
+export function casualListenTopFive(schoolId , musicId) {
+    const url = '/api/casuallisten/topFive'
+    const loadingText = '获取音乐排行榜...'
     const errMsg = '获取音乐排行榜失败'
     const data = {
+        schoolId:schoolId,
+        musicId:musicId
     }
     return get(url, data,loadingText).then(res => parseRes(res, errMsg))
 }
