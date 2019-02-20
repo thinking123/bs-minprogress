@@ -160,13 +160,13 @@ Page({
         if(!prize.prizeImage){
             this.setData({
                 showLotteryDialog: false,
-                showNoLotteryDialog: true,
-                lotteryInfo:prize
+                showNoLotteryDialog: true
             })
         }else{
             this.setData({
                 showLotteryDialog: false,
                 showHadLotteryDialog: true,
+                lotteryInfo:prize
             })
         }
     },

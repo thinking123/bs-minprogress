@@ -18,7 +18,7 @@ Component({
         prizeTitle(){
             console.log('prizeTitle')
             if(this.data.lotteryInfo && this.data.lotteryInfo.prizeTitle){
-                const ls = this.data.lotteryInfo.prizeTitle.split('\n')
+                const ls = this.data.lotteryInfo.prizeTitle.split('\\n')
                 return ls
             }else{
                 return []

@@ -26,20 +26,27 @@
     <!--<image src="{{url}}down-icon.png"-->
            <!--class="icon icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>-->
     <image src="{{url}}down-icon.png"
-           class="icon icon1 down-icon-taped {{icon1Taped ? 'down-icon-taped' : ''}}"/>
+           style="animation-name:{{icon1Taped ? 'taped1' : ''}}"
+           class="icon icon1 "/>
     <image src="{{url}}down-icon.png"
-           class="icon icon2 {{icon2Taped ? 'down-icon-taped' : ''}}"/>
+           style="animation-name:{{icon2Taped ? 'taped2' : ''}}"
+           class="icon icon2 "/>
     <image src="{{url}}down-icon.png"
-           class="icon icon3 {{icon3Taped ? 'down-icon-taped' : ''}}"/>
+           style="animation-name:{{icon3Taped ? 'taped3' : ''}}"
+           class="icon icon3 "/>
     <image src="{{url}}down-icon.png"
-           class="icon icon4 {{icon4Taped ? 'down-icon-taped' : ''}}"/>
+           style="animation-name:{{icon4Taped ? 'taped4' : ''}}"
+           class="icon icon4 {"/>
     <image src="{{url}}down-icon.png"
-           class="icon icon5 {{icon5Taped ? 'down-icon-taped' : ''}}"/>
+           style="animation-name:{{icon5Taped ? 'taped5' : ''}}"
+           class="icon icon5 "/>
 
     <image src="{{url}}up-icon.png"
-           class="icon icon6 {{icon6Taped ? 'up-icon-taped' : ''}}"/>
+           style="animation-name:{{icon6Taped ? 'taped6' : ''}}"
+           class="icon icon6 "/>
     <image src="{{url}}up-icon.png"
-           class="icon icon7 {{icon7Taped ? 'up-icon-taped' : ''}}"/>
+           style="animation-name:{{icon7Taped ? 'taped7' : ''}}"
+           class="icon icon7 "/>
 
     <!--<view class="select-bar" style="left:{{left}}"/>-->
     <!-- todo 删除吉他和古筝 ， 只需要钢琴的-->

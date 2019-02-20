@@ -34,7 +34,10 @@ top:442
     position: absolute;
     height: 4.2%;
     width: 20rpx;
-    transition: all 1s ease-in;
+
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+    animation-duration: 0.25s;
 }
 .icon1{
     top:66.27%;
@@ -65,14 +68,64 @@ top:442
     left:500rpx;
 }
 .down-icon-taped{
-    animation: taped 0.3s ease-in  alternate;
+    /*animation: taped 0.3s ease-in  alternate;*/
+    /*animation-name: taped1;*/
+
 }
-@keyframes taped {
+@keyframes taped1 {
     0%{
         top:66.27%;
     }
     100%{
         top:65.27%;
+    }
+}
+@keyframes taped2 {
+    0%{
+        top:65.82%;
+    }
+    100%{
+        top:64.82%;
+    }
+}
+@keyframes taped3 {
+    0%{
+        top:65.37%;
+    }
+    100%{
+        top:64.37%;
+    }
+}
+@keyframes taped4 {
+    0%{
+        top:64.92%;
+    }
+    100%{
+        top:63.92%;
+    }
+}
+@keyframes taped5 {
+    0%{
+        top:64.67%;
+    }
+    100%{
+        top:63.67%;
+    }
+}
+@keyframes taped6 {
+    0%{
+        top:65.82%;
+    }
+    100%{
+        top:66.82%;
+    }
+}
+@keyframes taped7 {
+    0%{
+        top:65.37%;
+    }
+    100%{
+        top:66.37%;
     }
 }
 .yp-wrap.music{
@@ -171,7 +224,7 @@ top:442
     position: absolute;
     /*height: 7.2%;*/
     /*width: 336rpx;*/
-    top:62.52%;
+    top:57.87%;
     left:306rpx;
 }
 

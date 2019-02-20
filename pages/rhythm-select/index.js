@@ -35,7 +35,14 @@ Page({
         remainTime: recordMaxTime,
         //是否点击了音乐按钮
         isPressMusicBtn: false,
-        tempFilePath: null
+        tempFilePath: null,
+        icon1Taped:false,
+        icon2Taped:false,
+        icon3Taped:false,
+        icon4Taped:false,
+        icon5Taped:false,
+        icon6Taped:false,
+        icon7Taped:false,
     },
     handleDev(e) {
         const data = e.target.dataset.dev
@@ -139,8 +146,97 @@ Page({
             url: url
         })
     },
+    setTaped(key){
+
+    },
     handleTouching(e) {
         const key = e.detail
+        switch (key) {
+            case 'do':
+                this.setData({
+                    icon1Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon1Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 're':
+                this.setData({
+                    icon2Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon2Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 'mi':
+                this.setData({
+                    icon3Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon3Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 'fa':
+                this.setData({
+                    icon4Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon4Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 'sol':
+                this.setData({
+                    icon5Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon5Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 'la':
+                this.setData({
+                    icon6Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon6Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+            case 'xi':
+                this.setData({
+                    icon7Taped: true
+                })
+                this.time = setTimeout(()=>{
+                    this.setData({
+                        icon7Taped: false
+                    })
+                    clearTimeout(this.time)
+                } , 250)
+
+                break
+        }
         this.playMusic(key)
     },
     startPlayRecord(){
