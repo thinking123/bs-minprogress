@@ -39,7 +39,7 @@
             </view>
             <view class="song-btn-wrap"
                   bindtap="handleSetMainSong"
-                  wx:if="{{songItem.isMain === 0}}">
+                  wx:if="{{songItem.isMain === 0 && isSelf}}">
                 <image src="{{url}}btn.png" class="song-btn"
                        data-song="{{songItem}}"/>
             </view>
@@ -53,9 +53,18 @@
 
 
     <image bindtap="handlegz"
-           src="{{url}}attention.png"
+           wx:if="{{!isSelf}}"
+           src="{{url}}attention{{mainSong.followState == 0 ? '' : 'ed'}}-btn.png"
            class="gz"/>
-    <view bindtap="handlevote" class="vote"/>
+    <image bindtap="handlevote"
+           wx:if="{{!isSelf}}"
+           src="{{url}}vote{{mainSong.voteState == 0 ? '' : 'd'}}-btn.png"
+           class="vote"/>
+
+    <image bindtap="handleUpload"
+           wx:if="{{isSelf}}"
+           src="{{url}}upload-btn.png"
+           class="upload"/>
 
 
 </view>

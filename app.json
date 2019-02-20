@@ -1,13 +1,21 @@
 {
   "pages": [
-    "pages/rhythm-select/index",
     "home/video/index",
+
+    "pages/rank-list/index",
     "home/index/index"
   ],
   "subpackages": [
     {
       "root": "pages/register",
       "name": "register",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/rhythm-select",
+      "name": "rhythm-select",
       "pages": [
         "index"
       ]
@@ -43,13 +51,6 @@
     {
       "root": "pages/win-info",
       "name": "win-info",
-      "pages": [
-        "index"
-      ]
-    },
-    {
-      "root": "pages/rank-list",
-      "name": "rank-list",
       "pages": [
         "index"
       ]

@@ -16,7 +16,7 @@
     position: absolute;
     top:12.28%;
     left:74rpx;
-    height: 18.11%;
+    height: 15.29%;
     width: 604rpx;
 }
 
@@ -63,10 +63,25 @@
     margin-left: 16rpx;
     font-weight: bolder;
 }
-
+.zone-list{
+    position: absolute;
+    top:31.63%;
+    display: flex;
+    flex-direction: row;
+    color:white;
+    font-size:26rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.zone-list > view:nth-child(2){
+    margin: 0 35rpx;
+}
+.zone-list > view.selected{
+    color: red;
+}
 .city-list{
     position: absolute;
-    top:31.93%;
+    top:28.63%;
     left:140rpx;
     border-radius: 10rpx;
     height: 2.4%;

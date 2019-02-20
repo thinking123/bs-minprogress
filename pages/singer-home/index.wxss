@@ -105,3 +105,11 @@ page{
     width: 226rpx;
 }
 
+.upload{
+    position: absolute;
+    top:86.21%;
+    height: 4.65%;
+    width: 226rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}

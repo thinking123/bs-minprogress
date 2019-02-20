@@ -1,0 +1,6 @@
+<view class="singer-home-no-music-dialog" wx:if="{{visible}}">
+    <image
+            src="{{url}}singer-home-no-music-dialog-bg.png"
+           class="singer-home-no-music-dialog-bg"/>
+    <view class="singer-home-no-music-dialog-btn" bindtap="handleHide"/>
+</view>

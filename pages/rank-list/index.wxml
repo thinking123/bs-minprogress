@@ -1,7 +1,7 @@
 <view class="container">
-    <image src="{{url}}rank-list-bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
-    <image src="{{url}}rank-list-bg.png" class="img-title"/>
+    <image src="{{selectedCity.imgUrl}}" wx:if="{{selectedCity}}" class="img-title"/>
 
     <rank-card class="rank-card-silver"
                wx:if="{{silver}}"
@@ -48,6 +48,23 @@
         </view>
     </view>
 
+    <view class="zone-list">
+        <view data-zone='hx'
+              class="{{selectedZone == 'hx' ? 'selected' : ''}}"
+              bindtap="handleSelectZone">
+            海选赛区
+        </view>
+        <view data-zone='cs'
+              class="{{selectedZone == 'cs' ? 'selected' : ''}}"
+              bindtap="handleSelectZone">
+            城市赛
+        </view>
+        <view data-zone='sq'
+              class="{{selectedZone == 'sq' ? 'selected' : ''}}"
+              bindtap="handleSelectZone">
+            省区赛
+        </view>
+    </view>
     <scroll-view
             bindscrolltolower="handleScrollBottom"
             class="rank-list-other"

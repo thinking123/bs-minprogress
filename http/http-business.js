@@ -118,6 +118,7 @@ export function singMusic(isOriginal,
 //作用: 音乐排行榜
 export function getRankingList(pageNum,
                           provinceId,
+                               zone,
                           musicPlayerName = '',
                           musicPlayerCode = '') {
     const url = '/api/rankingList/all'
@@ -126,6 +127,7 @@ export function getRankingList(pageNum,
     const data = {
         pageNum: pageNum,
         provinceId: provinceId,
+        zone:zone,
         musicPlayerName: musicPlayerName,
         musicPlayerCode: musicPlayerCode
     }

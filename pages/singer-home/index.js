@@ -3,8 +3,9 @@ import {followMusic, getUser, putfollowMusic, voteMusic , mainMusic} from "../..
 import {showMsg} from "../../utils/util";
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'singer-home/'
-const url = `${baseUrl}${page}`
+const base = app.globalData.base
+const page = 'singer-home-'
+const url = `${base}${page}`
 Page({
     data: {
         url:url,
@@ -14,22 +15,19 @@ Page({
         isSelf:false
     },
      handlegz(){
-         if(this.data.mainSong){
-
-             const id = this.data.mainSong.id.replace(/'/g , '')
-             console.log('mainSong' , id)
-             this._followMusic(id)
-         }else{
-             showMsg('请先设置主打歌')
-         }
+        if(!this.data.mainSong){
+            showMsg('没有主打歌')
+        }
+         const id = this.data.mainSong.id.replace(/'/g , '')
+         console.log('mainSong' , id)
+         this.data.mainSong.followState == 0 ? this._followMusic(id) : this._putfollowMusic(id)
     },
     async handlevote(){
-        if(this.data.mainSong){
-            const id = this.data.mainSong.id.replace(/'/g , '')
-            await this._voteMusic(id)
-        }else{
-            showMsg('请先设置主打歌')
+        if(!this.data.mainSong){
+            showMsg('没有主打歌')
         }
+        const id = this.data.mainSong.id.replace(/'/g , '')
+        await this._voteMusic(id)
     },
     async handleSetMainSong(e){
         try {
@@ -74,6 +72,15 @@ Page({
             showMsg(e)
         }
     },
+    async _putfollowMusic(musicId) {
+        try {
+            const res = await putfollowMusic(musicId)
+            await this._getUser()
+            console.log('_putfollowMusic', res)
+        } catch (e) {
+            showMsg(e)
+        }
+    },
     async _voteMusic(musicId) {
         try {
             const res = await voteMusic(musicId)
@@ -83,4 +90,7 @@ Page({
             showMsg(e)
         }
     },
+    handleUpload(){
+        console.log('handleUpload')
+    }
 })

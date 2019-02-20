@@ -8,7 +8,13 @@ const url = `${baseUrl}${page}`
 Page({
     data: {
         url:url,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        showNoMusicDialog:false
+    },
+    handleHideNoMusicDialog(){
+      this.setData({
+          showNoMusicDialog:false
+      })
     },
     async _isSignUp(){
         try {
@@ -19,7 +25,10 @@ Page({
                     url:'/pages/singer-home/index'
                 })
             } else{
-                showMsg('请先注册')
+                // showMsg('请先注册')
+                this.setData({
+                    showNoMusicDialog:true
+                })
             }
 
             // if(res){

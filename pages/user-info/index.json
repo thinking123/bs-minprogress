@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "singer-home-no-music-dialog":"../../components/singer-home-no-music-dialog/index"
+  }
 }

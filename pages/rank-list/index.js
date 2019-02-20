@@ -4,8 +4,9 @@ import {showMsg} from "../../utils/util";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'rank-list/'
-const url = `${baseUrl}${page}`
+const base = app.globalData.base
+const page = 'rank-list-'
+const url = `${base}${page}`
 Page({
     data: {
         url: url,
@@ -25,8 +26,8 @@ Page({
         pages: 0,
         isLoading: false,
         searchKey: '',
-        hadSearched:false
-
+        hadSearched:false,
+        selectedZone:'sq'
     },
     handleCardFollow(e) {
         this._followMusic(e.detail.id)
@@ -142,8 +143,20 @@ Page({
             console.log('no selected city')
             return
         }
-        let rankListOther = [] , all = [] , rankListTopThree = []
-        let {musicList, pageUtil} = await getRankingList(this.data.pageNum, this.data.selectedCity.id, musicPlayerName, musicPlayerCode)
+        let rankListOther = [] , all = [] , rankListTopThree = [] , zone = 1
+
+        switch (this.data.selectedZone) {
+            case 'hx':
+                zone = 1;
+                break
+            case 'cs':
+                zone = 2;
+                break
+            case 'sq':
+                zone = 3;
+                break
+        }
+        let {musicList, pageUtil} = await getRankingList(this.data.pageNum, this.data.selectedCity.id, zone,musicPlayerName, musicPlayerCode)
         if(musicPlayerName.length !== 0 || musicPlayerCode.length !== 0){
             //search from input ，前三名还是显示原来的
             musicList = musicList.filter(f=>{
@@ -204,6 +217,22 @@ Page({
             })
         }
         console.log('handleBackCity')
+    },
+    async handleSelectZone(e){
+        const zone = e.target.dataset.zone
+        this.setData({
+            selectedZone:zone,
+            hadSearched: false,
+            searchKey: '',
+            pageNum:1,
+            pages:0,
+            total:0,
+        })
+        try {
+            await this._getRankingList()
+        } catch (e) {
+            showMsg(e)
+        }
     },
     async handleSelectCity(e) {
         console.log('handleSelectCity : ', e.target.dataset.city)

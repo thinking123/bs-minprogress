@@ -15,4 +15,7 @@
     <view class="review-info" bindtap="handleReviewInfo">
         审核信息
     </view>
+    <singer-home-no-music-dialog
+            bind:hidetap="handleHideNoMusicDialog"
+            visible="{{showNoMusicDialog}}"/>
 </view>
