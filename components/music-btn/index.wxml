@@ -1,6 +1,5 @@
 <view class="music-btn music-btn-external"
       bindtouchstart="touchstart"
-      bindtouchend="touchend"
-      style="background-image: url('{{url}}btn-wrap.png'">
+      bindtouchend="touchend">
     {{text}}
 </view>

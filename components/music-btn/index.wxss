@@ -4,8 +4,8 @@
     /*height: 7.8%;*/
     width: 96rpx;
     /*background-image: url("./btn-wrap.png");*/
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
     display: flex;
     justify-content: center;
     align-items: center;

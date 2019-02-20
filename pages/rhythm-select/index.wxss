@@ -16,7 +16,59 @@
     width: 100%;
 }
 
+.yp-wrap{
+    position: absolute;
+    top:63.87%;
+    left:50%;
+    transform: translateX(-50%);
+    height: 6.75%;
+    width: 418rpx;
+}
+/*
+H :90 rpx
+iconH:56 rpx
 
+top:442
+*/
+.icon{
+    position: absolute;
+    height: 4.2%;
+    width: 20rpx;
+
+}
+.icon1{
+    top:66.27%;
+    left:260rpx;
+}
+.icon2{
+    top:65.82%;
+    left:300rpx;
+}
+.icon3{
+    top:65.37%;
+    left:340rpx;
+}
+.icon4{
+    top:64.92%;
+    left:380rpx;
+}
+.icon5{
+    top:64.67%;
+    left:420rpx;
+}
+.icon6{
+    top:65.82%;
+    left:460rpx;
+}
+.icon7{
+    top:65.37%;
+    left:500rpx;
+}
+.yp-wrap.music{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
 
 .btn-middle{
     position: absolute;
@@ -25,7 +77,7 @@
 }
 
 .record-btn{
-    top:60.87%;
+    top:57.87%;
     left:50%;
     transform: translateX(-50%);
 }
@@ -115,7 +167,7 @@
 .music-btn{
     /*z-index: 100;*/
     /*position: absolute;*/
-    height: 7.8%;
+    /*height: 7.8%;*/
     width: 96rpx;
 
     /*background-size: 100% 100%;*/
@@ -129,21 +181,30 @@
 }
 
 .row1{
-    top:44.08%;
+    top:40.33%;
 }
 .row2{
-    top:52.62%;
+    top:48.87%;
 }
-.music-btn1 , .music-btn5{
+.music-btn1 {
     left:160rpx;
 }
+.music-btn5{
+    left:216rpx;
+}
 
-.music-btn2,.music-btn6{
+.music-btn2{
     left:270rpx;
 }
-.music-btn3,.music-btn7{
+.music-btn6{
+    left:324rpx;
+}
+.music-btn3{
     left:380rpx;
 }
+.music-btn7{
+     left:436rpx;
+ }
 .music-btn4,.music-btn8{
     left:490rpx;
 }

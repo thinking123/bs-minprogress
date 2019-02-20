@@ -21,25 +21,23 @@
 
 
 
-    <view class="yp-wrap">
-        <image src="{{url}}yp.png"
-               class="music"/>
-        <image src="{{url}}down-icon.png"
-               class="icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>
-        <image src="{{url}}down-icon.png"
-               class="icon2 {{icon2Taped ? 'down-icon-taped' : ''}}"/>
-        <image src="{{url}}down-icon.png"
-               class="icon3 {{icon3Taped ? 'down-icon-taped' : ''}}"/>
-        <image src="{{url}}down-icon.png"
-               class="icon4 {{icon4Taped ? 'down-icon-taped' : ''}}"/>
-        <image src="{{url}}down-icon.png"
-               class="icon5 {{icon5Taped ? 'down-icon-taped' : ''}}"/>
+    <image src="{{url}}yp.png"
+           class="yp-wrap"/>
+    <image src="{{url}}down-icon.png"
+           class="icon icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>
+    <image src="{{url}}down-icon.png"
+           class="icon icon2 {{icon2Taped ? 'down-icon-taped' : ''}}"/>
+    <image src="{{url}}down-icon.png"
+           class="icon icon3 {{icon3Taped ? 'down-icon-taped' : ''}}"/>
+    <image src="{{url}}down-icon.png"
+           class="icon icon4 {{icon4Taped ? 'down-icon-taped' : ''}}"/>
+    <image src="{{url}}down-icon.png"
+           class="icon icon5 {{icon5Taped ? 'down-icon-taped' : ''}}"/>
 
-        <image src="{{url}}up-icon.png"
-               class="icon6 {{icon6Taped ? 'up-icon-taped' : ''}}"/>
-        <image src="{{url}}up-icon.png"
-               class="icon7 {{icon7Taped ? 'up-icon-taped' : ''}}"/>
-    </view>
+    <image src="{{url}}up-icon.png"
+           class="icon icon6 {{icon6Taped ? 'up-icon-taped' : ''}}"/>
+    <image src="{{url}}up-icon.png"
+           class="icon icon7 {{icon7Taped ? 'up-icon-taped' : ''}}"/>
 
     <!--<view class="select-bar" style="left:{{left}}"/>-->
     <!-- todo 删除吉他和古筝 ， 只需要钢琴的-->
