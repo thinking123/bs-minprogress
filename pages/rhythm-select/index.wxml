@@ -1,7 +1,7 @@
 <view class="container">
     <image src="{{url}}bg.png" class="img"/>
 
-    <image src="{{url}}record-btn.png"
+    <image src="{{url}}start-record-btn.png"
            class="record-btn btn-middle"
            bindtap="handleRecord"/>
 
@@ -20,18 +20,35 @@
            bindtap="handleSave"/>
 
 
-    <image src="{{url}}music.png"
-           class="music"/>
 
+    <view class="yp-wrap">
+        <image src="{{url}}yp.png"
+               class="music"/>
+        <image src="{{url}}down-icon.png"
+               class="icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>
+        <image src="{{url}}down-icon.png"
+               class="icon2 {{icon2Taped ? 'down-icon-taped' : ''}}"/>
+        <image src="{{url}}down-icon.png"
+               class="icon3 {{icon3Taped ? 'down-icon-taped' : ''}}"/>
+        <image src="{{url}}down-icon.png"
+               class="icon4 {{icon4Taped ? 'down-icon-taped' : ''}}"/>
+        <image src="{{url}}down-icon.png"
+               class="icon5 {{icon5Taped ? 'down-icon-taped' : ''}}"/>
 
-    <view class="select-bar" style="left:{{left}}"/>
+        <image src="{{url}}up-icon.png"
+               class="icon6 {{icon6Taped ? 'up-icon-taped' : ''}}"/>
+        <image src="{{url}}up-icon.png"
+               class="icon7 {{icon7Taped ? 'up-icon-taped' : ''}}"/>
+    </view>
+
+    <!--<view class="select-bar" style="left:{{left}}"/>-->
     <!-- todo 删除吉他和古筝 ， 只需要钢琴的-->
-    <view class="dev dev1" bindtap="handleDev" data-dev="0"/>
+    <!--<view class="dev dev1" bindtap="handleDev" data-dev="0"/>-->
     <!--<view class="dev dev2" bindtap="handleDev" data-dev="1"/>-->
     <!--<view class="dev dev3" bindtap="handleDev" data-dev="2"/>-->
 
 
-    <image src="{{url}}music-person-btn.png"
+    <image src="{{url}}to-share-btn.png"
            class="music-person-btn"
            bindtap="handleMusicPerson"/>
 
@@ -49,5 +66,5 @@
     <music-btn music-btn-external="music-btn row2 music-btn5" text="Sol" bind:touching="handleTouching" key="sol"/>
     <music-btn music-btn-external="music-btn row2 music-btn6" text="La" bind:touching="handleTouching" key="la"/>
     <music-btn music-btn-external="music-btn row2 music-btn7" text="Xi" bind:touching="handleTouching" key="xi"/>
-    <music-btn music-btn-external="music-btn row2 music-btn8" text="Do" bind:touching="handleTouching" key="duo"/>
+    <!--<music-btn music-btn-external="music-btn row2 music-btn8" text="Do" bind:touching="handleTouching" key="duo"/>-->
 </view>

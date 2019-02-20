@@ -16,9 +16,16 @@ Component({
             type: Boolean,
             value: false,
             observer(v) {
-                if(v){
+                if(!v){
                     this.setData({
                         lotterying: false
+                    })
+                }else{
+                    prizeImg().then(prizeImgs => {
+                        console.log('lotteryInfo' , prizeImgs)
+                        this.setData({
+                            prizeImgs: prizeImgs
+                        })
                     })
                 }
             }
@@ -28,7 +35,8 @@ Component({
     },
     data: {
         url: base,
-        lotterying: false
+        lotterying: false,
+        prizeImgs:[]
     },
     methods: {
         handleHide() {

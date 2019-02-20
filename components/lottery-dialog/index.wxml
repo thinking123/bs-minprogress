@@ -8,19 +8,25 @@
     <view class="icon-wrap">
         <view class="row1">
             <image class="icon"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 0"
+                   src="{{prizeImgs[0].prizeImage}}"/>
             <image class="icon icon-center"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 1"
+                   src="{{prizeImgs[1].prizeImage}}"/>
             <image class="icon"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 2"
+                   src="{{prizeImgs[2].prizeImage}}"/>
         </view>
         <view class="row2">
             <image class="icon"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 3"
+                   src="{{prizeImgs[3].prizeImage}}"/>
             <image class="icon icon-center"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 4"
+                   src="{{prizeImgs[4].prizeImage}}"/>
             <image class="icon"
-                   src="{{url}}lottery-dialog-icon.png"/>
+                   wx:if="prizeImgs && prizeImgs.length > 5"
+                   src="{{prizeImgs[5].prizeImage}}"/>
         </view>
     </view>
     <image class="box {{lotterying ? 'box-lotterying' : ''}}"

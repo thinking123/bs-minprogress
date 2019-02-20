@@ -5,9 +5,10 @@ import {recordDir} from "../../utils/constant";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
+const base = app.globalData.base
 const baseAudioUrl = app.globalData.baseAudioUrl
-const page = 'rhythm-select/'
-const url = `${baseUrl}${page}`
+const page = 'rhythm-select-'
+const url = `${base}${page}`
 // const url = './'
 const recordMaxTime = 10
 const options = {

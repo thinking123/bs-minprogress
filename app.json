@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/rhythm-select/index",
     "home/video/index",
     "home/index/index"
   ],
@@ -21,13 +22,6 @@
     {
       "root": "pages/just-listen",
       "name": "just-listen",
-      "pages": [
-        "index"
-      ]
-    },
-    {
-      "root": "pages/rhythm-select",
-      "name": "rhythm-select",
       "pages": [
         "index"
       ]

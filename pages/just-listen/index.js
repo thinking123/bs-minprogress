@@ -8,8 +8,7 @@ import {
     casualListenTopFive,
     casualListenHistory,
     addCasualListenHistory,
-    isYesPrize,
-    prizeImg
+    isYesPrize
 } from "../../http/http-business";
 import {showMsg, secondToMinus} from "../../utils/util";
 
@@ -156,8 +155,9 @@ Page({
     },
     handleLottery(e){
         const prize = e.detail
+        console.log('prize' , prize)
         //prizeImage 为空就是没有奖品
-        if(prize.prizeImage){
+        if(!prize.prizeImage){
             this.setData({
                 showLotteryDialog: false,
                 showNoLotteryDialog: true,
