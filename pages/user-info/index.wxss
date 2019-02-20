@@ -46,12 +46,19 @@ page{
 .attention-list{
     position: absolute;
     top:71.06%;
-    left:392rpx;
+    left:50%;
+    transform: translateX(-50%);
     height: 3.75%;
     width: 182rpx;
 }
 
-
+.review-info{
+    position: absolute;
+    top:78.06%;
+    left:392rpx;
+    height: 3.75%;
+    width: 182rpx;
+}
 
 .user-avatar{
     position: absolute;

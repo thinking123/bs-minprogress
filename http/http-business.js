@@ -281,12 +281,12 @@ export function casualListenTopFive(schoolId , musicId) {
 }
 
 //随便听听历史记录
-export function casualListenHistory(currentNum) {
+export function casualListenHistory(musicId) {
     const url = '/api/casuallisten/history'
     const loadingText = '获取随便听听历史记录...'
     const errMsg = '获取随便听听历史记录失败'
     const data = {
-        currentNum:currentNum
+        musicId:musicId
     }
 
     return get(url, data,loadingText).then(res => parseRes(res, errMsg))

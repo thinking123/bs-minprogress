@@ -28,7 +28,7 @@ Page({
             followState: 0,
         },
         preMusic: null,
-        currentNum: 1,
+        currentNum: 0,
         isHasNext: false,
 
 
@@ -69,12 +69,12 @@ Page({
         //loop
         if (moveX > 30) {
             // this.moveRight();
+            this.preSong()
 
-            this.nextSong()
         }
         if (moveX < -30) {
             // this.moveLeft();
-            this.preSong()
+            this.nextSong()
         }
 
     },
@@ -94,8 +94,11 @@ Page({
     async preSong() {
         console.log('preSong')
         try {
-            await this._casualListenHistory()
-            await this._casualListenTopFive()
+            const isHasNext = await this._casualListenHistory()
+            if(isHasNext){
+                await this._casualListenTopFive()
+            }
+
             // if (this.data.isHasNext) {
             //     const bsCasual = await this._casualListenHistory()
             //     if (!this.data.preMusic) {
@@ -225,15 +228,24 @@ Page({
     },
     async _casualListenHistory() {
         try {
-            this.stopAudio()
-            const {bsCasual, currentNum, isHasNext, musicList} = await casualListenHistory(this.data.currentNum)
-            this.setData({
-                curMusic: bsCasual,
-                currentNum: currentNum,
-                isHasNext: isHasNext,
-            })
-            this.setAudioSrc(bsCasual.musicUrl)
-            return bsCasual
+
+            //第一次的时候不传id
+            const  musicId = this.data.preMusic ? this.data.curMusic.musicId : ''
+            const {bsCasual, currentNum, isHasNext, musicList} = await casualListenHistory(musicId)
+
+            if(isHasNext){
+                this.stopAudio()
+                this.setData({
+                    curMusic: bsCasual,
+                    preMusic:bsCasual
+                })
+                this.setAudioSrc(bsCasual.musicUrl)
+            }else{
+                showMsg('没有上一首歌曲了')
+            }
+
+            return isHasNext
+            // return bsCasual
         } catch (e) {
             showMsg(e)
         }
@@ -280,6 +292,7 @@ Page({
     initAudio() {
         const ctx = this.ctx = wx.createInnerAudioContext()
         ctx.autoplay = false
+        ctx.obeyMuteSwitch = true
         ctx.onPlay(() => {
             console.log('开始播放')
             const duration = Math.round(ctx.duration)
@@ -299,6 +312,7 @@ Page({
                 isSeeking: false
             })
 
+
         })
         ctx.onStop(() => {
             console.log('onStop')
@@ -313,6 +327,7 @@ Page({
                 isPlaying: false,
                 isSeeking: false
             })
+            this.nextSong()
         })
         ctx.onTimeUpdate(() => {
             console.log('onTimeUpdate')

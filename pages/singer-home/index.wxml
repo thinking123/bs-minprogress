@@ -52,7 +52,9 @@
 
 
 
-    <view bindtap="handlegz" class="gz"/>
+    <image bindtap="handlegz"
+           src="{{url}}attention.png"
+           class="gz"/>
     <view bindtap="handlevote" class="vote"/>
 
 

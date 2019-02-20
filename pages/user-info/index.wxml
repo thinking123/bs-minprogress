@@ -12,4 +12,7 @@
     <view class="my-achieve" bindtap="handleMyAchieve"/>
     <view class="win-info" bindtap="handleWinInfo"/>
     <view class="attention-list" bindtap="handleAttentionList"/>
+    <view class="review-info" bindtap="handleReviewInfo">
+        审核信息
+    </view>
 </view>
