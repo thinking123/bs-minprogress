@@ -34,7 +34,7 @@ top:442
     position: absolute;
     height: 4.2%;
     width: 20rpx;
-
+    transition: all 1s ease-in;
 }
 .icon1{
     top:66.27%;
@@ -63,6 +63,17 @@ top:442
 .icon7{
     top:65.37%;
     left:500rpx;
+}
+.down-icon-taped{
+    animation: taped 0.3s ease-in  alternate;
+}
+@keyframes taped {
+    0%{
+        top:66.27%;
+    }
+    100%{
+        top:65.27%;
+    }
 }
 .yp-wrap.music{
     position: relative;

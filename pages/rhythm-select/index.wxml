@@ -23,8 +23,10 @@
 
     <image src="{{url}}yp.png"
            class="yp-wrap"/>
+    <!--<image src="{{url}}down-icon.png"-->
+           <!--class="icon icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>-->
     <image src="{{url}}down-icon.png"
-           class="icon icon1 {{icon1Taped ? 'down-icon-taped' : ''}}"/>
+           class="icon icon1 down-icon-taped {{icon1Taped ? 'down-icon-taped' : ''}}"/>
     <image src="{{url}}down-icon.png"
            class="icon icon2 {{icon2Taped ? 'down-icon-taped' : ''}}"/>
     <image src="{{url}}down-icon.png"
