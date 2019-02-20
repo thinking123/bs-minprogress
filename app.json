@@ -1,15 +1,26 @@
 {
   "pages": [
-
-    "pages/rhythm-share/index",
     "home/video/index",
-    "pages/just-listen/index",
     "home/index/index"
   ],
   "subpackages": [
     {
       "root": "pages/register",
       "name": "register",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/rhythm-share",
+      "name": "rhythm-share",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/just-listen",
+      "name": "just-listen",
       "pages": [
         "index"
       ]
@@ -28,7 +39,6 @@
         "index"
       ]
     },
-
     {
       "root": "pages/win-info-input",
       "name": "win-info-input",

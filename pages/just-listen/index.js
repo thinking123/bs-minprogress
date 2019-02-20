@@ -27,9 +27,9 @@ Page({
             voteState: 0,
             followState: 0,
         },
-        preMusic: null,
+        preMusicId: null,
         currentNum: 0,
-        isHasNext: false,
+        isHasNext: 1,
 
 
         curTime: '0',
@@ -43,7 +43,10 @@ Page({
         canDraging: true,
         isPlaying: false,
         maxBuffer: '0',
-        isSeeking: false
+        isSeeking: false,
+
+        showLotteryDialog:false,
+        curMusicHadLottery:false
     },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
@@ -95,13 +98,13 @@ Page({
         console.log('preSong')
         try {
             const isHasNext = await this._casualListenHistory()
-            if(isHasNext){
+            if(isHasNext == 1){
                 await this._casualListenTopFive()
             }
 
             // if (this.data.isHasNext) {
             //     const bsCasual = await this._casualListenHistory()
-            //     if (!this.data.preMusic) {
+            //     if (!this.data.preMusicId) {
             //         showMsg('没有上一首歌曲了')
             //     } else {
             //         this.setData({
@@ -123,6 +126,13 @@ Page({
     },
     handlePlaySong(e) {
         this.playAudio()
+    },
+    async lottery(){
+        try {
+
+        }catch (e) {
+            showMsg(e)
+        }
     },
     handleSingerHome(e) {
         const id = e.target.dataset.rank.userId
@@ -216,7 +226,8 @@ Page({
             const {bsCasual} = await casualListen()
             const oldMusic = this.data.curMusic
             this.setData({
-                curMusic: bsCasual
+                curMusic: bsCasual,
+                isHasNext:1
             })
 
             this.setAudioSrc(bsCasual.musicUrl)
@@ -229,22 +240,23 @@ Page({
     async _casualListenHistory() {
         try {
 
-            //第一次的时候不传id
-            const  musicId = this.data.preMusic ? this.data.curMusic.musicId : ''
-            const {bsCasual, currentNum, isHasNext, musicList} = await casualListenHistory(musicId)
+            if(this.data.isHasNext == 1){
+                //第一次的时候不传id
+                const  musicId = this.data.preMusicId ? this.data.preMusicId : ''
+                const {bsCasual, isHasNext , preMusicId} = await casualListenHistory(musicId)
 
-            if(isHasNext){
                 this.stopAudio()
                 this.setData({
                     curMusic: bsCasual,
-                    preMusic:bsCasual
+                    preMusicId:preMusicId,
+                    isHasNext:isHasNext
                 })
                 this.setAudioSrc(bsCasual.musicUrl)
             }else{
                 showMsg('没有上一首歌曲了')
             }
 
-            return isHasNext
+            return this.data.isHasNext
             // return bsCasual
         } catch (e) {
             showMsg(e)
@@ -355,6 +367,9 @@ Page({
 
             if (this.data.isSeeking) {
                 return
+            }
+            if(currentTime > 20 && this.data.curMusicHadLottery){
+                this.lottery()
             }
             this.setData({
                 curTime: curTime,
