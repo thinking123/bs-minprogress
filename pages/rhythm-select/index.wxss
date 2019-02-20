@@ -147,7 +147,8 @@ top:442
 }
 .stop-btn{
     top:75.26%;
-    left:174rpx;
+    left:50%;
+    transform: translateX(-50%);
 }
 .save-btn{
     top:75.26%;

@@ -74,13 +74,23 @@ Page({
     handleRecord(e) {
         if (this.data.isRecording) {
             this.recorderManager.stop()
+
+            // this.stopRecord()
         } else {
             //IOS 开始录音的时候不能为静音模式
             //或者开启 播放录音的:obeyMuteSwitch
             this.recorderManager.start(options)
+
+
+            // this.startRecord()
         }
     },
     handlePlay(e) {
+        // this.setData({
+        //     isPlaying: true
+        // })
+        this.startPlayRecord()
+        // return
         if (!this.isHadRecord()) {
             this.showModal('您还没有录音')
             return
@@ -158,6 +168,8 @@ Page({
                 key:key,
                 time:(this.getTime() - this.startTime)
             })
+
+            console.log('lenght' , this.timeline.length)
         }
         switch (key) {
             case 'do':
@@ -248,20 +260,23 @@ Page({
         this.playMusic(key)
     },
     startPlayRecord(){
-        this.setData({
-            isPlaying: true
-        })
+        // this.setData({
+        //     isPlaying: true
+        // })
         this.startTime = this.getTime()
         this.cloneTimeline = [...this.timeline]
         this.playRecordTime = setInterval(()=>{
             const offTime = this.getTime() - this.startTime
+
             if(this.cloneTimeline.length > 0){
                 const cur = this.cloneTimeline[0]
+                console.log('offTime' , offTime  ,cur)
                 if(cur.time > offTime - 100 && cur.time < offTime + 100){
                     this.handleTouching({
-                        key:cur.key
+                        detail:cur.key
                     })
                     this.cloneTimeline.shift()
+                    console.log('get key' , cur.ley)
                 }
             }
         } , 100)
@@ -275,13 +290,14 @@ Page({
     getTime(){
         const d = new Date()
         const t = d.getTime();
-        console.log('time' , t)
+        // console.log('time' , t)
         return t
     },
     startRecord(){
         // this.show('录音开始')
         this.startTime = this.getTime()
         this.timeline = []
+
         this.setData({
             isPlaying: false,
             isRecording:true,
@@ -313,13 +329,14 @@ Page({
             clearInterval(this.time)
             this.time = null
         }
+
+
         this.setData({
             isPlaying: false,
             isRecording: false,
             tempFilePath:tempFilePath,
             isRecorded:this.data.isPressMusicBtn
         })
-
 
         this.ctx.stop()
         this.ctx.src = null
@@ -403,8 +420,9 @@ Page({
         })
 
 
-        const url = `${baseAudioUrl}gt/A${key == 'do' ? '2' : '3'}.mp3`
-        ctx.src = url
+        const b = `${url}${key == 'do' ? 'do' : 're'}.mp3`
+        // showMsg(b)
+        ctx.src = b
         ctx.play()
     },
     show(msg) {
