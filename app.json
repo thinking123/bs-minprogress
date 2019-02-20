@@ -1,7 +1,7 @@
 {
   "pages": [
 
-
+    "pages/rhythm-share/index",
     "home/video/index",
     "pages/just-listen/index",
     "home/index/index"
@@ -17,13 +17,6 @@
     {
       "root": "pages/rhythm-select",
       "name": "rhythm-select",
-      "pages": [
-        "index"
-      ]
-    },
-    {
-      "root": "pages/rhythm-share",
-      "name": "rhythm-share",
       "pages": [
         "index"
       ]

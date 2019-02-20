@@ -1,3 +1,5 @@
+import {getRandomInt , showMsg} from "../../utils/util";
+
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
 const page = 'rhythm-share/'
@@ -12,6 +14,9 @@ Page({
     data: {
         url:url,
         isPlaying:false,
+        bg:'',
+        shareBg:'',
+        rand:1
     },
     handlePlay(e) {
         console.log('handlePlay' , this.data.isPlaying)
@@ -33,15 +38,40 @@ Page({
     onShareAppMessage(obj){
         console.log('onShareAppMessage' , obj)
 
-        return obj
+        // showMsg(this.data.rand.toString())
+        return {
+            title:'我的音乐人格',
+            path:`/pages/rhythm-share/index?rand=${this.data.rand}`,
+            imageUrl:`${this.data.url}${this.data.shareBg}`
+        }
     },
     onLoad(option) {
+
+
+
+        const rand = option && option.rand ? option.rand : getRandomInt(1 , 5)
+        // console.log('rand ' , rand)
+        // showMsg(option && option.rand ? `have rand${rand}` : 'no rand')
+        const bg = `bg${rand}.png`
+        const shareBg = `share-bg${rand}.jpg`
+        this.setData({
+            bg:bg,
+            shareBg:shareBg,
+            rand:rand
+        })
+
+
         console.log(option)
         this.tempFilePath = option ? option.temppath : null
 
         if(this.tempFilePath){
             this.initPlay()
         }
+
+
+
+
+
     },
     clearResource(){
         if(this.ctx){

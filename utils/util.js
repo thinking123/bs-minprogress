@@ -150,3 +150,11 @@ export function urlParams(url, params) {
 export function secondToMinus(s) {
     return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s
 }
+
+export function getRandomInt(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min
+    console.log('rand', rand)
+    return rand
+}

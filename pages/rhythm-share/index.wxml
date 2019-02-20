@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="{{url}}bg.png" class="img"/>
+    <image wx:if="{{bg}}" src="{{url}}{{bg}}" class="img"/>
 
 
 
