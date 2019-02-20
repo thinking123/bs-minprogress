@@ -118,8 +118,16 @@
 }
 .submit{
     position: absolute;
-    top:82.78%;
+    top:78.56%;
     left:208rpx;
-    height: 7.19%;
-    width: 342rpx;
+    height: 6.6%;
+    width: 254rpx;
+}
+
+.record{
+    position: absolute;
+    top:84.86%;
+    left:208rpx;
+    height: 6.6%;
+    width: 254rpx;
 }

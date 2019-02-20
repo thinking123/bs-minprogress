@@ -43,6 +43,8 @@ Page({
         icon5Taped:false,
         icon6Taped:false,
         icon7Taped:false,
+
+        timeline:[]
     },
     handleDev(e) {
         const data = e.target.dataset.dev
@@ -151,6 +153,12 @@ Page({
     },
     handleTouching(e) {
         const key = e.detail
+        if(this.data.isRecording){
+            this.timeline.push({
+                key:key,
+                time:(this.getTime() - this.startTime)
+            })
+        }
         switch (key) {
             case 'do':
                 this.setData({
@@ -243,14 +251,37 @@ Page({
         this.setData({
             isPlaying: true
         })
+        this.startTime = this.getTime()
+        this.cloneTimeline = [...this.timeline]
+        this.playRecordTime = setInterval(()=>{
+            const offTime = this.getTime() - this.startTime
+            if(this.cloneTimeline.length > 0){
+                const cur = this.cloneTimeline[0]
+                if(cur.time > offTime - 100 && cur.time < offTime + 100){
+                    this.handleTouching({
+                        key:cur.key
+                    })
+                    this.cloneTimeline.shift()
+                }
+            }
+        } , 100)
     },
     stopPlayRecord(){
         this.setData({
             isPlaying: false
         })
+        clearInterval(this.playRecordTime)
+    },
+    getTime(){
+        const d = new Date()
+        const t = d.getTime();
+        console.log('time' , t)
+        return t
     },
     startRecord(){
-        this.show('录音开始')
+        // this.show('录音开始')
+        this.startTime = this.getTime()
+        this.timeline = []
         this.setData({
             isPlaying: false,
             isRecording:true,
@@ -277,7 +308,7 @@ Page({
     },
     stopRecord(tempFilePath){
 
-        this.show('录音结束')
+        // this.show('录音结束')
         if(this.time){
             clearInterval(this.time)
             this.time = null

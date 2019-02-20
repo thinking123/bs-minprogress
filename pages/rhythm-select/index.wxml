@@ -15,9 +15,9 @@
            wx:else
            bindtap="handlePlay"/>
 
-    <image src="{{url}}save-btn.png"
-           class="save-btn btn-middle"
-           bindtap="handleSave"/>
+    <!--<image src="{{url}}save-btn.png"-->
+           <!--class="save-btn btn-middle"-->
+           <!--bindtap="handleSave"/>-->
 
 
 

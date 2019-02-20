@@ -4,8 +4,9 @@ import {getProvince, getSchool, getPoint, signUp} from "../../http/http-business
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'register/'
-const url = `${baseUrl}${page}`
+const base = app.globalData.base
+const page = 'register-'
+const url = `${base}${page}`
 Page({
     data: {
         url: url,
@@ -25,6 +26,9 @@ Page({
         selectedProvince: null,
         selectedPoint: null,
         selectedSchool: null
+    },
+    handleRecord(){
+      console.log('handleRecord')
     },
     onLoad() {
         this.init()

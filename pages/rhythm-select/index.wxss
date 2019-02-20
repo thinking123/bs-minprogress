@@ -224,7 +224,7 @@ top:442
     position: absolute;
     /*height: 7.2%;*/
     /*width: 336rpx;*/
-    top:57.87%;
+    top:59.52%;
     left:306rpx;
 }
 
