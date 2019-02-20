@@ -1,0 +1,6 @@
+<view class="lottery-dialog-no-prize" wx:if="{{visible}}">
+    <image
+            src="{{url}}lottery-dialog-no-prize-bg.png"
+           class="lottery-dialog-no-prize-bg"/>
+    <view class="lottery-dialog-no-prize-btn" bindtap="handleHide"/>
+</view>

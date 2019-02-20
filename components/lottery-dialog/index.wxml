@@ -1,0 +1,30 @@
+<view class="wrapper" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="lottery-dialog-mask" id="mask"></view>
+    <view class="body">
+        <image src="{{url}}lottery-dialog-bg.png" class="dialog-bg"/>
+        <image src="{{url}}lottery-dialog-btn.png" class="lottery-dialog-btn" bindtap="handleLottery"/>
+    </view>
+
+    <view class="icon-wrap">
+        <view class="row1">
+            <image class="icon"
+                   src="{{url}}lottery-dialog-icon.png"/>
+            <image class="icon icon-center"
+                   src="{{url}}lottery-dialog-icon.png"/>
+            <image class="icon"
+                   src="{{url}}lottery-dialog-icon.png"/>
+        </view>
+        <view class="row2">
+            <image class="icon"
+                   src="{{url}}lottery-dialog-icon.png"/>
+            <image class="icon icon-center"
+                   src="{{url}}lottery-dialog-icon.png"/>
+            <image class="icon"
+                   src="{{url}}lottery-dialog-icon.png"/>
+        </view>
+    </view>
+    <image class="box {{lotterying ? 'box-lotterying' : ''}}"
+           src="{{url}}lottery-dialog-box.png"/>
+
+
+</view>

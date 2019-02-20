@@ -44,6 +44,7 @@ App({
     },
     globalData: {
         userInfo: null,
+        base:base,
         baseUrl: baseUrl,
         baseComponentUrl: baseComponentUrl,
         baseAudioUrl: baseAudioUrl,

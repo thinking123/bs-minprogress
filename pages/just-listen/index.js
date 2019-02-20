@@ -7,7 +7,8 @@ import {
     voteMusic,
     casualListenTopFive,
     casualListenHistory,
-    addCasualListenHistory
+    addCasualListenHistory,
+    isYesPrize
 } from "../../http/http-business";
 import {showMsg, secondToMinus} from "../../utils/util";
 
@@ -46,7 +47,10 @@ Page({
         isSeeking: false,
 
         showLotteryDialog:false,
-        curMusicHadLottery:false
+        showNoLotteryDialog:true,
+        isCanLottery:false,
+        curMusicHadLottery:false,
+        lotteryMusic:null
     },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
@@ -87,6 +91,7 @@ Page({
             // this.playAudio(true)
             const oldMusic = await this._casualListen()
             await addCasualListenHistory(oldMusic.musicId)
+            await this._isCanLottery()
             // await this._casualListenHistory()
             // await this._casualListenHistory()
         } catch (e) {
@@ -121,18 +126,21 @@ Page({
             showMsg(e)
         }
     },
+    handleHideLotteryDialog(e){
+      this.setData({
+          showLotteryDialog:false
+      })
+    },
+    handleHideNoLotteryDialog(e){
+        this.setData({
+            showNoLotteryDialog:false
+        })
+    },
     handlePreSong(e) {
         this.preSong()
     },
     handlePlaySong(e) {
         this.playAudio()
-    },
-    async lottery(){
-        try {
-
-        }catch (e) {
-            showMsg(e)
-        }
     },
     handleSingerHome(e) {
         const id = e.target.dataset.rank.userId
@@ -219,6 +227,14 @@ Page({
         }
 
     },
+    async _isCanLottery(){
+        //0:不能抽奖
+      const res = await isYesPrize()
+      this.setData({
+          isCanLottery:res == 1
+      })
+      return this.data.isCanLottery
+    },
     async _casualListen() {
         try {
 
@@ -227,7 +243,8 @@ Page({
             const oldMusic = this.data.curMusic
             this.setData({
                 curMusic: bsCasual,
-                isHasNext:1
+                isHasNext:1,
+                curMusicHadLottery: false
             })
 
             this.setAudioSrc(bsCasual.musicUrl)
@@ -249,7 +266,8 @@ Page({
                 this.setData({
                     curMusic: bsCasual,
                     preMusicId:preMusicId,
-                    isHasNext:isHasNext
+                    isHasNext:isHasNext,
+                    curMusicHadLottery: false
                 })
                 this.setAudioSrc(bsCasual.musicUrl)
             }else{
@@ -342,7 +360,7 @@ Page({
             this.nextSong()
         })
         ctx.onTimeUpdate(() => {
-            console.log('onTimeUpdate')
+            // console.log('onTimeUpdate')
             const currentTime = Math.round(ctx.currentTime)
             const curTime = secondToMinus(currentTime)
             const buffered = ctx.buffered
@@ -362,14 +380,19 @@ Page({
             if (duration > 0) {
                 maxBuffer = buffered * 1.0 / ctx.duration
 
-                console.log('maxBuffer', maxBuffer)
+                // console.log('maxBuffer', maxBuffer)
             }
 
             if (this.data.isSeeking) {
                 return
             }
-            if(currentTime > 20 && this.data.curMusicHadLottery){
-                this.lottery()
+            if(currentTime > 20 && !this.data.curMusicHadLottery && this.data.isCanLottery){
+                //当前歌曲已经抽奖了,一首歌曲只能抽奖一次
+                this.setData({
+                    curMusicHadLottery: true,
+                    showLotteryDialog:true,
+                    lotteryMusic:this.data.curMusic
+                })
             }
             this.setData({
                 curTime: curTime,
@@ -382,7 +405,7 @@ Page({
                     curProgress: curProgress
                 })
             } else {
-                console.log('isDragingisDragingisDraging')
+                // console.log('isDragingisDragingisDraging')
             }
         })
         ctx.onError(() => {
@@ -478,6 +501,7 @@ Page({
             this.initAudio()
             await this._casualListen()
             await this._casualListenTopFive()
+            await this._isCanLottery()
             // await this._casualListenHistory()
         } catch (e) {
             showMsg(e)

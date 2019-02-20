@@ -303,3 +303,37 @@ export function addCasualListenHistory(musicId) {
 
     return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }
+
+
+//是否可以抽奖
+export function isYesPrize() {
+    const url = '/api/casuallisten/isYesPrize'
+    const errMsg = '获取是否可以抽奖失败'
+    const data = {}
+
+    return get(url, data).then(res => parseRes(res, errMsg))
+}
+
+
+//抽奖
+export function luckDraw(gid , musicId) {
+    let url = '/api/casuallisten/luckDraw'
+    const loadingText = '抽奖...'
+    const errMsg = '抽奖失败'
+    const params = {
+        gid:gid,
+        musicId:musicId
+    }
+    url = urlParams(url , params)
+
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}
+
+//获取奖品图片
+export function prizeImg() {
+    const url = '/api/casuallisten/prizeImg'
+    const errMsg = '获取奖品图片'
+    const data = {}
+
+    return get(url, data).then(res => parseRes(res, errMsg))
+}

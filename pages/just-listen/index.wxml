@@ -173,7 +173,13 @@
         </view>
     </scroll-view>
 
-
+    <lottery-dialog
+            bind:hidetap="handleHideLotteryDialog"
+            lotteryMusic="{{lotteryMusic}}"
+            visible="{{showLotteryDialog}}"/>    <lottery-dialog-no-prize
+            bind:hidetap="handleHideNoLotteryDialog"
+            lotteryMusic="{{lotteryMusic}}"
+            visible="{{showNoLotteryDialog}}"/>
 
 
 </view>

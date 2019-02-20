@@ -1,0 +1,37 @@
+.lottery-dialog-no-prize{
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.body{
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lottery-dialog-no-prize-bg{
+    width: 100%;
+    height: 100%;
+}
+.lottery-dialog-no-prize-btn{
+    position: absolute;
+    top:76.61%;
+    left:50%;
+    transform: translateX(-50%);
+    width: 418rpx;
+    height: 10.04%;
+    /*border: 1px solid yellow;*/
+}
