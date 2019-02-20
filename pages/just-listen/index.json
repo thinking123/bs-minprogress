@@ -2,6 +2,7 @@
   "usingComponents": {
     "music-slider": "../../components/music-slider/index",
     "lottery-dialog": "../../components/lottery-dialog/index",
-    "lottery-dialog-no-prize": "../../components/lottery-dialog-no-prize/index"
+    "lottery-dialog-no-prize": "../../components/lottery-dialog-no-prize/index",
+    "lottery-dialog-had-prize": "../../components/lottery-dialog-had-prize/index"
   }
 }

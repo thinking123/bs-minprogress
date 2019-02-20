@@ -1,0 +1,31 @@
+<view class="lottery-dialog-had-prize" wx:if="{{visible}}">
+    <view class="lottery-dialog-had-prize-mask" id="mask"/>
+    <view class="lottery-dialog-had-prize-body">
+        <image src="{{url}}lottery-dialog-had-prize-bg.png" class="lottery-dialog-had-prize-bg"/>
+        <image src="{{url}}lottery-dialog-had-prize-btn.png"
+               class="lottery-dialog-had-prize-return"
+               bindtap="handleGetPrize"/>
+    </view>
+
+    <view wx:if="{{lotteryInfo}}"
+          class="lottery-dialog-had-prize-title-wrap">
+        <view wx:for="{{prizeTitle}}"
+              wx:for-item="t"
+              wx:key="index"
+              class="lottery-dialog-had-prize-title"
+        >
+            {{t}}
+        </view>
+        <image  wx:if="{{lotteryInfo}}"
+                src="{{lotteryInfo.prizeImage}}"
+                class="lottery-dialog-had-prize-img"/>
+        <!--<view-->
+                <!--class="lottery-dialog-had-prize-img"/>-->
+        <view  wx:if="{{lotteryInfo}}"
+               class="lottery-dialog-had-prize-name">
+            {{lotteryInfo.prizeName}}
+        </view>
+    </view>
+
+
+</view>

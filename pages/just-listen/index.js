@@ -8,7 +8,8 @@ import {
     casualListenTopFive,
     casualListenHistory,
     addCasualListenHistory,
-    isYesPrize
+    isYesPrize,
+    prizeImg
 } from "../../http/http-business";
 import {showMsg, secondToMinus} from "../../utils/util";
 
@@ -46,11 +47,18 @@ Page({
         maxBuffer: '0',
         isSeeking: false,
 
+        gid:null,
         showLotteryDialog:false,
-        showNoLotteryDialog:true,
+        showNoLotteryDialog:false,
+        showHadLotteryDialog:false,
+        lotteryInfo:null,
         isCanLottery:false,
         curMusicHadLottery:false,
-        lotteryMusic:null
+        lotteryMusic:null,
+        // lotteryInfo:{
+        //     prizeTitle:'恭喜您获得\n苹果手机一部',
+        //     prizeName:'苹果手机X 256G',
+        // }
     },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
@@ -106,22 +114,6 @@ Page({
             if(isHasNext == 1){
                 await this._casualListenTopFive()
             }
-
-            // if (this.data.isHasNext) {
-            //     const bsCasual = await this._casualListenHistory()
-            //     if (!this.data.preMusicId) {
-            //         showMsg('没有上一首歌曲了')
-            //     } else {
-            //         this.setData({
-            //             bsCasual: bsCasual
-            //         })
-            //
-            //         this.setAudioSrc(bsCasual.musicUrl)
-            //     }
-            // } else {
-            //     showMsg('没有上一首歌曲了')
-            // }
-
         } catch (e) {
             showMsg(e)
         }
@@ -134,6 +126,16 @@ Page({
     handleHideNoLotteryDialog(e){
         this.setData({
             showNoLotteryDialog:false
+        })
+    },
+    handleGetPrize(e){
+      const lotteryInfo = e.detail
+        this.setData({
+            showHadLotteryDialog:false
+        })
+
+        wx.navigateTo({
+            url: '/pages/win-info/index'
         })
     },
     handlePreSong(e) {
@@ -151,6 +153,22 @@ Page({
         wx.navigateTo({
             url: url
         })
+    },
+    handleLottery(e){
+        const prize = e.detail
+        //prizeImage 为空就是没有奖品
+        if(prize.prizeImage){
+            this.setData({
+                showLotteryDialog: false,
+                showNoLotteryDialog: true,
+                lotteryInfo:prize
+            })
+        }else{
+            this.setData({
+                showLotteryDialog: false,
+                showHadLotteryDialog: true,
+            })
+        }
     },
     async handleNextSong(e) {
         try {
@@ -239,10 +257,11 @@ Page({
         try {
 
             this.stopAudio()
-            const {bsCasual} = await casualListen()
+            const {bsCasual,gid} = await casualListen()
             const oldMusic = this.data.curMusic
             this.setData({
                 curMusic: bsCasual,
+                gid:gid,
                 isHasNext:1,
                 curMusicHadLottery: false
             })
@@ -260,11 +279,12 @@ Page({
             if(this.data.isHasNext == 1){
                 //第一次的时候不传id
                 const  musicId = this.data.preMusicId ? this.data.preMusicId : ''
-                const {bsCasual, isHasNext , preMusicId} = await casualListenHistory(musicId)
+                const {bsCasual, isHasNext , preMusicId , gid} = await casualListenHistory(musicId)
 
                 this.stopAudio()
                 this.setData({
                     curMusic: bsCasual,
+                    gid:gid,
                     preMusicId:preMusicId,
                     isHasNext:isHasNext,
                     curMusicHadLottery: false

@@ -1,3 +1,4 @@
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {luckDraw, prizeImg} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
@@ -14,15 +15,16 @@ Component({
         visible: {
             type: Boolean,
             value: false,
-            observer(newVal, oldVal, changedPath) {
-                if (newVal) {
-                    wx.nextTick(() => {
-                        //
+            observer(v) {
+                if(v){
+                    this.setData({
+                        lotterying: false
                     })
                 }
             }
         },
-        lotteryMusic:Object
+        lotteryMusic:Object,
+        gid:String,
     },
     data: {
         url: base,
@@ -43,16 +45,16 @@ Component({
                     lotterying: true
                 })
 
-                const res = await luckDraw(
-                    this.data.lotteryMusic.gid ,
+                //prizeImage 为空就是没有奖品
+                const prize = await luckDraw(
+                    this.data.gid ,
                     this.data.lotteryMusic.musicId
                     )
+
+                this.triggerEvent('lottery' , prize)
             } catch (e) {
                 showMsg(e)
-            }finally {
-                // this.setData({
-                //     visible: false
-                // })
+                this.triggerEvent('hidetap')
             }
         }
     },

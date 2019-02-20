@@ -175,11 +175,18 @@
 
     <lottery-dialog
             bind:hidetap="handleHideLotteryDialog"
+            bind:lottery="handleLottery"
+            gid="{{gid}}"
             lotteryMusic="{{lotteryMusic}}"
-            visible="{{showLotteryDialog}}"/>    <lottery-dialog-no-prize
+            visible="{{showLotteryDialog}}"/>
+    <lottery-dialog-no-prize
             bind:hidetap="handleHideNoLotteryDialog"
             lotteryMusic="{{lotteryMusic}}"
             visible="{{showNoLotteryDialog}}"/>
+    <lottery-dialog-had-prize
+            bind:getPrize="handleGetPrize"
+            lotteryInfo="{{lotteryInfo}}"
+            visible="{{showHadLotteryDialog}}"/>
 
 
 </view>
