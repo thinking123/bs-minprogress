@@ -1,7 +1,7 @@
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
-const baseComponentUrl = app.globalData.baseComponentUrl
-const component = 'cascade-swiper/'
+const baseComponentUrl = app.globalData.base
+const component = 'cascade-swiper-'
 const url = `${baseComponentUrl}${component}`
 
 Component({

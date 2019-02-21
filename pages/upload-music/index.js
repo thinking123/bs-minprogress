@@ -7,12 +7,12 @@ const page = 'upload-music-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
-        url:url,
+        url: url,
         name: '',
         checked: false,
         progress: '20%',
         isUploaded: false,
-        isUploading:false,
+        isUploading: false,
         musicBg: '',
         images: [
             "1.jpg",
@@ -29,36 +29,48 @@ Page({
         showSubmitError: false,
         showDialog: false,
         bg: '',
-        uploadType:'',
-        tempFilePath:'',
-        isRecording:false,
-        isUploading:false,
+        uploadType: '',
+        tempFilePath: '',
+        isRecording: false,
+        isUploading: false,
 
     },
-    onLoad(option){
-        const uploadType = option.uploadType ?  option.uploadType: 'wx'
+    onLoad(option) {
+        const images = []
+        for (let i = 0; i < 12; i++) {
+            const l = `${i+1}.jpg`
+            images.push(l)
+        }
+        this.setData({
+            images: images
+        })
+
+        const uploadType = option.uploadType ? option.uploadType : 'wx'
         this.setData({
             uploadType: uploadType
             // uploadType: 'dfsd'
         })
 
-        if(uploadType != 'wx'){
+        if (uploadType != 'wx') {
             this.initRecord()
         }
+
+
+
     },
-    onHide(){
-        if(this.recorderManager){
+    onHide() {
+        if (this.recorderManager) {
             this.data.isRecording && this.recorderManager.stop()
         }
     },
-    onUnload(){
-        if(this.recorderManager){
+    onUnload() {
+        if (this.recorderManager) {
             this.recorderManager.stop()
             this.recorderManager = null
         }
     },
 
-    async _uploadMusic(file){
+    async _uploadMusic(file) {
 
     },
     handleRecord(e) {
@@ -70,18 +82,18 @@ Page({
             this.recorderManager.start(options)
         }
     },
-    startRecord(){
+    startRecord() {
         this.setData({
-            isRecording:true
+            isRecording: true
         })
     },
-    stopRecord(tempFilePath){
+    stopRecord(tempFilePath) {
         this.setData({
             isRecording: false,
-            tempFilePath:tempFilePath,
+            tempFilePath: tempFilePath,
         })
     },
-    initRecord(){
+    initRecord() {
         this.recorderManager = wx.getRecorderManager()
 
         this.recorderManager.onStart(() => {
@@ -140,7 +152,7 @@ Page({
             showDialog: true
         })
     },
-    hidetap(){
+    hidetap() {
         this.setData({
             showDialog: false
         })
@@ -159,7 +171,7 @@ Page({
                 break
         }
     },
-    uploadFile(file , url){
+    uploadFile(file, url) {
 
         this.uploadTask = wx.uploadFile({
             url: url,
@@ -171,8 +183,8 @@ Page({
             success(res) {
                 const data = res.data
                 this.setData({
-                    isUploading:false,
-                    progress:0
+                    isUploading: false,
+                    progress: 0
                 })
 
                 this.uploadTask = null
@@ -183,21 +195,21 @@ Page({
 
             const p = res.progress + '%'
             this.setData({
-                progress:p
+                progress: p
             })
             console.log('上传进度', res.progress)
             console.log('已经上传的数据长度', res.totalBytesSent)
             console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
         })
     },
-    handleUpload(){
+    handleUpload() {
         console.log('upload file')
         wx.chooseVideo({
-            success:res=>{
-                console.log('res' , res)
+            success: res => {
+                console.log('res', res)
             },
-            fail:err=>{
-                console.log('err' , err)
+            fail: err => {
+                console.log('err', err)
             }
         })
         // if(this.data.isUploading){
