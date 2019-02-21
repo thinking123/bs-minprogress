@@ -116,18 +116,30 @@
     width: 42rpx;
     z-index: 100;
 }
-.submit{
+
+.btn-wrap{
     position: absolute;
-    top:78.56%;
-    left:208rpx;
-    height: 6.6%;
-    width: 254rpx;
+    top:82.31%;
+    left:50%;
+    height: 7.66%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.record{
-    position: absolute;
-    top:84.86%;
-    left:208rpx;
-    height: 6.6%;
-    width: 254rpx;
+/*.btn-wrap > view{*/
+    /*border: 1px solid yellow;*/
+/*}*/
+.record-online{
+    height: 100%;
+    width: 304rpx;
+    margin: 0 5rpx;
+}
+
+.load-fron-wx{
+    height: 100%;
+    width: 304rpx;
+    margin: 0 5rpx;
 }

@@ -25,10 +25,16 @@ Page({
         clearInput:false,
         selectedProvince: null,
         selectedPoint: null,
-        selectedSchool: null
+        selectedSchool: null,
+
+        uploadType:''
     },
-    handleRecord(){
+    handleLoadFromWxSubmit(){
       console.log('handleRecord')
+        this.setData({
+            uploadType: 'wx'
+        })
+        this.submitData()
     },
     onLoad() {
         this.init()
@@ -68,8 +74,9 @@ Page({
           // wx.navigateTo({
           //     url: '/pages/upload-music/index'
           // })
+          const url = `/pages/upload-music/index?uploadType=${this.data.uploadType}`
           wx.redirectTo({
-              url: '/pages/upload-music/index'
+              url: url
           })
       }  catch (e) {
           showMsg(e)
@@ -155,9 +162,16 @@ Page({
         }
 
     },
-    handleSubmit(e) {
+    handleRecordSubmit(e) {
+        this.setData({
+            uploadType: 'record'
+        })
+
+    this.submitData()
 
 
+    },
+    submitData(type){
         if (this.verifySubmit()) {
             console.log('handleSubmit ok')
             this._signUp()
@@ -168,7 +182,6 @@ Page({
                 showError: true
             })
         }
-
     },
     verifySubmit() {
         const pReg = /^[1][3,4,5,7,8][0-9]{9}$/;
