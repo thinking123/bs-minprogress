@@ -40,7 +40,8 @@ Page({
             const res = await receivePrize(this.id,
                 this.data.name,
                 this.data.phone,
-                this.data.address)
+                this.data.address,
+                this.data.idCard)
             console.log(res)
             wx.navigateBack({
                 delta: 1
@@ -51,10 +52,12 @@ Page({
     },
     verifySubmit() {
         const pReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-
+        const idReg =
+            /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
         return !isEmpty(this.data.name) &&
             !isEmpty(this.data.address) &&
-            pReg.test(this.data.phone)
+            pReg.test(this.data.phone) &&
+            idReg.test(this.data.idCard)
     },
     bindNameInput(e) {
         this.setData({

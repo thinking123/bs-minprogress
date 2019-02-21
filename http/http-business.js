@@ -241,7 +241,8 @@ export function getPrizeRecord() {
 export function receivePrize(id,
                                prizeName,
                                prizePhone,
-                               prizeAddress) {
+                               prizeAddress,
+                                idCard) {
     let url = '/api/prizeRecord/receivePrize'
     const loadingText = '领取奖品...'
     const errMsg = '领取奖品失败'
@@ -250,6 +251,7 @@ export function receivePrize(id,
         prizeName:prizeName,
         prizePhone:prizePhone,
         prizeAddress:prizeAddress,
+        idCard:idCard
     }
     url = urlParams(url , params)
 
