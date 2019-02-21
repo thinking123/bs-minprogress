@@ -3,8 +3,8 @@ import {getAchievement , receiveAchievement} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'my-achieve/'
+const baseUrl = app.globalData.base
+const page = 'my-achieve-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
@@ -40,10 +40,58 @@ Page({
                 progress:'0',
                 canGet:0
             },
-        ]
+        ],
+        showdcjDialog:false,
+        achievePrize:{
+            prizeTitle:'恭喜您获得\\n苹果手机一部',
+            prizeName:'苹果手机X 256G'
+        },
+        showwwgkDialog:false,
+        showycdyDialog:false,
+        showyljzDialog:true,
         // ,
         // testShow:true
     },
+    handleHidedcj(){
+      this.setData({
+          showdcjDialog:false
+      })
+    },
+    handleTapdcj(e){
+      const prize = e.detail
+    },
+
+    handleHidewwgk(){
+        this.setData({
+            showwwgkDialog:false
+        })
+    },
+    handleTapwwgk(e){
+        console.log('handleTapwwgk')
+        // const prize = e.detail
+    },
+
+    handleHideycdy(){
+        this.setData({
+            showycdyDialog:false
+        })
+    },
+    handleTapycdy(e){
+        console.log('handleTapycdy')
+        // const prize = e.detail
+    },
+
+    handleHideyljz(){
+        this.setData({
+            showyljzDialog:false
+        })
+    },
+    handleTapyljz(e){
+        console.log('handleTapycdy')
+        // const prize = e.detail
+    },
+
+
     handleReturn() {
         wx.navigateBack({
             delta: 1
@@ -70,24 +118,26 @@ Page({
         const res = await getAchievement()
         // const keys = Object.keys(res)
         const list = [...this.data.achieveList]
+        console.log(list)
+        // const list = res
         //1 已经领取 0 不能领取 2 可领取
         list[0].progress = res.ycdy == 2 || res.ycdy == 1 ? '100%' : '0'
         list[0].canGet = res.ycdy
         list[0].type = 'ycdy'
 
-        list[1].progress = res.zazsNum / 15 + '%'
+        list[1].progress = res.zazsNum / 15 * 100 + '%'
         list[1].canGet = res.zazs
         list[1].type = 'zazs'
 
-        list[2].progress = res.dcjNum / 66 + '%'
+        list[2].progress = res.dcjNum / 66 * 100+ '%'
         list[2].canGet = res.dcj
         list[2].type = 'dcj'
 
-        list[3].progress = res.wwgkNum / 6666 + '%'
+        list[3].progress = res.wwgkNum / 6666 * 100+ '%'
         list[3].canGet = res.wwgk
         list[3].type = 'wwgk'
 
-        list[4].progress = res.yljzNum / 10 + '%'
+        list[4].progress = res.yljzNum / 10 * 100 + '%'
         list[4].canGet = res.yljz
         list[4].type = 'yljz'
         this.setData({

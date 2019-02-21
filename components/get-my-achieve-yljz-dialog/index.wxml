@@ -1,0 +1,14 @@
+<view class="get-my-achieve-yljz-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="get-my-achieve-yljz-dialog-mask"
+          id="mask"/>
+    <view class="get-my-achieve-yljz-dialog-content">
+
+    </view>
+    <view class="get-my-achieve-yljz-dialog-body">
+        <image src="{{url}}bg.png"
+               class="get-my-achieve-yljz-dialog-bg"/>
+        <view class="get-my-achieve-yljz-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>

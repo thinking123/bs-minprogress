@@ -161,7 +161,7 @@ Page({
 
 
         wx.navigateTo({
-            url: '/pages/user-info/index'
+            url: '/pages/my-achieve/index'
         })
     }
 })

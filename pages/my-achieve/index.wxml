@@ -37,6 +37,22 @@
 
 
     <view bindtap="handleReturn" class="return-btn"/>
+    <get-my-achieve-dcj-dialog
+            bind:tapbutton="handleTapdcj"
+            achievePrize="{{achievePrize}}"
+            bind:hidetap="handleHidedcj"
+            visible="{{showdcjDialog}}"/>   <get-my-achieve-wwgk-dialog
+            bind:tapbutton="handleTapwwgk"
+            bind:hidetap="handleHidewwgk"
+            visible="{{showwwgkDialog}}"/>
+    <get-my-achieve-ycdy-dialog
+            bind:tapbutton="handleTapycdy"
+            bind:hidetap="handleHideycdy"
+            visible="{{showycdyDialog}}"/>
+    <get-my-achieve-yljz-dialog
+            bind:tapbutton="handleTapyljz"
+            bind:hidetap="handleHideyljz"
+            visible="{{showyljzDialog}}"/>
 
 
 </view>

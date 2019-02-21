@@ -1,0 +1,34 @@
+<view class="get-my-achieve-dcj-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="get-my-achieve-dcj-dialog-mask"
+          id="mask"/>
+    <view class="get-my-achieve-dcj-dialog-content">
+        <view class="get-my-achieve-dcj-dialog-title">
+
+        </view>
+    </view>
+
+
+    <view wx:if="{{achievePrize}}"
+          class="get-my-achieve-dcj-dialog-content">
+        <view wx:for="{{prizeTitle}}"
+              wx:for-item="t"
+              wx:key="index"
+              class="get-my-achieve-dcj-dialog-title"
+        >
+            {{t}}
+        </view>
+        <image  src="{{achievePrize.prizeImg}}"
+                class="get-my-achieve-dcj-dialog-img"/>
+        <view  class="get-my-achieve-dcj-dialog-name">
+            {{achievePrize.prizeName}}
+        </view>
+    </view>
+
+    <view class="get-my-achieve-dcj-dialog-body">
+        <image src="{{url}}bg.png"
+               class="get-my-achieve-dcj-dialog-bg"/>
+        <view class="get-my-achieve-dcj-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>
