@@ -3,19 +3,25 @@ import {isEmpty, showMsg} from "../../utils/util";
 import {receivePrize} from "../../http/http-business";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'win-info-input/'
+const baseUrl = app.globalData.base
+const page = 'win-info-input-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
         url: url,
         name: '',
         phone: '',
+        idCard: '',
         address: '',
         showDialog: false
     },
     onLoad(option){
       this.id = option.id
+    },
+    bindIDCardInput(e) {
+        this.setData({
+            idCard: e.detail.value
+        })
     },
     handleSubmit(e) {
         if (this.verifySubmit()) {

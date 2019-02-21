@@ -30,12 +30,20 @@
 
     background-color: white;
 }
+.input-idcard{
+    position: absolute;
+    top:53.22%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
 
+    background-color: white;
+}
 .input-address{
     position: absolute;
-    top:56.97%;
+    top:61.77%;
     left:160rpx;
-    height: 13.94%;
+    height: 9%;
     width: 438rpx;
     z-index: 0;
     background-color: white;

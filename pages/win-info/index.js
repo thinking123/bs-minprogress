@@ -3,8 +3,8 @@ import {showMsg} from "../../utils/util";
 import {getPrizeRecord} from "../../http/http-business";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'win-info/'
+const baseUrl = app.globalData.base
+const page = 'win-info-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
@@ -22,7 +22,7 @@ Page({
         console.log('handleGetWin' , data)
         const url = `/pages/win-info-input/index?id=${data.id}`
         wx.navigateTo({
-            url:'/pages/win-info-input/index'
+            url:url
         })
 
     },
