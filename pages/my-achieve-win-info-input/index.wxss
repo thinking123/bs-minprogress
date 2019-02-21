@@ -1,0 +1,80 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+
+
+.input-name{
+    position: absolute;
+    top:41.98%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
+    background-color: white;
+}
+.input-phone{
+    position: absolute;
+    top:47.75%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-qq{
+    position: absolute;
+    top:53.22%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+
+.input-idcard{
+    position: absolute;
+    top:53.22%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+.input-idcard-virtual{
+    position: absolute;
+    top:59.97%;
+    left:204rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+
+.input-address{
+    position: absolute;
+    top:61.77%;
+    left:160rpx;
+    height: 9%;
+    width: 438rpx;
+    z-index: 0;
+    background-color: white;
+}
+
+
+.submit{
+    position: absolute;
+    top:82.78%;
+    left:208rpx;
+    height: 7.19%;
+    width: 342rpx;
+    border: 1px solid yellow;
+}

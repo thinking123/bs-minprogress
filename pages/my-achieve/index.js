@@ -52,6 +52,12 @@ Page({
         // ,
         // testShow:true
     },
+    goToPrizePage(prize , type = ''){
+        const url = `/pages/my-achieve-win-info-input/index?prize=${prize}&type=${type}`
+        wx.navigateTo({
+            url: '/pages/music-journey/index'
+        })
+    },
     handleHidedcj(){
       this.setData({
           showdcjDialog:false
@@ -59,6 +65,7 @@ Page({
     },
     handleTapdcj(e){
       const prize = e.detail
+        this.goToPrizePage(prize.type)
     },
 
     handleHidewwgk(){
@@ -68,6 +75,9 @@ Page({
     },
     handleTapwwgk(e){
         console.log('handleTapwwgk')
+        wx.navigateTo({
+            url: '/pages/upload-music/index'
+        })
         // const prize = e.detail
     },
 
@@ -78,7 +88,6 @@ Page({
     },
     handleTapycdy(e){
         console.log('handleTapycdy')
-        // const prize = e.detail
     },
 
     handleHideyljz(){
@@ -88,6 +97,8 @@ Page({
     },
     handleTapyljz(e){
         console.log('handleTapycdy')
+
+        this.goToPrizePage('yljz' , 'virtual')
         // const prize = e.detail
     },
 

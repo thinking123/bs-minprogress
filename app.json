@@ -12,6 +12,13 @@
       ]
     },
     {
+      "root": "pages/my-achieve-win-info-input",
+      "name": "my-achieve-win-info-input",
+      "pages": [
+        "index"
+      ]
+    },
+    {
       "root": "pages/rank-list",
       "name": "rank-list",
       "pages": [

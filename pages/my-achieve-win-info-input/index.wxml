@@ -1,0 +1,56 @@
+<view class="container">
+    <image src="{{url}}{{type=='virtual' ? 'virtual-' : ''}}bg.png" class="img"/>
+
+    <input class=" input-name" placeholder="姓名"
+           placeholder-class="ph-cs"
+           value="{{name}}"
+           wx:if="{{!showDialog}}"
+           bindinput="bindNameInput"
+           auto-focus
+    />
+    <input class=" input-phone"
+           wx:if="{{!showDialog}}"
+           placeholder-class="ph-cs"
+           type="number"
+           placeholder="电话"
+           bindinput="bindPhoneInput"
+           value="{{phone}}"/>
+    <input class=" input-qq"
+           wx:if="{{!showDialog && type =='virtual'}}"
+           placeholder-class="ph-cs"
+           type="number"
+           placeholder="QQ"
+           bindinput="bindQQInput"
+           value="{{qq}}"/>
+
+    <input class=" input-idcard{{type=='virtual' ? '-virtual' : ''}}"
+           wx:if="{{!showDialog}}"
+           placeholder-class="ph-cs"
+           type="number"
+           placeholder="身份证"
+           bindinput="bindIDCardInput"
+           value="{{idCard}}"/>
+    <!--textarea为原生组件，默认覆盖着最顶层，所以弹窗的时候隐藏 -->
+    <textarea class=" input-address"
+              placeholder-class="ph-cs"
+              bindinput="addressInput"
+              wx:if="{{!showDialog && type !='virtual'}}"
+              value="{{address}}"/>
+
+
+
+    <info-confirm-dialog
+            name="{{name}}"
+            phone="{{phone}}"
+            visible="{{showDialog}}"
+            address="{{address}}"
+            bind:confirmtap="confirmtap"
+            bind:retrytap="retrytap"
+            bind:hidetap="hidetap"
+    />
+    <register-error-dialog visible="{{showError}}"
+                           bind:hidetap="hideerrortap"/>
+
+    <view class="submit" bindtap="handleSubmit"/>
+</view>
+

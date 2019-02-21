@@ -348,3 +348,27 @@ export function getCheckMsg() {
 
     return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }
+
+//我的成就:领取奖品
+export function myAchcieveReceivePrize(prizeType,
+                                       receiveName,
+                                       receivePhone,
+                                       idCard,
+                                       receiveAddress,
+                                       qq,
+                                       ) {
+    let url = '/api/achievement/receivePrize'
+    const loadingText = '领取奖品...'
+    const errMsg = '领取奖品失败'
+    const params = {
+        prizeType:prizeType,
+        receiveName:receiveName,
+        receivePhone:receivePhone,
+        idCard:idCard,
+        receiveAddress:receiveAddress,
+        qq:qq,
+    }
+    url = urlParams(url , params)
+
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}
