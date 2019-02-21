@@ -48,7 +48,7 @@ Page({
         },
         showwwgkDialog:false,
         showycdyDialog:false,
-        showyljzDialog:true,
+        showyljzDialog:false,
         // ,
         // testShow:true
     },
@@ -107,11 +107,41 @@ Page({
         }else if(item.canGet == 2){
             //
             try {
-                await receiveAchievement(item.type)
+                const prize = await receiveAchievement(item.type)
                 await this._getAchievement()
+                this.showDialog(prize , item.type)
             }catch (e) {
                 showMsg(e)
             }
+        }
+    },
+    showDialog(prize ,type){
+        switch (type) {
+            case 'ycdy':
+                this.setData({
+                    achievePrize:prize,
+                    showycdyDialog:true
+                })
+                break
+            case 'dcj':
+            case 'zazs':
+                this.setData({
+                    achievePrize:prize,
+                    showdcjDialog:true
+                })
+                break
+            case 'wwgk':
+                this.setData({
+                    achievePrize:prize,
+                    showwwgkDialog:true
+                })
+                break
+            case 'yljz':
+                this.setData({
+                    achievePrize:prize,
+                    showyljzDialog:true
+                })
+                break
         }
     },
     async _getAchievement(){

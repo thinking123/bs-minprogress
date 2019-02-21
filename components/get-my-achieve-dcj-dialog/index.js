@@ -17,8 +17,8 @@ Component({
     computed: {
         prizeTitle(){
             console.log('prizeTitle')
-            if(this.data.achievePrize && this.data.achievePrize.prizeTitle){
-                const ls = this.data.achievePrize.prizeTitle.split('\\n')
+            if(this.data.achievePrize && this.data.achievePrize.prizeName ){
+                const ls = this.data.achievePrize.prizeName.split('\\n')
                 return ls
             }else{
                 return []

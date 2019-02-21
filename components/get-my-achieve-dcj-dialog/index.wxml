@@ -20,7 +20,7 @@
         <image  src="{{achievePrize.prizeImg}}"
                 class="get-my-achieve-dcj-dialog-img"/>
         <view  class="get-my-achieve-dcj-dialog-name">
-            {{achievePrize.prizeName}}
+            {{achievePrize.prizeNameSub}}
         </view>
     </view>
 

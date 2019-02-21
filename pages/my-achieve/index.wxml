@@ -26,7 +26,7 @@
             <view class="achieve-btn-wrap"
 
                   bindtap="handleGet">
-                <image src="{{url}}btn.png" class="achieve-btn"   data-item="{{item}}"/>
+                <image src="{{url}}{{item.canGet == 1 ? 'got' :'get'}}.png" class="achieve-btn" data-item="{{item}}"/>
             </view>
 
         </view>
@@ -41,7 +41,8 @@
             bind:tapbutton="handleTapdcj"
             achievePrize="{{achievePrize}}"
             bind:hidetap="handleHidedcj"
-            visible="{{showdcjDialog}}"/>   <get-my-achieve-wwgk-dialog
+            visible="{{showdcjDialog}}"/>
+    <get-my-achieve-wwgk-dialog
             bind:tapbutton="handleTapwwgk"
             bind:hidetap="handleHidewwgk"
             visible="{{showwwgkDialog}}"/>
