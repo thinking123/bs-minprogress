@@ -89,13 +89,14 @@ Page({
         // this.setData({
         //     isPlaying: true
         // })
-        this.startPlayRecord()
+
         // return
         if (!this.isHadRecord()) {
             this.showModal('您还没有录音')
             return
         }
 
+        this.startPlayRecord()
         if (this.data.isPlaying) {
             this.ctx.stop()
             this.setData({
@@ -161,8 +162,9 @@ Page({
     setTaped(key){
 
     },
-    handleTouching(e) {
+    handleTouching(e , notPlay = false) {
         const key = e.detail
+
         if(this.data.isRecording){
             this.timeline.push({
                 key:key,
@@ -176,11 +178,11 @@ Page({
                 this.setData({
                     icon1Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon1Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -188,11 +190,11 @@ Page({
                 this.setData({
                     icon2Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon2Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -200,11 +202,11 @@ Page({
                 this.setData({
                     icon3Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon3Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -212,11 +214,11 @@ Page({
                 this.setData({
                     icon4Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon4Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -224,11 +226,11 @@ Page({
                 this.setData({
                     icon5Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon5Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -236,11 +238,11 @@ Page({
                 this.setData({
                     icon6Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon6Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
@@ -248,16 +250,19 @@ Page({
                 this.setData({
                     icon7Taped: true
                 })
-                this.time = setTimeout(()=>{
+                this.playTime = setTimeout(()=>{
                     this.setData({
                         icon7Taped: false
                     })
-                    clearTimeout(this.time)
+                    clearTimeout(this.playTime)
                 } , 250)
 
                 break
         }
-        this.playMusic(key)
+        if(!notPlay){
+            this.playMusic(key)
+        }
+
     },
     startPlayRecord(){
         // this.setData({
@@ -271,15 +276,17 @@ Page({
             if(this.cloneTimeline.length > 0){
                 const cur = this.cloneTimeline[0]
                 console.log('offTime' , offTime  ,cur)
-                if(cur.time > offTime - 100 && cur.time < offTime + 100){
+                if(cur.time > offTime - 50 && cur.time < offTime + 50){
                     this.handleTouching({
                         detail:cur.key
-                    })
+                    } , true)
                     this.cloneTimeline.shift()
                     console.log('get key' , cur.ley)
                 }
+            }else{
+                clearInterval(this.playRecordTime)
             }
-        } , 100)
+        } , 90)
     },
     stopPlayRecord(){
         this.setData({
@@ -389,10 +396,10 @@ Page({
         })
         this.ctx.onEnded(() => {
             console.log('播放结束')
-            // this.stopPlayRecord()
-            this.setData({
-                isPlaying: false
-            })
+            this.stopPlayRecord()
+            // this.setData({
+            //     isPlaying: false
+            // })
             // this.show('播放结束')
         })
         this.ctx.onError((res) => {
@@ -420,7 +427,7 @@ Page({
         })
 
 
-        const b = `${url}${key == 'do' ? 'do' : 're'}.mp3`
+        const b = `${url}${key}.mp3`
         // showMsg(b)
         ctx.src = b
         ctx.play()
@@ -432,17 +439,18 @@ Page({
         wx.showToast(obj)
     },
     showModal(msg, title = '') {
-        wx.showModal({
-            title: title.length === 0 ? '提示' : title,
-            content: msg,
-            success(res) {
-                if (res.confirm) {
-                    console.log('用户点击确定')
-                } else if (res.cancel) {
-                    console.log('用户点击取消')
-                }
-            }
-        })
+        showMsg(msg)
+        // wx.showModal({
+        //     title: title.length === 0 ? '提示' : title,
+        //     content: msg,
+        //     success(res) {
+        //         if (res.confirm) {
+        //             console.log('用户点击确定')
+        //         } else if (res.cancel) {
+        //             console.log('用户点击取消')
+        //         }
+        //     }
+        // })
     },
     clearResource(){
         if(this.ctx){

@@ -10,7 +10,7 @@
            class="stop-btn btn-middle"
            wx:if="{{isPlaying}}"
            bindtap="handlePlay"/>
-    <image src="{{url}}play-btn.png"
+    <image src="{{url}}stop-btn.png"
            class="stop-btn btn-middle"
            wx:else
            bindtap="handlePlay"/>

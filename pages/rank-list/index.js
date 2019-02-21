@@ -27,7 +27,7 @@ Page({
         isLoading: false,
         searchKey: '',
         hadSearched:false,
-        selectedZone:'sq'
+        selectedZone:'hx'
     },
     handleCardFollow(e) {
         this._followMusic(e.detail.id)
@@ -220,6 +220,7 @@ Page({
     },
     async handleSelectZone(e){
         const zone = e.target.dataset.zone
+        console.log('zone' , zone)
         this.setData({
             selectedZone:zone,
             hadSearched: false,

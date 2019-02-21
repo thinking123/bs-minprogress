@@ -1,14 +1,19 @@
 {
   "pages": [
     "home/video/index",
-
-    "pages/rank-list/index",
     "home/index/index"
   ],
   "subpackages": [
     {
       "root": "pages/register",
       "name": "register",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/rank-list",
+      "name": "rank-list",
       "pages": [
         "index"
       ]
