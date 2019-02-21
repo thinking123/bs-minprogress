@@ -20,4 +20,9 @@
     <singer-home-no-music-dialog
             bind:hidetap="handleHideNoMusicDialog"
             visible="{{showNoMusicDialog}}"/>
+    <check-error-dialog
+            bind:rewrite="handleReWrite"
+            content="{{errorMsg}}"
+            bind:hidetap="handleCheckErrorDialog"
+            visible="{{showCheckErrorDialog}}"/>
 </view>

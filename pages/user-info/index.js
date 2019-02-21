@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import { isSignUp} from "../../http/http-business";
+import { isSignUp , getCheckMsg} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -9,13 +9,23 @@ const url = `${base}${page}`
 Page({
     data: {
         url:url,
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        showNoMusicDialog:false
+        showNoMusicDialog:false,
+        showCheckErrorDialog:false,
+        showCheckIngDialog:false,
+        showCheckSuccessDialog:false,
+
+
+        errorMsg:'很遗憾，您未通过审核，请详细阅读报名规则后重新报名！'
     },
     handleHideNoMusicDialog(){
       this.setData({
           showNoMusicDialog:false
       })
+    },
+    handleCheckErrorDialog(){
+        this.setData({
+            showCheckErrorDialog:false
+        })
     },
     async _isSignUp(){
         try {
@@ -70,8 +80,27 @@ Page({
             url:'/pages/attention/index'
         })
     },
-    handleReviewInfo: function () {
+    handleReWrite(){
+        wx.chooseMessageFile({
+            count:10,
+            complete:res =>{
+                console.log('res' , res)
+            }
+        })
+    },
+    async handleReviewInfo(){
         console.log('handleReviewInfo')
+        try {
+            //状态 1 正常 0 审核中 2 失败
+            //10 用户审核通过，未提交音乐 11 第一首音乐审核通过
+            const {checkMsg,state} = await getCheckMsg()
+            if(state == 1){
 
+            }else{
+
+            }
+        }catch (e) {
+            showMsg(e)
+        }
     }
 })

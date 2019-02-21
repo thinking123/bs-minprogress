@@ -160,8 +160,8 @@ Page({
         console.log('get usre info' , userInfo, token, app.globalData.code , uId)
 
 
-        // wx.navigateTo({
-        //     url: '/pages/rhythm-select/index'
-        // })
+        wx.navigateTo({
+            url: '/pages/user-info/index'
+        })
     }
 })

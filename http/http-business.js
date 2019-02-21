@@ -339,3 +339,12 @@ export function prizeImg() {
 
     return get(url, data).then(res => parseRes(res, errMsg))
 }
+
+//获取审核信息
+export function getCheckMsg() {
+    let url = '/api/user/getCheckMsg'
+    const loadingText = '获取审核信息...'
+    const errMsg = '获取审核信息失败'
+
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}
