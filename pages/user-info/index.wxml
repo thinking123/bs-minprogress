@@ -12,9 +12,11 @@
     <view class="my-achieve" bindtap="handleMyAchieve"/>
     <view class="win-info" bindtap="handleWinInfo"/>
     <view class="attention-list" bindtap="handleAttentionList"/>
-    <view class="review-info" bindtap="handleReviewInfo">
+    <image class="review-info"
+           src="{{url}}review-btn.png"
+           bindtap="handleReviewInfo">
         审核信息
-    </view>
+    </image>
     <singer-home-no-music-dialog
             bind:hidetap="handleHideNoMusicDialog"
             visible="{{showNoMusicDialog}}"/>

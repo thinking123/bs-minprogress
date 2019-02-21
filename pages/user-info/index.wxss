@@ -46,8 +46,7 @@ page{
 .attention-list{
     position: absolute;
     top:71.06%;
-    left:50%;
-    transform: translateX(-50%);
+    left:392rpx;
     height: 3.75%;
     width: 182rpx;
 }
@@ -55,9 +54,9 @@ page{
 .review-info{
     position: absolute;
     top:78.06%;
-    left:392rpx;
-    height: 3.75%;
-    width: 182rpx;
+    left:376rpx;
+    height: 5%;
+    width: 222rpx;
 }
 
 .user-avatar{

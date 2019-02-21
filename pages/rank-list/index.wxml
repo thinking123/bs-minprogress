@@ -106,7 +106,7 @@
                    data-rank="{{rankOther}}"
                    class="rank-attention  rank-btn rank-center"/>
 
-            <image src="{{url}}vote.png"
+            <image src="{{url}}vote{{rankOther.voteState == 1 ? 'd' : ''}}.png"
                    data-rank="{{rankOther}}"
                    bindtap="handleVote"
                    class="rank-vote-btn rank-btn rank-center"/>

@@ -30,10 +30,22 @@ Page({
         selectedZone:'hx'
     },
     handleCardFollow(e) {
-        this._followMusic(e.detail.id)
+        const rank = e.detail
+        if(rank.followState == 1){
+            this._putfollowMusic(rank.id)
+        }else{
+            this._followMusic(rank.id)
+        }
+
     },
     handleCardVote(e) {
-        this._voteMusic(e.detail.id)
+        const rank = e.detail
+        if(rank.voteState == 1){
+            showMsg('已经投票')
+        }else{
+            this._voteMusic(e.detail.id)
+        }
+
     },
     handleScrollBottom(e) {
         this.loadingMorePages()
@@ -260,7 +272,13 @@ Page({
         this._followMusic(e.target.dataset.rank.id)
     },
     handleVote(e) {
-        this._voteMusic(e.target.dataset.rank.id)
+        const rank = e.target.dataset.rank
+        if(rank.voteState == 1){
+            showMsg('已经投票')
+        }else{
+            this._voteMusic(e.target.dataset.rank.id)
+        }
+
     },
     filterSpecWord(str){
         const reg = /[^\u4e00-\u9fa50-9a-fA-F]/g

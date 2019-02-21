@@ -1,8 +1,9 @@
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
 const baseComponentUrl = app.globalData.baseComponentUrl
-const component = 'rank-card/'
-const url = `${baseComponentUrl}${component}`
+const base = app.globalData.base
+const component = 'rank-card-'
+const url = `${base}${component}`
 
 Component({
 

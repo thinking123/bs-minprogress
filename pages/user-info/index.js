@@ -3,8 +3,9 @@ import { isSignUp} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
-const page = 'user-info/'
-const url = `${baseUrl}${page}`
+const base = app.globalData.base
+const page = 'user-info-'
+const url = `${base}${page}`
 Page({
     data: {
         url:url,

@@ -43,13 +43,13 @@
         </view>
         <view class="rank-card-content">
             <view bindtap="handleFollow" class="btn">
-                <image src="{{url}}attention-icon.png" class="btn-icon"/>
+                <image src="{{url}}attention-icon{{info.followState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>
                 <view>
                     关注
                 </view>
             </view>
             <view bindtap="handleVote" class="btn">
-                <image src="{{url}}vote-icon.png" class="btn-icon"/>
+                <image src="{{url}}heart-icon{{info.voteState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>
                 <view>
                     投票
                 </view>
