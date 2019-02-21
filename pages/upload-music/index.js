@@ -1,4 +1,4 @@
-// pages/upload-music/index.js
+import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {isEmpty} from "../../utils/util";
 
 const app = getApp()
@@ -28,12 +28,86 @@ Page({
         showSubmitOk: false,
         showSubmitError: false,
         showDialog: false,
-        bg: ''
-
+        bg: '',
+        uploadType:'',
+        tempFilePath:'',
+        isRecording:false,
 
     },
     onLoad(option){
         const uploadType = option.uploadType ?  option.uploadType: 'wx'
+        this.setData({
+            uploadType: uploadType
+        })
+
+        if(uploadType != 'wx'){
+            this.initRecord()
+        }
+    },
+    onHide(){
+        if(this.recorderManager){
+            this.data.isRecording && this.recorderManager.stop()
+        }
+    },
+    onUnload(){
+        if(this.recorderManager){
+            this.recorderManager.stop()
+            this.recorderManager = null
+        }
+    },
+
+    async _uploadMusic(file){
+
+    },
+    handleRecord(e) {
+        if (this.data.isRecording) {
+            this.recorderManager.stop()
+        } else {
+            //IOS 开始录音的时候不能为静音模式
+            //或者开启 播放录音的:obeyMuteSwitch
+            this.recorderManager.start(options)
+        }
+    },
+    startRecord(){
+        this.setData({
+            isRecording:true
+        })
+    },
+    stopRecord(tempFilePath){
+        this.setData({
+            isRecording: false,
+            tempFilePath:tempFilePath,
+        })
+    },
+    initRecord(){
+        this.recorderManager = wx.getRecorderManager()
+
+        this.recorderManager.onStart(() => {
+            this.startRecord()
+        })
+        this.recorderManager.onPause(() => {
+            console.log('recorder pause')
+        })
+        this.recorderManager.onStop((res) => {
+            const {tempFilePath} = res
+            this.stopRecord(res.tempFilePath)
+        })
+        this.recorderManager.onFrameRecorded((res) => {
+            const {frameBuffer} = res
+            console.log('frameBuffer.byteLength', frameBuffer.byteLength)
+        })
+        this.recorderManager.onError((err) => {
+            console.log('onError', err.errMsg)
+            this.stopRecord(null)
+        })
+
+        this.recorderManager.onInterruptionBegin((err) => {
+            console.log('onInterruptionBegin', err)
+        })
+
+        this.recorderManager.onInterruptionEnd((err) => {
+            console.log('onInterruptionEnd', err)
+        })
     },
     bindNameInput(e) {
         this.setData({
