@@ -66,5 +66,5 @@ h 433
     height: 14.17%;
     left:50%;
     transform: translateX(-50%);
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }

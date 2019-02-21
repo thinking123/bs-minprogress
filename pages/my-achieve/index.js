@@ -42,10 +42,7 @@ Page({
             },
         ],
         showdcjDialog:false,
-        achievePrize:{
-            prizeTitle:'恭喜您获得\\n苹果手机一部',
-            prizeName:'苹果手机X 256G'
-        },
+        achievePrize:null,
         showwwgkDialog:false,
         showycdyDialog:false,
         showyljzDialog:false,
@@ -55,7 +52,7 @@ Page({
     goToPrizePage(prize , type = ''){
         const url = `/pages/my-achieve-win-info-input/index?prize=${prize}&type=${type}`
         wx.navigateTo({
-            url: '/pages/music-journey/index'
+            url: url
         })
     },
     handleHidedcj(){
@@ -111,11 +108,15 @@ Page({
     async handleGet(e){
         const item = e.target.dataset.item
         console.log('handleGet' , item)
-        if(item.canGet == 0){
-            showMsg('还未完成')
-        }else if(item.canGet == 1){
-            showMsg('已经领取')
-        }else if(item.canGet == 2){
+        //0 :未领取 ，
+      if(!item.canGet){
+            // showMsg('已经领取')
+          if(item.hadGot){
+              showMsg('已经领取')
+          }else{
+
+          }
+        }else{
             //
             try {
                 const prize = await receiveAchievement(item.type)
@@ -168,25 +169,30 @@ Page({
         const list = [...this.data.achieveList]
         console.log(list)
         // const list = res
-        //1 已经领取 0 不能领取 2 可领取
+        //1 已经领取 0 未领取
         list[0].progress = res.ycdy == 2 || res.ycdy == 1 ? '100%' : '0'
         list[0].canGet = res.ycdy
+        list[0].hadGot = res.ycdy == 1
         list[0].type = 'ycdy'
 
         list[1].progress = res.zazsNum / 15 * 100 + '%'
-        list[1].canGet = res.zazs
+        list[1].canGet = res.zazs == 0 && res.zazsNum >= 15
+        list[1].hadGot = res.zazs == 1
         list[1].type = 'zazs'
 
         list[2].progress = res.dcjNum / 66 * 100+ '%'
-        list[2].canGet = res.dcj
+        list[2].canGet = res.dcj == 0 && res.dcjNum >= 66
+        list[2].hadGot = res.dcj == 1
         list[2].type = 'dcj'
 
         list[3].progress = res.wwgkNum / 6666 * 100+ '%'
-        list[3].canGet = res.wwgk
+        list[3].canGet = res.wwgk == 0 && res.wwgkNum >= 6666
+        list[3].hadGot = res.wwgk == 1
         list[3].type = 'wwgk'
 
         list[4].progress = res.yljzNum / 10 * 100 + '%'
-        list[4].canGet = res.yljz
+        list[4].canGet = res.yljz == 0 && res.yljzNum >= 10
+        list[4].hadGot = res.yljz == 1
         list[4].type = 'yljz'
         this.setData({
             achieveList:list
