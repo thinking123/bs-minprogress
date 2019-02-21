@@ -10,4 +10,20 @@
     <auth-dialog
             bind:getuserinfo="handleGetUserInfo"
             visible="{{showDialog}}"/>
+
+    <check-error-dialog
+            bind:rewrite="handleReWrite"
+            content="{{errorMsg}}"
+            bind:hidetap="handleCheckErrorDialog"
+            visible="{{showCheckErrorDialog}}"/>
+    <checking-dialog
+            bind:hidetap="handleCheckIngDialog"
+            visible="{{showCheckIngDialog}}"/>
+    <check-success-dialog
+            bind:hidetap="handleCheckSuccessDialog"
+            visible="{{showCheckSuccessDialog}}"/>
+    <check-success-but-music-dialog
+            bind:hidetap="handleCheckSuccessButMusicDialog"
+            visible="{{showCheckSuccessButMusicDialog}}"/>
+
 </view>

@@ -23,6 +23,7 @@ Page({
           showNoMusicDialog:false
       })
     },
+
     handleCheckErrorDialog(){
         this.setData({
             showCheckErrorDialog:false
@@ -104,12 +105,15 @@ Page({
         })
     },
     handleReWrite(){
-        wx.chooseMessageFile({
-            count:10,
-            complete:res =>{
-                console.log('res' , res)
-            }
+        wx.navigateTo({
+            url:'/pages/register/index'
         })
+        // wx.chooseMessageFile({
+        //     count:10,
+        //     complete:res =>{
+        //         console.log('res' , res)
+        //     }
+        // })
     },
     async handleReviewInfo(){
         console.log('handleReviewInfo')

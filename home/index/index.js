@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {wxLogin , isSignUp} from "../../http/http-business";
+import {wxLogin, isSignUp, getCheckMsg} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 import {_wxGetSetting, _wxGetUserInfo} from "../../utils/wx";
 
@@ -11,39 +11,133 @@ Page({
     data: {
         baseUrl: url,
         showDialog: false,
-        // showMask:true
+
+        showCheckErrorDialog: false,
+        showCheckIngDialog: false,
+        showCheckSuccessDialog: false,
+        showCheckSuccessButMusicDialog: false,
+
+
+        errorMsg: '很遗憾，您未通过审核，请详细阅读报名规则后重新报名！'
     },
-    async _isSignUp(){
+    async _getCheckMsg() {
+        console.log('handleReviewInfo')
+        try {
+            //状态 1 正常 0 审核中 2 失败
+            //10 用户审核通过，未提交音乐 11 第一首音乐审核通过
+            const {checkMsg, state} = await getCheckMsg()
+            if (state == 1) {
+
+            } else {
+
+            }
+            switch (state) {
+                case 1:
+                case 11:
+                    this.setData({
+                        showCheckIngDialog: true
+                    })
+                    break
+                case 0:
+                    this.setData({
+                        showCheckIngDialog: true
+                    })
+                    break
+                case 2:
+                    this.setData({
+                        showCheckErrorDialog: true,
+                        errorMsg: checkMsg
+                    })
+                    break
+                case 10:
+                    this.setData({
+                        showCheckSuccessButMusicDialog: true
+                    })
+                    break
+            }
+        } catch (e) {
+            showMsg(e)
+        }
+    },
+
+    handleCheckErrorDialog() {
+        this.setData({
+            showCheckErrorDialog: false
+        })
+
+
+        // 跳转到上传音乐page
+
+        wx.navigateTo({
+            url: '/pages/upload-music/index'
+        })
+    },
+    handleCheckIngDialog() {
+        this.setData({
+            showCheckIngDialog: false
+        })
+    },
+    handleCheckSuccessDialog() {
+        this.setData({
+            showCheckSuccessDialog: false
+        })
+    },
+    handleCheckSuccessButMusicDialog() {
+        this.setData({
+            showCheckSuccessButMusicDialog: false
+        })
+    },
+    handleReWrite() {
+        wx.navigateTo({
+            url: '/pages/register/index?from=home'
+        })
+    },
+
+    // async _isSignUp() {
+    //
+    //     const res = await isSignUp()
+    //
+    //     if(res){
+    //         //已经报名
+    //
+    //     }else{
+    //         wx.navigateTo({
+    //             url: '/pages/register/index?from=home'
+    //         })
+    //     }
+    //     // if (res == '9006') {
+    //     //     showMsg('已经报名')
+    //     // } else if (res == '9007') {
+    //     //     wx.navigateTo({
+    //     //         url: '/pages/register/index?from=home'
+    //     //     })
+    //     // } else if (res == '9008') {
+    //     //     wx.navigateTo({
+    //     //         url: '/pages/upload-music/index?from=home'
+    //     //     })
+    //     // }
+    //
+    //
+    // },
+    async checkRegister() {
         try {
             const res = await isSignUp()
+            if(res){
+                //已经报名
 
-            if (res == '9006') {
-                showMsg('已经报名')
-            } else if (res == '9007') {
+                await this._getCheckMsg()
+            }else{
                 wx.navigateTo({
                     url: '/pages/register/index?from=home'
                 })
-            } else if (res == '9008') {
-                wx.navigateTo({
-                    url: '/pages/upload-music/index?from=home'
-                })
             }
-
-            // if(res){
-            //     showMsg('已经报名')
-            // }else{
-            //     wx.navigateTo({
-            //         url: '/pages/register/index?from=home'
-            //     })
-            // }
-            console.log('_isSignUp' , res)
-        }catch (e) {
+        } catch (e) {
             showMsg(e)
         }
     },
     handleRegister: function () {
         console.log('handleRegister')
-        this._isSignUp()
+        this.checkRegister()
     },
     handleMyMusic: function () {
         console.log('handleMyMusic')
@@ -69,8 +163,8 @@ Page({
             url: '/pages/user-info/index'
         })
     },
-    async init(){
-        try{
+    async init() {
+        try {
             wx.showLoading({
                 title: '获取用户信息',
                 mask: true
@@ -78,14 +172,14 @@ Page({
 
             const {authSetting} = await _wxGetSetting()
             let userInfo = null
-            if(authSetting['scope.userInfo']){
+            if (authSetting['scope.userInfo']) {
                 //授权过用户信息
                 const data = await _wxGetUserInfo()
                 userInfo = data.userInfo
             }
 
             await this.getUserInfoCb(userInfo)
-        }catch (e) {
+        } catch (e) {
             showMsg(e)
         }
 
@@ -153,16 +247,15 @@ Page({
             userInfo.nickName,
             userInfo.gender)
 
-        const {token , uId} = res
+        const {token, uId} = res
         app.globalData.token = token
         app.globalData.uId = uId
 
-        console.log('get usre info' , userInfo, token, app.globalData.code , uId)
+        console.log('get usre info', userInfo, token, app.globalData.code, uId)
 
 
-
-        wx.navigateTo({
-            url: '/pages/my-achieve/index'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/my-achieve/index'
+        // })
     }
 })

@@ -32,12 +32,10 @@ export function isSignUp() {
     return post(url, data).then(res => {
         console.log('isSignUp', res)
         if (res && res.status == '9006') {
-            return res.status
+            return true
         } else if (res && res.status == '9007') {
-            return res.status
-        } else if (res && res.status == '9008') {
-            return res.status
-        } else {
+            return false
+        }  else {
             throw new Error(res.message ? res.message : '请求失败')
         }
     })

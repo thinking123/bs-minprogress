@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "auth-dialog":"../../components/auth-dialog/index"
+    "auth-dialog":"../../components/auth-dialog/index",
+    "check-error-dialog":"../../components/check-error-dialog/index",
+    "checking-dialog":"../../components/checking-dialog/index",
+    "check-success-dialog":"../../components/check-success-dialog/index",
+    "check-success-but-music-dialog":"../../components/check-success-but-music-dialog/index"
   }
 }
