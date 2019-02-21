@@ -18,16 +18,19 @@ page{
 
 .how-to-play{
     position: absolute;
-    top:3.45%;
-    left:690rpx;
-    height: 11.7%;
-    width: 46rpx;
+    top:2.4%;
+    left:676rpx;
+    height: 14.09%;
+    width: 64rpx;
+    /*border: 1px solid yellow;*/
 }
 
 .start-my-music-journey{
     position: absolute;
-    top:82.91%;
-    left:178rpx;
-    height: 6.6%;
-    width: 396rpx;
+    top:75.41%;
+    left:50%;
+    transform: translateX(-50%);
+    height: 9.3%;
+    width: 476rpx;
+    /*border: 1px solid yellow;*/
 }

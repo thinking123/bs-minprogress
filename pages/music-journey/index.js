@@ -1,7 +1,8 @@
 const app = getApp()
+const base = app.globalData.base
 const baseUrl = app.globalData.baseUrl
-const page = 'music-journey/'
-const url = `${baseUrl}${page}`
+const page = 'music-journey-'
+const url = `${base}${page}`
 // const url = './'
 Page({
     data: {
