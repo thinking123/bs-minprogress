@@ -1,0 +1,11 @@
+<view class="check-success-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="check-success-dialog-mask"
+          id="mask"/>
+    <view class="check-success-dialog-body">
+        <image src="{{url}}bg.png"
+               class="check-success-dialog-bg"/>
+        <view class="check-success-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>

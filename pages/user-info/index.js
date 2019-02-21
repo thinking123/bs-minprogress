@@ -13,6 +13,7 @@ Page({
         showCheckErrorDialog:false,
         showCheckIngDialog:false,
         showCheckSuccessDialog:false,
+        showCheckSuccessButMusicDialog:false,
 
 
         errorMsg:'很遗憾，您未通过审核，请详细阅读报名规则后重新报名！'
@@ -25,6 +26,28 @@ Page({
     handleCheckErrorDialog(){
         this.setData({
             showCheckErrorDialog:false
+        })
+
+
+        // 跳转到上传音乐page
+
+        wx.navigateTo({
+            url:'/pages/upload-music/index'
+        })
+    },
+    handleCheckIngDialog(){
+        this.setData({
+            showCheckIngDialog:false
+        })
+    },
+    handleCheckSuccessDialog(){
+        this.setData({
+            showCheckSuccessDialog:false
+        })
+    },
+    handleCheckSuccessButMusicDialog(){
+        this.setData({
+            showCheckSuccessButMusicDialog:false
         })
     },
     async _isSignUp(){
@@ -98,6 +121,30 @@ Page({
 
             }else{
 
+            }
+            switch (state) {
+                case 1:
+                case 11:
+                    this.setData({
+                        showCheckIngDialog:true
+                    })
+                    break
+                case 0:
+                    this.setData({
+                        showCheckIngDialog:true
+                    })
+                    break
+                 case 2:
+                    this.setData({
+                        showCheckErrorDialog:true,
+                        errorMsg:checkMsg
+                    })
+                    break
+                 case 10:
+                    this.setData({
+                        showCheckSuccessButMusicDialog:true
+                    })
+                    break
             }
         }catch (e) {
             showMsg(e)

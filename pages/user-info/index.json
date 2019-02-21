@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "singer-home-no-music-dialog":"../../components/singer-home-no-music-dialog/index",
-    "check-error-dialog":"../../components/check-error-dialog/index"
+    "check-error-dialog":"../../components/check-error-dialog/index",
+    "checking-dialog":"../../components/checking-dialog/index",
+    "check-success-dialog":"../../components/check-success-dialog/index",
+    "check-success-but-music-dialog":"../../components/check-success-but-music-dialog/index"
   }
 }

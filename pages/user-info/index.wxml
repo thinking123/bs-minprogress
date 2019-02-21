@@ -25,4 +25,13 @@
             content="{{errorMsg}}"
             bind:hidetap="handleCheckErrorDialog"
             visible="{{showCheckErrorDialog}}"/>
+    <checking-dialog
+            bind:hidetap="handleCheckIngDialog"
+            visible="{{showCheckIngDialog}}"/>
+    <check-success-dialog
+            bind:hidetap="handleCheckSuccessDialog"
+            visible="{{showCheckSuccessDialog}}"/>
+    <check-success-but-music-dialog
+            bind:hidetap="handleCheckSuccessButMusicDialog"
+            visible="{{showCheckSuccessButMusicDialog}}"/>
 </view>
