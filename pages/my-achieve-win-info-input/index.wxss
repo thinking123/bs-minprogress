@@ -76,5 +76,5 @@
     left:208rpx;
     height: 7.19%;
     width: 342rpx;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }

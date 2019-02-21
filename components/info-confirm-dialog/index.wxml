@@ -6,9 +6,9 @@
         <!--<image src="{{url}}retry-btn.png" class="retry-btn" bindtap="handleRetry"/>-->
         <!---->
     <!--</view>-->
-    <image src="{{url}}bg.png" class="info-confirm-bg"/>
-    <image src="{{url}}confirm-btn.png" class="confirm-btn" bindtap="handleConfirm"/>
-    <image src="{{url}}retry-btn.png" class="retry-btn" bindtap="handleRetry"/>
+    <image src="{{url}}bg.png" class="info-confirm-bg{{cs == 1 ? '-virtual' : ''}}"/>
+    <image src="{{url}}confirm-btn.png" class="confirm-btn  {{cs == 1 ? 'virtual-btn' : ''}}" bindtap="handleConfirm"/>
+    <image src="{{url}}retry-btn.png" class="retry-btn {{cs == 1 ? 'virtual-btn' : ''}}" bindtap="handleRetry"/>
     <view class="content-wrap">
         <view class="info-name">
             姓名：{{name}}
@@ -16,7 +16,16 @@
         <view class="info-phone">
             手机：{{phone}}
         </view>
-        <view class="info-address">
+        <view class="info-qq"
+              wx:if="{{cs==2}}">
+            QQ：{{qq}}
+        </view>
+        <view class="info-id-card"
+              wx:if="{{cs!=0}}">
+            身份证：{{card}}
+        </view>
+        <view class="info-address"
+              wx:if="{{cs!=2}}">
             <view class="address-content-title">
                 邮寄地址：
             </view>

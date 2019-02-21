@@ -126,6 +126,13 @@ Page({
             }
         }
     },
+    async onShow(){
+        // try {
+        //     await this._getAchievement()
+        // }catch (e) {
+        //     showMsg(e)
+        // }
+    },
     showDialog(prize ,type){
         switch (type) {
             case 'ycdy':

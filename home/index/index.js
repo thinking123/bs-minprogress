@@ -160,9 +160,7 @@ Page({
         console.log('get usre info' , userInfo, token, app.globalData.code , uId)
 
 
-        wx.navigateTo({
-            url: '/pages/my-achieve-win-info-input/index'
-        })
+
         wx.navigateTo({
             url: '/pages/my-achieve/index'
         })

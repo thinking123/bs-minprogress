@@ -1,9 +1,10 @@
+const computedBehavior = require('miniprogram-computed')
 const app = getApp()
 const baseComponentUrl = app.globalData.baseComponentUrl
 const component = 'info-confirm-dialog/'
 const url = `${baseComponentUrl}${component}`
 
-Component({
+Component({  behaviors: [computedBehavior],
     properties: {
         visible: {
             type: Boolean,
@@ -11,10 +12,30 @@ Component({
         },
         name: String,
         phone: String,
+        qq: String,
+        card: String,
         address: String,
+        type:{
+            type:String,
+            value:'win-info'
+        }
     },
     data: {
         url:url
+    },
+    computed: {
+        cs() {
+            switch (this.data.type) {
+                case 'win-info':
+                    return '0'
+                case 'achieve-win-info':
+                    return '1'
+                case 'achieve-win-info-virtual':
+                    return '2'
+                default:
+                    return '0'
+            }
+        }
     },
     methods: {
         handleConfirm() {

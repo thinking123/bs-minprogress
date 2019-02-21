@@ -14,10 +14,18 @@ Page({
         qq: '',
         idCard: '',
         address: '',
+
+        // name: '四大佛教圣地离开房间',
+        // phone: '15968846098',
+        // qq: '1297895668',
+        // idCard: '362326198805117856',
+        // address: 'sdfildsjfsdfsd士大夫多少积分圣诞快乐附近时打开房间圣诞快乐附近但是风口浪尖',
+
         showDialog: false,
         showError: false,
         type:'virtual',
-        prizeType:''
+        prizeType:'',
+        dialogType:''
     },
     hideerrortap(){
         this.setData({
@@ -34,9 +42,11 @@ Page({
     },
     handleSubmit(e) {
         if (this.verifySubmit()) {
+            const dialogType = this.data.type == 'virtual' ? 'achieve-win-info-virtual' : 'achieve-win-info'
             console.log('handleSubmit ok')
             this.setData({
-                showDialog: true
+                showDialog: true,
+                dialogType:dialogType
             })
         } else {
             console.log('handleSubmit error')
@@ -56,8 +66,8 @@ Page({
                 this.data.address,
                 this.data.qq)
             console.log(res)
-            wx.navigateBack({
-                delta: 1
+            wx.redirectTo({
+                url: '/pages/my-achieve/index'
             })
         } catch (e) {
             showMsg(e)
