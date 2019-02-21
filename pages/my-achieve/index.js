@@ -133,6 +133,12 @@ Page({
         // }catch (e) {
         //     showMsg(e)
         // }
+        this.setData({
+            showycdyDialog:false,
+            showdcjDialog:false,
+            showwwgkDialog:false,
+            showyljzDialog:false,
+        })
     },
     showDialog(prize ,type){
         switch (type) {
@@ -172,7 +178,7 @@ Page({
         //1 已经领取 0 未领取
 
         //ycdy > 0
-        list[0].progress = res.ycdy == 2 || res.ycdy == 1 ? '100%' : '0'
+        list[0].progress = res.ycdyNum > 0 ? '100%' : '0'
         list[0].canGet = res.ycdy == 0 && res.ycdyNum > 0
         list[0].hadGot = res.ycdy == 1
         list[0].type = 'ycdy'

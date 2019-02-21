@@ -32,6 +32,9 @@ Page({
 
 
     },
+    onLoad(option){
+        const uploadType = option.uploadType ?  option.uploadType: 'wx'
+    },
     bindNameInput(e) {
         this.setData({
             name: e.detail.value
