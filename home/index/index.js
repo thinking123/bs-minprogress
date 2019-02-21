@@ -1,7 +1,7 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {wxLogin, isSignUp, getCheckMsg} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
-import {_wxGetSetting, _wxGetUserInfo} from "../../utils/wx";
+import {_wxGetSetting, _wxGetUserInfo, _wxLogin} from "../../utils/wx";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -165,6 +165,10 @@ Page({
     },
     async init() {
         try {
+            const code = await _wxLogin()
+            console.log('code' , code)
+            app.globalData.code = code
+
             wx.showLoading({
                 title: '获取用户信息',
                 mask: true

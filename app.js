@@ -22,9 +22,9 @@ App({
 
         try{
             initHttp(this.globalData)
-            const code = await _wxLogin()
-            console.log('code' , code)
-            this.globalData.code = code
+            // const code = await _wxLogin()
+            // console.log('code' , code)
+            // this.globalData.code = code
             // return
             // const {authSetting} = await _wxGetSetting()
             // let userInfo = null
