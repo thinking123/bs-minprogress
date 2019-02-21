@@ -258,8 +258,8 @@ Page({
         console.log('get usre info', userInfo, token, app.globalData.code, uId)
 
 
-        // wx.navigateTo({
-        //     url: '/pages/register/index'
-        // })
+        wx.navigateTo({
+            url: '/pages/upload-music/index?uploadType=wx'
+        })
     }
 })

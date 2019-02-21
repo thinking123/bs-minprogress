@@ -5,21 +5,64 @@
     position: relative;
     margin:0;
     padding:0;
-
+    background-color: #333333;
+    opacity: 0.9;
 }
 .img{
-    height: 100%;
+    height: 74.51%;
     width: 100%;
-}
-
-.upload{
     position: absolute;
-    top:30.39%;
-    left:294rpx;
-    height: 10.93%;
-    width: 170rpx;
+    top:5.25%;
+    left:50%;
+    transform: translateX(-50%);
 }
 
+.upload-icon-mkf{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:31.63%;
+    height: 9.75%;
+    width: 94rpx;
+}
+.record{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:43.48%;
+    height: 3.3%;
+    width: 156rpx;
+}
+
+.upload-icon-wx{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:30.39%;
+    height: 9.3%;
+    width: 130rpx;
+}
+
+.upload-icon-wx > image {
+    width: 100%;
+
+    height: 100%;
+}
+.upload-icon-wx::after{
+    color:white;
+    white-space: nowrap;
+    font-size: 18rpx;
+    position: absolute;
+    content:'微信导入音乐';
+    display: block;
+    top:100%;
+    left:50%;
+    /*height: 20rpx;*/
+    /*width: 1800rpx;*/
+    /*background-color: red;*/
+    /*transform: translateX(-50%);*/
+    transform: translate(-50% , 2rpx);
+}
 .progress-bar-text{
     position: absolute;
     top:43.86%;
@@ -44,25 +87,71 @@
 
 .submit{
     position: absolute;
-    top:83.08%;
-    left:206rpx;
-    height: 7.19%;
-    width: 342rpx;
+    top:81.41%;
+    left:50%;
+    transform: translateX(-50%);
+    height: 10.64%;
+    width: 414rpx;
 }
 .item{
     height: 12rpx;
     width: 12rpx;
 }
-.checked{
+
+.check-box-wrap{
     position: absolute;
     top:54.19%;
-    left:388rpx;
+    left:50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20rpx;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-.unchecked{
-    position: absolute;
-    top:54.19%;
-    left:466rpx;
+.check-box-wrap > .mg{
+    margin-right: 32rpx;
 }
+.wrap > view{
+    display: inline-block;
+}
+.check-box{
+    height: 12rpx;
+    width: 12rpx;
+    position: relative;
+    background-color: white;
+    border: 2rpx solid white;
+    margin-right: 6rpx;
+}
+.check-box-wrap:nth-child(2){
+    margin-right: 32rpx;
+}
+.check-box.active{
+    background-color: #004B93;
+}
+.check-box.checked{
+
+
+}
+/*.check-box.checked::after{*/
+    /*!*position: absolute;*!*/
+    /*!*left: 100%;*!*/
+    /*transform: translateX(10rpx);*/
+    /*!*top:0;*!*/
+    /*content:'是';*/
+    /*display: block;*/
+/*}*/
+/*.check-box.unchecked::after{*/
+    /*!*position: absolute;*!*/
+    /*!*top:0;*!*/
+    /*!*left: 100%;*!*/
+    /*transform: translateX(10rpx);*/
+    /*content:'否';*/
+    /*display: block;*/
+/*}*/
 .progress-bar-wrap{
     position: absolute ;
     top:43.86% ;

@@ -1,42 +1,84 @@
 <view class="container">
     <!--<web-view src="http://www.lizikeji.cn"/>-->
-    <image src="{{url}}upload-music-bg.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
     <!--<input type="file" />-->
-    <div class="upload" bindtap="handleUpload">
 
-    </div>
+
+
+    <view class="upload-icon-wx"        wx:if="{{uploadType=='wx'}}">
+        <image src="{{url}}wx.png"
+               bindtap="handleUpload"/>
+    </view>
+    <image src="{{url}}mkf.png"
+           bindtap="handleUpload"
+           wx:else
+           class="upload-icon-mkf"/>
+
+
+    <image src="{{url}}start-record.png"
+           wx:if="{{uploadType!='wx' && !isRecording && !isUploading}}"
+           class="record"/>
+
+    <image src="{{url}}record-completed.png"
+           wx:if="{{uploadType!='wx' && isRecording && !isUploading}}"
+           class="record"/>
+
     <input class=" input-name" placeholder="歌曲名称"
            placeholder-class="ph-cs"
            value="{{name}}"
            bindinput="bindNameInput"
-           auto-focus
     />
 
-    <image id="checked" src="{{checked ? (url + 'checked.png'): (url + 'unchecked.png')}}"
-           class="checked item"
-           bindtap="handleChecked"/>
+    <view class="check-box-wrap">
+        <!--<view>-->
+            <!--是否为原创歌曲：-->
+        <!--</view>-->
+        是否为原创歌曲：
+        <view class="check-box checked {{checked ? 'active' : ''}}" bindtap="handleChecked"/>
+        <view class="mg" bindtap="handleChecked">
+            是
+        </view>
 
-    <image id="unchecked" src="{{checked ? (url + 'unchecked.png'): (url + 'checked.png')}}" class="unchecked item"
-           bindtap="handleChecked"/>
+        <view class="check-box unchecked {{!checked ? 'active' : ''}}" bindtap="handleChecked"/>
+        <view bindtap="handleChecked">
+            否
+        </view>
 
-    <view class="progress-bar-wrap">
+        <!--<view class="wrap">-->
+            <!--<view class="check-box checked {{checked ? 'active' : ''}}"/>-->
+            <!--<view class="check-box unchecked {{!checked ? 'active' : ''}}"/>-->
+        <!--</view>-->
+
+
+        <!--<image id="checked" src="{{checked ? (url + 'checked.png'): (url + 'unchecked.png')}}"-->
+               <!--class="checked item"-->
+               <!--bindtap="handleChecked"/>-->
+
+        <!--<image id="unchecked" src="{{checked ? (url + 'unchecked.png'): (url + 'checked.png')}}" class="unchecked item"-->
+               <!--bindtap="handleChecked"/>-->
+    </view>
+
+
+    <view class="progress-bar-wrap"
+          wx:if="{{isUploading}}">
         <view class="progress-bar" style="width:{{progress}}">
 
         </view>
     </view>
-    <view class="progress-bar-text">
+    <view class="progress-bar-text"
+          wx:if="{{isUploading}}">
         {{progress}}
     </view>
     <!--<progress percent="{{progress}}" show-info class="progress-bar" active/>-->
     <!--<div class="progress-bar-text">-->
     <!--{{progress}}%-->
     <!--</div>-->
-    <div class="image-swap">
+    <!--<div class="image-swap">-->
 
-    </div>
+    <!--</div>-->
 
-    <view class="submit" bindtap="handleSubmit"/>
+    <image src="{{url}}btn.png" class="submit" bindtap="handleSubmit"/>
     <dialog-wrap visible="{{showDialog}}" bg="{{bg}}"
                            bind:hidetap="hidetap"/>
 

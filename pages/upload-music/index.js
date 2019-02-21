@@ -2,8 +2,8 @@ import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {isEmpty} from "../../utils/util";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'upload-music/'
+const baseUrl = app.globalData.base
+const page = 'upload-music-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
@@ -32,12 +32,14 @@ Page({
         uploadType:'',
         tempFilePath:'',
         isRecording:false,
+        isUploading:false,
 
     },
     onLoad(option){
         const uploadType = option.uploadType ?  option.uploadType: 'wx'
         this.setData({
             uploadType: uploadType
+            // uploadType: 'dfsd'
         })
 
         if(uploadType != 'wx'){

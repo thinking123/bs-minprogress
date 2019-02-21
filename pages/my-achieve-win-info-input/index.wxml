@@ -6,7 +6,6 @@
            value="{{name}}"
            wx:if="{{!showDialog}}"
            bindinput="bindNameInput"
-           auto-focus
     />
     <input class=" input-phone"
            wx:if="{{!showDialog}}"
