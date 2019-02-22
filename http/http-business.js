@@ -95,24 +95,6 @@ export function getSchool(provinceId, pointId, name) {
     return get(url, data).then(res => parseRes(res, errMsg))
 }
 
-
-//发布音乐
-export function singMusic(isOriginal,
-                          musicCover,
-                          musicName,
-                          musicUrl) {
-    const url = '/api/singUp/singMusic'
-    const loadingText = '发布音乐...'
-    const errMsg = '发布音乐失败'
-    const data = {
-        isOriginal: isOriginal,
-        musicCover: musicCover,
-        musicName: musicName,
-        musicUrl: musicUrl
-    }
-    return post(url, data).then(res => parseRes(res, errMsg))
-}
-
 //作用: 音乐排行榜
 export function getRankingList(pageNum,
                           provinceId,
@@ -371,4 +353,32 @@ export function myAchcieveReceivePrize(prizeType,
     url = urlParams(url , params)
 
     return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+}
+
+
+//发布音乐
+export function signMusic(isOriginal ,
+                       musicCover ,
+                       musicName ,
+                       musicUrl ) {
+    const url = '/api/singUp/singMusic'
+    const loadingText = '发布音乐...'
+    const errMsg = '发布音乐失败'
+    const data = {
+        isOriginal: isOriginal,
+        musicCover: musicCover,
+        musicName: musicName,
+        musicUrl: musicUrl
+    }
+    return post(url, data, loadingText).then(res => parseRes(res, errMsg))
+
+}
+//作用: 上传音乐 默认封面
+export function coverImg() {
+    const url = '/api/singUp/coverImg'
+    const loadingText = '获取上传音乐封面...'
+    const errMsg = '获取上传音乐封面失败'
+    const data = {}
+
+    return get(url, data , loadingText).then(res => parseRes(res, errMsg))
 }

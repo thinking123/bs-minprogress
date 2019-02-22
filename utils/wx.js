@@ -68,8 +68,7 @@ export function wx_rmdir(fs , dirPath , recursive = true) {
     })
 }
 
-export function
-wx_saveFile(fs ,tempFilePath , filePath) {
+export function wx_saveFile(fs ,tempFilePath , filePath) {
     return new Promise((resolve , reject) => {
         fs.saveFile({
             filePath:filePath,
@@ -79,3 +78,37 @@ wx_saveFile(fs ,tempFilePath , filePath) {
         })
     })
 }
+
+
+export function wx_chooseMessageFile(count ,
+                                     type = 'all',
+                                     extension=[]) {
+    return new Promise((resolve , reject) => {
+        wx.chooseMessageFile({
+            count:count,
+            type:type,
+            extension:extension,
+            success:resolve,
+            fail:reject
+        })
+    })
+}
+
+
+export function wx_uploadFile(
+    url ,
+    filePath,
+    name,
+    header) {
+    return new Promise((resolve , reject) => {
+        const uploadTask = wx.uploadFile({
+            url:url,
+            filePath:filePath,
+            name:name,
+            header:header,
+            success:resolve,
+            fail:reject
+        })
+    })
+}
+

@@ -8,10 +8,10 @@
 
     <view class="upload-icon-wx"        wx:if="{{uploadType=='wx'}}">
         <image src="{{url}}wx.png"
-               bindtap="handleUpload"/>
+               bindtap="handleUploadFromWx"/>
     </view>
     <image src="{{url}}mkf.png"
-           bindtap="handleUpload"
+           bindtap="handleRecord"
            wx:else
            class="upload-icon-mkf"/>
 
@@ -26,7 +26,7 @@
 
     <input class=" input-name" placeholder="歌曲名称"
            placeholder-class="ph-cs"
-           value="{{name}}"
+           value="{{songName}}"
            bindinput="bindNameInput"
     />
 
@@ -40,8 +40,8 @@
             是
         </view>
 
-        <view class="check-box unchecked {{!checked ? 'active' : ''}}" bindtap="handleChecked"/>
-        <view bindtap="handleChecked">
+        <view class="check-box unchecked {{!checked ? 'active' : ''}}" bindtap="handleUnChecked"/>
+        <view bindtap="handleUnChecked">
             否
         </view>
 
@@ -79,10 +79,15 @@
     <!--</div>-->
 
     <image src="{{url}}btn.png" class="submit" bindtap="handleSubmit"/>
-    <dialog-wrap visible="{{showDialog}}" bg="{{bg}}"
+    <dialog-wrap visible="{{showDialog}}"
+                 bg="{{bg}}"
+                 type="{{type}}"
+                            bind:ok="handleOk"
                            bind:hidetap="hidetap"/>
 
 
-    <cascade-swiper class="music-swiper" images="{{images}}"/>
+    <cascade-swiper class="music-swiper"
+                    bind:selected="handleCascadeSelected"
+                    images="{{images}}"/>
 </view>
 

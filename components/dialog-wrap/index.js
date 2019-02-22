@@ -13,7 +13,8 @@ Component({
             type: Boolean,
             value: false
         },
-        bg: String
+        bg: String,
+        type:String
     },
     data: {
         url:url
@@ -25,10 +26,17 @@ Component({
     },
     methods: {
         handleHide() {
+
+            if(this.data.type == 'ok'){
+                this.triggerEvent('ok')
+            }
             this.triggerEvent('hidetap')
         },
         handleOutHide(e) {
             if (e && e.target && e.target.id === 'mask') {
+                if(this.data.type == 'ok'){
+                    this.triggerEvent('ok')
+                }
                 this.triggerEvent('hidetap')
             }
         }

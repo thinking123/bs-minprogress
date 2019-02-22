@@ -1,29 +1,33 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {isEmpty} from "../../utils/util";
+import {baseUrl} from "../../utils/constant";
+import {isEmpty, showMsg} from "../../utils/util";
+import {wx_chooseMessageFile , wx_uploadFile} from "../../utils/wx";
+import {coverImg , signMusic} from "../../http/http-business";
 
 const app = getApp()
-const baseUrl = app.globalData.base
+const base = app.globalData.base
 const page = 'upload-music-'
-const url = `${baseUrl}${page}`
+const url = `${base}${page}`
+
+const options = {
+    duration: 60000,
+    sampleRate: 44100,
+    numberOfChannels: 1,
+    encodeBitRate: 192000,
+    format: 'aac',
+    frameSize: 50
+}
+
 Page({
     data: {
         url: url,
-        name: '',
+        songName: '',
         checked: false,
         progress: '20%',
         isUploaded: false,
         isUploading: false,
         musicBg: '',
-        images: [
-            "1.jpg",
-            "2.jpg",
-            "3.jpg",
-            "4.jpg",
-            "5.jpg",
-            "6.jpg",
-            "7.jpg",
-            "8.jpg"
-        ],
+        images: [],
         showUploadFail: false,
         showSubmitOk: false,
         showSubmitError: false,
@@ -33,28 +37,48 @@ Page({
         tempFilePath: '',
         isRecording: false,
         isUploading: false,
+        uploadReturnUrl: '',
+        selectedImageIndex:'0',
+        type:''
 
     },
-    onLoad(option) {
-        const images = []
-        for (let i = 0; i < 12; i++) {
-            const l = `${i+1}.jpg`
-            images.push(l)
-        }
+    handleCascadeSelected(e){
+        const selectedImageIndex = e.detail
+        console.log('selectedImageIndex', selectedImageIndex)
         this.setData({
-            images: images
+            selectedImageIndex: selectedImageIndex
         })
+    },
+    async onLoad(option) {
 
-        const uploadType = option.uploadType ? option.uploadType : 'wx'
-        this.setData({
-            uploadType: uploadType
-            // uploadType: 'dfsd'
-        })
+        try {
 
-        if (uploadType != 'wx') {
-            this.initRecord()
+
+            const images = await coverImg()
+            // const temp = []
+            // for (let i = 0; i < images.length; i++) {
+            //     const l = `${i + 1}.jpg`
+            //     temp.push({
+            //         index:
+            //     })
+            // }
+            this.setData({
+                images: images
+            })
+
+            const uploadType = option.uploadType ? option.uploadType : 'wx'
+            this.setData({
+                uploadType: uploadType
+                // uploadType: 'dfsd'
+            })
+
+            if (uploadType != 'wx') {
+                this.initRecord()
+            }
+
+        }catch (e) {
+            showMsg(e)
         }
-
 
 
     },
@@ -87,11 +111,19 @@ Page({
             isRecording: true
         })
     },
-    stopRecord(tempFilePath) {
-        this.setData({
-            isRecording: false,
-            tempFilePath: tempFilePath,
-        })
+    async stopRecord(tempFilePath) {
+        try {
+            this.setData({
+                isRecording: false,
+                tempFilePath: tempFilePath,
+            })
+
+
+            await this._uploadFile(tempFilePath)
+        }catch (e) {
+            showMsg(e)
+        }
+
     },
     initRecord() {
         this.recorderManager = wx.getRecorderManager()
@@ -125,24 +157,50 @@ Page({
     },
     bindNameInput(e) {
         this.setData({
-            name: e.detail.value
+            songName: e.detail.value
         })
     },
     verifySubmit() {
-        return !(isEmpty(this.data.name))
+        return !isEmpty(this.data.songName) &&
+            !isEmpty(this.data.uploadReturnUrl) &&
+            this.data.selectedImageIndex >= 0 &&
+            this.data.selectedImageIndex < this.data.images.length
     },
-    handleSubmit(e) {
-        if (this.verifySubmit()) {
-            console.log('handleSubmit ok')
+    async _signMusic(){
+        try {
+            await signMusic(
+                this.data.checked ? '1' : '0',
+                this.data.images[this.data.selectedImageIndex].coverUrl,
+                this.data.songName,
+                this.data.uploadReturnUrl
+            )
             this.setData({
                 bg: 'submit-ok',
-                showDialog: true
+                showDialog: true,
+                type:'ok'
             })
+        }catch (e) {
+            showMsg(e)
+        }
+    },
+    handleSubmit(e) {
+        if(this.data.isRecording){
+            return showMsg('正在录音')
+        }
+        if(this.data.isUploading){
+            return showMsg('正在上传')
+        }
+        if (this.verifySubmit()) {
+            console.log('handleSubmit ok')
+
+            this._signMusic()
+
         } else {
             console.log('handleSubmit error')
             this.setData({
                 bg: 'submit-error',
-                showDialog: true
+                showDialog: true,
+                type:'error'
             })
         }
     },
@@ -157,26 +215,35 @@ Page({
             showDialog: false
         })
     },
-    handleChecked(e) {
-        switch (e.target.id) {
-            case 'checked':
-                this.setData({
-                    checked: true
-                })
-                break
-            case 'unchecked':
-                this.setData({
-                    checked: false
-                })
-                break
-        }
+    handleOk(){
+        this.setData({
+            showDialog: false
+        })
+        console.log('go to home')
+        wx.redirectTo({
+            url: '/home/index/index'
+        })
     },
-    uploadFile(file, url) {
-
+    handleChecked(e) {
+        this.setData({
+            checked: true
+        })
+    },
+    handleUnChecked(){
+        this.setData({
+            checked: false
+        })
+    },
+    uploadFile(file) {
+        const url = '/api/misic/uploadQiniuyun'
+        const headers = {
+            'token':app.globalData.token
+        }
         this.uploadTask = wx.uploadFile({
             url: url,
             filePath: file,
             name: 'file',
+            header:headers,
             formData: {
                 user: 'test'
             },
@@ -202,25 +269,31 @@ Page({
             console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
         })
     },
-    handleUpload() {
-        console.log('upload file')
-        wx.chooseVideo({
-            success: res => {
-                console.log('res', res)
-            },
-            fail: err => {
-                console.log('err', err)
-            }
+    async handleUploadFromWx() {
+        try {
+            const {tempFiles} = await wx_chooseMessageFile(1 , 'file' , ['mp3'])
+
+            console.log('tempFiles' , tempFiles)
+            await this._uploadFile(tempFiles[0].path)
+        }catch (e) {
+            showMsg(e)
+        }
+    },
+
+    async _uploadFile(filePath){
+        const url = `${baseUrl}/api/misic/uploadQiniuyun`
+        const header = {
+            'token':app.globalData.token
+        }
+        let {data} = await wx_uploadFile( url ,filePath ,'file', header)
+        data = JSON.parse(data)
+        const uploadReturnUrl = data.rows
+        this.setData({
+            uploadReturnUrl: uploadReturnUrl
         })
-        // if(this.data.isUploading){
-        //     this.uploadTask.abort()
-        //     this.uploadTask = null
-        // }
-        //
-        // this.setData({
-        //     isUploading:true,
-        //     progress:0
-        // })
+        console.log('data' , data)
+        return data
     }
+
 
 })

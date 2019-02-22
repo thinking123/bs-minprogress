@@ -22,7 +22,8 @@ Component({
 
                     const m = images.map((image, index) => {
                         let css = null
-                        image = `${url}${image}`
+                        // image = `${url}${image}`
+                        image = image.coverUrl
                         if (index < left1Index) {
                             //left hide
                             css = {
@@ -86,6 +87,8 @@ Component({
                         centerIndex: centerIndex,
                         lists:m
                     })
+
+                    this.triggerEvent('selected' , centerIndex)
                 }
             }
 
@@ -160,7 +163,8 @@ Component({
 
             const m = this.data.images.map((image, index) => {
                 let css = null
-                image = `${url}${image}`
+                // image = `${url}${image}`
+                image = image.coverUrl
                 if (index < left1Index) {
                     //left hide
                     css = {
@@ -224,6 +228,8 @@ Component({
                 centerIndex: centerIndex,
                 lists: m
             })
+
+            this.triggerEvent('selected' , centerIndex)
         },
         moveRight() {
             console.log('moveRight')
@@ -240,7 +246,8 @@ Component({
 
             const m = this.data.images.map((image, index) => {
                 let css = null
-                image = `${url}${image}`
+                // image = `${url}${image}`
+                image = image.coverUrl
                 if (index < left1Index) {
                     //left hide
                     css = {
@@ -304,6 +311,8 @@ Component({
                 centerIndex: centerIndex,
                 lists: m
             })
+
+            this.triggerEvent('selected' , centerIndex)
         }
 
     }
