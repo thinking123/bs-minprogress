@@ -6,8 +6,10 @@ const baseUrl = app.globalData.baseUrl
 const base = app.globalData.base
 const page = 'user-info-'
 const url = `${base}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url:url,
         showNoMusicDialog:false,
         showCheckErrorDialog:false,

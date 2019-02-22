@@ -27,7 +27,8 @@
 
 
     <view bindtap="handleReturn" class="return-btn"/>
-
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 
 </view>
 

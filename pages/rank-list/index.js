@@ -7,8 +7,10 @@ const baseUrl = app.globalData.baseUrl
 const base = app.globalData.base
 const page = 'rank-list-'
 const url = `${base}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url: url,
         showCityList: [],
         showStartIndex: 0,

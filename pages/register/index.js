@@ -7,8 +7,10 @@ const baseUrl = app.globalData.baseUrl
 const base = app.globalData.base
 const page = 'register-'
 const url = `${base}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url: url,
         showError: false,
         schools: [],

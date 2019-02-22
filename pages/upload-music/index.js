@@ -8,7 +8,7 @@ const app = getApp()
 const base = app.globalData.base
 const page = 'upload-music-'
 const url = `${base}${page}`
-
+const isLocked = app.globalData.isLocked
 const options = {
     //最大录音时长30s
     duration: 30000,
@@ -21,6 +21,7 @@ const options = {
 
 Page({
     data: {
+        isLocked:isLocked,
         url: url,
         songName: '',
         checked: false,

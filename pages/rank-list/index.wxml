@@ -123,6 +123,7 @@
                class="search-icon"/>
 
     </view>
-
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

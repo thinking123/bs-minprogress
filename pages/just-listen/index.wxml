@@ -188,6 +188,7 @@
             lotteryInfo="{{lotteryInfo}}"
             visible="{{showHadLotteryDialog}}"/>
 
-
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

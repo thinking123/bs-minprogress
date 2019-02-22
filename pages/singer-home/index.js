@@ -6,8 +6,10 @@ const baseUrl = app.globalData.baseUrl
 const base = app.globalData.base
 const page = 'singer-home-'
 const url = `${base}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url:url,
         user:null,
         bsMusicEntityList:[],

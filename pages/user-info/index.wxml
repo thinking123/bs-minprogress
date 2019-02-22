@@ -43,4 +43,6 @@
     <singer-home-checking-error-dialog
             bind:hidetap="handleSingerHomeCheckingErrorDialog"
             visible="{{showSingerHomeCheckingErrorDialog}}"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>

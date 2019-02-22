@@ -16,8 +16,10 @@ const app = getApp()
 const baseUrl = app.globalData.baseUrl
 const page = 'just-listen/'
 const url = `${baseUrl}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url: url,
         rankListOther: [],
         curMusic: {

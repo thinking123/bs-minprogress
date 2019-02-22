@@ -93,5 +93,7 @@
     <cascade-swiper class="music-swiper"
                     bind:selected="handleCascadeSelected"
                     images="{{images}}"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

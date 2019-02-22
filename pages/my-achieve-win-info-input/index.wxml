@@ -53,5 +53,7 @@
                            bind:hidetap="hideerrortap"/>
 
     <view class="submit" bindtap="handleSubmit"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

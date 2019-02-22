@@ -6,8 +6,10 @@ const app = getApp()
 const baseUrl = app.globalData.base
 const page = 'win-info-'
 const url = `${baseUrl}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
+        isLocked:isLocked,
         url:url,
         prizeList:[]
     },

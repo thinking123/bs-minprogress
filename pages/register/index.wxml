@@ -91,5 +91,7 @@
 
     <register-error-dialog visible="{{showError}}"
                            bind:hidetap="hidetap"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

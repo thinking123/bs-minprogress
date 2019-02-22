@@ -55,6 +55,7 @@
             bind:hidetap="handleHideyljz"
             visible="{{showyljzDialog}}"/>
 
-
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 

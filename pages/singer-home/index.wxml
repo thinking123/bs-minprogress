@@ -72,5 +72,7 @@
             bind:hidetap="handleHideDialog"
             bind:submit="handleSubmitDialog"
             visible="{{showUploadDialog}}"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
 </view>
 
