@@ -146,6 +146,13 @@
     margin-bottom: 10rpx;
     position: relative;
 }
+
+.rank-item-other-wrap > view{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display:block
+}
 .rank-btn{
     height: 40rpx;
     width: 64rpx;
@@ -165,26 +172,32 @@
     left:54rpx;
     width: 34rpx;
     height: 42rpx;
+    margin: 0 14rpx !important;
 }
 /*//35*/
 .rank-center{
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-
+    /*position: absolute;*/
+    /*top:50%;*/
+    /*transform: translateY(-50%);*/
+display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 2rpx;
 }
 .rank-name{
-
+    flex:2;
     left:110rpx;
 }
 .rank-region{
+    flex:3;
     left:190rpx;
 }
 .rank-school{
+    flex:3;
     left:288rpx;
-    flex:2;
 }
 .rank-vote{
+    flex:2;
     left:405rpx;
 }
 .rank-followed,.rank-attention {

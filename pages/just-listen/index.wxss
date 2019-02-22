@@ -130,7 +130,7 @@ page{
     height: 26rpx;
     width: 4rpx;
     background-color: white;
-    border: 25rpx solid transparent;
+    /*border: 25rpx solid transparent;*/
     border-left: 0;
 
 
