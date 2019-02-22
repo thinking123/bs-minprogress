@@ -23,7 +23,7 @@ Page({
         url: url,
         songName: '',
         checked: false,
-        progress: '20%',
+        progress: '0',
         isUploaded: false,
         isUploading: false,
         musicBg: '',
@@ -52,6 +52,11 @@ Page({
     async onLoad(option) {
 
         try {
+            const uploadType = option.uploadType ? option.uploadType : 'wx'
+            this.setData({
+                uploadType: uploadType
+                // uploadType: 'dfsd'
+            })
 
 
             const images = await coverImg()
@@ -66,11 +71,7 @@ Page({
                 images: images
             })
 
-            const uploadType = option.uploadType ? option.uploadType : 'wx'
-            this.setData({
-                uploadType: uploadType
-                // uploadType: 'dfsd'
-            })
+
 
             if (uploadType != 'wx') {
                 this.initRecord()
@@ -86,11 +87,18 @@ Page({
         if (this.recorderManager) {
             this.data.isRecording && this.recorderManager.stop()
         }
+
+        if(this.uploadTask){
+            this.uploadTask.abort()
+        }
     },
     onUnload() {
         if (this.recorderManager) {
             this.recorderManager.stop()
             this.recorderManager = null
+        }
+        if(this.uploadTask){
+            this.uploadTask.abort()
         }
     },
 
@@ -98,6 +106,7 @@ Page({
 
     },
     handleRecord(e) {
+        console.log('handleRecord' , this.data.isRecording)
         if (this.data.isRecording) {
             this.recorderManager.stop()
         } else {
@@ -121,7 +130,12 @@ Page({
 
             await this._uploadFile(tempFilePath)
         }catch (e) {
-            showMsg(e)
+            // showMsg(e)
+            showMsg('上传失败')
+            this.setData({
+                uploadReturnUrl: '',
+                isUploading:false
+            })
         }
 
     },
@@ -276,7 +290,11 @@ Page({
             console.log('tempFiles' , tempFiles)
             await this._uploadFile(tempFiles[0].path)
         }catch (e) {
-            showMsg(e)
+            showMsg('上传失败')
+            this.setData({
+                uploadReturnUrl: '',
+                isUploading:false
+            })
         }
     },
 
@@ -285,11 +303,27 @@ Page({
         const header = {
             'token':app.globalData.token
         }
-        let {data} = await wx_uploadFile( url ,filePath ,'file', header)
+        this.setData({
+            isUploading:true
+        })
+        let {data} = await wx_uploadFile( url ,filePath ,'file', header , uploadTask => {
+            this.uploadTask = uploadTask
+            uploadTask.onProgressUpdate((res) => {
+                console.log('上传进度', res.progress)
+                console.log('已经上传的数据长度', res.totalBytesSent)
+                console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+                const progress = res.progress + '%'
+                this.setData({
+                    progress:progress
+                })
+            })
+        })
+
         data = JSON.parse(data)
         const uploadReturnUrl = data.rows
         this.setData({
-            uploadReturnUrl: uploadReturnUrl
+            uploadReturnUrl: uploadReturnUrl,
+            isUploading:false
         })
         console.log('data' , data)
         return data

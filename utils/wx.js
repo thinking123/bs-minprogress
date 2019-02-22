@@ -99,7 +99,8 @@ export function wx_uploadFile(
     url ,
     filePath,
     name,
-    header) {
+    header ,
+    cb) {
     return new Promise((resolve , reject) => {
         const uploadTask = wx.uploadFile({
             url:url,
@@ -109,6 +110,10 @@ export function wx_uploadFile(
             success:resolve,
             fail:reject
         })
+
+        if(typeof cb === 'function'){
+            cb(uploadTask)
+        }
     })
 }
 

@@ -65,6 +65,7 @@
         <view class="progress-bar" style="width:{{progress}}">
 
         </view>
+
     </view>
     <view class="progress-bar-text"
           wx:if="{{isUploading}}">

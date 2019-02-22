@@ -262,8 +262,8 @@ Page({
         //     url: '/pages/singer-home/index?uploadType=wx'
         // })
 
-        wx.navigateTo({
-            url: '/pages/upload-music/index?uploadType=wx'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/upload-music/index?uploadType=wx'
+        // })
     }
 })
