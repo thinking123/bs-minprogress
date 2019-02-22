@@ -17,7 +17,6 @@
     <input class=" input-idcard"
            wx:if="{{!showDialog}}"
            placeholder-class="ph-cs"
-           type="number"
            placeholder="身份证"
            bindinput="bindIDCardInput"
            value="{{idCard}}"/>
