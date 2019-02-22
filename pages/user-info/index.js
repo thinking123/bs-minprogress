@@ -14,10 +14,16 @@ Page({
         showCheckIngDialog:false,
         showCheckSuccessDialog:false,
         showCheckSuccessButMusicDialog:false,
-        showSigninCheckDialog:true,
+        showSigninCheckDialog:false,
+        showSingerHomeCheckingDialog:true,
 
 
         errorMsg:''
+    },
+    handleSingerHomeCheckingDialog(){
+        this.setData({
+            showSingerHomeCheckingDialog:false
+        })
     },
     handleHideNoMusicDialog(){
       this.setData({
@@ -61,9 +67,17 @@ Page({
             const res = await isSignUp()
 
             if (res == '9006') {
-                wx.navigateTo({
-                    url:'/pages/singer-home/index'
-                })
+                const {checkMsg,state} = await getCheckMsg()
+                if(state == 0){
+                    this.setData({
+                        showSingerHomeCheckingDialog:true
+                    })
+                }else{
+                    wx.navigateTo({
+                        url:'/pages/singer-home/index'
+                    })
+                }
+
             } else{
                 // showMsg('请先注册')
                 this.setData({

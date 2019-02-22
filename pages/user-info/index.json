@@ -5,6 +5,7 @@
     "checking-dialog":"../../components/checking-dialog/index",
     "check-success-dialog":"../../components/check-success-dialog/index",
     "check-success-but-music-dialog":"../../components/check-success-but-music-dialog/index",
-    "signin-check-dialog":"../../components/signin-check-dialog/index"
+    "signin-check-dialog":"../../components/signin-check-dialog/index",
+    "singer-home-checking-dialog":"../../components/singer-home-checking-dialog/index"
   }
 }

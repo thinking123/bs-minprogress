@@ -2,7 +2,7 @@
     <view class="signin-check-dialog-mask"
           id="mask"/>
     <view class="signin-check-dialog-body">
-        <image src="{{url}}bg1.png"
+        <image src="{{url}}bg.png"
                class="signin-check-dialog-bg"/>
         <view class="signin-check-dialog-return"
               bindtap="handleHide"/>

@@ -7,7 +7,11 @@ let queue = []
 export function initHttp(globalData) {
     queue = globalData.requestQueue
 }
-
+function isLocked(app , data) {
+    const locked = data && data.status == '444'
+    console.log('locked' , data , locked)
+    app.globalData.isLocked = locked
+}
 function http(url, data, loadingText, header, method = 'GET') {
 
     const app = getApp()
@@ -38,11 +42,13 @@ function http(url, data, loadingText, header, method = 'GET') {
             header: header,
             method: method,
             success: res => {
+                isLocked(app , res.data)
                 resolve(res ? res.data : null)
                 queue.pop()
                 !!loadingText && wx.hideLoading()
             },
             fail: err => {
+                isLocked(app , res.data)
                 reject(err)
                 queue.pop()
                 !!loadingText && wx.hideLoading()

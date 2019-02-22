@@ -52,6 +52,7 @@ App({
         code:'',
         requestQueue:[],
         token:null,
-        uId:null
+        uId:null,
+        isLocked:false
     }
 })

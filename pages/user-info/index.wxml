@@ -37,4 +37,7 @@
     <signin-check-dialog
             bind:hidetap="handleSigninCheckDialog"
             visible="{{showSigninCheckDialog}}"/>
+    <singer-home-checking-dialog
+            bind:hidetap="handleSingerHomeCheckingDialog"
+            visible="{{showSingerHomeCheckingDialog}}"/>
 </view>
