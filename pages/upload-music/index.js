@@ -10,7 +10,8 @@ const page = 'upload-music-'
 const url = `${base}${page}`
 
 const options = {
-    duration: 60000,
+    //最大录音时长30s
+    duration: 30000,
     sampleRate: 44100,
     numberOfChannels: 1,
     encodeBitRate: 192000,
@@ -290,6 +291,11 @@ Page({
             const {tempFiles} = await wx_chooseMessageFile(1 , 'file' , ['mp3'])
 
             console.log('tempFiles' , tempFiles)
+            const fileSize = tempFiles[0].size
+            if(fileSize > 1024 * 1024){
+                showMsg('文件超过1M')
+                return
+            }
             await this._uploadFile(tempFiles[0].path)
         }catch (e) {
             showMsg('上传失败')
