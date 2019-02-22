@@ -1,6 +1,7 @@
 <view class="wrapper" id="rank-card-wrap">
 
-    <view class="rank-card-content-border"/>
+    <image class="header-bg" src="{{url}}header-bg.png"/>
+    <!--<view class="rank-card-content-border"/>-->
 
 
     <view class="rank-card-disk"
@@ -10,18 +11,18 @@
 
           style="width:{{diskWidth}};border-radius:{{diskRadius}};"
         </view>-->
-        <image src="{{url}}gd.png" class="gd"
+        <image src="{{info.musicCover}}" class="gd"
                id="gd"
-               style="animation-play-state: {{playing ? 'running' : 'paused'}};width:{{diskWidth}};height:{{diskWidth}}"
+               style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"
         />
         <image src="{{headerSrc}}" class="rank-card-header"/>
-        <image src="{{playStatusSrc}}"
+        <!--<image src="{{playStatusSrc}}"-->
 
-               class="play-btn-icon"/>
-        <image src="{{url}}pole.png"
-               style="transform: {{poleTransform}}"
-               id="rank-card-pole"
-               class="rank-card-pole"/>
+               <!--class="play-btn-icon"/>-->
+        <!--<image src="{{url}}pole.png"-->
+               <!--style="transform: {{poleTransform}}"-->
+               <!--id="rank-card-pole"-->
+               <!--class="rank-card-pole"/>-->
     </view>
 
     <view class="rank-card-content-wrap">

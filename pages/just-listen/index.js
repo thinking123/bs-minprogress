@@ -316,10 +316,13 @@ Page({
         }
     },
     async _casualListenTopFive() {
-        const list = await casualListenTopFive(this.data.curMusic.schoolId, this.data.curMusic.musicId)
-        this.setData({
-            rankListOther: list,
-        })
+        if(this.data.curMusic){
+            const list = await casualListenTopFive(this.data.curMusic.schoolId, this.data.curMusic.musicId)
+            this.setData({
+                rankListOther: list,
+            })
+        }
+
     },
     async _followMusic(musicId) {
         const curMusic = await followMusic(musicId)

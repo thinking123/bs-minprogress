@@ -72,12 +72,13 @@
     font-size:26rpx;
     left: 50%;
     transform: translateX(-50%);
+    align-items: flex-start;
 }
 .zone-list > view:nth-child(2){
     margin: 0 35rpx;
 }
 .zone-list > view.selected{
-    color: red;
+    color: yellow;
 }
 .city-list{
     position: absolute;
@@ -109,7 +110,7 @@
 }
 
 .city-item.selected-city{
-    color:red;
+    color:yellow;
 }
 .city-after{
     position: absolute;

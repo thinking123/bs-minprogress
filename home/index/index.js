@@ -259,7 +259,7 @@ Page({
 
 
         wx.navigateTo({
-            url: '/pages/singer-home/index'
+            url: '/pages/rank-list/index'
         })
 
         // wx.navigateTo({
