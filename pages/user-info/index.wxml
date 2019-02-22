@@ -40,4 +40,7 @@
     <singer-home-checking-dialog
             bind:hidetap="handleSingerHomeCheckingDialog"
             visible="{{showSingerHomeCheckingDialog}}"/>
+    <singer-home-checking-error-dialog
+            bind:hidetap="handleSingerHomeCheckingErrorDialog"
+            visible="{{showSingerHomeCheckingErrorDialog}}"/>
 </view>

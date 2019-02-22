@@ -15,10 +15,16 @@ Page({
         showCheckSuccessDialog:false,
         showCheckSuccessButMusicDialog:false,
         showSigninCheckDialog:false,
-        showSingerHomeCheckingDialog:true,
+        showSingerHomeCheckingDialog:false,
+        showSingerHomeCheckingErrorDialog:false,
 
 
         errorMsg:''
+    },
+    handleSingerHomeCheckingErrorDialog(){
+        this.setData({
+            showSingerHomeCheckingErrorDialog:false
+        })
     },
     handleSingerHomeCheckingDialog(){
         this.setData({
@@ -71,6 +77,10 @@ Page({
                 if(state == 0){
                     this.setData({
                         showSingerHomeCheckingDialog:true
+                    })
+                }else if(state == 2){
+                    this.setData({
+                        showSingerHomeCheckingErrorDialog:true
                     })
                 }else{
                     wx.navigateTo({

@@ -1,0 +1,11 @@
+<view class="singer-home-checking-error-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="singer-home-checking-error-dialog-mask"
+          id="mask"/>
+    <view class="singer-home-checking-error-dialog-body">
+        <image src="{{url}}bg.png"
+               class="singer-home-checking-error-dialog-bg"/>
+        <view class="singer-home-checking-error-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>
