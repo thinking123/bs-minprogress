@@ -19,7 +19,8 @@ page{
     position: absolute;
     top:14.53%;
     left:498rpx;
-    height: 9.28%;
+    /*height: 9.28%;*/
+    height: 120rpx;
     width: 120rpx;
 }
 

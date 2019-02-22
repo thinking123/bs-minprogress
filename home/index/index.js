@@ -259,7 +259,7 @@ Page({
 
 
         wx.navigateTo({
-            url: '/pages/attention/index'
+            url: '/pages/singer-home/index'
         })
 
         // wx.navigateTo({

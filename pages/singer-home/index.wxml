@@ -1,7 +1,9 @@
 <view class="container">
-    <image src="{{url}}bg.png" class="img"/>
+    <image src="{{url}}bg1.png" class="img"/>
 
-    <image src="{{url}}icon.png" class="singer-icon"/>
+    <image src="{{url}}icon.png"
+           wx:if="{{mainSong && mainSong.ycdy == 1}}"
+           class="singer-icon"/>
 
 
 
