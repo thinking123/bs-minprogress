@@ -69,8 +69,11 @@
     </view>
     <view class="progress-bar-text"
           wx:if="{{isUploading}}">
-        {{progress}}
+        {{progress}}{{showUploadingText ? '  上传中...' : ''}}
     </view>
+    <!--<view class="upload-text" wx:if="{{isUploading && showUploadingText}}">-->
+        <!--上传中...-->
+    <!--</view>-->
     <!--<progress percent="{{progress}}" show-info class="progress-bar" active/>-->
     <!--<div class="progress-bar-text">-->
     <!--{{progress}}%-->

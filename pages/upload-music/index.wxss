@@ -75,7 +75,9 @@
     color:white;
     font-size: 18rpx;
 }
+.upload-text{
 
+}
 .input-name{
     position: absolute;
     top:48.65%;

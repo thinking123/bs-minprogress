@@ -39,7 +39,8 @@ Page({
         isUploading: false,
         uploadReturnUrl: '',
         selectedImageIndex:'0',
-        type:''
+        type:'',
+        showUploadingText:false
 
     },
     handleCascadeSelected(e){
@@ -134,7 +135,8 @@ Page({
             showMsg('上传失败')
             this.setData({
                 uploadReturnUrl: '',
-                isUploading:false
+                isUploading:false,
+                showUploadingText:false
             })
         }
 
@@ -293,7 +295,8 @@ Page({
             showMsg('上传失败')
             this.setData({
                 uploadReturnUrl: '',
-                isUploading:false
+                isUploading:false,
+                showUploadingText:false
             })
         }
     },
@@ -304,7 +307,8 @@ Page({
             'token':app.globalData.token
         }
         this.setData({
-            isUploading:true
+            isUploading:true,
+            showUploadingText:false
         })
         let {data} = await wx_uploadFile( url ,filePath ,'file', header , uploadTask => {
             this.uploadTask = uploadTask
@@ -316,6 +320,12 @@ Page({
                 this.setData({
                     progress:progress
                 })
+
+                if(res.progress == 100){
+                    this.setData({
+                        showUploadingText:true
+                    })
+                }
             })
         })
 
@@ -323,7 +333,8 @@ Page({
         const uploadReturnUrl = data.rows
         this.setData({
             uploadReturnUrl: uploadReturnUrl,
-            isUploading:false
+            isUploading:false,
+            showUploadingText:false
         })
         console.log('data' , data)
         return data

@@ -258,12 +258,12 @@ Page({
         console.log('get usre info', userInfo, token, app.globalData.code, uId)
 
 
-        wx.navigateTo({
-            url: '/pages/rank-list/index'
-        })
-
         // wx.navigateTo({
-        //     url: '/pages/upload-music/index?uploadType=wx'
+        //     url: '/pages/singer-home/index'
         // })
+
+        wx.navigateTo({
+            url: '/pages/upload-music/index?uploadType=wx'
+        })
     }
 })
