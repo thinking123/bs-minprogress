@@ -75,8 +75,22 @@ page{
     display: flex;
     flex-direction: row;
     height: 36rpx;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 5.17%;
+}
+.attention-name{
+    flex:3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+}
+.attention-num{
+    flex:5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
 }
 .song-text{
     width:248rpx;

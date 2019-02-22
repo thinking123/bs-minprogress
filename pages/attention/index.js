@@ -3,8 +3,8 @@ import {getFollow , putfollowMusic} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'attention/'
+const baseUrl = app.globalData.base
+const page = 'attention-'
 const url = `${baseUrl}${page}`
 Page({
     data: {
