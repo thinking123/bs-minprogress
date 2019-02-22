@@ -34,4 +34,7 @@
     <check-success-but-music-dialog
             bind:hidetap="handleCheckSuccessButMusicDialog"
             visible="{{showCheckSuccessButMusicDialog}}"/>
+    <signin-check-dialog
+            bind:hidetap="handleSigninCheckDialog"
+            visible="{{showSigninCheckDialog}}"/>
 </view>

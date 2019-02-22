@@ -111,5 +111,8 @@
   },
   "networkTimeout": {
     "request": 20000
+  },
+  "usingComponents": {
+    "account-locked-dialog": "/components/account-locked-dialog/index"
   }
 }

@@ -1,0 +1,11 @@
+<view class="signin-check-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="signin-check-dialog-mask"
+          id="mask"/>
+    <view class="signin-check-dialog-body">
+        <image src="{{url}}bg1.png"
+               class="signin-check-dialog-bg"/>
+        <view class="signin-check-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>

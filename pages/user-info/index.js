@@ -14,16 +14,21 @@ Page({
         showCheckIngDialog:false,
         showCheckSuccessDialog:false,
         showCheckSuccessButMusicDialog:false,
+        showSigninCheckDialog:true,
 
 
-        errorMsg:'很遗憾，您未通过审核，请详细阅读报名规则后重新报名！'
+        errorMsg:''
     },
     handleHideNoMusicDialog(){
       this.setData({
           showNoMusicDialog:false
       })
     },
-
+    handleSigninCheckDialog(){
+        this.setData({
+            showSigninCheckDialog:false
+        })
+    },
     handleCheckErrorDialog(){
         this.setData({
             showCheckErrorDialog:false
@@ -118,6 +123,15 @@ Page({
     async handleReviewInfo(){
         console.log('handleReviewInfo')
         try {
+            const res = await isSignUp()
+
+            if (res != '9006') {
+                this.setData({
+                    showSigninCheckDialog:true
+                })
+            }
+
+
             //状态 1 正常 0 审核中 2 失败
             //10 用户审核通过，未提交音乐 11 第一首音乐审核通过
             const {checkMsg,state} = await getCheckMsg()

@@ -29,15 +29,19 @@ Component({
 
             if(this.data.type == 'ok'){
                 this.triggerEvent('ok')
+            }else{
+                this.triggerEvent('hidetap')
             }
-            this.triggerEvent('hidetap')
+
         },
         handleOutHide(e) {
             if (e && e.target && e.target.id === 'mask') {
                 if(this.data.type == 'ok'){
                     this.triggerEvent('ok')
+                }else{
+                    this.triggerEvent('hidetap')
                 }
-                this.triggerEvent('hidetap')
+
             }
         }
     }
