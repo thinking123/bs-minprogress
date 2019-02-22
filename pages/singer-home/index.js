@@ -12,7 +12,20 @@ Page({
         user:null,
         bsMusicEntityList:[],
         mainSong:null,
-        isSelf:false
+        isSelf:false,
+        showUploadDialog:false
+    },
+    handleSubmitDialog(e){
+        const uploadType = e.detail
+        const url = `/pages/upload-music/index?uploadType=${uploadType}`
+        wx.navigateTo({
+            url: url
+        })
+    },
+    handleHideDialog(e){
+        this.setData({
+            showUploadDialog:false
+        })
     },
      handlegz(){
         if(!this.data.mainSong){
@@ -91,6 +104,8 @@ Page({
         }
     },
     handleUpload(){
-        console.log('handleUpload')
+        this.setData({
+            showUploadDialog:true
+        })
     }
 })

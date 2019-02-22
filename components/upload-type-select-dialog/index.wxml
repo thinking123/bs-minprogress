@@ -1,0 +1,20 @@
+<view class="upload-type-select-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="upload-type-select-dialog-mask"
+          id="mask"/>
+    <view class="upload-type-select-dialog-body">
+        <image src="{{url}}bg.png"
+               class="upload-type-select-dialog-bg"/>
+
+
+        <view class="upload-type-select-dialog-btn-group">
+            <view class="upload-type-select-dialog-record"
+                  data-type="record"
+                  bindtap="handleHide"/>
+            <view class="upload-type-select-dialog-wx"
+                  data-type="wx"
+                  bindtap="handleHide"/>
+        </view>
+
+    </view>
+
+</view>

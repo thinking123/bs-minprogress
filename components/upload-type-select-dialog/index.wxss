@@ -1,0 +1,101 @@
+.upload-type-select-dialog{
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-type-select-dialog-mask{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color: #333333;
+    opacity: 0.9;
+}
+
+.upload-type-select-dialog-content{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    /*top:37.63%;*/
+    left:50%;
+    top:50%;
+    /*height: 25.94%;*/
+    transform: translate(-50% , -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 46rpx;
+    /*border: 1px solid yellow;*/
+}
+/*
+h 476
+*/
+.upload-type-select-dialog-body{
+    position: absolute;
+    z-index: 2;
+    left:50%;
+    top:50%;
+    transform: translate(-50% , -50%);
+    height: 71.36%;
+    width: 664rpx;
+}
+.upload-type-select-dialog-bg{
+    width: 100%;
+    height: 100%;
+}
+
+.upload-type-select-dialog-btn-group{
+    position: absolute;
+    height: 10.9%;
+    left:50%;
+    transform: translateX(-50%);
+    bottom:0;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/*.upload-type-select-dialog-wx{*/
+    /*width: 304rpx;*/
+/*}*/
+.upload-type-select-dialog-btn-group > view{
+
+    height: 100%;
+    /*border: 1px solid yellow;*/
+    width: 43.78%;
+    /*margin-right: 10rpx;*/
+}
+/*.upload-type-select-dialog-record{*/
+    /*width: 45.78%;*/
+/*}*/
+/*.upload-type-select-dialog-record{*/
+    /*border: 1px solid yellow;*/
+/*}*/
+/*.upload-type-select-dialog-wx{*/
+    /*position: absolute;*/
+    /*z-index: 2;*/
+    /*bottom:0;*/
+    /*width: 312rpx;*/
+    /*height: 10.9%;*/
+    /*left:50%;*/
+    /*transform: translateX(-50%);*/
+    /*border: 1px solid yellow;*/
+/*}*/

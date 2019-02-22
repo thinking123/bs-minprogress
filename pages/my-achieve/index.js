@@ -72,8 +72,9 @@ Page({
     },
     handleTapwwgk(e){
         console.log('handleTapwwgk')
+        //前往歌手主页上传音乐
         wx.navigateTo({
-            url: '/pages/upload-music/index'
+            url: '/pages/singer-home/index'
         })
         // const prize = e.detail
     },

@@ -66,6 +66,9 @@
            src="{{url}}upload-btn.png"
            class="upload"/>
 
-
+    <upload-type-select-dialog
+            bind:hidetap="handleHideDialog"
+            bind:submit="handleSubmitDialog"
+            visible="{{showUploadDialog}}"/>
 </view>
 
