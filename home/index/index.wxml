@@ -25,5 +25,8 @@
     <check-success-but-music-dialog
             bind:hidetap="handleCheckSuccessButMusicDialog"
             visible="{{showCheckSuccessButMusicDialog}}"/>
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
+
 
 </view>

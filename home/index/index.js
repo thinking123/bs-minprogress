@@ -7,6 +7,7 @@ const app = getApp()
 const baseUrl = app.globalData.baseUrl
 const page = 'home/'
 const url = `${baseUrl}${page}`
+const isLocked = app.globalData.isLocked
 Page({
     data: {
         baseUrl: url,
@@ -16,9 +17,9 @@ Page({
         showCheckIngDialog: false,
         showCheckSuccessDialog: false,
         showCheckSuccessButMusicDialog: false,
+        isLocked:isLocked,
 
-
-        errorMsg: '很遗憾，您未通过审核，请详细阅读报名规则后重新报名！'
+        errorMsg: ''
     },
     async _getCheckMsg() {
         console.log('handleReviewInfo')
@@ -262,8 +263,8 @@ Page({
         //     url: '/pages/user-info/index'
         // })
 
-        wx.navigateTo({
-            url: '/pages/upload-music/index?uploadType=wx'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/upload-music/index?uploadType=wx'
+        // })
     }
 })

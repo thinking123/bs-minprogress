@@ -1,11 +1,13 @@
-<view class="account-locked-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+<view class="account-locked-dialog" wx:if="{{visible}}"
+      catchtouchmove="handlemove"
+      bindtap="handleOutHide">
     <view class="account-locked-dialog-mask"
           id="mask"/>
     <view class="account-locked-dialog-body">
-        <image src="{{url}}bg.png"
+        <image src="{{url}}bg1.png"
                class="account-locked-dialog-bg"/>
-        <view class="account-locked-dialog-return"
-              bindtap="handleHide"/>
+        <!--<view class="account-locked-dialog-return"-->
+              <!--bindtap="handleHide"/>-->
     </view>
 
 </view>

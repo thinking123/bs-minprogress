@@ -16,13 +16,16 @@ Component({
         url:url
     },
     methods: {
+        handlemove(){
+
+        },
         handleHide() {
-            this.triggerEvent('hidetap')
+            // this.triggerEvent('hidetap')
         },
         handleOutHide(e) {
-            if (e && e.target && e.target.id === 'mask') {
-                this.triggerEvent('hidetap')
-            }
+            // if (e && e.target && e.target.id === 'mask') {
+            //     this.triggerEvent('hidetap')
+            // }
         }
     }
 
