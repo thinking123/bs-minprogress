@@ -36,7 +36,7 @@ Page({
                 case 1:
                 case 11:
                     this.setData({
-                        showCheckIngDialog: true
+                        showCheckSuccessDialog: true
                     })
                     break
                 case 0:
