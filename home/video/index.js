@@ -1,4 +1,4 @@
-import {hadPlayVideo} from "../../utils/constant";
+import {hadPlayVideo , lastPlayVideoTime} from "../../utils/constant";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -15,12 +15,29 @@ Page({
         noShow:false
     },
     onLoad: function (options) {
-        const hadPlay = wx.getStorageSync(hadPlayVideo)
-        if(hadPlay){
-            wx.redirectTo({
-                url: '/home/index/index'
-            })
+        const lastPlayVideoTime = wx.getStorageSync(lastPlayVideoTime)
+
+
+        if(lastPlayVideoTime){
+            const curTime = (new Date()).getTime()
+            const threeMinus = 30 * 3600 * 1000
+            const offtime = curTime - lastPlayVideoTime
+            if(offtime < threeMinus){
+                wx.setStorageSync(lastPlayVideoTime , curTime)
+                wx.redirectTo({
+                    url: '/home/index/index'
+                })
+                return
+            }
+
         }
+
+        // const hadPlay = wx.getStorageSync(hadPlayVideo)
+        // if(hadPlay){
+        //     wx.redirectTo({
+        //         url: '/home/index/index'
+        //     })
+        // }
     },
     onReady: function () {
 
@@ -36,6 +53,7 @@ Page({
     },
     setHadPlay(){
         wx.setStorageSync(hadPlayVideo, true)
+        wx.setStorageSync(lastPlayVideoTime , (new Date()).getTime())
     },
     hangleStartPlay(e) {
         console.log('hangleStartPlay' , e)

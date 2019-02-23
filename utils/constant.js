@@ -40,3 +40,4 @@ export const mockProvinces = [
 export const recordDir = 'rhythm-select-record-dir'
 
 export const hadPlayVideo = 'hadPlayVideo'
+export const lastPlayVideoTime = 'lastPlayVideoTime'
