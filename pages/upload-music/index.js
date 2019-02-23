@@ -53,7 +53,7 @@ Page({
         musicId:'',
         singName:'',
 
-
+        isTwo:false
     },
     handleCascadeSelected(e){
         const selectedImageIndex = e.detail
@@ -80,36 +80,44 @@ Page({
                 uploadType: uploadType
             })
 
-
-            if(option.userPointId){
-                //from register
-                const {
-                    userPointId ,
-                    userProvinceId ,
-                    userSchoolId ,
-                    userPhone,
-                    singName
-                } = option
+            if(option.isTwo){
+                const isTwo = option.isTwo
                 this.setData({
-                    userPointId: userPointId,
-                    userProvinceId: userProvinceId,
-                    userSchoolId: userSchoolId,
-                    userPhone: userPhone,
-                    singName:singName
+                    isTwo: isTwo
                 })
+                //上传第二首歌曲
             }else{
-                //from update music info
-                const {
-                    checkState ,
-                    musicId
-                } = option
+                if(option.userPointId){
+                    //from register
+                    const {
+                        userPointId ,
+                        userProvinceId ,
+                        userSchoolId ,
+                        userPhone,
+                        singName
+                    } = option
+                    this.setData({
+                        userPointId: userPointId,
+                        userProvinceId: userProvinceId,
+                        userSchoolId: userSchoolId,
+                        userPhone: userPhone,
+                        singName:singName
+                    })
+                }else{
+                    //from update music info
+                    const {
+                        checkState ,
+                        musicId
+                    } = option
 
-                this.setData({
-                    checkState: checkState,
-                    musicId: musicId,
-                })
+                    this.setData({
+                        checkState: checkState,
+                        musicId: musicId,
+                    })
 
+                }
             }
+
 
 
 
@@ -251,7 +259,10 @@ Page({
     async _signMusic(){
         try {
             console.log('提交注册信息')
-            await this._signUp()
+            if(!this.data.isTwo){
+                await this._signUp()
+            }
+
 
             let imageUrl = ''
             if(this.data.selectedImageIndex == this.data.images.length - 1){

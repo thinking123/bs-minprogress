@@ -19,7 +19,7 @@ Page({
     },
     handleSubmitDialog(e){
         const uploadType = e.detail
-        const url = `/pages/upload-music/index?uploadType=${uploadType}`
+        const url = `/pages/upload-music/index?uploadType=${uploadType}&isTwo=${true}`
         wx.navigateTo({
             url: url
         })
