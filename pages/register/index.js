@@ -56,9 +56,9 @@ Page({
             })
             console.log(provinces)
 
-            this.setData({
-                regionIndex:2
-            })
+            // this.setData({
+            //     regionIndex:2
+            // })
             if(this.data.checkState == 4){
                 //从填信息
                 await this.initRewrite()
@@ -124,7 +124,7 @@ Page({
           //     this.data.selectedPoint.id,
           //     this.data.selectedSchool.id,
           //     )
-          console.log(res)
+          // console.log(res)
           // wx.navigateTo({
           //     url: '/pages/upload-music/index'
           // })
@@ -134,9 +134,10 @@ Page({
               userPhone:this.data.phone,
               userProvinceId:this.data.selectedProvince.id,
               userPointId:this.data.selectedPoint.id,
-              userSchoolId:this.data.selectedSchool.id
+              userSchoolId:this.data.selectedSchool.id,
+              singName:this.data.name
           }
-          url = urlParams(url , params)
+          url = urlParams(url , params , true)
           console.log('urlParams' , url)
           // const url = `/pages/upload-music/index?uploadType=${this.data.uploadType}`
           wx.redirectTo({

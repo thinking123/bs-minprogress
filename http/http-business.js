@@ -327,10 +327,12 @@ export function getCheckMsg(type) {
     let url = '/api/user/getCheckMsg'
     const loadingText = '获取审核信息...'
     const errMsg = '获取审核信息失败'
-    const data = {
+
+    const params = {
         type:type
     }
-    return post(url, data ,loadingText).then(res => parseRes(res, errMsg))
+    url = urlParams(url , params)
+    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }
 
 //作用: 获取用户信息 用于 用户修改信息

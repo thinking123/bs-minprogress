@@ -51,6 +51,7 @@ Page({
         userSchoolId:'',
         checkState:'',
         musicId:'',
+        singName:'',
 
 
     },
@@ -86,13 +87,15 @@ Page({
                     userPointId ,
                     userProvinceId ,
                     userSchoolId ,
-                    userPhone
+                    userPhone,
+                    singName
                 } = option
                 this.setData({
                     userPointId: userPointId,
                     userProvinceId: userProvinceId,
                     userSchoolId: userSchoolId,
-                    userPhone: userPhone
+                    userPhone: userPhone,
+                    singName:singName
                 })
             }else{
                 //from update music info
@@ -285,7 +288,8 @@ Page({
         }
     },
     async _signUp(){
-        const res = await signUp(this.data.name ,
+        const res = await signUp(
+            this.data.singName ,
             this.data.userPhone ,
             this.data.userProvinceId,
             this.data.userPointId,
