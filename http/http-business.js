@@ -275,6 +275,19 @@ export function casualListenHistory(musicId) {
 
     return get(url, data,loadingText).then(res => parseRes(res, errMsg))
 }
+//随便听听历史记录
+export function randomMusicById(musicId) {
+    const url = '/api/casuallisten/randomMusicById'
+    const loadingText = '获取歌曲...'
+    const errMsg = '获取歌曲失败'
+    const data = {
+        musicId:musicId
+    }
+
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+
+
 //新增随便听听历史记录
 export function addCasualListenHistory(musicId) {
     let url = '/api/casuallisten/history'

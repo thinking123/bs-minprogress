@@ -36,7 +36,7 @@
               wx:key="id"
               class="song-item"
         >
-            <view class="song-text">
+            <view class="song-text"   bindtap="handleToJustListen" data-item="{{songItem}}">
                 《{{songItem.musicName}}》
             </view>
             <view class="song-btn-wrap"

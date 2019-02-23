@@ -19,7 +19,7 @@ Page({
         showSigninCheckDialog:false,
         showSingerHomeCheckingDialog:false,
         showSingerHomeCheckingErrorDialog:false,
-        showNoSingerJoinErrorDialog:true,
+        showNoSingerJoinErrorDialog:false,
         showCheckErrorExDialog:false,
         showUploadDialog:false,
         checkState: '',

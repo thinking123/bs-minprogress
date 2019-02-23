@@ -17,6 +17,13 @@ Page({
         isSelf:false,
         showUploadDialog:false
     },
+    handleToJustListen(e){
+      const musicId = e.target.dataset.songItem.id
+        const url = `/pages/just-listen/index?musicId=${musicId}`
+        wx.navigateTo({
+            url: url
+        })
+    },
     handleSubmitDialog(e){
         const uploadType = e.detail
         const url = `/pages/upload-music/index?uploadType=${uploadType}&isTwo=${true}`

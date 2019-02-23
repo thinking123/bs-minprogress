@@ -117,12 +117,12 @@ page{
 .cur-time{
     position: absolute;
     top:0;
-    left: 145rpx;
+    left: 150rpx;
     font-size: 18rpx;
 }
 .total-time{
     position: absolute;
-    left: 572rpx;
+    left: 585rpx;
     top:0;
     font-size: 18rpx;
 }

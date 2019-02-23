@@ -8,7 +8,8 @@ import {
     casualListenTopFive,
     casualListenHistory,
     addCasualListenHistory,
-    isYesPrize
+    isYesPrize,
+    randomMusicById
 } from "../../http/http-business";
 import {showMsg, secondToMinus} from "../../utils/util";
 
@@ -255,11 +256,11 @@ Page({
       })
       return this.data.isCanLottery
     },
-    async _casualListen() {
+    async _casualListen(musicId) {
         try {
 
             this.stopAudio()
-            const {bsCasual,gid} = await casualListen()
+            const {bsCasual,gid} = musicId ? await randomMusicById(musicId) : await casualListen(musicId)
             const oldMusic = this.data.curMusic
             this.setData({
                 curMusic: bsCasual,
@@ -302,8 +303,9 @@ Page({
             showMsg(e)
         }
     },
-    onLoad() {
-        this.init()
+    onLoad(option) {
+        let musicId = option && option.musicId ? option.musicId : ''
+        this.init(musicId)
     },
     onHide() {
         if (this.ctx) {
@@ -521,10 +523,10 @@ Page({
 
         }
     },
-    async init() {
+    async init(musicId) {
         try {
             this.initAudio()
-            await this._casualListen()
+            await this._casualListen(musicId)
             await this._casualListenTopFive()
             await this._isCanLottery()
             // await this._casualListenHistory()

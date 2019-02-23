@@ -1,5 +1,5 @@
 <view class="container" bindtouchstart="handleTouchstart">
-    <image src="{{url}}bg1.png" class="img"/>
+    <image src="{{url}}bg2.png" class="img"/>
 
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
