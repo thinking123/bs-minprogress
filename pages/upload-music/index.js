@@ -1,7 +1,7 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {baseUrl} from "../../utils/constant";
 import {isEmpty, showMsg} from "../../utils/util";
-import {wx_chooseMessageFile , wx_uploadFile} from "../../utils/wx";
+import {wx_chooseMessageFile , wx_uploadFile , wx_chooseImage} from "../../utils/wx";
 import {coverImg , signMusic} from "../../http/http-business";
 
 const app = getApp()
@@ -42,7 +42,8 @@ Page({
         uploadReturnUrl: '',
         selectedImageIndex:'0',
         type:'',
-        showUploadingText:false
+        showUploadingText:false,
+        uploadReturnImageUrl:''
 
     },
     handleCascadeSelected(e){
@@ -51,6 +52,15 @@ Page({
         this.setData({
             selectedImageIndex: selectedImageIndex
         })
+    },
+    async handleTapUploadBtn(){
+        try {
+            const {tempFiles} = await wx_chooseImage(1)
+            const path = tempFiles[0].path
+            await this._uploadFile(path , true)
+        }catch (e) {
+            console.log('wx_chooseImage' , e)
+        }
     },
     async onLoad(option) {
 
@@ -70,6 +80,10 @@ Page({
             //         index:
             //     })
             // }
+            const uploadBtn = {
+                coverUrl:`${url}upload-btn.png`
+            }
+            images.push(uploadBtn)
             this.setData({
                 images: images
             })
@@ -179,16 +193,29 @@ Page({
         })
     },
     verifySubmit() {
+        let imageOk = false
+        if(this.data.selectedImageIndex == this.data.images.length - 1){
+            imageOk = !isEmpty(this.data.uploadReturnImageUrl)
+        }else{
+            imageOk = this.data.selectedImageIndex >= 0 &&
+                this.data.selectedImageIndex < this.data.images.length
+        }
         return !isEmpty(this.data.songName) &&
             !isEmpty(this.data.uploadReturnUrl) &&
-            this.data.selectedImageIndex >= 0 &&
-            this.data.selectedImageIndex < this.data.images.length
+            imageOk
     },
     async _signMusic(){
         try {
+            let imageUrl = ''
+            if(this.data.selectedImageIndex == this.data.images.length - 1){
+                imageUrl = this.data.uploadReturnImageUrl
+            }else{
+                imageUrl = this.data.images[this.data.selectedImageIndex].coverUrl
+            }
+
             await signMusic(
                 this.data.checked ? '1' : '0',
-                this.data.images[this.data.selectedImageIndex].coverUrl,
+                imageUrl,
                 this.data.songName,
                 this.data.uploadReturnUrl
             )
@@ -308,7 +335,7 @@ Page({
         }
     },
 
-    async _uploadFile(filePath){
+    async _uploadFile(filePath , isUploadImage = false){
         const url = `${baseUrl}/api/misic/uploadQiniuyun`
         const header = {
             'token':app.globalData.token
@@ -338,11 +365,20 @@ Page({
 
         data = JSON.parse(data)
         const uploadReturnUrl = data.rows
-        this.setData({
-            uploadReturnUrl: uploadReturnUrl,
-            isUploading:false,
-            showUploadingText:false
-        })
+        if(isUploadImage){
+            this.setData({
+                uploadReturnImageUrl: uploadReturnUrl,
+                isUploading:false,
+                showUploadingText:false
+            })
+        }else{
+            this.setData({
+                uploadReturnUrl: uploadReturnUrl,
+                isUploading:false,
+                showUploadingText:false
+            })
+        }
+
         console.log('data' , data)
         return data
     }

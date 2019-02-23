@@ -263,8 +263,8 @@ Page({
         //     url: '/pages/user-info/index'
         // })
 
-        // wx.navigateTo({
-        //     url: '/pages/upload-music/index?uploadType=wx'
-        // })
+        wx.navigateTo({
+            url: '/pages/upload-music/index?uploadType=wx'
+        })
     }
 })

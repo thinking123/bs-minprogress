@@ -91,6 +91,7 @@
 
 
     <cascade-swiper class="music-swiper"
+                    bind:upload="handleTapUploadBtn"
                     bind:selected="handleCascadeSelected"
                     images="{{images}}"/>
     <account-locked-dialog

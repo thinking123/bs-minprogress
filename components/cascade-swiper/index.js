@@ -116,6 +116,17 @@ Component({
         // ]
     },
     methods: {
+        handleTap(e){
+            const tapIndex = e.target.dataset.item
+            console.log('handleTap' , tapIndex)
+
+
+            if(tapIndex == this.data.centerIndex &&
+                tapIndex == this.data.images.length - 1){
+                console.log('tap upload')
+                this.triggerEvent('upload')
+            }
+        },
         handleHide() {
             this.triggerEvent('hidetap')
         },

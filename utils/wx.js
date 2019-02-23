@@ -117,3 +117,12 @@ export function wx_uploadFile(
     })
 }
 
+export function wx_chooseImage(count) {
+    return new Promise((resolve , reject) => {
+        wx.chooseImage({
+            count:count,
+            success:resolve,
+            fail:reject
+        })
+    })
+}
