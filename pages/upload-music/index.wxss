@@ -66,7 +66,7 @@
 .progress-bar-text{
     position: absolute;
     top:43.86%;
-    left:552rpx;
+    left:500rpx;
     height: 20rpx;
     /*width: 36rpx;*/
     display: flex;
@@ -159,7 +159,7 @@
     top:43.86% ;
     left:166rpx ;
     height: 20rpx ;
-    width: 382rpx ;
+    width: 322rpx ;
     border-radius: 10rpx;
     background-color: white;
     display: flex;
