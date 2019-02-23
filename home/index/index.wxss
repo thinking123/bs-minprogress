@@ -10,6 +10,10 @@ page{
   padding:0;
   overflow: hidden;
 }
+
+.container > view{
+  border: 1px solid yellow;
+}
 .img{
   height: 100%;
   width: 100%;
@@ -17,10 +21,11 @@ page{
 
 .register{
   position: absolute;
-  top:66.87%;
+  top:69.12%;
   left:204rpx;
   height: 7.34%;
   width: 344rpx;
+
 }
 
 .my-music{
@@ -33,7 +38,7 @@ page{
 
 .listen{
   position: absolute;
-  top:86.98%;
+  top:81.71%;
   left:82rpx;
   height: 3.59%;
   width: 176rpx;
@@ -41,7 +46,7 @@ page{
 
 .rank-list{
   position: absolute;
-  top:86.98%;
+  top:81.71%;
   left:288rpx;
   height: 3.59%;
   width: 176rpx;
@@ -49,7 +54,7 @@ page{
 
 .user-info{
   position: absolute;
-  top:86.98%;
+  top:81.71%;
   left:492rpx;
   height: 3.59%;
   width: 176rpx;
