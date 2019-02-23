@@ -2,7 +2,7 @@
     <image src="{{url}}bg1.png" class="img"/>
 
     <image src="{{url}}icon.png"
-           wx:if="{{mainSong && mainSong.ycdy == 1}}"
+           wx:if="{{user && user.ycdy == 1}}"
            class="singer-icon"/>
 
 

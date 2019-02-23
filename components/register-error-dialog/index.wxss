@@ -44,7 +44,7 @@
     z-index: 2;
     top:12%;
     width: 590rpx;
-    height: 60.12%;
+    height: 50.12%;
 
     left:50%;
     transform: translateX(-50%);
@@ -52,7 +52,7 @@
 .how-to-play-return{
     position: absolute;
     z-index: 2;
-    top:76.76%;
+    top:66.76%;
     width: 416rpx;
     height: 8.55%;
     left:50%;

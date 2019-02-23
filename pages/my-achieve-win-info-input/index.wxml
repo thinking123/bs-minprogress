@@ -4,18 +4,18 @@
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
            value="{{name}}"
-           wx:if="{{!showDialog}}"
+           wx:if="{{!showDialog && !showError}}"
            bindinput="bindNameInput"
     />
     <input class=" input-phone"
-           wx:if="{{!showDialog}}"
+           wx:if="{{!showDialog && !showError}}"
            placeholder-class="ph-cs"
            type="number"
            placeholder="电话"
            bindinput="bindPhoneInput"
            value="{{phone}}"/>
     <input class=" input-qq"
-           wx:if="{{!showDialog && type =='virtual'}}"
+           wx:if="{{!showDialog && type =='virtual' && !showError}}"
            placeholder-class="ph-cs"
            type="number"
            placeholder="QQ"
@@ -23,7 +23,7 @@
            value="{{qq}}"/>
 
     <input class=" input-idcard{{type=='virtual' ? '-virtual' : ''}}"
-           wx:if="{{!showDialog}}"
+           wx:if="{{!showDialog && !showError}}"
            placeholder-class="ph-cs"
            placeholder="身份证"
            bindinput="bindIDCardInput"
@@ -32,7 +32,7 @@
     <textarea class=" input-address"
               placeholder-class="ph-cs"
               bindinput="addressInput"
-              wx:if="{{!showDialog && type !='virtual'}}"
+              wx:if="{{!showDialog && type !='virtual' && !showError}}"
               value="{{address}}"/>
 
 

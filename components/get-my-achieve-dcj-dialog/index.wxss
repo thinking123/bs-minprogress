@@ -69,7 +69,7 @@ h 552
 
 
     height: 51.45%;
-    top:31.53%;
+    top:28.83%;
 }
 .get-my-achieve-dcj-dialog-title{
     display: flex;
@@ -82,12 +82,13 @@ h 552
 }
 /*
 HWrap:159
-hImage:284
+hImage:260
 */
 .get-my-achieve-dcj-dialog-img{
     margin-top: 24rpx;
-    height: 42.67%;
-    max-width: 245rpx;
+    height: 61.92%;
+    /*max-width: 245rpx;*/
+    width: 245rpx;
     /*border: 1px solid yellow;*/
 }
 .get-my-achieve-dcj-dialog-name{
