@@ -17,6 +17,16 @@
            bindtap="handleReviewInfo">
         审核信息
     </image>
+    <upload-type-select-dialog
+            bind:hidetap="handleHideDialog"
+            bind:submit="handleSubmitDialog"
+            visible="{{showUploadDialog}}"/>
+
+    <!--<check-error-ex-dialog-->
+            <!--bind:rewrite="handleReWrite"-->
+            <!--content="{{errorMsg}}"-->
+            <!--bind:hidetap="handleCheckErrorExDialog"-->
+            <!--visible="{{showCheckErrorExDialog}}"/>-->
     <singer-home-no-music-dialog
             bind:hidetap="handleHideNoMusicDialog"
             visible="{{showNoMusicDialog}}"/>
@@ -43,6 +53,9 @@
     <singer-home-checking-error-dialog
             bind:hidetap="handleSingerHomeCheckingErrorDialog"
             visible="{{showSingerHomeCheckingErrorDialog}}"/>
+    <no-singer-join-error-dialog
+            bind:hidetap="handleNoSingerJoinErrorDialog"
+            visible="{{showNoSingerJoinErrorDialog}}"/>
     <account-locked-dialog
             visible="{{isLocked}}"/>
 </view>

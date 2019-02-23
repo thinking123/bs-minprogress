@@ -1,0 +1,15 @@
+<view class="check-error-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="check-error-ex-dialog-mask"
+          id="mask"/>
+
+    <view class="check-error-ex-dialog-content">
+        {{content}}
+    </view>
+    <view class="check-error-ex-dialog-body">
+        <image src="{{url}}bg.png"
+               class="check-error-ex-dialog-bg"/>
+        <view class="check-error-ex-dialog-return"
+              bindtap="handleReWrite"/>
+    </view>
+
+</view>

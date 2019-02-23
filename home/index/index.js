@@ -27,7 +27,13 @@ Page({
     },
     handleSubmitDialog(e) {
         const uploadType = e.detail
-        const url = `/pages/upload-music/index?uploadType=${uploadType}`
+        // const url = `/pages/upload-music/index?uploadType=${uploadType}`
+        // wx.navigateTo({
+        //     url: url
+        // })
+
+
+        const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
         wx.navigateTo({
             url: url
         })
@@ -36,6 +42,11 @@ Page({
         this.setData({
             showUploadDialog: false
         })
+
+        // const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}`
+        // wx.navigateTo({
+        //     url: url
+        // })
     },
     async _getCheckMsg() {
         console.log('handleReviewInfo')
@@ -111,9 +122,9 @@ Page({
 
         // 跳转到上传音乐page
 
-        wx.navigateTo({
-            url: '/pages/upload-music/index'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/upload-music/index'
+        // })
     },
     handleCheckIngDialog() {
         this.setData({
@@ -137,11 +148,18 @@ Page({
             wx.navigateTo({
                 url: url
             })
+
         } else if (this.data.checkState == 6) {
-            const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}`
-            wx.navigateTo({
-                url: url
+
+            //选择上传类型
+            this.setData({
+                showUploadDialog: true
             })
+
+            // const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}`
+            // wx.navigateTo({
+            //     url: url
+            // })
         }
 
     },

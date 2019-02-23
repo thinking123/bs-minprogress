@@ -1,0 +1,11 @@
+<view class="no-singer-join-error-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="no-singer-join-error-dialog-mask"
+          id="mask"/>
+    <view class="no-singer-join-error-dialog-body">
+        <image src="{{url}}bg.png"
+               class="no-singer-join-error-dialog-bg"/>
+        <view class="no-singer-join-error-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>
