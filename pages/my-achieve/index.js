@@ -124,6 +124,7 @@ Page({
             try {
                 const prize = await receiveAchievement(item.type)
                 await this._getAchievement()
+                prize.type = item.type
                 this.showDialog(prize , item.type)
             }catch (e) {
                 showMsg(e)

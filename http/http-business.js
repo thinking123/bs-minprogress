@@ -378,7 +378,7 @@ export function myAchcieveReceivePrize(prizeType,
         receiveAddress:receiveAddress,
         qq:qq,
     }
-    url = urlParams(url , params)
+    url = urlParams(url , params , true)
 
     return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
 }
