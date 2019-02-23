@@ -4,8 +4,8 @@ import {showMsg} from "../../utils/util";
 import {_wxGetSetting, _wxGetUserInfo, _wxLogin} from "../../utils/wx";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'home/'
+const baseUrl = app.globalData.base
+const page = 'home-'
 const url = `${baseUrl}${page}`
 const isLocked = app.globalData.isLocked
 Page({

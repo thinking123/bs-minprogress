@@ -8,7 +8,7 @@
                placeholder="学校"
                placeholder-class="ph-cs"
                value="{{inputVal}}"
-               cursor-spacing="600rpx"
+               cursor-spacing="{{cursorSpacing}}"
                bindinput="handleInput"/>
         <view class="search-loading"
                 wx:if="{{isSearching}}"/>

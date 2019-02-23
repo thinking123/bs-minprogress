@@ -175,8 +175,7 @@ Page({
                     break
                 case 0:
                     this.setData({
-                        showCheckIngDia
-                        log:true
+                        showCheckIngDialog:true
                     })
                     break
                  case 2:

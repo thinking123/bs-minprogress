@@ -58,12 +58,25 @@ Component({
         resultList: [],
         showList:false,
         focus:false,
-        isInnerTap:false
+        isInnerTap:false,
+        cursorSpacing:'600rpx'
     },
     computed: {
         isSearching() {
             return this.queue && this.queue.length > 0
         }
+    },
+    attached(){
+        const res = wx.getSystemInfoSync()
+        const isAndroid = res.platform == "android"
+
+        const screenHeight = parseInt(res.screenHeight)
+
+        const cursorSpacing = 0.3 * screenHeight + 'px'
+        console.log('isAndroid' , isAndroid , cursorSpacing)
+        this.setData({
+            cursorSpacing:isAndroid ? '0' : cursorSpacing
+        })
     },
     methods: {
         handleItemTap(e){
