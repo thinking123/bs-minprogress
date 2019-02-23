@@ -333,9 +333,12 @@ Page({
 
 
         // wx.navigateTo({
-        //     url: '/pages/just-listen/index'
+        //     url: '/pages/user-info/index'
         // })
 
+        wx.navigateTo({
+            url: '/pages/just-listen/index'
+        })
         // wx.navigateTo({
         //     url: '/pages/upload-music/index?uploadType=wx'
         // })

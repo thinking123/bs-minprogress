@@ -320,6 +320,7 @@ page{
     height: 40rpx;
     width: 64rpx;
 }
+
 .rank-num{
     height: 28rpx;
     width: 28rpx;
@@ -335,26 +336,32 @@ page{
     left:54rpx;
     width: 34rpx;
     height: 42rpx;
+    margin: 0 14rpx !important;
 }
 /*//35*/
 .rank-center{
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-
+    /*position: absolute;*/
+    /*top:50%;*/
+    /*transform: translateY(-50%);*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 2rpx;
 }
 .rank-name{
-
+    flex:2;
     left:110rpx;
 }
 .rank-region{
+    flex:3;
     left:190rpx;
 }
 .rank-school{
+    flex:3;
     left:288rpx;
-    flex:2;
 }
 .rank-vote{
+    flex:2;
     left:405rpx;
 }
 .rank-followed,.rank-attention {
