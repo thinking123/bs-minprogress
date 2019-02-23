@@ -285,7 +285,7 @@ export function addCasualListenHistory(musicId) {
     }
     url = urlParams(url , params)
 
-    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+    return post(url, {} ).then(res => parseRes(res, errMsg))
 }
 
 

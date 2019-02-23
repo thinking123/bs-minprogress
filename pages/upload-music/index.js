@@ -163,7 +163,7 @@ Page({
     },
     onUnload() {
         if (this.recorderManager) {
-            this.recorderManager.stop()
+            this.data.isRecording && this.recorderManager.stop()
             this.recorderManager = null
         }
         if(this.uploadTask){
@@ -259,7 +259,7 @@ Page({
     async _signMusic(){
         try {
             console.log('提交注册信息')
-            if(!this.data.isTwo){
+            if(this.data.userPointId){
                 await this._signUp()
             }
 

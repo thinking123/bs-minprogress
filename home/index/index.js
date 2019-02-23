@@ -333,7 +333,7 @@ Page({
 
 
         // wx.navigateTo({
-        //     url: '/pages/register/index'
+        //     url: '/pages/just-listen/index'
         // })
 
         // wx.navigateTo({
