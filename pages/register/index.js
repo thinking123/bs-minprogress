@@ -96,7 +96,8 @@ Page({
         // this.selectedSchool = item.name
 
         this.setData({
-            selectedSchool: item.detail
+            selectedSchool: item.detail,
+            showSearchList:false
         })
     },
     handleInputSchool(v){

@@ -18,6 +18,7 @@
             id="search-result"
             scroll-y
             class="search-result"
+            bindscrolltolower="handleScrollBottom"
           wx:if="{{showSearchList && resultList.length > 0}}">
         <view wx:for="{{resultList}}"
               id="search-result-item-{{item.id}}"

@@ -1,7 +1,7 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 
 import {getSchool} from "../../http/http-business";
-import {throttle, debounce} from "../../utils/util";
+import {throttle, debounce, showMsg} from "../../utils/util";
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
 const baseComponentUrl = app.globalData.baseComponentUrl
@@ -59,7 +59,7 @@ Component({
         showList:false,
         focus:false,
         isInnerTap:false,
-        cursorSpacing:'600rpx'
+        cursorSpacing:'0'
     },
     computed: {
         isSearching() {
@@ -79,6 +79,35 @@ Component({
         })
     },
     methods: {
+        handleScrollBottom(){
+            // this.loadingMorePages()
+        },
+        // async loadingMorePages() {
+        //     try {
+        //         if (!this.data.isLoading && this.data.pageNum < this.data.pages) {
+        //             const pageNum = this.data.pageNum + 1
+        //             this.setData({
+        //                 isLoading: true,
+        //                 pageNum: pageNum
+        //             })
+        //
+        //             const reg = /\d+/
+        //
+        //             const key = this.data.searchKey
+        //             const isCode = reg.test(this.data.searchKey)
+        //             const musicPlayerName = !isCode && this.data.hadSearched ? key : ''
+        //             const musicPlayerCode = isCode && this.data.hadSearched ? key : ''
+        //
+        //             await this._getRankingList(true , musicPlayerName , musicPlayerCode)
+        //         }
+        //     } catch (e) {
+        //         showMsg(e)
+        //     }finally {
+        //         this.setData({
+        //             isLoading: false
+        //         })
+        //     }
+        // },
         handleItemTap(e){
             console.log('handleItemTap')
             const item = e.target.dataset.item
