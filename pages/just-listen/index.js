@@ -256,7 +256,7 @@ Page({
       })
       return this.data.isCanLottery
     },
-    async _casualListen(musicId) {
+    async _casualListen(musicId , playing = true) {
         try {
 
             this.stopAudio()
@@ -269,7 +269,7 @@ Page({
                 curMusicHadLottery: false
             })
 
-            this.setAudioSrc(bsCasual.musicUrl)
+            this.setAudioSrc(bsCasual.musicUrl , playing)
 
             return oldMusic
         } catch (e) {
@@ -340,10 +340,10 @@ Page({
         const curMusic = await voteMusic(musicId)
         return curMusic
     },
-    setAudioSrc(src) {
+    setAudioSrc(src , playing = true) {
         if (this.ctx) {
             this.ctx.src = src
-            this.ctx.play()
+            playing && this.ctx.play()
         }
     },
     initAudio() {
@@ -526,7 +526,7 @@ Page({
     async init(musicId) {
         try {
             this.initAudio()
-            await this._casualListen(musicId)
+            await this._casualListen(musicId , false)
             await this._casualListenTopFive()
             await this._isCanLottery()
             // await this._casualListenHistory()
