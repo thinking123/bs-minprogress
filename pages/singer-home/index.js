@@ -18,7 +18,8 @@ Page({
         showUploadDialog:false
     },
     handleToJustListen(e){
-      const musicId = e.target.dataset.songItem.id
+        console.log('handleToJustListen')
+      const musicId = e.target.dataset.item.id
         const url = `/pages/just-listen/index?musicId=${musicId}`
         wx.navigateTo({
             url: url
