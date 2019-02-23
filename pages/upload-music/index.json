@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "cascade-swiper":"../../components/cascade-swiper/index",
-    "dialog-wrap":"../../components/dialog-wrap/index"
+    "dialog-wrap":"../../components/dialog-wrap/index",
+    "check-one-three-day-dialog":"../../components/check-one-three-day-dialog/index"
   }
 }

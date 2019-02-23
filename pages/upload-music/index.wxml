@@ -83,10 +83,12 @@
     <!--</div>-->
 
     <image src="{{url}}btn.png" class="submit" bindtap="handleSubmit"/>
-    <dialog-wrap visible="{{showDialog}}"
-                 bg="{{bg}}"
-                 type="{{type}}"
-                            bind:ok="handleOk"
+    <!--<dialog-wrap visible="{{showDialog}}"-->
+                 <!--bg="{{bg}}"-->
+                 <!--type="{{type}}"-->
+                            <!--bind:ok="handleOk"-->
+                           <!--bind:hidetap="hidetap"/>-->
+    <check-one-three-day-dialog visible="{{showDialog}}"
                            bind:hidetap="hidetap"/>
 
 

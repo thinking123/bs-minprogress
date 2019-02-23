@@ -33,7 +33,7 @@ Page({
         showUploadFail: false,
         showSubmitOk: false,
         showSubmitError: false,
-        showDialog: true,
+        showDialog: false,
         bg: '',
         uploadType: '',
         tempFilePath: '',
@@ -322,6 +322,9 @@ Page({
     hidetap() {
         this.setData({
             showDialog: false
+        })
+        wx.redirectTo({
+            url: '/home/index/index'
         })
     },
     handleOk(){
