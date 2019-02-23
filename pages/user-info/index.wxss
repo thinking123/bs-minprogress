@@ -54,7 +54,9 @@ page{
 .review-info{
     position: absolute;
     top:78.06%;
-    left:376rpx;
+    /*left:376rpx;*/
+    left: 50%;
+    transform: translateX(-50%);
     height: 5%;
     width: 222rpx;
 }
