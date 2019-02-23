@@ -60,6 +60,7 @@
             bind:selected="handleSeletedSchool"
             bind:input="handleInputSchool"
             clear="{{clearInput}}"
+            inputValOuter="{{inputValOuter}}"
                   provinceId="provinceIdstr"
                   pointId="pointIdstr"
                   showSearchList="{{showSearchList}}"

@@ -11,9 +11,9 @@ page{
   overflow: hidden;
 }
 
-.container > view{
-  border: 1px solid yellow;
-}
+/*.container > view{*/
+  /*border: 1px solid yellow;*/
+/*}*/
 .img{
   height: 100%;
   width: 100%;

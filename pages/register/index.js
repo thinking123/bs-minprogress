@@ -1,6 +1,6 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {isEmpty, showMsg} from "../../utils/util";
-import {getProvince, getSchool, getPoint, signUp} from "../../http/http-business";
+import {isEmpty, showMsg , urlParams} from "../../utils/util";
+import {getProvince, getSchool, getPoint, signUp,getRegisterById} from "../../http/http-business";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -29,7 +29,10 @@ Page({
         selectedPoint: null,
         selectedSchool: null,
 
-        uploadType:''
+        uploadType:'',
+
+        checkState:'',
+        inputValOuter:''
     },
     handleLoadFromWxSubmit(){
       console.log('handleRecord')
@@ -38,7 +41,11 @@ Page({
         })
         this.submitData()
     },
-    onLoad() {
+    onLoad(options) {
+        const checkState = options && options.checkState ? options.checkState : ''
+        this.setData({
+            checkState:checkState
+        })
         this.init()
     },
     async init() {
@@ -48,9 +55,54 @@ Page({
                 provinces: provinces
             })
             console.log(provinces)
+
+            this.setData({
+                regionIndex:2
+            })
+            if(this.data.checkState == 4){
+                //从填信息
+                await this.initRewrite()
+            }
         } catch (e) {
             showMsg(e)
         }
+    },
+    async initRewrite(){
+        const {
+            singName ,
+            userPointId ,
+            userProvinceId ,
+            userSchoolId ,
+            shcoolName,
+            userPhone
+        } = await getRegisterById()
+        const name = singName
+        const phone = userPhone
+        const regionIndex = this.data.provinces.findIndex(f=>f.id == userProvinceId)
+        const selectedProvince = this.data.provinces[regionIndex]
+
+        const games = await getPoint(selectedProvince.id)
+        this.setData({
+            games:games
+        })
+        const gameIndex = this.data.games.findIndex(f=>f.id == userPointId)
+        const selectedPoint = this.data.games[gameIndex]
+        const inputValOuter = shcoolName
+        const selectedSchool = {
+            id:userSchoolId
+        }
+
+        this.setData({
+            name:name,
+            phone:phone,
+            regionIndex:regionIndex,
+            selectedProvince:selectedProvince,
+            gameIndex:gameIndex,
+            selectedPoint:selectedPoint,
+            inputValOuter:inputValOuter,
+            selectedSchool:selectedSchool,
+        })
+
     },
     async _getPoint(provinceId) {
         try {
@@ -66,17 +118,27 @@ Page({
     },
     async _signUp(){
       try {
-          const res = await signUp(this.data.name ,
-              this.data.phone ,
-              this.data.selectedProvince.id,
-              this.data.selectedPoint.id,
-              this.data.selectedSchool.id,
-              )
+          // const res = await signUp(this.data.name ,
+          //     this.data.phone ,
+          //     this.data.selectedProvince.id,
+          //     this.data.selectedPoint.id,
+          //     this.data.selectedSchool.id,
+          //     )
           console.log(res)
           // wx.navigateTo({
           //     url: '/pages/upload-music/index'
           // })
-          const url = `/pages/upload-music/index?uploadType=${this.data.uploadType}`
+          let url = '/pages/upload-music/index'
+          const params = {
+              uploadType:this.data.uploadType,
+              userPhone:this.data.phone,
+              userProvinceId:this.data.selectedProvince.id,
+              userPointId:this.data.selectedPoint.id,
+              userSchoolId:this.data.selectedSchool.id
+          }
+          url = urlParams(url , params)
+          console.log('urlParams' , url)
+          // const url = `/pages/upload-music/index?uploadType=${this.data.uploadType}`
           wx.redirectTo({
               url: url
           })

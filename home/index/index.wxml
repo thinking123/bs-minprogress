@@ -27,6 +27,9 @@
             visible="{{showCheckSuccessButMusicDialog}}"/>
     <account-locked-dialog
             visible="{{isLocked}}"/>
-
+    <upload-type-select-dialog
+            bind:hidetap="handleHideDialog"
+            bind:submit="handleSubmitDialog"
+            visible="{{showUploadDialog}}"/>
 
 </view>

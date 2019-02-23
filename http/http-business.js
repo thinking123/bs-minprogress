@@ -323,13 +323,26 @@ export function prizeImg() {
 }
 
 //获取审核信息
-export function getCheckMsg() {
+export function getCheckMsg(type) {
     let url = '/api/user/getCheckMsg'
     const loadingText = '获取审核信息...'
     const errMsg = '获取审核信息失败'
-
-    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+    const data = {
+        type:type
+    }
+    return post(url, data ,loadingText).then(res => parseRes(res, errMsg))
 }
+
+//作用: 获取用户信息 用于 用户修改信息
+export function getRegisterById() {
+    const url = '/api/singUp/byId'
+    const loadingText = '获取用户修改信息...'
+    const errMsg = '获取用户修改信息'
+    const data = {}
+
+    return get(url, data,loadingText).then(res => parseRes(res, errMsg))
+}
+
 
 //我的成就:领取奖品
 export function myAchcieveReceivePrize(prizeType,
@@ -373,6 +386,29 @@ export function signMusic(isOriginal ,
     return post(url, data, loadingText).then(res => parseRes(res, errMsg))
 
 }
+
+
+//修改发布音乐
+export function singMusicUdate(isOriginal ,
+                          musicCover ,
+                          musicName ,
+                          musicUrl ,
+                          musicId) {
+    const url = '/api/singUp/singMusicUdate'
+    const loadingText = '发布音乐...'
+    const errMsg = '发布音乐失败'
+    const data = {
+        isOriginal: isOriginal,
+        musicCover: musicCover,
+        musicName: musicName,
+        musicUrl: musicUrl,
+        musicId: musicId
+    }
+    return post(url, data, loadingText).then(res => parseRes(res, errMsg))
+
+}
+
+
 //作用: 上传音乐 默认封面
 export function coverImg() {
     const url = '/api/singUp/coverImg'

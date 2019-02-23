@@ -1,8 +1,8 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {baseUrl} from "../../utils/constant";
-import {isEmpty, showMsg} from "../../utils/util";
+import {isEmpty, showMsg, urlParams} from "../../utils/util";
 import {wx_chooseMessageFile , wx_uploadFile , wx_chooseImage} from "../../utils/wx";
-import {coverImg , signMusic} from "../../http/http-business";
+import {coverImg , signMusic , signUp , singMusicUdate} from "../../http/http-business";
 
 const app = getApp()
 const base = app.globalData.base
@@ -33,7 +33,7 @@ Page({
         showUploadFail: false,
         showSubmitOk: false,
         showSubmitError: false,
-        showDialog: false,
+        showDialog: true,
         bg: '',
         uploadType: '',
         tempFilePath: '',
@@ -43,7 +43,15 @@ Page({
         selectedImageIndex:'0',
         type:'',
         showUploadingText:false,
-        uploadReturnImageUrl:''
+        uploadReturnImageUrl:'',
+
+        userPhone:'',
+        userProvinceId:'',
+        userPointId:'',
+        userSchoolId:'',
+        checkState:'',
+        musicId:'',
+
 
     },
     handleCascadeSelected(e){
@@ -66,10 +74,43 @@ Page({
 
         try {
             const uploadType = option.uploadType ? option.uploadType : 'wx'
+
             this.setData({
                 uploadType: uploadType
-                // uploadType: 'dfsd'
             })
+
+
+            if(option.userPointId){
+                //from register
+                const {
+                    userPointId ,
+                    userProvinceId ,
+                    userSchoolId ,
+                    userPhone
+                } = option
+                this.setData({
+                    userPointId: userPointId,
+                    userProvinceId: userProvinceId,
+                    userSchoolId: userSchoolId,
+                    userPhone: userPhone
+                })
+            }else{
+                //from update music info
+                const {
+                    checkState ,
+                    musicId
+                } = option
+
+                this.setData({
+                    checkState: checkState,
+                    musicId: musicId,
+                })
+
+            }
+
+
+
+
 
 
             const images = await coverImg()
@@ -206,6 +247,9 @@ Page({
     },
     async _signMusic(){
         try {
+            console.log('提交注册信息')
+            await this._signUp()
+
             let imageUrl = ''
             if(this.data.selectedImageIndex == this.data.images.length - 1){
                 imageUrl = this.data.uploadReturnImageUrl
@@ -213,12 +257,24 @@ Page({
                 imageUrl = this.data.images[this.data.selectedImageIndex].coverUrl
             }
 
-            await signMusic(
-                this.data.checked ? '1' : '0',
-                imageUrl,
-                this.data.songName,
-                this.data.uploadReturnUrl
-            )
+            if(this.data.checkState == 6){
+                await singMusicUdate(
+                    this.data.checked ? '1' : '0',
+                    imageUrl,
+                    this.data.songName,
+                    this.data.uploadReturnUrl,
+                    this.data.musicId
+                )
+            }else{
+                await signMusic(
+                    this.data.checked ? '1' : '0',
+                    imageUrl,
+                    this.data.songName,
+                    this.data.uploadReturnUrl
+                )
+            }
+
+
             this.setData({
                 bg: 'submit-ok',
                 showDialog: true,
@@ -227,6 +283,14 @@ Page({
         }catch (e) {
             showMsg(e)
         }
+    },
+    async _signUp(){
+        const res = await signUp(this.data.name ,
+            this.data.userPhone ,
+            this.data.userProvinceId,
+            this.data.userPointId,
+            this.data.userSchoolId,
+        )
     },
     handleSubmit(e) {
         if(this.data.isRecording){

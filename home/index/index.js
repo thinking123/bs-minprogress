@@ -17,42 +17,84 @@ Page({
         showCheckIngDialog: false,
         showCheckSuccessDialog: false,
         showCheckSuccessButMusicDialog: false,
-        isLocked:isLocked,
+        isLocked: isLocked,
 
-        errorMsg: ''
+        errorMsg: '',
+
+        showUploadDialog: false,
+        checkState: '',
+        musicId:''
+    },
+    handleSubmitDialog(e) {
+        const uploadType = e.detail
+        const url = `/pages/upload-music/index?uploadType=${uploadType}`
+        wx.navigateTo({
+            url: url
+        })
+    },
+    handleHideDialog(e) {
+        this.setData({
+            showUploadDialog: false
+        })
     },
     async _getCheckMsg() {
         console.log('handleReviewInfo')
         try {
-            //状态 1 正常 0 审核中 2 失败
-            //10 用户审核通过，未提交音乐 11 第一首音乐审核通过
-            const {checkMsg, state} = await getCheckMsg()
-            if (state == 1) {
-
-            } else {
-
-            }
+            //0音乐信息审核中 1 音乐审核通过 3 未报名
+            // 4报名信息审核失败 5用户审核通过，未提交音乐 6音乐审核失败
+            const {checkMsg, state, musicId} = await getCheckMsg(1)
+            this.setData({
+                checkState: state
+            })
             switch (state) {
-                case 1:
-                case 11:
-                    this.setData({
-                        showCheckSuccessDialog: true
-                    })
-                    break
                 case 0:
+                    //0音乐信息审核中 dialog
                     this.setData({
                         showCheckIngDialog: true
                     })
                     break
-                case 2:
+                case 1:
+                    //1 音乐审核通过
+                    this.setData({
+                        showCheckSuccessDialog: true
+                    })
+                    break
+                // case 2:
+                //     //go to upload music ,select upload type dialog
+                //     //and goto upload page
+                //     this.setData({
+                //         showCheckErrorDialog: true,
+                //         errorMsg: checkMsg
+                //     })
+                //     break
+                case 3:
+                    //go to register
+                    wx.navigateTo({
+                        url: '/pages/register/index?from=home'
+                    })
+                    break
+                // this.setData({
+                //     showCheckErrorDialog: true,
+                //     errorMsg: checkMsg
+                // })
+                // break
+                case 4:
+                    // 4报名信息审核失败 , 显示错误信息 ，进入register page
+                    //此时要先获取上次填写的信息，并显示
+
                     this.setData({
                         showCheckErrorDialog: true,
                         errorMsg: checkMsg
                     })
                     break
-                case 10:
+                case 6:
+                    //go to upload music ,select upload type dialog
+                    //and goto upload page
+                    //这里提交信息用新修改的接口
                     this.setData({
-                        showCheckSuccessButMusicDialog: true
+                        showCheckErrorDialog: true,
+                        errorMsg: checkMsg,
+                        musicId:musicId
                     })
                     break
             }
@@ -89,9 +131,19 @@ Page({
         })
     },
     handleReWrite() {
-        wx.navigateTo({
-            url: '/pages/register/index?from=home'
-        })
+
+        if (this.data.checkState == 4) {
+            const url = `/pages/register/index?checkState=${this.data.checkState}`
+            wx.navigateTo({
+                url: url
+            })
+        } else if (this.data.checkState == 6) {
+            const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}`
+            wx.navigateTo({
+                url: url
+            })
+        }
+
     },
 
     // async _isSignUp() {
@@ -122,16 +174,19 @@ Page({
     // },
     async checkRegister() {
         try {
-            const res = await isSignUp()
-            if(res){
-                //已经报名
 
-                await this._getCheckMsg()
-            }else{
-                wx.navigateTo({
-                    url: '/pages/register/index?from=home'
-                })
-            }
+            await this._getCheckMsg()
+
+            // const res = await isSignUp()
+            // if(res){
+            //     //已经报名
+            //
+            //     await this._getCheckMsg()
+            // }else{
+            //     wx.navigateTo({
+            //         url: '/pages/register/index?from=home'
+            //     })
+            // }
         } catch (e) {
             showMsg(e)
         }
@@ -167,7 +222,7 @@ Page({
     async init() {
         try {
             const code = await _wxLogin()
-            console.log('code' , code)
+            console.log('code', code)
             app.globalData.code = code
 
             wx.showLoading({

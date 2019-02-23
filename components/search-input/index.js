@@ -49,6 +49,18 @@ Component({
                     });
                 }
             }
+        },
+        inputValOuter:{
+            type:String,
+            value:'',
+            observer(newVal, oldVal, changedPath) {
+                console.log('clear')
+                if(newVal){
+                    this.setData({
+                        inputVal: newVal
+                    });
+                }
+            }
         }
     },
     data: {
