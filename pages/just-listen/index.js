@@ -14,8 +14,8 @@ import {
 import {showMsg, secondToMinus} from "../../utils/util";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'just-listen/'
+const baseUrl = app.globalData.base
+const page = 'just-listen-'
 const url = `${baseUrl}${page}`
 const isLocked = app.globalData.isLocked
 Page({

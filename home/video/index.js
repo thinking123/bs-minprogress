@@ -15,13 +15,14 @@ Page({
         noShow:false
     },
     onLoad: function (options) {
-        const lastPlayVideoTime = wx.getStorageSync(lastPlayVideoTime)
+        const lastTime = wx.getStorageSync(lastPlayVideoTime)
+        console.log('lastPlayVideoTime' , lastTime)
 
-
-        if(lastPlayVideoTime){
+        if(lastTime){
             const curTime = (new Date()).getTime()
             const threeMinus = 30 * 3600 * 1000
-            const offtime = curTime - lastPlayVideoTime
+            const offtime = curTime - lastTime
+            console.log('offtime' , offtime)
             if(offtime < threeMinus){
                 wx.setStorageSync(lastPlayVideoTime , curTime)
                 wx.redirectTo({

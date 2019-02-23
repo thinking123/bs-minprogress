@@ -336,9 +336,9 @@ Page({
         //     url: '/pages/singer-home/index'
         // })
 
-        // wx.navigateTo({
-        //     url: '/pages/just-listen/index'
-        // })
+        wx.navigateTo({
+            url: '/pages/just-listen/index'
+        })
         // wx.navigateTo({
         //     url: '/pages/upload-music/index?uploadType=wx'
         // })

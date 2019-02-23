@@ -312,9 +312,14 @@ page{
     align-items: center;
     background-color: #0079D8;
     margin-bottom: 10rpx;
-    position:
+    position:relative;
+}
 
-            relative;
+.rank-item-other-wrap > view{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display:block
 }
 .rank-btn{
     height: 40rpx;
@@ -328,9 +333,10 @@ page{
     border:2rpx solid white;
     border-radius: 28rpx;
 
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
+    margin-left: 15rpx !important;
 }
 .rank-header-icon{
     left:54rpx;

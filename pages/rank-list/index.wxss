@@ -164,9 +164,10 @@
     border:2rpx solid white;
     border-radius: 28rpx;
 
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
+    margin-left: 15rpx !important;
 }
 .rank-header-icon{
     left:54rpx;

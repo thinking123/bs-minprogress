@@ -106,18 +106,18 @@
     <view class="btn-group">
         <image bindtap="handleCurVote"
                wx:if="{{curMusic.voteState == 0}}"
-               src="{{url}}vote-btn.png"
+               src="{{url}}vote-btn1.png"
               class="btn btn-vote"/>
         <image bindtap="handleCurVote"
                wx:else
-               src="{{url}}voted-btn.png"
+               src="{{url}}voted-btn1.png"
               class="btn btn-vote"/>
         <!--<image bindtap="handleVote"-->
                <!--src="{{url}}voted-btn.png"-->
                <!--class="btn btn-vote"/>-->
         <view  class="btn share-vote">
             <button open-type="share" />
-            <image src="{{url}}share-btn.png"/>
+            <image src="{{url}}share-btn1.png"/>
         </view>
 
     </view>
