@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
-import {getAchievement , receiveAchievement} from "../../http/http-business";
+import {getAchievement , receiveAchievement,isReceivePrize} from "../../http/http-business";
 import {showMsg} from "../../utils/util";
 
 const app = getApp()
@@ -131,16 +131,23 @@ Page({
         }else{
             //
             try {
-                const prize = await receiveAchievement(item.type)
-                if(prize.notEnough &&
-                    (item.type == 'yljz'
+                if(item.type == 'yljz'
                     || item.type == 'dcj'
-                    || item.type == 'zazs')){
-                    this.setData({
-                        showyNotEnoughDialog:true
-                    })
-                    return
+                    || item.type == 'zazs'){
+
+                    const isEnough = await isReceivePrize(item.type)
+                    if(!isEnough){
+                        this.setData({
+                            showyNotEnoughDialog:true
+                        })
+                        return
+                    }
+
                 }
+
+                const prize = await receiveAchievement(item.type)
+
+
                 await this._getAchievement()
                 prize.type = item.type
                 this.showDialog(prize , item.type)

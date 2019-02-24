@@ -27,7 +27,13 @@ Page({
         showError: false,
         type:'virtual',
         prizeType:'',
-        dialogType:''
+        dialogType:'',
+        showyNotEnoughDialog:false
+    },
+    handleHideNotEnough(){
+        this.setData({
+            showyNotEnoughDialog:false
+        })
     },
     hideerrortap(){
         this.setData({
@@ -68,6 +74,12 @@ Page({
                 this.data.address,
                 this.data.qq)
             console.log(res)
+            if(!res){
+                this.setData({
+                    showyNotEnoughDialog:true
+                })
+                return
+            }
             wx.redirectTo({
                 url: '/pages/my-achieve/index'
             })

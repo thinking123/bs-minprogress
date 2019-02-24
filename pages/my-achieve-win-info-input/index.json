@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "info-confirm-dialog":"../../components/info-confirm-dialog/index",
-    "register-error-dialog":"../../components/register-error-dialog/index"
+    "register-error-dialog":"../../components/register-error-dialog/index",
+    "loggery-not-enough-dialog":"../../components/loggery-not-enough-dialog/index"
   }
 }

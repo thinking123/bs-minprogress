@@ -198,6 +198,24 @@ export function getAchievement() {
     return post(url, data).then(res => parseRes(res, errMsg))
 }
 
+//判断是否可以领取奖品
+export function isReceivePrize(prizeType) {
+    const url = '/api/achievement/isReceivePrize'
+    const params = {
+        prizeType:prizeType
+    }
+    url = urlParams(url , params)
+    return post(url, {}).then(res => {
+        if (res && res.status == '6009') {
+            return false
+        } else if (res && res.status && res.status.indexOf('2') > -1) {
+            return true
+        }  else {
+            throw new Error(res.message ? res.message : '请求失败')
+        }
+    })
+}
+
 //领取成就
 export function receiveAchievement(type) {
     let url = '/api/achievement/receiveAchievement'
@@ -380,7 +398,15 @@ export function myAchcieveReceivePrize(prizeType,
     }
     url = urlParams(url , params , true)
 
-    return post(url, {} ,loadingText).then(res => parseRes(res, errMsg))
+    return post(url, {} ,loadingText).then(res => {
+        if (res && res.status == '6009') {
+            return false
+        } else if (res && res.status && res.status.indexOf('2') > -1) {
+            return true
+        }  else {
+            throw new Error(res.message ? res.message : errMsg)
+        }
+    })
 }
 
 

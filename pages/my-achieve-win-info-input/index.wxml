@@ -55,5 +55,8 @@
     <view class="submit" bindtap="handleSubmit"/>
     <account-locked-dialog
             visible="{{isLocked}}"/>
+    <loggery-not-enough-dialog
+            bind:hidetap="handleHideNotEnough"
+            visible="{{showyNotEnoughDialog}}"/>
 </view>
 
