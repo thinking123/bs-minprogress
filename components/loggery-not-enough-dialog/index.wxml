@@ -1,0 +1,15 @@
+<view class="loggery-not-enough-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="loggery-not-enough-dialog-mask"
+          id="mask"/>
+
+    <view class="loggery-not-enough-dialog-content">
+        {{content}}
+    </view>
+    <view class="loggery-not-enough-dialog-body">
+        <image src="{{url}}bg.png"
+               class="loggery-not-enough-dialog-bg"/>
+        <view class="loggery-not-enough-dialog-return"
+              bindtap="handleReWrite"/>
+    </view>
+
+</view>

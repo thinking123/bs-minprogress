@@ -55,6 +55,10 @@
             bind:hidetap="handleHideyljz"
             visible="{{showyljzDialog}}"/>
 
+    <loggery-not-enough-dialog
+            bind:hidetap="handleHideNotEnough"
+            visible="{{showyNotEnoughDialog}}"/>
+
     <account-locked-dialog
             visible="{{isLocked}}"/>
 </view>

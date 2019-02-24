@@ -48,6 +48,7 @@ Page({
         showwwgkDialog:false,
         showycdyDialog:false,
         showyljzDialog:false,
+        showyNotEnoughDialog:false,
         // ,
         // testShow:true
     },
@@ -55,6 +56,11 @@ Page({
         const url = `/pages/my-achieve-win-info-input/index?prize=${prize}&type=${type}`
         wx.navigateTo({
             url: url
+        })
+    },
+    handleHideNotEnough(){
+        this.setData({
+            showyNotEnoughDialog:false
         })
     },
     handleHidedcj(){
@@ -88,6 +94,9 @@ Page({
     },
     handleTapycdy(e){
         console.log('handleTapycdy')
+        this.setData({
+            showycdyDialog:false
+        })
     },
 
     handleHideyljz(){
@@ -123,6 +132,15 @@ Page({
             //
             try {
                 const prize = await receiveAchievement(item.type)
+                if(prize.notEnough &&
+                    (item.type == 'yljz'
+                    || item.type == 'dcj'
+                    || item.type == 'zazs')){
+                    this.setData({
+                        showyNotEnoughDialog:true
+                    })
+                    return
+                }
                 await this._getAchievement()
                 prize.type = item.type
                 this.showDialog(prize , item.type)
