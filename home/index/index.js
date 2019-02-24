@@ -339,9 +339,9 @@ Page({
         // wx.navigateTo({
         //     url: '/pages/my-achieve-win-info-input/index'
         // })
-        wx.navigateTo({
-            url: '/pages/my-achieve/index'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/my-achieve/index'
+        // })
         // wx.navigateTo({
         //     url: '/pages/upload-music/index?uploadType=wx'
         // })

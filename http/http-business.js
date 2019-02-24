@@ -200,7 +200,7 @@ export function getAchievement() {
 
 //判断是否可以领取奖品
 export function isReceivePrize(prizeType) {
-    const url = '/api/achievement/isReceivePrize'
+    let url = '/api/achievement/isReceivePrize'
     const params = {
         prizeType:prizeType
     }
