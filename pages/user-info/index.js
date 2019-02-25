@@ -248,7 +248,7 @@ Page({
                 case 3:
                    //弹未报名dialog
                     this.setData({
-                        showSigninCheckDialog:false
+                        showSigninCheckDialog:true
                     })
                     break
                 case 4:

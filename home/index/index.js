@@ -300,7 +300,7 @@ Page({
     },
     handleGetUserInfo(userInfo) {
         //从授权dialog返回
-        this.getUserInfo(userInfo)
+        this.getUserInfo(userInfo.detail)
     },
     async getUserInfo(userInfo) {
         try {

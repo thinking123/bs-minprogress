@@ -1,4 +1,8 @@
-export const baseUrl = 'http://47.101.187.1:9080/'
+export const baseUrl = 'https://bsxyzqy.ysmine.com/'
+// export const baseUrl = 'http://47.101.187.1:9080/'
+
+
+
 // export const baseUrl = 'http://117.50.55.103:9080/'
 // export const baseUrl = 'http://yunxiaodefen.e1.luyouxia.net:27302/'
 export const mockProvinces = [
