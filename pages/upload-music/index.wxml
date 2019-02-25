@@ -90,6 +90,8 @@
                            <!--bind:hidetap="hidetap"/>-->
     <check-one-three-day-dialog visible="{{showDialog}}"
                            bind:hidetap="hidetap"/>
+    <upload-no-music-name-error-dialog visible="{{showNoMusicNameErrorDialog}}"
+                           bind:hidetap="hideNoMusicNameErrorDialog"/>
 
 
     <cascade-swiper class="music-swiper"

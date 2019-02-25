@@ -52,8 +52,14 @@ Page({
         checkState:'',
         musicId:'',
         singName:'',
+        showNoMusicNameErrorDialog:false,
 
         isTwo:false
+    },
+    hideNoMusicNameErrorDialog(){
+        this.setData({
+            showNoMusicNameErrorDialog: false
+        })
     },
     handleCascadeSelected(e){
         const selectedImageIndex = e.detail
@@ -322,9 +328,7 @@ Page({
         } else {
             console.log('handleSubmit error')
             this.setData({
-                bg: 'submit-error',
-                showDialog: true,
-                type:'error'
+                showNoMusicNameErrorDialog: true
             })
         }
     },

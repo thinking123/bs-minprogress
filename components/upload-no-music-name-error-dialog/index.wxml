@@ -1,0 +1,15 @@
+<view class="upload-no-music-name-error-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="upload-no-music-name-error-dialog-mask"
+          id="mask"/>
+
+    <view class="upload-no-music-name-error-dialog-content">
+        {{content}}
+    </view>
+    <view class="upload-no-music-name-error-dialog-body">
+        <image src="{{url}}bg1.png"
+               class="upload-no-music-name-error-dialog-bg"/>
+        <view class="upload-no-music-name-error-dialog-return"
+              bindtap="handleReWrite"/>
+    </view>
+
+</view>

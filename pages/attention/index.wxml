@@ -9,7 +9,7 @@
               class="attention-item"
         >
             <view class="attention-name">
-                {{item.musicName}}
+                {{item.singName}}
             </view>
             <view class="attention-num">
                 编号：{{item.userCode}}
