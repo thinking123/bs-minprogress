@@ -23,7 +23,7 @@
     top:0;
     bottom: 0;
     background-color: #333333;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 .get-my-achieve-ycdy-dialog-content{

@@ -6,7 +6,7 @@
     margin:0;
     padding:0;
     background-color: #333333;
-    opacity: 0.9;
+    opacity: 1;
 }
 .img{
     height: 74.51%;
