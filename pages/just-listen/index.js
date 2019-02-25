@@ -285,7 +285,7 @@ Page({
                 })
                 this.setAudioSrc(bsCasual.musicUrl)
             }else{
-                showMsg('没有上一首歌曲了')
+                showMsg('没有上一曲')
             }
 
             return this.data.isHasNext

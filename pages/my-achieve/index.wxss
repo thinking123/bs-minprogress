@@ -78,6 +78,7 @@ page{
     justify-content: space-around;
     margin-bottom: 28rpx;
     position: relative;
+    align-items: flex-end;
 }
 .achieve-name{
     position: absolute;
@@ -125,7 +126,7 @@ page{
     width: 36.88%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 .achieve-text{
