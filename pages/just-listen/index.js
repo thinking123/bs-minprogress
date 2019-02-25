@@ -320,14 +320,23 @@ Page({
 
     },
     async _followMusic(musicId) {
+        if(!musicId){
+            return
+        }
         const curMusic = await followMusic(musicId)
         return curMusic
     },
     async _putfollowMusic(musicId) {
+        if(!musicId){
+            return
+        }
         const curMusic = await putfollowMusic(musicId)
         return curMusic
     },
     async _voteMusic(musicId) {
+        if(!musicId){
+            return
+        }
         const curMusic = await voteMusic(musicId)
         return curMusic
     },

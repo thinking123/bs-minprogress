@@ -13,13 +13,13 @@
     <view class="attention-wrap">
         <view class="icon-wrap" bindtap="handleCurVote">
             <image class="attention-icon"
-                   src="{{url}}heart-icon{{curMusic.voteState == 0 ? '' :'-active'}}.svg"/>
+                   src="{{url}}heart-icon{{curMusic.voteState == 1 ? '-active' : ''}}.svg"/>
             <view>
                 {{curMusic.num}}
             </view>
         </view>
         <view class="icon-wrap" bindtap="handleCurAttention">
-            <image class="attention-icon" src="{{url}}attention-icon{{curMusic.followState == 0 ? '' :'-active'}}.svg"/>
+            <image class="attention-icon" src="{{url}}attention-icon{{curMusic.followState == 1 ? '-active' : '' }}.svg"/>
             <view>
                 关注
             </view>

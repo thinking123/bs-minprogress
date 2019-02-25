@@ -1,12 +1,26 @@
 
 <view class="container">
     <!--<view class="disable-mask" wx:if="showMask"/>-->
-    <image src="{{baseUrl}}bg.png" class="img"/>
+    <image src="{{baseUrl}}bg2.png" class="img"/>
+
+    <!--<view class="image-wrap">-->
+        <!--<image src="{{baseUrl}}icon.png" class="home-icon"/>-->
+        <!--<image src="{{baseUrl}}people.png" class="home-people"/>-->
+    <!--</view>-->
+    <view class="image-wrap">
+        <image src="{{baseUrl}}people1.png" class="home-people1"/>
+    </view>
+
     <view class="register" bindtap="handleRegister"/>
     <!--<view class="my-music" bindtap="handleMyMusic"/>-->
     <view class="listen" bindtap="handleListen"/>
     <view class="rank-list" bindtap="handleRankList"/>
     <view class="user-info" bindtap="handleUserInfo"/>
+    <!--<view class="bottom-banner-wrap">-->
+        <!--<image src="{{base}}bottom-banner.png" class="botter-banner"/>-->
+        <!--<image src="{{base}}bottom-banner-text.png" class="bottom-banner-text"/>-->
+    <!--</view>-->
+
     <auth-dialog
             bind:getuserinfo="handleGetUserInfo"
             visible="{{showDialog}}"/>

@@ -8,7 +8,7 @@ page{
   position: relative;
   margin:0;
   padding:0;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 /*.container > view{*/
@@ -18,10 +18,38 @@ page{
   height: 100%;
   width: 100%;
 }
+/* h 415*/
+.image-wrap{
+  position: absolute;
+  height: 72.96%;
+  top:0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: center;
+}
+/* h 460   image:h 68.96*/
+.home-people1{
+  height: 850rpx;
+  width: 100%;
+}
+.home-icon{
+  position: absolute;
+  left: 50%;
+  top:0;
+  transform: translate(-50% , 50%);
+  height: 74rpx;
+  width: 236rpx;
+}
+.home-people{
+  height: 831rpx;
+  width: 726rpx;
+}
 
 .register{
   position: absolute;
-  top:69.12%;
+  top:72.86%;
   left:204rpx;
   height: 7.34%;
   width: 344rpx;
@@ -38,7 +66,7 @@ page{
 
 .listen{
   position: absolute;
-  top:81.71%;
+  top:87.12%;
   left:82rpx;
   height: 3.59%;
   width: 176rpx;
@@ -46,7 +74,7 @@ page{
 
 .rank-list{
   position: absolute;
-  top:81.71%;
+  top:87.12%;
   left:288rpx;
   height: 3.59%;
   width: 176rpx;
@@ -54,7 +82,7 @@ page{
 
 .user-info{
   position: absolute;
-  top:81.71%;
+  top:87.12%;
   left:492rpx;
   height: 3.59%;
   width: 176rpx;
