@@ -23,17 +23,10 @@ Page({
         isLocked:isLocked,
         url: url,
         rankListOther: [],
-        curMusic: {
-            num: 0,
-            musicName: '-',
-            musicUserName: '-',
-            school: '-',
-            voteState: 0,
-            followState: 0,
-        },
+        curMusic: null,
         preMusicId: null,
         currentNum: 0,
-        isHasNext: 1,
+        isHasNext: 0,
 
 
         curTime: '0',
@@ -102,8 +95,6 @@ Page({
             const oldMusic = await this._casualListen()
             await addCasualListenHistory(oldMusic.musicId)
             await this._isCanLottery()
-            // await this._casualListenHistory()
-            // await this._casualListenHistory()
         } catch (e) {
             showMsg(e)
         }
@@ -260,7 +251,7 @@ Page({
         try {
 
             this.stopAudio()
-            const {bsCasual,gid} = musicId ? await randomMusicById(musicId) : await casualListen(musicId)
+            const {bsCasual,gid} = musicId ? await randomMusicById(musicId) : await casualListen()
             const oldMusic = this.data.curMusic
             this.setData({
                 curMusic: bsCasual,
@@ -269,7 +260,7 @@ Page({
                 curMusicHadLottery: false
             })
 
-            this.setAudioSrc(bsCasual.musicUrl , playing)
+            !!bsCasual && this.setAudioSrc(bsCasual.musicUrl , playing)
 
             return oldMusic
         } catch (e) {
