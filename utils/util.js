@@ -51,6 +51,10 @@ export function showMsg(title, showIcon = false) {
         title = title ? title : 'error'
     }
 
+    if(title && title == '您因违规已被永久封禁'){
+        console.log('locked ')
+        return
+    }
     let options = {
         title: title,
         mask: true
