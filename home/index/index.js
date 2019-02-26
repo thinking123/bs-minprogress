@@ -370,7 +370,7 @@ Page({
         //     url: '/pages/my-achieve/index'
         // })
         // wx.navigateTo({
-        //     url: '/pages/upload-music/index?uploadType=wx'
+        //     url: '/pages/upload-music/index?uploadType=record'
         // })
     }
 })

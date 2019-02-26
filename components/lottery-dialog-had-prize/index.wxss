@@ -64,7 +64,7 @@ t:45
 
     color: white;
     height: 40.63%;
-    top:28.83%;
+    top:32.68%;
 }
 .lottery-dialog-had-prize-title{
     display: flex;

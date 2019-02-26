@@ -1,6 +1,6 @@
 .cascade-swiper{
     width: 414rpx;
-    height: 162rpx;
+    height: 188rpx;
     left:0;
     right: 0;
     top:0;
@@ -8,28 +8,40 @@
     position: relative;
     overflow: hidden;
     z-index: 10;
-    background-color: white;
+    /*background-color: white;*/
 
 }
 .cascade-swiper-mask{
     background-color: #333333;
-    opacity: 0.5;
+    opacity: 0.7;
     z-index: 3;
     left:0;
     right: 0;
     top:0;
     bottom: 0;
     position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 
 .card{
-    width: 164rpx;
+    width: 190rpx;
     height: 162rpx;
     transition: left 1s;
     position: absolute;
+    bottom: 0;
 }
-
+.card > image{
+    height: 100%;
+    width: 100%;
+}
+.card2{
+    height: 176rpx;
+}
+.card1{
+    height: 188rpx;
+}
 .left{
 
     left:-22.22%;

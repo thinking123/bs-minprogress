@@ -117,7 +117,7 @@
                <!--class="btn btn-vote"/>-->
         <view  class="btn share-vote">
             <button open-type="share" />
-            <image src="{{url}}share-btn1.png"/>
+            <image src="{{url}}share-btn2.png"/>
         </view>
 
     </view>
