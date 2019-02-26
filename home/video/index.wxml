@@ -11,7 +11,7 @@
             show-play-btn="{{noShow}}"
             show-center-play-btn="{{noShow}}"
             enable-progress-gesture="{{noShow}}"
-            object-fit="fill"
+            object-fit="cover"
             controls="{{false}}"
 
             bindplay="hangleStartPlay"
