@@ -8,7 +8,10 @@
         <!--<image src="{{baseUrl}}people.png" class="home-people"/>-->
     <!--</view>-->
     <view class="image-wrap">
-        <image src="{{baseUrl}}people1.png" class="home-people1"/>
+        <image src="{{baseUrl}}people1.png"
+               class="home-people1"
+               style="top:{{top}}"
+               id="p"/>
     </view>
 
     <view class="register" bindtap="handleRegister"/>

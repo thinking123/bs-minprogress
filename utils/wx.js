@@ -89,7 +89,10 @@ export function wx_chooseMessageFile(count ,
             type:type,
             extension:extension,
             success:resolve,
-            fail:reject
+            fail:err=>{
+                console.log('wx_chooseMessageFile' , err)
+                resolve(false)
+            }
         })
     })
 }

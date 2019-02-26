@@ -23,6 +23,8 @@ Page({
         errorMsg: '',
 
         showUploadDialog: false,
+        isUseX: false,
+        top:'2.3%',
         checkState: '',
         musicId:''
     },
@@ -263,8 +265,32 @@ Page({
         }
 
     },
+    ininBgSize(){
+        let res = wx.getSystemInfoSync();
+        /*top:2.4%; 1.78*/
+        /*top:13.4%;2.17  off:0.385*/
+        //
+        let iphone6 = 667/375
+        let dev = res.screenHeight / res.screenWidth
+        let off = 0.385
+
+
+        if(dev > iphone6){
+
+            let top = (dev - 1.78)/0.385 * 11 + '%'
+            console.log('tp' ,  top)
+            this.setData({
+                top:top
+            })
+        }else{
+            // this.setData({
+            //     isUseX:false
+            // })
+        }
+    },
     onLoad: function () {
         this.init()
+        this.ininBgSize()
         // wx.showLoading({
         //     title: '获取用户信息',
         //     mask: true

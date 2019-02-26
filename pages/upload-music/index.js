@@ -402,8 +402,14 @@ Page({
     },
     async handleUploadFromWx() {
         try {
-            const {tempFiles} = await wx_chooseMessageFile(1 , 'file' , ['mp3'])
+            const res = await wx_chooseMessageFile(1 , 'file' , ['mp3'])
 
+            console.log('res',res)
+            if(!res || !res.tempFiles){
+                console.log('取消文件上传')
+                return
+            }
+            const {tempFiles} = res
             console.log('tempFiles' , tempFiles)
             const fileSize = tempFiles[0].size
             if(fileSize > 1024 * 1024 * 2){
