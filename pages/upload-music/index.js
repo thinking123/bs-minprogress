@@ -434,7 +434,8 @@ Page({
         }
         this.setData({
             isUploading:true,
-            showUploadingText:false
+            showUploadingText:false,
+            uploadReturnUrl: ''
         })
         let {data} = await wx_uploadFile( url ,filePath ,'file', header , uploadTask => {
             this.uploadTask = uploadTask
@@ -462,6 +463,13 @@ Page({
                 uploadReturnImageUrl: uploadReturnUrl,
                 isUploading:false,
                 showUploadingText:false
+            })
+
+            const images = this.data.images
+            images.pop()
+
+            this.setData({
+                images: [...images , {coverUrl:uploadReturnUrl}]
             })
         }else{
             this.setData({

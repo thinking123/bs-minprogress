@@ -12,9 +12,16 @@ Component({
             type: Array,
             value: [],
             observer(images) {
+
                 if (images && images.length > 0) {
                     const len = images.length
-                    const centerIndex = parseInt((len + 1) / 2) - 1
+                    let centerIndex = parseInt((len + 1) / 2) - 1
+                    if(this.data.centerIndex == this.data.images.length - 1){
+                        centerIndex = this.data.centerIndex
+                    }
+
+
+
                     const left1Index = centerIndex - 2
                     const left2Index = centerIndex - 1
                     const right2Index = centerIndex + 1

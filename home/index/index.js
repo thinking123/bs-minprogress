@@ -360,9 +360,9 @@ Page({
 
 
 
-        wx.navigateTo({
-            url: '/pages/register/index'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/register/index'
+        // })
         // wx.navigateTo({
         //     url: '/pages/rank-list/index'
         // })
@@ -376,8 +376,8 @@ Page({
         // wx.navigateTo({
         //     url: '/pages/my-achieve/index'
         // })
-        // wx.navigateTo({
-        //     url: '/pages/upload-music/index?uploadType=record'
-        // })
+        wx.navigateTo({
+            url: '/pages/upload-music/index?uploadType=wx'
+        })
     }
 })

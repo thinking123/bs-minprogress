@@ -1,5 +1,7 @@
 <view class="container">
     <!--<web-view src="http://www.lizikeji.cn"/>-->
+
+    <view class="container-mask"/>
     <image src="{{url}}bg.png" class="img"/>
 
     <!--<input type="file" />-->
@@ -9,6 +11,14 @@
     <view class="upload-icon-wx"        wx:if="{{uploadType=='wx'}}">
         <image src="{{url}}wx.png"
                bindtap="handleUploadFromWx"/>
+        <view class="wx-tip">
+            <view>
+                微信导入音乐
+            </view>
+            <view class="wx-upload-ok" wx:if="{{!!uploadReturnUrl}}">
+                导入完成
+            </view>
+        </view>
     </view>
     <image src="{{url}}mkf.png"
            bindtap="handleRecord"

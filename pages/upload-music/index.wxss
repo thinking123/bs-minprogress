@@ -1,3 +1,9 @@
+page{
+    background-image: url('https://cdnpepsi.ysmine.com/register-bg2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 
 .container{
     height: 100%;
@@ -5,16 +11,23 @@
     position: relative;
     margin:0;
     padding:0;
+    background-color: transparent;
+
+}
+.container-mask{
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background-color: #333333;
-    opacity: 1;
+    opacity: 0.8;
 }
 .img{
     height: 74.51%;
     width: 100%;
     position: absolute;
     top:5.25%;
-    left:50%;
-    transform: translateX(-50%);
+    left:0;
+    transform: translateX(-8rpx);
 }
 
 .upload-icon-mkf{
@@ -22,7 +35,8 @@
     left:50%;
     transform: translateX(-50%);
     top:31.63%;
-    height: 9.75%;
+    /*height: 9.75%;*/
+    height: 130rpx;
     width: 94rpx;
 }
 .record{
@@ -33,13 +47,17 @@
     height: 3.3%;
     width: 156rpx;
 }
-
+/*
+image left width : 36   42
+image right width : 28  29
+*/
 .upload-icon-wx{
     position: absolute;
     left:50%;
     transform: translateX(-50%);
     top:30.39%;
-    height: 9.3%;
+    /*height: 9.3%;*/
+    height: 128rpx;
     width: 130rpx;
 }
 
@@ -48,20 +66,34 @@
 
     height: 100%;
 }
-.upload-icon-wx::after{
+/*.upload-icon-wx::after{*/
+    /*color:white;*/
+    /*white-space: nowrap;*/
+    /*font-size: 18rpx;*/
+    /*position: absolute;*/
+    /*content:'微信导入音乐';*/
+    /*display: block;*/
+    /*top:100%;*/
+    /*left:50%;*/
+    /*transform: translate(-50% , 2rpx);*/
+/*}*/
+
+.wx-tip{
     color:white;
     white-space: nowrap;
     font-size: 18rpx;
     position: absolute;
     content:'微信导入音乐';
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top:100%;
     left:50%;
-    /*height: 20rpx;*/
-    /*width: 1800rpx;*/
-    /*background-color: red;*/
-    /*transform: translateX(-50%);*/
     transform: translate(-50% , 2rpx);
+
+}
+.wx-upload-ok{
+
 }
 .progress-bar-text{
     position: absolute;
