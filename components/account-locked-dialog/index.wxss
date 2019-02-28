@@ -22,8 +22,8 @@
     right: 0;
     top:0;
     bottom: 0;
-    background-color: #333333;
-    opacity: 1;
+    background-color: black;
+    opacity: 0.8;
 }
 
 .account-locked-dialog-content{
@@ -50,7 +50,7 @@ h 433
     z-index: 2;
     left:50%;
     top:50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-51.07% , -50%);
     /*height: 52.62%;*/
     height: 640rpx;
     width: 664rpx;
