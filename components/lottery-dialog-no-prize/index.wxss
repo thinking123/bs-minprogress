@@ -25,6 +25,7 @@
 .lottery-dialog-no-prize-bg{
     width: 100%;
     height: 100%;
+    transform: translateX(-1.07%);
 }
 .lottery-dialog-no-prize-btn{
     position: absolute;

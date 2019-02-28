@@ -41,6 +41,8 @@
     width: 100%;
     height: 74.36%;
     top:5.4%;
+
+    transform: translateX(-1.07%);
 }
 
 .info-confirm-bg-virtual{
@@ -50,6 +52,7 @@
     width: 100%;
     height: 85%;
     top:5.4%;
+    transform: translateX(-1.07%);
 }
 
 

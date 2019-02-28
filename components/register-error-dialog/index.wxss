@@ -47,7 +47,8 @@
     height: 50.12%;
 
     left:50%;
-    transform: translateX(-50%);
+    transform: translateX(-51.07%);
+    /*transform: translate(-51.07% , -50%);*/
 }
 .how-to-play-return{
     position: absolute;

@@ -50,7 +50,7 @@ h 478
     z-index: 2;
     left:50%;
     top:50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-51.07% , -50%);
     height: 73.16%;
     width: 664rpx;
 }

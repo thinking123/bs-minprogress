@@ -25,6 +25,7 @@
 .singer-home-no-music-dialog-bg{
     width: 100%;
     height: 100%;
+    transform: translateX(-1.07%);
 }
 .singer-home-no-music-dialog-btn{
     position: absolute;
