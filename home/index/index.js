@@ -360,6 +360,9 @@ Page({
 
 
         // wx.navigateTo({
+        //     url: '/pages/rank-list/index'
+        // })
+        // wx.navigateTo({
         //     url: '/pages/just-listen/index'
         // })
 

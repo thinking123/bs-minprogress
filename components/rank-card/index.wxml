@@ -3,27 +3,32 @@
     <image class="header-bg" src="{{url}}header-bg.png"/>
     <!--<view class="rank-card-content-border"/>-->
 
+    <image src="{{headerSrc}}" class="rank-card-header"/>
 
-    <view class="rank-card-disk"
-          bindtap="handlePlay"
-          id="rank-card-disk">
-        <!--<view>
 
-          style="width:{{diskWidth}};border-radius:{{diskRadius}};"
-        </view>-->
-        <image src="{{info.musicCover}}" class="gd"
-               id="gd"
-               style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"
-        />
-        <image src="{{headerSrc}}" class="rank-card-header"/>
-        <!--<image src="{{playStatusSrc}}"-->
 
-               <!--class="play-btn-icon"/>-->
-        <!--<image src="{{url}}pole.png"-->
-               <!--style="transform: {{poleTransform}}"-->
-               <!--id="rank-card-pole"-->
-               <!--class="rank-card-pole"/>-->
-    </view>
+    <image src="{{info.musicCover}}" class="gd"
+           id="gd"
+           style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"
+    />
+
+    <!--<view class="rank-card-disk"-->
+          <!--bindtap="handlePlay"-->
+          <!--id="rank-card-disk">-->
+        <!--&lt;!&ndash;<image src="{{info.musicCover}}" class="gd"&ndash;&gt;-->
+               <!--&lt;!&ndash;id="gd"&ndash;&gt;-->
+               <!--&lt;!&ndash;style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+
+        <!--<image src="{{info.musicCover}}" class="gd"-->
+               <!--id="gd"-->
+               <!--style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"-->
+        <!--/>-->
+
+
+        <!--<image src="{{headerSrc}}" class="rank-card-header"/>-->
+    <!--</view>-->
 
     <view class="rank-card-content-wrap">
         <view class="rank-card-content">
