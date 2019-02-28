@@ -191,7 +191,10 @@ Page({
 
         }else{
             all = nextPage ? [...this.data.musicList, ...musicList] : musicList
+
+
             rankListTopThree = all.slice(0, 3)
+            //todo mock data
 
             rankListOther = all.slice(3)
 

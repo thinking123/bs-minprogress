@@ -25,7 +25,8 @@ Component({
                 wx.nextTick(() => {
                     let q = this.createSelectorQuery()
 
-                    const rank = q.select('#rank-card-disk')
+                    // const rank = q.select('#rank-card-disk')
+                    const rank = q.select('#gd')
                     // const gd = q.select('#gd')
 
                     rank.boundingClientRect(rect => {
@@ -34,13 +35,15 @@ Component({
                             let w = rect.width
                             let h = rect.height
 
-                            let v = Math.min(w , h)
-                            v = v + 'px'
+                            // let v = Math.min(w , h)
+                            // v = v + 'px'
 
-                            console.log(w , h , ' ,set w' , v)
+                            console.log('h' , h)
+                            h = h + 'px'
+                            // console.log(w , h , ' ,set w' , v)
                             this.setData({
-                                diskWidth: v,
-                                diskRadius: v
+                                diskWidth: h,
+                                // diskRadius: v
                             })
 
                         }

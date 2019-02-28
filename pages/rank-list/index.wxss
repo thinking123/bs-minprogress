@@ -215,6 +215,7 @@ display: flex;
     top:38.23%;
     width: 214rpx;
     height: 19.79%;
+    /*height: 272rpx;*/
 }
 
 .rank-card-silver{
@@ -223,6 +224,7 @@ display: flex;
     top:40.78%;
     width: 184rpx;
     height: 17.24%;
+    /*height: 240rpx;*/
 }
 .rank-card-cuprum{
     position: absolute;
@@ -230,5 +232,6 @@ display: flex;
     top:40.78%;
     width: 184rpx;
     height: 17.24%;
+    /*height: 240rpx;*/
 }
 

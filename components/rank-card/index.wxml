@@ -1,4 +1,4 @@
-<view class="wrapper" id="rank-card-wrap">
+<view class="wrapper" id="rank-card-wrap" >
 
     <image class="header-bg" src="{{url}}header-bg.png"/>
     <!--<view class="rank-card-content-border"/>-->
@@ -7,9 +7,9 @@
 
 
 
-    <image src="{{info.musicCover}}" class="gd"
+    <image  src="{{info.musicCover}}" class="gd"
            id="gd"
-           style="width:{{diskWidth}};height:{{diskWidth}};border-radius:{{diskWidth}};"
+           style="width:{{diskWidth}};border-radius:{{diskWidth}};"
     />
 
     <!--<view class="rank-card-disk"-->
@@ -30,25 +30,21 @@
         <!--<image src="{{headerSrc}}" class="rank-card-header"/>-->
     <!--</view>-->
 
-    <view class="rank-card-content-wrap">
-        <view class="rank-card-content">
-            <view>
-                姓名：{{info.musicUserName}}
-            </view>
-            <view>
-                学校：{{info.school}}
-            </view>
+    <view class="rank-card-content-wrap  {{level !='gold' ? 'small-size' : ''}}">
+        <view class="item">
+            姓名：{{info.musicUserName}}
+        </view>
+        <view class="item">
+            学校：{{info.school}}
+        </view>
+        <view  class="item">
+            主打歌：{{info.musicName}}
+        </view>
+        <view  class="item">
+            票数：{{info.num ? info.num : 0}}
         </view>
         <view class="rank-card-content">
-            <view>
-                主打歌：{{info.musicName}}
-            </view>
-            <view>
-                票数：{{info.num ? info.num : 0}}
-            </view>
-        </view>
-        <view class="rank-card-content">
-            <view bindtap="handleFollow" class="btn">
+            <view bindtap="handleFollow" class="btn follow">
                 <image src="{{url}}attention-icon{{info.followState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>
                 <view>
                     关注
@@ -62,4 +58,37 @@
             </view>
         </view>
     </view>
+
+    <!--<view class="rank-card-content-wrap">-->
+        <!--<view class="rank-card-content">-->
+            <!--<view>-->
+                <!--姓名：{{info.musicUserName}}-->
+            <!--</view>-->
+            <!--<view>-->
+                <!--学校：{{info.school}}-->
+            <!--</view>-->
+        <!--</view>-->
+        <!--<view class="rank-card-content">-->
+            <!--<view>-->
+                <!--主打歌：{{info.musicName}}-->
+            <!--</view>-->
+            <!--<view>-->
+                <!--票数：{{info.num ? info.num : 0}}-->
+            <!--</view>-->
+        <!--</view>-->
+        <!--<view class="rank-card-content">-->
+            <!--<view bindtap="handleFollow" class="btn">-->
+                <!--<image src="{{url}}attention-icon{{info.followState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>-->
+                <!--<view>-->
+                    <!--关注-->
+                <!--</view>-->
+            <!--</view>-->
+            <!--<view bindtap="handleVote" class="btn">-->
+                <!--<image src="{{url}}heart-icon{{info.voteState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>-->
+                <!--<view>-->
+                    <!--投票-->
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
 </view>
