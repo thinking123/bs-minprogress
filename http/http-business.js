@@ -44,8 +44,8 @@ export function isSignUp() {
 //注册
 export function signUp(userName,
                        userPhone,
-                       userPointId,
                        userProvinceId,
+                       userPointId,
                        userSchoolId) {
     const url = '/api/singUp'
     const loadingText = '正在注册...'
