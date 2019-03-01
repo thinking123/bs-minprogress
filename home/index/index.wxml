@@ -1,32 +1,20 @@
 
 <view class="container">
     <!--<view class="disable-mask" wx:if="showMask"/>-->
-    <image src="{{baseUrl}}bg3.png" class="img"/>
+    <image src="{{baseUrl}}bg2.png" class="img"/>
 
     <!--<view class="image-wrap">-->
         <!--<image src="{{baseUrl}}icon.png" class="home-icon"/>-->
         <!--<image src="{{baseUrl}}people.png" class="home-people"/>-->
     <!--</view>-->
     <view class="image-wrap">
-        <view   class="home-people1"
-                        style="top:{{top}}">
-            <image src="{{baseUrl}}people2.png"
-                   class="home-people-bg"
-                   id="p"/>
-
-            <image src="{{baseUrl}}light.png"
-                   class="light"/>
-        </view>
-
-
-
-
-
-
+        <image src="{{baseUrl}}people1.png"
+               class="home-people1"
+               style="top:{{top}}"
+               id="p"/>
     </view>
 
-    <!--<view class="register" bindtap="handleRegister"/>-->
-    <image src="{{baseUrl}}register-btn.png"  class="register" bindtap="handleRegister"/>
+    <view class="register" bindtap="handleRegister"/>
 
 
 

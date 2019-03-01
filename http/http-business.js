@@ -3,7 +3,8 @@ import {urlParams} from "../utils/util";
 
 function parseRes(res, errMsg, resolveStatus = []) {
     if (!!res && res.status && res.status.indexOf('2') > -1) {
-        return res.rows ? res.rows : res
+        // return res.rows ? res.rows : res
+        return res.rows
     } else {
         const msg = res && res.message ? res.message : errMsg
         throw new Error(msg ? msg : 'error')
