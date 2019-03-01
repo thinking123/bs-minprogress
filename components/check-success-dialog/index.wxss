@@ -51,7 +51,7 @@ h 433
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 64.92%;
+    height: 783rpx;
     width: 664rpx;
 }
 .check-success-dialog-bg{

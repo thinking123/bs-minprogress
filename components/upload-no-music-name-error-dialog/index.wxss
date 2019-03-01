@@ -51,7 +51,7 @@ h 478
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 63.89%;
+    height: 771rpx;
     width: 664rpx;
 }
 .upload-no-music-name-error-dialog-bg{

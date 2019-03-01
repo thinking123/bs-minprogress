@@ -37,7 +37,7 @@ h 478
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 72.71%;
+    height: 877rpx;
     width: 664rpx;
 }
 .no-singer-join-error-dialog-bg{

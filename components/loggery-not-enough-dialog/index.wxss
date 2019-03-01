@@ -51,7 +51,7 @@ h 478
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 65.37%;
+    height: 788rpx;
     width: 664rpx;
 }
 .loggery-not-enough-dialog-bg{

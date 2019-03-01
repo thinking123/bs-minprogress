@@ -51,7 +51,7 @@ h 476
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 71.36%;
+    height: 860rpx;
     width: 664rpx;
 }
 .upload-type-select-dialog-bg{
