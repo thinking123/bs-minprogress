@@ -52,7 +52,7 @@ h 478
     width: 222rpx;
     height: 60rpx;
     left:109rpx;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 .upload-music-not-origin-dialog-btn2{
@@ -62,5 +62,5 @@ h 478
     width: 222rpx;
     height: 60rpx;
     left:55%;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
