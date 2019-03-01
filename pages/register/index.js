@@ -62,6 +62,9 @@ Page({
             if(this.data.checkState == 4){
                 //从填信息
                 await this.initRewrite()
+            }else if(this.data.checkState == 'back'){
+                //从上传音乐返回
+
             }
         } catch (e) {
             showMsg(e)
@@ -123,7 +126,7 @@ Page({
           //     this.data.selectedProvince.id,
           //     this.data.selectedPoint.id,
           //     this.data.selectedSchool.id,
-          //     )
+          //     )非原创
           // console.log(res)
           // wx.navigateTo({
           //     url: '/pages/upload-music/index'
@@ -140,9 +143,15 @@ Page({
           url = urlParams(url , params , true)
           console.log('urlParams' , url)
           // const url = `/pages/upload-music/index?uploadType=${this.data.uploadType}`
-          wx.redirectTo({
+          //上传页面可以返回
+          wx.navigateTo({
               url: url
           })
+          // wx.redirectTo({
+          //     url: url
+          // })
+
+
       }  catch (e) {
           showMsg(e)
       }

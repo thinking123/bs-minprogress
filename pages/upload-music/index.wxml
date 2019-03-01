@@ -1,7 +1,7 @@
 <view class="container">
     <!--<web-view src="http://www.lizikeji.cn"/>-->
 
-    <view class="container-mask"/>
+    <view class="container-mask" bindtap="handleBack"/>
     <image src="{{url}}bg.png" class="img"/>
 
     <!--<input type="file" />-->

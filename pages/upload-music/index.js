@@ -56,6 +56,29 @@ Page({
 
         isTwo:false
     },
+    handleBack(){
+        console.log('handleBack')
+        // let url = '/pages/register/index?from=home'
+        // const params = {
+        //     userPhone:this.data.userPhone,
+        //     userProvinceId:this.data.userProvinceId,
+        //     userPointId:this.data.userPointId,
+        //     userSchoolId:this.data.userSchoolId,
+        //     singName:this.data.singName,
+        //     checkState:'back'
+        // }
+        // url = urlParams(url , params , true)
+        //
+        //
+        // wx.redirectTo({
+        //     url: url
+        // })
+        //
+        wx.navigateBack({
+            delta: 1
+        })
+
+    },
     hideNoMusicNameErrorDialog(){
         this.setData({
             showNoMusicNameErrorDialog: false
