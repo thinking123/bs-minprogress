@@ -57,8 +57,8 @@ page{
     width: 124rpx;
 }
 .upload-play{
-    height: 104rpx;
-    width: 104rpx;
+    height: 100rpx;
+    width: 100rpx;
 }
 .upload-tip{
     background-color:  #2E99EB;
@@ -74,6 +74,8 @@ page{
 }
 
 .reupload{
+
+
     align-content: flex-end;
     border-bottom: 1rpx solid white;
     /*text-decoration-line: underline;*/

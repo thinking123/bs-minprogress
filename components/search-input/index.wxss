@@ -60,6 +60,6 @@
 .ph-cs{
     color:#004990;
     font-size:35rpx;
-    margin-left: 16rpx;
+    margin-left: 0;
     font-weight: bolder;
 }
