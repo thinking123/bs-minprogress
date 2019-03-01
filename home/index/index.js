@@ -360,9 +360,9 @@ Page({
 
 
 
-        // wx.navigateTo({
-        //     url: '/pages/register/index'
-        // })
+        wx.navigateTo({
+            url: '/pages/win-info/index'
+        })
         // wx.navigateTo({
         //     url: '/pages/rank-list/index'
         // })
