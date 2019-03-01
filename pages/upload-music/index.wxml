@@ -45,12 +45,12 @@
             <!--是否为原创歌曲：-->
         <!--</view>-->
         是否为原创歌曲：
-        <view class="check-box checked {{checked ? 'active' : ''}}" bindtap="handleChecked"/>
+        <view class="check-box checked {{checked === true? 'active' : ''}}" bindtap="handleChecked"/>
         <view class="mg" bindtap="handleChecked">
             是
         </view>
 
-        <view class="check-box unchecked {{!checked ? 'active' : ''}}" bindtap="handleUnChecked"/>
+        <view class="check-box unchecked {{checked === false? 'active' : ''}}" bindtap="handleUnChecked"/>
         <view bindtap="handleUnChecked">
             否
         </view>
@@ -110,5 +110,16 @@
                     images="{{images}}"/>
     <account-locked-dialog
             visible="{{isLocked}}"/>
+
+
+    <upload-music-not-origin-dialog
+            visible="{{showNotOriginDialog}}"
+            bind:argee="handleNotOriginAgree"
+            bind:hidetap="hideNotOriginDialog"/>
+
+    <upload-music-origin-dialog
+            visible="{{showOriginDialog}}"
+            bind:argee="handleOriginAgree"
+            bind:hidetap="hideOriginDialog"/>
 </view>
 

@@ -24,7 +24,7 @@ Page({
         isLocked:isLocked,
         url: url,
         songName: '',
-        checked: false,
+        checked: '',
         progress: '0',
         isUploaded: false,
         isUploading: false,
@@ -53,8 +53,44 @@ Page({
         musicId:'',
         singName:'',
         showNoMusicNameErrorDialog:false,
+        showNotOriginDialog:false,
+        showOriginDialog:false,
 
         isTwo:false
+    },
+    hideNotOriginDialog(){
+        this.setData({
+            showNotOriginDialog: false
+        })
+    },
+    handleNotOriginAgree(e){
+        const agree = e.detail
+        console.log('handleNotOriginAgree' ,agree )
+        if(agree){
+            this.setData({
+                checked: false,
+            })
+        }
+        this.setData({
+            showNotOriginDialog: false
+        })
+    },
+    handleOriginAgree(e){
+        const agree = e.detail
+        console.log('handleOriginAgree' ,agree )
+        if(agree){
+            this.setData({
+                checked: true,
+            })
+        }
+        this.setData({
+            showOriginDialog: false
+        })
+    },
+    hideOriginDialog(){
+        this.setData({
+            showOriginDialog: false
+        })
     },
     handleBack(){
         console.log('handleBack')
@@ -283,6 +319,7 @@ Page({
         }
         return !isEmpty(this.data.songName) &&
             !isEmpty(this.data.uploadReturnUrl) &&
+            typeof this.data.checked == 'boolean'
             imageOk
     },
     async _signMusic(){
@@ -379,13 +416,20 @@ Page({
         })
     },
     handleChecked(e) {
+        // this.setData({
+        //     checked: true
+        // })
+
         this.setData({
-            checked: true
+            showOriginDialog: true
         })
     },
     handleUnChecked(){
+        // this.setData({
+        //     checked: false
+        // })
         this.setData({
-            checked: false
+            showNotOriginDialog: true
         })
     },
     uploadFile(file) {

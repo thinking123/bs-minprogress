@@ -1,0 +1,15 @@
+<view class="upload-music-not-origin-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="upload-music-not-origin-dialog-mask"
+          id="mask"/>
+    <view class="upload-music-not-origin-dialog-body">
+        <image src="{{url}}bg.png"
+               class="upload-music-not-origin-dialog-bg"/>
+        <view class="upload-music-not-origin-dialog-btn1"
+              data-agree="{{true}}"
+              bindtap="handleBtn"/>
+        <view class="upload-music-not-origin-dialog-btn2"
+              data-agree="{{false}}"
+              bindtap="handleBtn"/>
+    </view>
+
+</view>
