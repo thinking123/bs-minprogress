@@ -57,15 +57,20 @@ page{
     width: 124rpx;
 }
 .upload-play{
-    height: 108rpx;
-    width: 82rpx;
+    height: 104rpx;
+    width: 104rpx;
 }
 .upload-tip{
     background-color:  #2E99EB;
     color: white;
-    padding: 6rpx 18rpx;
+    /*padding: 6rpx 18rpx;*/
+    width: 204rpx;
+    height: 42rpx;
     font-size: 26rpx;
     margin-top: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .reupload{
