@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="{{url}}bg.png" class="img"/>
+    <image src="{{url}}bg1.png" class="img"/>
 
 
     <scroll-view class="achieve-list-wrap" scroll-y>
