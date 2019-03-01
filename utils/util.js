@@ -18,7 +18,7 @@ export function isEmpty(str) {
     // if(typeof str !== 'string' || !str){
     //   return false
     // }
-    str = str.trim()
+    str = str == null ? '' : str.trim()
     return str.length === 0
 }
 

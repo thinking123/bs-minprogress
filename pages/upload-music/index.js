@@ -38,6 +38,7 @@ Page({
         uploadType: '',
         tempFilePath: '',
         isRecording: false,
+        isPlayingRecord:false,
         isUploading: false,
         uploadReturnUrl: '',
         selectedImageIndex:'0',
@@ -56,7 +57,28 @@ Page({
         showNotOriginDialog:false,
         showOriginDialog:false,
 
-        isTwo:false
+        isTwo:false,
+        uploadTip:'录制音乐'
+    },
+    handleRestart(){
+        if(this.data.isUploading){
+            showMsg('正在上传')
+            return
+        }
+        if(this.data.isRecording){
+            showMsg('正在录音')
+            return
+        }
+        if(this.data.isPlayingRecord){
+            showMsg('正在播放录音')
+            return
+        }
+
+        this.setData({
+            uploadTip:this.data.uploadType == 'wx' ? '导入我的音乐' : '录制音乐',
+            tempFilePath:null,
+            uploadReturnUrl:null
+        })
     },
     hideNotOriginDialog(){
         this.setData({
@@ -129,6 +151,10 @@ Page({
     },
     async handleTapUploadBtn(){
         try {
+            if(this.data.isUploading){
+                return showMsg('正在上传')
+            }
+            console.log('handleTapUploadBtn')
             const {tempFiles} = await wx_chooseImage(1)
             const path = tempFiles[0].path
             await this._uploadFile(path , true)
@@ -142,7 +168,8 @@ Page({
             const uploadType = option.uploadType ? option.uploadType : 'wx'
 
             this.setData({
-                uploadType: uploadType
+                uploadType: uploadType,
+                uploadTip:uploadType == 'wx' ? '导入我的音乐' : '录制音乐'
             })
 
             if(option.isTwo){
@@ -221,7 +248,13 @@ Page({
         if (this.recorderManager) {
             this.data.isRecording && this.recorderManager.stop()
         }
-
+        if(this.ctx){
+            this.data.isPlayingRecord && this.ctx.stop()
+        }
+        if(this.recordTime){
+            clearInterval(this.recordTime)
+            this.recordTime = null
+        }
         if(this.uploadTask){
             this.uploadTask.abort()
         }
@@ -234,15 +267,47 @@ Page({
         if(this.uploadTask){
             this.uploadTask.abort()
         }
+        if(this.recordTime){
+            clearInterval(this.recordTime)
+            this.recordTime = null
+        }
+        if(this.ctx){
+            this.ctx.stop()
+            this.ctx.destroy()
+            this.ctx = null
+        }
     },
 
     async _uploadMusic(file) {
 
     },
+    stopPlayRecord(){
+        this.ctx.stop()
+        this.setData({
+            isPlayingRecord: false,
+            uploadTip:'播放'
+        })
+    },
+    startPlayRecord(){
+        this.ctx.src = this.data.tempFilePath
+        this.ctx.play()
+        this.setData({
+            isPlayingRecord: true,
+            uploadTip:'暂停'
+        })
+    },
+    handlePlayingRecord(){
+        if (this.data.isPlayingRecord) {
+            this.stopPlayRecord()
+        } else {
+            this.startPlayRecord()
+        }
+    },
     handleRecord(e) {
         console.log('handleRecord' , this.data.isRecording)
         if (this.data.isRecording) {
-            this.recorderManager.stop()
+            //录制完30s
+            // this.recorderManager.stop()
         } else {
             //IOS 开始录音的时候不能为静音模式
             //或者开启 播放录音的:obeyMuteSwitch
@@ -253,9 +318,22 @@ Page({
         this.setData({
             isRecording: true
         })
+        this.maxTime = 30
+        this.recordTime = setInterval(()=>{
+            this.maxTime--
+            let str = this.maxTime.toString()
+            str = str.length == 1 ? `0${str}` : str
+                this.setData({
+                    uploadTip: `00:${str}`
+                })
+            },
+            1000)
     },
     async stopRecord(tempFilePath) {
         try {
+
+            clearInterval(this.recordTime)
+            this.recordTime = null
             this.setData({
                 isRecording: false,
                 tempFilePath: tempFilePath,
@@ -303,6 +381,27 @@ Page({
         this.recorderManager.onInterruptionEnd((err) => {
             console.log('onInterruptionEnd', err)
         })
+
+        this.ctx = wx.createInnerAudioContext()
+
+        // this.ctx.autoplay = true
+        /*
+        * obeyMuteSwitch	boolean	true	否
+        * （仅在 iOS 生效）是否遵循静音开关，设置为 false 之后，即使是在静音模式下，也能播放声音
+        * */
+        wx.setInnerAudioOption({
+            obeyMuteSwitch: false
+        })
+        this.ctx.onPlay(() => {
+            console.log('开始播放')
+        })
+        this.ctx.onEnded(() => {
+            console.log('播放结束')
+           this.stopPlayRecord()
+        })
+        this.ctx.onError((res) => {
+            this.stopPlayRecord()
+        })
     },
     bindNameInput(e) {
         this.setData({
@@ -319,7 +418,7 @@ Page({
         }
         return !isEmpty(this.data.songName) &&
             !isEmpty(this.data.uploadReturnUrl) &&
-            typeof this.data.checked == 'boolean'
+            typeof this.data.checked == 'boolean' &&
             imageOk
     },
     async _signMusic(){
@@ -380,6 +479,10 @@ Page({
         if(this.data.isUploading){
             return showMsg('正在上传')
         }
+        if(this.data.isPlayingRecord){
+            return showMsg('正在播放录音')
+        }
+
         if (this.verifySubmit()) {
             console.log('handleSubmit ok')
 
@@ -469,6 +572,9 @@ Page({
     },
     async handleUploadFromWx() {
         try {
+            if(this.data.isUploading){
+                return showMsg('正在上传')
+            }
             const res = await wx_chooseMessageFile(1 , 'file' , ['mp3'])
 
             console.log('res',res)
@@ -504,6 +610,11 @@ Page({
             showUploadingText:false,
             uploadReturnUrl: ''
         })
+        if(!isUploadImage){
+            this.setData({
+                uploadTip:this.data.uploadType == 'wx' ? '导入中......' : '上传中'
+            })
+        }
         let {data} = await wx_uploadFile( url ,filePath ,'file', header , uploadTask => {
             this.uploadTask = uploadTask
             uploadTask.onProgressUpdate((res) => {
@@ -541,10 +652,25 @@ Page({
         }else{
             this.setData({
                 uploadReturnUrl: uploadReturnUrl,
-                isUploading:false,
-                showUploadingText:false
+
+                showUploadingText:false,
+                uploadTip:this.data.uploadType == 'wx' ? '导入完成' : '上传成功'
             })
+
+            setTimeout(()=>{
+                this.setData({
+                    uploadTip:this.data.uploadType == 'wx' ? '导入完成' : '播放',
+                    isUploading:false,
+                })
+            } , 100)
         }
+
+
+
+
+
+
+
 
         console.log('data' , data)
         return data
