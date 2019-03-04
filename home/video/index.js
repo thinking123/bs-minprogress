@@ -1,8 +1,9 @@
 import {hadPlayVideo , lastPlayVideoTime} from "../../utils/constant";
 
 const app = getApp()
-const baseUrl = app.globalData.baseUrl
-const page = 'video/'
+const baseUrl = app.globalData.base
+
+const page = 'video-'
 const url = `${baseUrl}${page}`
 
 Page({

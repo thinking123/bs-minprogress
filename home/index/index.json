@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "auth-dialog":"../../components/auth-dialog/index",
+    "auth-dialog-ex":"../../components/auth-dialog-ex/index",
     "check-error-dialog":"../../components/check-error-dialog/index",
     "checking-dialog":"../../components/checking-dialog/index",
     "check-success-dialog":"../../components/check-success-dialog/index",

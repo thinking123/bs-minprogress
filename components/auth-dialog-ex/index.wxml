@@ -1,0 +1,13 @@
+<view class="check-error-dialog" wx:if="{{visible}}">
+    <view class="auth-dialog-ex-mask"
+          id="mask"/>
+    <view class="auth-dialog-ex-body">
+        <image src="{{url}}bg1.png"
+               class="auth-dialog-ex-bg"/>
+        <button open-type="getUserInfo"
+                class="auth-btn"
+                bindgetuserinfo="handleGotUserInfo">
+        </button>
+    </view>
+
+</view>

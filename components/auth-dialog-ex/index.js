@@ -1,6 +1,6 @@
 const app = getApp()
 const base = app.globalData.base
-const component = 'auth-dialog-'
+const component = 'auth-dialog-ex-'
 const url = `${base}${component}`
 Component({
 
@@ -10,7 +10,8 @@ Component({
         visible: {
             type: Boolean,
             value: false
-        }
+        },
+        content:String
     },
     data: {
         url:url

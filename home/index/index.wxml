@@ -27,7 +27,7 @@
         <!--<image src="{{base}}bottom-banner-text.png" class="bottom-banner-text"/>-->
     <!--</view>-->
 
-    <auth-dialog
+    <auth-dialog-ex
             bind:getuserinfo="handleGetUserInfo"
             visible="{{showDialog}}"/>
 

@@ -2,7 +2,7 @@
 
     <video
             id="myVideo"
-            src="{{url}}video.mp4"
+            src="{{url}}video2.mp4"
 
             direction="0"
             autoplay
