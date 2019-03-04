@@ -28,7 +28,7 @@ Page({
         })
 
     },
-    async onLoad(){
+    async onShow(){
         try {
             let prizeList = await getPrizeRecord()
             console.log('prizeList' , prizeList)
@@ -43,5 +43,8 @@ Page({
         }catch (e) {
             showMsg(e)
         }
+    },
+    async onLoad(){
+
     }
 })
