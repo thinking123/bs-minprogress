@@ -52,7 +52,7 @@ Page({
         // ,
         // testShow:true
     },
-    goToPrizePage(prize , type = ''){
+    goToPrizePage(prize , type = 'notvirtual'){
         const url = `/pages/my-achieve-win-info-input/index?prize=${prize}&type=${type}`
         wx.navigateTo({
             url: url
