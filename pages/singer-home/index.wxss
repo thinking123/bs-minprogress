@@ -81,6 +81,12 @@ page{
     width:248rpx;
     display: flex;
     justify-content: center;
+
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display:block
 }
 .song-btn-wrap{
     width:194rpx;
