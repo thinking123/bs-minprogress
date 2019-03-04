@@ -157,17 +157,18 @@ Page({
         }
     },
     async onShow(){
-        // try {
-        //     await this._getAchievement()
-        // }catch (e) {
-        //     showMsg(e)
-        // }
-        this.setData({
-            showycdyDialog:false,
-            showdcjDialog:false,
-            showwwgkDialog:false,
-            showyljzDialog:false,
-        })
+        try {
+            this.setData({
+                showycdyDialog:false,
+                showdcjDialog:false,
+                showwwgkDialog:false,
+                showyljzDialog:false,
+            })
+            await this._getAchievement()
+        }catch (e) {
+            showMsg(e)
+        }
+
     },
     showDialog(prize ,type){
         switch (type) {
@@ -236,10 +237,6 @@ Page({
         })
     },
     async onLoad(){
-        try {
-            await this._getAchievement()
-        }catch (e) {
-            showMsg(e)
-        }
+
     }
 })
