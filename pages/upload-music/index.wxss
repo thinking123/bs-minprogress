@@ -25,8 +25,9 @@ page{
 .music-wrap{
     position: absolute;
     top:50%;
-    transform: translate(-8rpx , -50%);
-    width: 100%;
+    transform: translate(-50% , -50%);
+    width: 592rpx;
+    left:50%;
     display: flex;
     flex-direction: column;
     align-items: center;

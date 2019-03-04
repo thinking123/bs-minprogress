@@ -114,8 +114,8 @@ Page({
             showOriginDialog: false
         })
     },
-    handleBack(){
-        console.log('handleBack')
+    handleBack(e){
+        console.log('handleBack' , e)
         // let url = '/pages/register/index?from=home'
         // const params = {
         //     userPhone:this.data.userPhone,
@@ -132,9 +132,12 @@ Page({
         //     url: url
         // })
         //
-        wx.navigateBack({
-            delta: 1
-        })
+        if(e.target.id == 'container-mask' || e.target.id == 'music-wrap'){
+            wx.navigateBack({
+                delta: 1
+            })
+        }
+
 
     },
     hideNoMusicNameErrorDialog(){

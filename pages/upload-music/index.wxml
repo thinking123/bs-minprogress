@@ -1,10 +1,10 @@
 <view class="container">
     <!--<web-view src="http://www.lizikeji.cn"/>-->
 
-    <view class="container-mask" bindtap="handleBack"/>
-    <view class="music-wrap">
+    <view class="container-mask" bindtap="handleBack" id="container-mask"/>
+    <view class="music-wrap"  bindtap="handleBack" id="music-wrap">
         <view class="music-content">
-            <image src="{{url}}bg.png"
+            <image src="{{url}}bg1.png"
                    class="img"/>
             <view  class="music-content-wrap">
                 <image class="upload-dev upload-icon"
