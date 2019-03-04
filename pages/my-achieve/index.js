@@ -148,10 +148,17 @@ Page({
                 const prize = await receiveAchievement(item.type)
 
 
-                await this._getAchievement()
+                console.log('   await this._getAchievement()')
+
+                console.log('item' , item )
+                console.log('item' , item.type )
+                console.log('item' , prize )
                 prize.type = item.type
+                await this._getAchievement()
+                console.log('   await this._getAchievement()')
                 this.showDialog(prize , item.type)
             }catch (e) {
+                console.log('showerror' , e)
                 showMsg(e)
             }
         }
