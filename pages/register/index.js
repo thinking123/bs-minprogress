@@ -146,7 +146,10 @@ Page({
 
           if(this.data.musicId){
               //type == 4 ， 重新上传的时候音乐id需要修改
-              params[musicId] = this.data.musicId
+              params['musicId'] = this.data.musicId
+          }
+          if(this.data.checkState){
+              params['checkState'] = this.data.checkState
           }
           url = urlParams(url , params , true)
           console.log('urlParams' , url)

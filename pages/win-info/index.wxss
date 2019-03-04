@@ -90,6 +90,7 @@ page{
     width:116rpx;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
 }
 .win-btn-wrap{
     position: absolute;

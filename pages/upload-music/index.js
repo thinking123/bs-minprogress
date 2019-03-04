@@ -190,7 +190,8 @@ Page({
                         userSchoolId,
                         userPhone,
                         singName,
-                        musicId
+                        musicId,
+                        checkState
                     } = option
                     this.setData({
                         userPointId: userPointId,
@@ -203,6 +204,12 @@ Page({
                     if(musicId){
                         this.setData({
                             musicId: musicId
+                        })
+                    }
+
+                    if(checkState){
+                        this.setData({
+                            checkState: checkState
                         })
                     }
                 } else {
