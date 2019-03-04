@@ -9,6 +9,7 @@
     "singer-home-checking-dialog":"../../components/singer-home-checking-dialog/index",
     "singer-home-checking-error-dialog":"../../components/singer-home-checking-error-dialog/index",
     "no-singer-join-error-dialog":"../../components/no-singer-join-error-dialog/index",
-    "check-error-ex-dialog":"../../components/check-error-ex-dialog/index"
+    "check-error-ex-dialog":"../../components/check-error-ex-dialog/index",
+    "upload-type-select-dialog":"../../components/upload-type-select-dialog/index"
   }
 }

@@ -54,9 +54,11 @@ Page({
 
         } else if (this.data.checkState == 6) {
 
+
             //选择上传类型
             this.setData({
-                showUploadDialog: true
+                showUploadDialog: true,
+                showCheckErrorDialog: false,
             })
         }
 

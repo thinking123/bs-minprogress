@@ -154,6 +154,7 @@ Page({
 
         } else if (this.data.checkState == 6) {
 
+            console.log('this.data.checkState == 6')
             //选择上传类型
             this.setData({
                 showUploadDialog: true
@@ -358,6 +359,9 @@ Page({
 
         console.log('get usre info', userInfo, token, app.globalData.code, uId)
 
+        // wx.navigateTo({
+        //     url: '/pages/user-info/index'
+        // })
 
         //
         // wx.navigateTo({
