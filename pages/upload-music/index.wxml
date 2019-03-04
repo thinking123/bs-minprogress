@@ -37,7 +37,7 @@
 
 
 
-                <view class="upload-tip">
+                <view class="upload-tip" bindtap="handleStartRecordOrUpload">
                     {{uploadTip}}
                 </view>
                 <view class="reupload" bindtap="handleRestart">

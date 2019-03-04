@@ -215,8 +215,8 @@ image right width : 28  29
     display: inline-block;
 }
 .check-box{
-    height: 12rpx;
-    width: 12rpx;
+    height: 18rpx;
+    width: 18rpx;
     position: relative;
     background-color: white;
     border: 2rpx solid white;
