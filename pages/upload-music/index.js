@@ -189,7 +189,8 @@ Page({
                         userProvinceId,
                         userSchoolId,
                         userPhone,
-                        singName
+                        singName,
+                        musicId
                     } = option
                     this.setData({
                         userPointId: userPointId,
@@ -198,6 +199,12 @@ Page({
                         userPhone: userPhone,
                         singName: singName
                     })
+                    //type == 4 ，也需要musicId
+                    if(musicId){
+                        this.setData({
+                            musicId: musicId
+                        })
+                    }
                 } else {
                     //from update music info
                     const {
@@ -436,7 +443,7 @@ Page({
                 imageUrl = this.data.images[this.data.selectedImageIndex].coverUrl
             }
 
-            if (this.data.checkState == 6) {
+            if (this.data.checkState == 6 || this.data.checkState == 4) {
                 await singMusicUdate(
                     this.data.checked ? '1' : '0',
                     imageUrl,

@@ -32,7 +32,8 @@ Page({
         uploadType:'',
 
         checkState:'',
-        inputValOuter:''
+        inputValOuter:'',
+        musicId:''
     },
     handleLoadFromWxSubmit(){
       console.log('handleRecord')
@@ -77,7 +78,8 @@ Page({
             userProvinceId ,
             userSchoolId ,
             shcoolName,
-            userPhone
+            userPhone,
+            musicId
         } = await getRegisterById()
         const name = singName
         const phone = userPhone
@@ -104,6 +106,7 @@ Page({
             selectedPoint:selectedPoint,
             inputValOuter:inputValOuter,
             selectedSchool:selectedSchool,
+            musicId:musicId
         })
 
     },
@@ -132,13 +135,18 @@ Page({
           //     url: '/pages/upload-music/index'
           // })
           let url = '/pages/upload-music/index'
-          const params = {
+          let params = {
               uploadType:this.data.uploadType,
               userPhone:this.data.phone,
               userProvinceId:this.data.selectedProvince.id,
               userPointId:this.data.selectedPoint.id,
               userSchoolId:this.data.selectedSchool.id,
               singName:this.data.name
+          }
+
+          if(this.data.musicId){
+              //type == 4 ， 重新上传的时候音乐id需要修改
+              params[musicId] = this.data.musicId
           }
           url = urlParams(url , params , true)
           console.log('urlParams' , url)
