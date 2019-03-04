@@ -19,6 +19,14 @@ Page({
             delta: 1
         })
     },
+    handleToSingerHome(e){
+        console.log('handleToSingerHome' , e.target.dataset.attention)
+        let music = e.target.dataset.attention
+        const url = `/pages/singer-home/index?id=${music.userId}`
+        wx.navigateTo({
+            url: url
+        })
+    },
     async handlePutFollow(e){
         try {
             console.log(e)
@@ -32,7 +40,7 @@ Page({
             showMsg(e)
         }
     },
-    async onLoad(){
+    async onShow(){
         try {
             const attentionList = await getFollow()
             this.setData({
@@ -41,5 +49,15 @@ Page({
         }catch (e) {
             showMsg(e)
         }
+    },
+    async onLoad(){
+        // try {
+        //     const attentionList = await getFollow()
+        //     this.setData({
+        //         attentionList:attentionList
+        //     })
+        // }catch (e) {
+        //     showMsg(e)
+        // }
     }
 })

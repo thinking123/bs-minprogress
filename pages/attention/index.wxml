@@ -8,8 +8,8 @@
               wx:key="musicId"
               class="attention-item"
         >
-            <view class="attention-name">
-                {{item.singName}}
+            <view class="attention-name" bindtap="handleToSingerHome" data-attention="{{item}}">
+                {{item.musicName}}
             </view>
             <view class="attention-num">
                 编号：{{item.userCode}}
