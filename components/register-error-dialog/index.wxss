@@ -40,22 +40,35 @@
 }
 
 .dialog-bg{
-    position: absolute;
+    /*position: absolute;*/
     z-index: 2;
-    top:12%;
-    width: 590rpx;
-    height: 50.12%;
+    /*top:12%;*/
+    width: 100%;
+    height: 708rpx;
 
-    left:50%;
-    transform: translateX(-51.07%);
+    /*left:50%;*/
+    /*transform: translateX(-51.07%);*/
     /*transform: translate(-51.07% , -50%);*/
 }
 .how-to-play-return{
-    position: absolute;
+    /*position: absolute;*/
+    margin-top: 38rpx;
     z-index: 2;
-    top:66.76%;
-    width: 416rpx;
-    height: 8.55%;
+    /*top:66.76%;*/
+    width: 410rpx;
+    height: 148rpx;
+    /*left:50%;*/
+    /*transform: translateX(-50%);*/
+}
+.register-error-wrap{
+    position: absolute;
     left:50%;
-    transform: translateX(-50%);
+    top:50%;
+    transform: translate(-51.07% , -50%);
+    height: 894rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
 }

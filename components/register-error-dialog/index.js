@@ -23,7 +23,7 @@ Component({
             this.triggerEvent('hidetap')
         },
         handleOutHide(e) {
-            if (e && e.target && e.target.id === 'mask') {
+            if (e && e.target && (e.target.id === 'mask' || e.target.id === 'wrap' )) {
                 this.triggerEvent('hidetap')
             }
         }
