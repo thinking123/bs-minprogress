@@ -107,7 +107,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "百事校园最强音",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "disableSwipeBack": true
   },
   "networkTimeout": {
     "request": 20000

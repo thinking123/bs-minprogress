@@ -63,6 +63,7 @@ gdH:63
 .gd{
     margin-top: 3.17%;
     height: 46.32%;
+    position: relative;
     /*position: absolute;*/
     /*animation: 5s infinite linear  spin;*/
     /*animation-play-state: paused;*/
