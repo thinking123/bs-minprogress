@@ -1,8 +1,8 @@
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
-const baseComponentUrl = app.globalData.baseComponentUrl
-const component = 'info-confirm-dialog/'
-const url = `${baseComponentUrl}${component}`
+const base = app.globalData.base
+const component = 'info-confirm-dialog-'
+const url = `${base}${component}`
 
 Component({  behaviors: [computedBehavior],
     properties: {
