@@ -55,6 +55,13 @@ Page({
         //     prizeName:'苹果手机X 256G',
         // }
     },
+    onShow: function () {
+        this.setData({
+            showLotteryDialog:false,
+            showNoLotteryDialog:false,
+            showHadLotteryDialog:false
+        })
+    },
     handleSliderStart(e) {
         if (!e.changedTouches || e.changedTouches.length === 0) {
             return

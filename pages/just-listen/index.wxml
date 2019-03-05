@@ -156,7 +156,7 @@
         </view>
 
         <image class="line-icon"
-               src="{{url}}line-icon.png"/>
+               src="{{url}}line-icon2.png"/>
         <image class="school-icon"
                src="{{url}}school-icon.png"/>
 

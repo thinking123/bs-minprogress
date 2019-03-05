@@ -1,6 +1,13 @@
-<view class="lottery-dialog-no-prize" wx:if="{{visible}}">
-    <image
-            src="{{url}}lottery-dialog-no-prize-bg.png"
-           class="lottery-dialog-no-prize-bg"/>
-    <view class="lottery-dialog-no-prize-btn" bindtap="handleHide"/>
+<view class="lottery-dialog-no-prize" wx:if="{{visible}}"  bindtap="handleOutHide">
+    <view class="lottery-dialog-no-prize-mask" id="mask"  />
+    <view class="lottery-dialog-no-prize-wrap" bindtap="handleOutHide" id="wrap">
+        <image
+                src="{{url}}bg1.png"
+                class="lottery-dialog-no-prize-bg"/>
+        <image
+                src="{{url}}btn.png"
+                bindtap="handleHide"
+                class="lottery-dialog-no-prize-btn"/>
+    </view>
+
 </view>
