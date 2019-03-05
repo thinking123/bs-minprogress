@@ -1,178 +1,218 @@
 <view class="container">
-    <image src="{{url}}bg1.png" class="img"/>
+    <image src="{{url}}bg2.png" class="img"/>
 
-    <view class="swiper-wrap"
-          bindtouchstart='handleSliderStart'
-          bindtouchend='handleSliderEnd'>
-        <image wx:if="curMusic.musicCover" class="swiper-item item1 center top" src="{{curMusic.musicCover}}"/>
-        <image wx:else class="swiper-item center top" src="{{url}}no-screen-bg.png"/>
-        <view class="swiper-item item2  center bottom1"/>
-        <view class="swiper-item item3  center bottom2"/>
+    <view class="bs-logo-wrap">
+        <image class="bs-logo"
+               src="{{url}}bs-logo.png"/>
     </view>
 
-    <view class="attention-wrap">
-        <view class="icon-wrap" bindtap="handleCurVote">
-            <image class="attention-icon"
-                   src="{{url}}heart-icon{{curMusic.voteState == 1 ? '-active' : ''}}.svg"/>
-            <view>
-                {{curMusic.num}}
-            </view>
-        </view>
-        <view class="icon-wrap" bindtap="handleCurAttention">
-            <image class="attention-icon" src="{{url}}attention-icon{{curMusic.followState == 1 ? '-active' : '' }}.svg"/>
-            <view>
-                关注
-            </view>
-        </view>
-    </view>
-
-    <view class="music-progress-wrap">
-
-        <view class="cur-time">
-            {{curTime}}
-        </view>
-        <view class="total-time">
-            {{totalTime}}
-        </view>
-        <music-slider
-                bind:sliderStart="handleStartSliderMusicProgress"
-                bind:sliderCancel="handleCancelSliderMusicProgress"
-                bind:sliderChange="handleChangeSliderMusicProgress"
-                bind:sliderEnd="handleSliderMusicProgress"
-                bind:sliderTap="handleSliderMusicProgress"
-                music-slider-external="music-progress"
-                max="maxBuffer"
-                pgHeight="8"
-                value="{{curProgress}}"
-                canUpdateSelf="{{false}}"
-                pgWidth="386">
-            <view class="music-site">
-
-            </view>
-        </music-slider>
-
-    </view>
-    <view class="music-info-wrap">
-        <view class="title">
-            《{{curMusic.musicName}}》
-        </view>
-        <view class="other-info-wrap">
-            <view>
-                演唱者：{{curMusic.musicUserName}}
-            </view>
-            <view>
-                学校：{{curMusic.school}}
-            </view>
-        </view>
-    </view>
-    <view class="control-wrap">
-        <image class="control-pre"
-               bindtap="handlePreSong"
-               src="{{url}}pre-song.png"/>
-        <image class="control-play"
-               bindtap="handlePlaySong"
-               wx:if="{{isPlaying}}"
-               src="{{url}}playing.png"/>
-        <image class="control-play"
-               bindtap="handlePlaySong"
-               wx:else
-               src="{{url}}play.png"/>
-        <image class="control-next"
-               bindtap="handleNextSong"
-               src="{{url}}next-song.png"/>
-    </view>
-
-    <view class="voice-wrap">
-
-        <image class="voice-no-icon"
-               src="{{url}}voice-no-icon.svg"/>
-        <image class="voice-icon"
-               src="{{url}}voice-icon.svg"/>
-        <music-slider
-                bind:sliderEnd="handleSliderVoiceProgress"
-                bind:sliderTap="handleSliderVoiceProgress"
-                bind:sliderChange="handleSliderVoiceProgress"
-                music-slider-external="voice-progress"
-                max="0.95"
-                pgHeight="6"
-                value="50%"
-                pgWidth="258">
-            <view class="voice-site">
-
-            </view>
-        </music-slider>
-    </view>
-
-    <view class="btn-group">
-        <image bindtap="handleCurVote"
-               wx:if="{{curMusic.voteState == 0}}"
-               src="{{url}}vote-btn1.png"
-              class="btn btn-vote"/>
-        <image bindtap="handleCurVote"
-               wx:else
-               src="{{url}}voted-btn1.png"
-              class="btn btn-vote"/>
-        <!--<image bindtap="handleVote"-->
-               <!--src="{{url}}voted-btn.png"-->
-               <!--class="btn btn-vote"/>-->
-        <view  class="btn share-vote">
-            <button open-type="share" />
-            <image src="{{url}}share-btn2.png"/>
-        </view>
-
-    </view>
     <scroll-view
-            class="rank-list-other"
+            class="just-listen-wrap"
             scroll-y>
+
+
+        <!--<view class="swiper-wrap"-->
+        <!--bindtouchstart='handleSliderStart'-->
+        <!--bindtouchend='handleSliderEnd'>-->
+        <!--<image wx:if="curMusic.musicCover" class="swiper-item item1 center top" src="{{curMusic.musicCover}}"/>-->
+        <!--<image wx:else class="swiper-item center top" src="{{url}}no-screen-bg.png"/>-->
+        <!--<view class="swiper-item item2  center bottom1"/>-->
+        <!--<view class="swiper-item item3  center bottom2"/>-->
+        <!--</view>-->
+
+
+
+        <image wx:if="curMusic.musicCover"
+               bindtouchstart='handleSliderStart'
+               bindtouchend='handleSliderEnd'
+               class="swiper-item item1 center top" src="{{curMusic.musicCover}}"/>
+        <image wx:else class="swiper-item center top"
+               bindtouchstart='handleSliderStart'
+               bindtouchend='handleSliderEnd'
+               src="{{url}}no-screen-bg.png"/>
         <view
-                wx:for="{{rankListOther}}"
-                wx:key="id"
-                wx:for-item="rankOther"
-                class="rank-item-other-wrap"
-        >
-            <view class="rank-num rank-center">
-                {{rankOther.rank}}
-            </view>
-            <image src="{{rankOther.musicCover}}"
-                   data-rank="{{rankOther}}"
-                   bindtap="handleSingerHome"
-                   class="rank-header-icon  rank-btn rank-center"/>
 
-            <view class="rank-name rank-center">
-                {{rankOther.musicName}}
-            </view>
-            <view class="rank-region rank-center">
-                {{rankOther.pointName}}
-            </view>
-            <view class="rank-school rank-center">
-                {{rankOther.school}}
-            </view>
-            <view class="rank-vote rank-center">
-                {{rankOther.num ? rankOther.num : 0}}票
-            </view>
-            <image src="{{url}}followed.png"
-                   wx:if="{{rankOther.followState == 1}}"
-                   data-rank="{{rankOther}}"
-                   bindtap="handleFollowed"
-                   class="rank-followed rank-btn rank-center"/>
-            <image src="{{url}}attention.png"
-                   bindtap="handleNotFollowed"
-                   wx:else
-                   data-rank="{{rankOther}}"
-                   class="rank-attention  rank-btn rank-center"/>
+                class="swiper-item item2 center bottom1"/>
+        <view
+              class="swiper-item item3 center bottom2"/>
 
-            <image src="{{url}}voted.png"
-                   wx:if="{{rankOther.voteState == 1}}"
-                   data-rank="{{rankOther}}"
-                   class="rank-vote-btn rank-btn rank-center"/>
-            <image src="{{url}}vote.png"
-                   wx:else
-                   data-rank="{{rankOther}}"
-                   bindtap="handleVote"
-                   class="rank-vote-btn rank-btn rank-center"/>
+        <image class="pre-btn"
+               bindtap="handlePreSong"
+               src="{{url}}pre-btn.png"/>
+        <image class="next-btn"
+               bindtap="handleNextSong"
+               src="{{url}}next-btn.png"/>
+        <view class="attention-wrap">
+            <view class="icon-wrap" bindtap="handleCurVote">
+                <image class="attention-icon"
+                       src="{{url}}heart-icon{{curMusic.voteState == 1 ? '-active' : ''}}.svg"/>
+                <view>
+                    {{curMusic.num}}
+                </view>
+            </view>
+            <view class="icon-wrap" bindtap="handleCurAttention">
+                <image class="attention-icon"
+                       src="{{url}}attention-icon{{curMusic.followState == 1 ? '-active' : '' }}.svg"/>
+                <view>
+                    关注
+                </view>
+            </view>
         </view>
-    </scroll-view>
 
+        <view class="music-progress-wrap">
+
+            <view class="cur-time">
+                {{curTime}}
+            </view>
+            <view class="total-time">
+                {{totalTime}}
+            </view>
+            <music-slider
+                    bind:sliderStart="handleStartSliderMusicProgress"
+                    bind:sliderCancel="handleCancelSliderMusicProgress"
+                    bind:sliderChange="handleChangeSliderMusicProgress"
+                    bind:sliderEnd="handleSliderMusicProgress"
+                    bind:sliderTap="handleSliderMusicProgress"
+                    music-slider-external="music-progress"
+                    max="maxBuffer"
+                    pgHeight="8"
+                    value="{{curProgress}}"
+                    canUpdateSelf="{{false}}"
+                    pgWidth="386">
+                <view class="music-site">
+
+                </view>
+            </music-slider>
+
+        </view>
+        <view class="music-info-wrap">
+            <view class="title">
+                《{{curMusic.musicName}}》
+            </view>
+            <view class="other-info-wrap">
+                <view>
+                    演唱者：{{curMusic.musicUserName}}
+                </view>
+                <view>
+                    学校：{{curMusic.school}}
+                </view>
+            </view>
+        </view>
+        <view class="control-wrap">
+            <image class="control-pre"
+                   bindtap="handlePreSong"
+                   src="{{url}}pre-song.png"/>
+            <image class="control-play"
+                   bindtap="handlePlaySong"
+                   wx:if="{{isPlaying}}"
+                   src="{{url}}playing.png"/>
+            <image class="control-play"
+                   bindtap="handlePlaySong"
+                   wx:else
+                   src="{{url}}play.png"/>
+            <image class="control-next"
+                   bindtap="handleNextSong"
+                   src="{{url}}next-song.png"/>
+        </view>
+
+        <view class="voice-wrap">
+
+            <image class="voice-no-icon"
+                   src="{{url}}voice-no-icon.svg"/>
+            <image class="voice-icon"
+                   src="{{url}}voice-icon.svg"/>
+            <music-slider
+                    bind:sliderEnd="handleSliderVoiceProgress"
+                    bind:sliderTap="handleSliderVoiceProgress"
+                    bind:sliderChange="handleSliderVoiceProgress"
+                    music-slider-external="voice-progress"
+                    max="0.95"
+                    pgHeight="6"
+                    value="50%"
+                    pgWidth="258">
+                <view class="voice-site">
+
+                </view>
+            </music-slider>
+        </view>
+
+        <view class="btn-group">
+            <image bindtap="handleCurVote"
+                   wx:if="{{curMusic.voteState == 0}}"
+                   src="{{url}}vote-btn1.png"
+                   class="btn btn-vote"/>
+            <image bindtap="handleCurVote"
+                   wx:else
+                   src="{{url}}voted-btn1.png"
+                   class="btn btn-vote"/>
+            <!--<image bindtap="handleVote"-->
+            <!--src="{{url}}voted-btn.png"-->
+            <!--class="btn btn-vote"/>-->
+            <view class="btn share-vote">
+                <button open-type="share"/>
+                <image src="{{url}}share-btn2.png"/>
+            </view>
+
+        </view>
+
+        <image class="line-icon"
+               src="{{url}}line-icon.png"/>
+        <image class="school-icon"
+               src="{{url}}school-icon.png"/>
+
+        <view  class="rank-list-other">
+            <view
+                    wx:for="{{rankListOther}}"
+                    wx:key="id"
+                    wx:for-item="rankOther"
+                    class="rank-item-other-wrap"
+            >
+                <view class="rank-num rank-center">
+                    {{rankOther.rank}}
+                </view>
+                <image src="{{rankOther.musicCover}}"
+                       data-rank="{{rankOther}}"
+                       bindtap="handleSingerHome"
+                       class="rank-header-icon  rank-btn rank-center"/>
+
+                <view class="rank-name rank-center">
+                    {{rankOther.musicName}}
+                </view>
+                <view class="rank-region rank-center">
+                    {{rankOther.pointName}}
+                </view>
+                <view class="rank-school rank-center">
+                    {{rankOther.school}}
+                </view>
+                <view class="rank-vote rank-center">
+                    {{rankOther.num ? rankOther.num : 0}}票
+                </view>
+                <image src="{{url}}followed.png"
+                       wx:if="{{rankOther.followState == 1}}"
+                       data-rank="{{rankOther}}"
+                       bindtap="handleFollowed"
+                       class="rank-followed rank-btn rank-center"/>
+                <image src="{{url}}attention.png"
+                       bindtap="handleNotFollowed"
+                       wx:else
+                       data-rank="{{rankOther}}"
+                       class="rank-attention  rank-btn rank-center"/>
+
+                <image src="{{url}}voted.png"
+                       wx:if="{{rankOther.voteState == 1}}"
+                       data-rank="{{rankOther}}"
+                       class="rank-vote-btn rank-btn rank-center"/>
+                <image src="{{url}}vote.png"
+                       wx:else
+                       data-rank="{{rankOther}}"
+                       bindtap="handleVote"
+                       class="rank-vote-btn rank-btn rank-center"/>
+            </view>
+        </view>
+
+
+
+    </scroll-view>
     <lottery-dialog
             bind:hidetap="handleHideLotteryDialog"
             bind:lottery="handleLottery"

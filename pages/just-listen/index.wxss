@@ -17,8 +17,21 @@ page{
     width: 100%;
 }
 
-
-
+/*
+top:76px
+*/
+.just-listen-wrap{
+    position: absolute;
+    top:11.39%;
+    left:50%;
+    transform: translate(-50%,0);
+    /*border: 1px solid yellow;*/
+    height: 77.96%;
+    width: 656rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .swiper-wrap{
     position: absolute;
@@ -36,9 +49,26 @@ page{
 }
 
 .swiper-item.item1{
+    z-index: 3;
+    top:26rpx;
+    height: 356rpx;
+    width: 356rpx;
 
-    height: 320rpx;
-    width: 320rpx;
+}
+.swiper-item.item2{
+
+    z-index: 2;
+    top:46rpx;
+    height: 316rpx;
+    width: 424rpx;
+
+}
+.swiper-item.item3{
+    z-index: 1;
+    top:66rpx;
+    height: 270rpx;
+    width: 502rpx;
+
 }
 /*
 141px
@@ -51,41 +81,43 @@ page{
 
 }
 .swiper-item.top{
-    z-index: 3;
+
     /*height: 100%;*/
     /*width:380rpx;*/
 }
 .swiper-item.bottom1{
     background-color: white;
     opacity: 0.5;
-    width: 470rpx;
     z-index: 2;
-    height: 92.2%;
 
 }
 
 .swiper-item.bottom2{
     background-color: white;
     opacity: 0.3;
-    width: 558rpx;
     z-index: 1;
-    height: 81.56%;
 }
 
 .attention-wrap{
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
-    top:34.18%;
-    width: 382rpx;
-    height: 2.55%;
+    /*position: absolute;*/
+    /*top:34.18%;*/
+    margin-top: 398rpx;
+    /*width: 382rpx;*/
+    width: 356rpx;
+    /*height: 2.55%;*/
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     color: white;
+    align-content: center;
     font-size: 28rpx;
 }
-
+.attention-wrap > view{
+    flex:1;
+}
 .attention-icon{
     height: 34rpx;
     width: 34rpx;
@@ -96,12 +128,13 @@ page{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .music-progress-wrap{
-    position: absolute;
-    top:40%;
-
+    position: relative;
+    /*top:40%;*/
+    margin-top: 26rpx;
     width: 100%;
 }
 .music-slider-com{
@@ -112,7 +145,7 @@ page{
 }
 .music-progress {
     top:0;
-    left: 184rpx;
+    left: 145rpx;
     display: inline-block;
 
     /*border-top:25rpx solid red;*/
@@ -125,12 +158,12 @@ page{
 .cur-time{
     position: absolute;
     top:0;
-    left: 150rpx;
+    left: 100rpx;
     font-size: 18rpx;
 }
 .total-time{
     position: absolute;
-    left: 585rpx;
+    left: 555rpx;
     top:0;
     font-size: 18rpx;
 }
@@ -145,9 +178,26 @@ page{
     box-shadow: 0 0 0 16rpx rgba(79,194,233,0);
 }
 
-.voice-wrap{
+.pre-btn{
     position: absolute;
-    top:56.67%;
+    top:172rpx;
+    height: 60rpx;
+    width: 30rpx;
+    z-index: 5;
+    left: 32rpx;
+}
+.next-btn{
+    position: absolute;
+    top:172rpx;
+    height: 60rpx;
+    width: 26rpx;
+    z-index: 5;
+    right: 32rpx;
+}
+.voice-wrap{
+    position: relative;
+    /*top:56.67%;*/
+    margin-top: 40rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -159,13 +209,13 @@ page{
     position: absolute;
     height: 34rpx;
     width: 38rpx;
-    left: 198rpx;
+    left: 168rpx;
 }
 .voice-icon{
     position: absolute;
     height: 34rpx;
     width: 38rpx;
-    left: 518rpx;
+    left: 475rpx;
 }
 /*.voice-progress::before{*/
     /*content:'';*/
@@ -197,7 +247,7 @@ page{
 
 .voice-progress{
     top:53.12%;
-    left: 232rpx;
+    left: 202rpx;
     display: inline-block;
     /*border-top:15rpx solid yellow;*/
     /*border-bottom:15rpx solid yellow;*/
@@ -210,16 +260,18 @@ page{
 }
 
 .music-info-wrap{
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
-    top:43.03%;
+    /*position: absolute;*/
+    /*top:43.03%;*/
+    margin-top: 24rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .other-info-wrap{
-
+    margin-top: 14rpx;
     font-size: 20rpx;
     display: flex;
     flex-direction: row;
@@ -232,11 +284,13 @@ page{
     font-size: 30rpx;
 }
 .control-wrap{
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
-    top:50.37%;
+    /*top:50.37%;*/
+    margin-top: 30rpx;
     height: 3.75%;
+    width: 345rpx;
 }
 .control-wrap > image{
     height: 100%;
@@ -258,9 +312,10 @@ page{
 .btn-group{
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
-    height: 6.6%;
-    top:61.02%;
+    position: relative;
+    height: 94rpx;
+    /*top:61.02%;*/
+    margin-top: 34rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -295,13 +350,14 @@ page{
 }
 
 .rank-list-other{
-    position: absolute;
-    top:79.31%;
-    left:70rpx;
+    position: relative;
+    transform: translateX(-50%);
+    /*top:79.31%;*/
+    left:50%;
     /*height: 190px;*/
-    height: 10.19%;
+    /*height: 10.19%;*/
     width: 612rpx;
-
+    margin-top: 40rpx;
 
 
     display: flex;
@@ -310,6 +366,36 @@ page{
 
     font-size: 18rpx;
     color:white;
+}
+.bs-logo-wrap{
+    position: absolute;
+    top:0;
+    width: 100%;
+    left: 0;
+    height: 10.19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bs-logo{
+    height: 72rpx;
+    width: 234rpx;
+}
+.line-icon{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10rpx;
+    width: 546rpx;
+    height: 8rpx;
+}
+.school-icon{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 46rpx;
+    height: 36rpx;
+    width: 212rpx;
 }
 .rank-item-other-wrap{
     /*height: 23px;*/
