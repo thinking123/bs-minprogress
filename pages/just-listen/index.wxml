@@ -4,10 +4,10 @@
     <view class="swiper-wrap"
           bindtouchstart='handleSliderStart'
           bindtouchend='handleSliderEnd'>
-        <image wx:if="curMusic.musicCover" class="swiper-item center top" src="{{curMusic.musicCover}}"/>
+        <image wx:if="curMusic.musicCover" class="swiper-item item1 center top" src="{{curMusic.musicCover}}"/>
         <image wx:else class="swiper-item center top" src="{{url}}no-screen-bg.png"/>
-        <view class="swiper-item center bottom1"/>
-        <view class="swiper-item center bottom2"/>
+        <view class="swiper-item item2  center bottom1"/>
+        <view class="swiper-item item3  center bottom2"/>
     </view>
 
     <view class="attention-wrap">

@@ -50,7 +50,10 @@
     </scroll-view>
 
     <image src="{{user ? user.userHead : ''}}" class="header-icon"/>
-    <image src="{{mainSong.musicCover}}" wx:if="{{!!mainSong}}" class="center-icon"/>
+    <view class="center-icon-wrap">
+        <image src="{{mainSong.musicCover}}" wx:if="{{!!mainSong}}" class="center-icon"/>
+    </view>
+
 
 
 

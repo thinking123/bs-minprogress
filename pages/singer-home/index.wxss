@@ -53,12 +53,23 @@ page{
     width: 124rpx;
     border-radius: 124rpx;
 }
-.center-icon{
+
+.center-icon-wrap{
     position: absolute;
     top:43.86%;
-    left:154rpx;
+    left:50%;
+    transform: translate(-50%,0);
     height: 17.22%;
-    width: 450rpx;
+    width: 230rpx;
+    overflow: hidden;
+}
+.center-icon{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 230rpx;
+    width: 230rpx;
 }
 
 
