@@ -2,5 +2,6 @@
   "usingComponents": {
     "register-error-dialog":"../../components/register-error-dialog/index",
     "search-input":"../../components/search-input/index"
-  }
+  },
+  "disableSwipeBack": true
 }

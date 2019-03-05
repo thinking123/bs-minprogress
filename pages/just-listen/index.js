@@ -127,9 +127,12 @@ Page({
             showHadLotteryDialog:false
         })
 
-        wx.navigateTo({
-            url: '/pages/win-info/index'
+        wx.nextTick(() => {
+            wx.navigateTo({
+                url: '/pages/win-info/index'
+            })
         })
+
     },
     handlePreSong(e) {
         this.preSong()

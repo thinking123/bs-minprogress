@@ -6,5 +6,6 @@
     "upload-no-music-name-error-dialog":"../../components/upload-no-music-name-error-dialog/index",
     "upload-music-origin-dialog":"../../components/upload-music-origin-dialog/index",
     "upload-music-not-origin-dialog":"../../components/upload-music-not-origin-dialog/index"
-  }
+  },
+  "disableSwipeBack": true
 }

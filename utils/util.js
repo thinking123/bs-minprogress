@@ -170,3 +170,57 @@ export function getRandomInt(min, max) {
     console.log('rand', rand)
     return rand
 }
+
+export function getRatioSize(viewWidth , viewHeight , originWidth , originHeight) {
+    const ratio = originWidth / originHeight
+    let viewRatio = viewWidth/viewHeight
+
+
+    if(originWidth > viewWidth && originHeight > viewHeight){
+        if(originWidth > originHeight){
+
+            if(viewWidth/ratio > viewHeight){
+                viewWidth = viewHeight*ratio;
+            }else{
+                viewHeight = viewWidth/ratio;
+            }
+        }else{
+            if(viewHeight*ratio > viewWidth){
+                viewHeight = viewWidth/ratio;
+            }else{
+                viewWidth = viewHeight*ratio;
+            }
+
+        }
+    }else{
+        if(originWidth > originHeight){
+
+            if(viewWidth/ratio > viewHeight){
+                viewWidth = viewHeight*ratio;
+            }else{
+                viewHeight = viewWidth/ratio;
+            }
+
+            // viewWidth = viewHeight*ratio;
+
+        }else{
+            if(viewHeight*ratio > viewWidth){
+                viewHeight = viewWidth/ratio;
+            }else{
+                viewWidth = viewHeight*ratio;
+            }
+            // viewHeight = viewWidth/ratio;
+        }
+    }
+
+    viewWidth = viewWidth
+    viewHeight = viewHeight
+
+    console.log(viewWidth , viewHeight  , ratio , viewWidth/viewHeight)
+
+
+    return {
+        width:viewWidth,
+        height:viewHeight
+    }
+}

@@ -1,4 +1,6 @@
 const computedBehavior = require('miniprogram-computed')
+import {getRatioSize} from "../../utils/util";
+
 const app = getApp()
 const base = app.globalData.base
 
@@ -25,12 +27,28 @@ Component({
             }
         }
     },
+    attached(){
+        const res = wx.getSystemInfoSync()
+
+        this.px2rpx = 750 / res.windowWidth;
+    },
     data: {
-        url:base
+        url:base,
+        imageSize:{width:'',height:''}
+
     },
     methods: {
         handleGetPrize() {
             this.triggerEvent('getPrize' , this.data.lotteryInfo)
+        },
+        handleBindload(e){
+            const originWidth = e.detail.width * this.px2rpx,
+                originHeight = e.detail.height * this.px2rpx,
+                viewWidth  = 245, viewHeight = 245
+
+            this.setData({
+                imageSize : getRatioSize(viewWidth , viewHeight , originWidth,originHeight)
+            })
         }
     }
 

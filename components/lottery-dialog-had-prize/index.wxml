@@ -18,6 +18,8 @@
         </view>
         <image  wx:if="{{lotteryInfo}}"
                 src="{{lotteryInfo.prizeImage}}"
+                style="width:{{imageSize.width}}rpx;height:{{imageSize.height}}rpx;"
+                bindload="handleBindload"
                 class="lottery-dialog-had-prize-img"/>
         <!--<view-->
                 <!--class="lottery-dialog-had-prize-img"/>-->

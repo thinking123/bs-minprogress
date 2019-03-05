@@ -289,7 +289,7 @@ top:76px
     transform: translateX(-50%);
     /*top:50.37%;*/
     margin-top: 30rpx;
-    height: 3.75%;
+    height: 46rpx;
     width: 345rpx;
 }
 .control-wrap > image{
