@@ -86,16 +86,30 @@ image.box{
     position: absolute;
     left:50%;
     transform: translateX(-50%);
-    top:54%;
-    height: 23.24%;
-    width: 296rpx;
+    top:64.32%;
+    height: 224rpx;
+    width: 276rpx;
     opacity: 1;
     transition: all 1s;
 }
 
-image.box.box-lotterying{
-    top : 45.28%;
+image.box-star{
+    z-index: 200;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:60.32%;
+    height: 178rpx;
+    width: 276rpx;
     opacity: 0;
+    transition: all 1s ease-out;
+}
+
+
+image.box-star.show{
+    /*animation:box-star 1s linear 1 ease-in-out forwards;*/
+    top:52%;
+    opacity: 1;
 }
 
 .dialog-bg{

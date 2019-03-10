@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="{{url}}bg1.png" class="img"/>
+    <image src="{{url}}bg.png" class="img"/>
 
 
     <scroll-view class="achieve-list-wrap" scroll-y>
@@ -9,9 +9,11 @@
               wx:key="index"
               class="achieve-item"
         >
-            <view class="achieve-name">
-                {{item.name}}
-            </view>
+            <!--<view class="achieve-name">-->
+                <!--{{item.name}}-->
+            <!--</view>-->
+            <image class="achieve-name"
+                   src="{{url}}{{item.type}}.png"/>
             <view class="achieve-progress">
                 <view class="progress-bar-wrap">
                     <view class="progress-bar" style="width:{{item.progress}}">
@@ -23,12 +25,16 @@
                 </view>
 
             </view>
-            <view class="achieve-btn-wrap"
-
-                  bindtap="handleGet">
-                <image wx:if="{{!item.canGet && !item.hadGot}}" src="{{url}}cant-get-btn.png" class="achieve-btn" data-item="{{item}}"/>
-                <image wx:else src="{{url}}{{item.hadGot ? 'got' :'get'}}.png" class="achieve-btn" data-item="{{item}}"/>
-
+            <view class="achieve-btn-wrap">
+                <image wx:if="{{item.hadGot}}" src="{{url}}got.png"
+                       class="achieve-btn" data-item="{{item}}"/>
+                <image wx:if="{{item.canGet && !item.hadGot}}"
+                       bindtap="handleGet"
+                       src="{{url}}can-get.png"
+                       class="achieve-btn not" data-item="{{item}}"/>
+                <image wx:if="{{!item.canGet}}"
+                       src="{{url}}cant-get.png"
+                       class="achieve-btn not" data-item="{{item}}"/>
             </view>
 
         </view>
@@ -38,7 +44,9 @@
     <!--</view>-->
 
 
-    <view bindtap="handleReturn" class="return-btn"/>
+    <image bindtap="handleReturn"
+           src="{{url}}return.png"
+           class="return-btn"/>
     <get-my-achieve-dcj-dialog
             bind:tapbutton="handleTapdcj"
             achievePrize="{{achievePrize}}"

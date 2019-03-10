@@ -2,7 +2,7 @@
     <view class="lottery-dialog-mask" id="mask"></view>
     <view class="body">
         <image src="{{url}}lottery-dialog-bg.png" class="dialog-bg"/>
-        <image src="{{url}}lottery-dialog-btn.png" class="lottery-dialog-btn" bindtap="handleLottery"/>
+        <image src="{{url}}lottery-dialog-btn.png" class="lottery-dialog-btn" bindtap="handleStart"/>
     </view>
 
     <view class="icon-wrap">
@@ -29,8 +29,13 @@
                    src="{{prizeImgs[5].prizeImage}}"/>
         </view>
     </view>
-    <image class="box {{lotterying ? 'box-lotterying' : ''}}"
-           src="{{url}}lottery-dialog-box.png"/>
+
+    <image class="box"
+           src="{{url}}lottery-dialog-box1.png"/>
+    <image
+            class="box-star {{lotterying ? 'show':''}}"
+
+           src="{{url}}lottery-dialog-box-star.png"/>
 
 
 </view>
