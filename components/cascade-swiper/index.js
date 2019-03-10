@@ -59,32 +59,36 @@ Component({
                                     css = {
                                         src: image,
                                         zIndex: 2,
-                                        left: '12.1%',
+                                        left: '12.93%',
                                     }
                                     break
                                 case centerIndex:
                                     css = {
                                         src: image,
                                         zIndex: 6,
-                                        left: '30.92%',
+                                        left: '25.86%',
                                     }
                                     break
                                 case right2Index:
                                     css = {
                                         src: image,
                                         zIndex: 2,
-                                        left: '48.31%',
+                                        left: '38.79%',
                                     }
                                     break
                                 case right1Index:
                                     css = {
                                         src: image,
                                         zIndex: 1,
-                                        left: '60.39%',
+                                        left: '51.72%',
                                     }
                                     break
 
                             }
+                        }
+
+                        if(index == centerIndex && image && image.indexOf('upload-btn.png') == -1){
+                            css.uploaded = true
                         }
 
                         return css
@@ -211,32 +215,35 @@ Component({
                             css = {
                                 src: image,
                                 zIndex: 2,
-                                left: '12.1%',
+                                left: '12.93%',
                             }
                             break
                         case centerIndex:
                             css = {
                                 src: image,
                                 zIndex: 6,
-                                left: '30.92%',
+                                left: '25.86%',
                             }
                             break
                         case right2Index:
                             css = {
                                 src: image,
                                 zIndex: 2,
-                                left: '48.31%',
+                                left: '38.79%',
                             }
                             break
                         case right1Index:
                             css = {
                                 src: image,
                                 zIndex: 1,
-                                left: '60.39%',
+                                left: '51.72%',
                             }
                             break
 
                     }
+                }
+                if(index == centerIndex && image && image.indexOf('upload-btn.png') == -1){
+                    css.uploaded = true
                 }
 
                 return css
@@ -294,34 +301,36 @@ Component({
                             css = {
                                 src: image,
                                 zIndex: 2,
-                                left: '12.1%',
+                                left: '12.93%',
                             }
                             break
                         case centerIndex:
                             css = {
                                 src: image,
                                 zIndex: 6,
-                                left: '30.92%',
+                                left: '25.86%',
                             }
                             break
                         case right2Index:
                             css = {
                                 src: image,
                                 zIndex: 2,
-                                left: '48.31%',
+                                left: '38.79%',
                             }
                             break
                         case right1Index:
                             css = {
                                 src: image,
                                 zIndex: 1,
-                                left: '60.39%',
+                                left: '51.72%',
                             }
                             break
 
                     }
                 }
-
+                if(index == centerIndex && image && image.indexOf('upload-btn.png') == -1){
+                    css.uploaded = true
+                }
                 return css
             })
 

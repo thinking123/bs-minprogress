@@ -9,9 +9,14 @@
          class="card {{centerIndex == index ? 'card1' :''}} {{centerIndex == index -1  ? 'card2' :''}} {{centerIndex == index + 1  ? 'card2' :''}}" wx:for-item="image"
          style="z-index:{{image.zIndex}};left:{{image.left}}">
       <image
+              class="card-img"
               bindtap="handleTap"
               data-item="{{index}}"
               src="{{image.src}}"/>
+      <image
+              class="checked"
+              wx:if="{{centerIndex == index && ((index != (lists.length - 1)) || image.uploaded)}}"
+              src="{{url}}check.png"/>
       <view class="cascade-swiper-mask" wx:if="{{centerIndex != index}}"/>
    </view>
 

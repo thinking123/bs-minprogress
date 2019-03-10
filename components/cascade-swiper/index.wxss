@@ -1,6 +1,6 @@
 .cascade-swiper{
-    width: 414rpx;
-    height: 188rpx;
+    width: 464rpx;
+    height: 224rpx;
     left:0;
     right: 0;
     top:0;
@@ -26,27 +26,56 @@
 
 
 .card{
-    width: 190rpx;
-    height: 162rpx;
+    width: 224rpx;
+    height: 132rpx;
     transition: left 1s;
     position: absolute;
     bottom: 0;
 }
-.card > image{
-    height: 100%;
-    width: 100%;
-}
+
 .card2{
     height: 176rpx;
 }
 .card1{
-    height: 188rpx;
+    height: 222rpx;
+
+}
+
+/*.card > image{*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+/*}*/
+
+.card2 >.card-img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.card1 >.card-img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.card >.card-img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.checked{
+    position: absolute;
+    z-index: 2;
+    top:10rpx;
+    right: 10rpx;
+    width: 28rpx;
+    height: 28rpx;
 }
 .left{
 
     left:-22.22%;
 }
-
+/*464 224*/
 .left-1{
 
     left:0;
@@ -54,22 +83,24 @@
 }
 .left-2{
 
-    left:12.1%;
+    left:12.93%;
+    /*left:60rpx;*/
     z-index: 2;
 }
 .center{
 
-    left:30.92%;
+    left:25.86%;
+    /*left:120rpx;*/
     z-index: 5;
 }
 .right-2{
 
-    left:48.31%;
+    left:38.79%;
     z-index: 2;
 }
 .right-1{
 
-    left:60.39%;
+    left:61.72%;
     z-index: 1;
 }
 .right{

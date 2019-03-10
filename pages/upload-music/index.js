@@ -58,7 +58,8 @@ Page({
         showOriginDialog: false,
 
         isTwo: false,
-        uploadTip: '录制音乐'
+        uploadTip: '录制音乐',
+        step1:true
     },
     handleRestart() {
         if (this.data.isUploading) {
@@ -132,7 +133,13 @@ Page({
         //     url: url
         // })
         //
-        if (e.target.id == 'container-mask' || e.target.id == 'music-wrap') {
+        console.log('id' , e.target.id)
+        if (e.target.id == 'container-mask'
+            || e.target.id == 'music-wrap'
+            || e.target.id == 'step1'
+            || e.target.id == 'step2'
+            || e.target.id == 'btn'
+        ) {
             wx.navigateBack({
                 delta: 1
             })
@@ -422,6 +429,35 @@ Page({
             songName: e.detail.value
         })
     },
+    handleToStep2(){
+        if(this.verifySubmitStep1()){
+            this.setData({
+                step1: false
+            })
+        }else{
+            this.setData({
+                showNoMusicNameErrorDialog: true
+            })
+        }
+    },
+    verifySubmitStep1(){
+        let imageOk = false
+
+        return !isEmpty(this.data.songName) &&
+            !isEmpty(this.data.uploadReturnUrl) &&
+            typeof this.data.checked == 'boolean'
+    },
+    verifySubmitStep2(){
+        let imageOk = false
+        if (this.data.selectedImageIndex == this.data.images.length - 1) {
+            imageOk = !isEmpty(this.data.uploadReturnImageUrl)
+        } else {
+            imageOk = this.data.selectedImageIndex >= 0 &&
+                this.data.selectedImageIndex < this.data.images.length
+        }
+
+        return imageOk
+    },
     verifySubmit() {
         let imageOk = false
         if (this.data.selectedImageIndex == this.data.images.length - 1) {
@@ -497,7 +533,7 @@ Page({
             return showMsg('正在播放录音')
         }
 
-        if (this.verifySubmit()) {
+        if (this.verifySubmitStep2()) {
             console.log('handleSubmit ok')
 
             this._signMusic()

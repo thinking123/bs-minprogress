@@ -2,137 +2,174 @@
     <!--<web-view src="http://www.lizikeji.cn"/>-->
 
     <view class="container-mask" bindtap="handleBack" id="container-mask"/>
-    <view class="music-wrap"  bindtap="handleBack" id="music-wrap">
-        <view class="music-content">
-            <image src="{{url}}bg1.png"
-                   class="img"/>
-            <view  class="music-content-wrap">
-                <image class="upload-dev upload-icon"
-                       wx:if="{{uploadType == 'wx'}}"
-                       bindtap="handleUploadFromWx"
-                       src="{{url}}upload.png"/>
 
-                <block wx:else>
-                    <block wx:if="{{!tempFilePath}}">
-                        <image class="upload-dev"
-                               wx:if="{{!isRecording}}"
-                               bindtap="handleRecord"
-                               src="{{url}}record.png"/>
-                        <image class="upload-dev"
-                               wx:else
-                               bindtap="handleRecord"
-                               src="{{url}}recording.png"/>
-                    </block>
-                    <block wx:else>
-                        <image class="upload-play"
-                               wx:if="{{!isPlayingRecord}}"
-                               bindtap="handlePlayingRecord"
-                               src="{{url}}record-play.png"/>
-                        <image class="upload-play"
-                               wx:else
-                               bindtap="handlePlayingRecord"
-                               src="{{url}}record-playing.png"/>
-                    </block>
+
+
+    <view class="music-wrap step1" wx:if="{{step1}}" id="step1" bindtap="handleBack">
+        <image src="{{url}}step1-bg.png"
+               class="img"/>
+        <view class="music-content"  id="step1-content" bindtap="handleBack">
+
+            <image class="upload-dev upload-icon"
+                   wx:if="{{uploadType == 'wx'}}"
+                   bindtap="handleUploadFromWx"
+                   src="{{url}}upload.png"/>
+
+            <block wx:else>
+                <block wx:if="{{!tempFilePath}}">
+                    <image class="upload-dev"
+                           wx:if="{{!isRecording}}"
+                           bindtap="handleRecord"
+                           src="{{url}}record.png"/>
+                    <image class="upload-dev"
+                           wx:else
+                           bindtap="handleRecord"
+                           src="{{url}}recording.png"/>
                 </block>
-
-
-
-                <view class="upload-tip" bindtap="handleStartRecordOrUpload">
-                    {{uploadTip}}
+                <block wx:else>
+                    <image class="upload-play"
+                           wx:if="{{!isPlayingRecord}}"
+                           bindtap="handlePlayingRecord"
+                           src="{{url}}record-play.png"/>
+                    <image class="upload-play"
+                           wx:else
+                           bindtap="handlePlayingRecord"
+                           src="{{url}}record-playing.png"/>
+                </block>
+            </block>
+            <view class="upload-tip" bindtap="handleStartRecordOrUpload">
+                {{uploadTip}}
+            </view>
+            <view class="reupload" bindtap="handleRestart">
+                {{uploadType == 'wx' ? '重新导入' : '重新录制'}}
+            </view>
+            <input class=" input-name" placeholder="歌曲名称"
+                   placeholder-class="ph-cs"
+                   value="{{songName}}"
+                   bindinput="bindNameInput"
+            />
+            <view class="check-box-wrap">        是否为原创歌曲：
+                <view class="check-box" bindtap="handleChecked">
+                    <image wx:if="{{checked === true}}"
+                           bindtap="handleChecked"
+                           src="{{url}}check-icon.png"/>
                 </view>
-                <view class="reupload" bindtap="handleRestart">
-                    {{uploadType == 'wx' ? '重新导入' : '重新录制'}}
-                </view>
-                <input class=" input-name" placeholder="歌曲名称"
-                       placeholder-class="ph-cs"
-                       value="{{songName}}"
-                       bindinput="bindNameInput"
-                />
-                <view class="check-box-wrap">        是否为原创歌曲：
-                    <view class="check-box checked {{checked === true? 'active' : ''}}" bindtap="handleChecked"/>
-                    <view class="mg" bindtap="handleChecked">
-                        是
-                    </view>
-
-                    <view class="check-box unchecked {{checked === false? 'active' : ''}}" bindtap="handleUnChecked"/>
-                    <view bindtap="handleUnChecked">
-                        否
-                    </view>
+                <view class="mg" bindtap="handleChecked">
+                    是
                 </view>
 
-                <cascade-swiper class="music-swiper"
-                                bind:upload="handleTapUploadBtn"
-                                bind:selected="handleCascadeSelected"
-                                images="{{images}}"/>
+                <view class="check-box" bindtap="handleUnChecked">
+                    <image wx:if="{{checked === false}}"
+                           bindtap="handleChecked"
+                           src="{{url}}check-icon.png"/>
+                </view>
+                <view bindtap="handleUnChecked">
+                    否
+                </view>
             </view>
 
+
+        </view>
+        <view class="btn-wrap"   id="btn" bindtap="handleBack">
+            <view bindtap="handleToStep2" class="step1-btn">
+
+            </view>
         </view>
 
-        <image src="{{url}}btn.png" class="submit" bindtap="handleSubmit"/>
+
     </view>
 
+    <view  class="music-wrap step2" wx:else    id="step2" bindtap="handleBack">
+        <image src="{{url}}step2-bg.png"
+               class="img"/>
+        <view class="music-content">
+            <cascade-swiper class="music-swiper"
+                            bind:upload="handleTapUploadBtn"
+                            bind:selected="handleCascadeSelected"
+                            images="{{images}}"/>
 
-    <!--<input type="file" />-->
+            <view class="music-swiper-tip">
+                上传专属封面
+            </view>
+        </view>
 
 
-    <!--<view class="upload-icon-wx"        wx:if="{{uploadType=='wx'}}">-->
-        <!--<image src="{{url}}record.png"-->
-               <!--bindtap="handleUploadFromWx"/>-->
-        <!--<view class="wx-tip">-->
-            <!--<view>-->
-                <!--微信导入音乐-->
+
+        <view class="btn-wrap"   id="btn" bindtap="handleBack">
+            <view bindtap="handleSubmit" class="step1-btn">
+
+            </view>
+        </view>
+    </view>
+    <!--<view class="music-wrap"  bindtap="handleBack" id="music-wrap">-->
+        <!--<view class="music-content">-->
+            <!--<image src="{{url}}bg1.png"-->
+                   <!--class="img"/>-->
+            <!--<view  class="music-content-wrap">-->
+                <!--<image class="upload-dev upload-icon"-->
+                       <!--wx:if="{{uploadType == 'wx'}}"-->
+                       <!--bindtap="handleUploadFromWx"-->
+                       <!--src="{{url}}upload.png"/>-->
+
+                <!--<block wx:else>-->
+                    <!--<block wx:if="{{!tempFilePath}}">-->
+                        <!--<image class="upload-dev"-->
+                               <!--wx:if="{{!isRecording}}"-->
+                               <!--bindtap="handleRecord"-->
+                               <!--src="{{url}}record.png"/>-->
+                        <!--<image class="upload-dev"-->
+                               <!--wx:else-->
+                               <!--bindtap="handleRecord"-->
+                               <!--src="{{url}}recording.png"/>-->
+                    <!--</block>-->
+                    <!--<block wx:else>-->
+                        <!--<image class="upload-play"-->
+                               <!--wx:if="{{!isPlayingRecord}}"-->
+                               <!--bindtap="handlePlayingRecord"-->
+                               <!--src="{{url}}record-play.png"/>-->
+                        <!--<image class="upload-play"-->
+                               <!--wx:else-->
+                               <!--bindtap="handlePlayingRecord"-->
+                               <!--src="{{url}}record-playing.png"/>-->
+                    <!--</block>-->
+                <!--</block>-->
+
+
+
+                <!--<view class="upload-tip" bindtap="handleStartRecordOrUpload">-->
+                    <!--{{uploadTip}}-->
+                <!--</view>-->
+                <!--<view class="reupload" bindtap="handleRestart">-->
+                    <!--{{uploadType == 'wx' ? '重新导入' : '重新录制'}}-->
+                <!--</view>-->
+                <!--<input class=" input-name" placeholder="歌曲名称"-->
+                       <!--placeholder-class="ph-cs"-->
+                       <!--value="{{songName}}"-->
+                       <!--bindinput="bindNameInput"-->
+                <!--/>-->
+                <!--<view class="check-box-wrap">        是否为原创歌曲：-->
+                    <!--<view class="check-box checked {{checked === true? 'active' : ''}}" bindtap="handleChecked"/>-->
+                    <!--<view class="mg" bindtap="handleChecked">-->
+                        <!--是-->
+                    <!--</view>-->
+
+                    <!--<view class="check-box unchecked {{checked === false? 'active' : ''}}" bindtap="handleUnChecked"/>-->
+                    <!--<view bindtap="handleUnChecked">-->
+                        <!--否-->
+                    <!--</view>-->
+                <!--</view>-->
+
+                <!--<cascade-swiper class="music-swiper"-->
+                                <!--bind:upload="handleTapUploadBtn"-->
+                                <!--bind:selected="handleCascadeSelected"-->
+                                <!--images="{{images}}"/>-->
             <!--</view>-->
-            <!--<view class="wx-upload-ok" wx:if="{{!!uploadReturnUrl}}">-->
-                <!--导入完成-->
-            <!--</view>-->
-        <!--</view>-->
-    <!--</view>-->
-    <!--<image src="{{url}}record.png"-->
-           <!--bindtap="handleRecord"-->
-           <!--wx:else-->
-           <!--class="upload-icon-mkf"/>-->
-
-
-
-    <!--<image src="{{url}}start-record.png"-->
-           <!--wx:if="{{uploadType!='wx' && !isRecording && !isUploading}}"-->
-           <!--class="record"/>-->
-
-    <!--<image src="{{url}}record-completed.png"-->
-           <!--wx:if="{{uploadType!='wx' && isRecording && !isUploading}}"-->
-           <!--class="record"/>-->
-
-
-
-
-
-    <!--<view class="progress-bar-wrap"-->
-          <!--wx:if="{{isUploading}}">-->
-        <!--<view class="progress-bar" style="width:{{progress}}">-->
 
         <!--</view>-->
 
+        <!--<image src="{{url}}btn.png" class="submit" bindtap="handleSubmit"/>-->
     <!--</view>-->
-    <!--<view class="progress-bar-text"-->
-          <!--wx:if="{{isUploading}}">-->
-        <!--{{progress}}{{showUploadingText ? '  上传中...' : ''}}-->
-    <!--</view>-->
-    <!--<view class="upload-text" wx:if="{{isUploading && showUploadingText}}">-->
-        <!--上传中...-->
-    <!--</view>-->
-    <!--<progress percent="{{progress}}" show-info class="progress-bar" active/>-->
-    <!--<div class="progress-bar-text">-->
-    <!--{{progress}}%-->
-    <!--</div>-->
-    <!--<div class="image-swap">-->
 
-    <!--</div>-->
-
-    <!--<dialog-wrap visible="{{showDialog}}"-->
-                 <!--bg="{{bg}}"-->
-                 <!--type="{{type}}"-->
-                            <!--bind:ok="handleOk"-->
-                           <!--bind:hidetap="hidetap"/>-->
     <check-one-three-day-dialog visible="{{showDialog}}"
                            bind:hidetap="hidetap"/>
     <upload-no-music-name-error-dialog visible="{{showNoMusicNameErrorDialog}}"
