@@ -1,5 +1,8 @@
 <view class="container">
-    <image src="{{url}}bg.png" class="img"/>
+    <image src="{{url}}bg1.png" class="img"/>
+    <view class="logo">
+        <image src="{{url}}logo.png"/>
+    </view>
 
     <image src="{{selectedCity.imgUrl}}" wx:if="{{selectedCity}}" class="img-title"/>
 
@@ -26,11 +29,16 @@
 
 
     <view class="city-list">
-        <view class="city-before"
-              bindtap="handleBeforeCity"
-        >
-            《
-        </view>
+        <!--<view class="city-before"-->
+              <!--bindtap="handleBeforeCity"-->
+        <!--&gt;-->
+            <!--《-->
+        <!--</view>-->
+
+        <image src="{{url}}left-btn.png"
+               bindtap="handleBeforeCity"
+               class="city-before"/>
+
         <view wx:for="{{showCityList}}"
               wx:key="city"
               wx:for-item="city"
@@ -41,30 +49,71 @@
                 {{city.provinceName}}
             </view>
         </view>
-        <view class="city-after"
-              bindtap="handleBackCity"
-        >
-            》
-        </view>
+
+        <image src="{{url}}right-btn.png"
+               bindtap="handleBackCity"
+               class="city-after"/>
+
+        <!--<view class="city-after"-->
+              <!--bindtap="handleBackCity"-->
+        <!--&gt;-->
+            <!--》-->
+        <!--</view>-->
     </view>
 
     <view class="zone-list">
-        <view data-zone='hx'
-              class="{{selectedZone == 'hx' ? 'selected' : ''}}"
-              bindtap="handleSelectZone">
-            海选赛区
-        </view>
-        <view data-zone='cs'
-              class="{{selectedZone == 'cs' ? 'selected' : ''}}"
-              bindtap="handleSelectZone">
-            城市赛
-        </view>
-        <view data-zone='sq'
-              class="{{selectedZone == 'sq' ? 'selected' : ''}}"
-              bindtap="handleSelectZone">
-            省区赛
-        </view>
+        <image
+                data-zone='hx'
+                src="{{url}}city-icon1.png"
+               bindtap="handleSelectZone"
+               class="zone"/>
+
+        <image
+                data-zone='cs'
+                src="{{url}}city-icon2.png"
+                bindtap="handleSelectZone"
+                class="zone"/>
+
+
+        <image
+                data-zone='sq'
+                src="{{url}}city-icon3.png"
+                bindtap="handleSelectZone"
+                class="zone"/>
+
+        <image
+                wx:if="{{selectedZone == 'hx'}}"
+                src="{{url}}city-selected.png"
+                bindtap="handleSelectZone"
+                class="selected zone s1"/>
+        <image
+                wx:if="{{selectedZone == 'cs'}}"
+                src="{{url}}city-selected.png"
+                bindtap="handleSelectZone"
+                class="selected zone s2"/>
+        <image
+                wx:if="{{selectedZone == 'sq'}}"
+                src="{{url}}city-selected.png"
+                bindtap="handleSelectZone"
+                class="selected zone s3"/>
+        <!--<view data-zone='hx'-->
+              <!--class="{{selectedZone == 'hx' ? 'selected' : ''}}"-->
+              <!--bindtap="handleSelectZone">-->
+            <!--海选赛区-->
+        <!--</view>-->
+
+        <!--<view data-zone='cs'-->
+              <!--class="{{selectedZone == 'cs' ? 'selected' : ''}}"-->
+              <!--bindtap="handleSelectZone">-->
+            <!--城市赛-->
+        <!--</view>-->
+        <!--<view data-zone='sq'-->
+              <!--class="{{selectedZone == 'sq' ? 'selected' : ''}}"-->
+              <!--bindtap="handleSelectZone">-->
+            <!--省区赛-->
+        <!--</view>-->
     </view>
+
     <scroll-view
             bindscrolltolower="handleScrollBottom"
             class="rank-list-other"
@@ -84,29 +133,32 @@
                    class="rank-header-icon  rank-btn rank-center"/>
 
             <view class="rank-name rank-center">
-                {{rankOther.musicName}}
+                {{rankOther.musicUserName}}({{rankOther.school}}
             </view>
             <view class="rank-region rank-center">
                 {{rankOther.pointName}}
             </view>
-            <view class="rank-school rank-center">
-                {{rankOther.school}}
-            </view>
+            <!--<view class="rank-school rank-center">-->
+                <!--{{rankOther.school}}-->
+            <!--</view>-->
             <view class="rank-vote rank-center">
                 {{rankOther.num ? rankOther.num : 0}}票
             </view>
-            <image src="{{url}}followed.png"
-                   wx:if="{{rankOther.followState == 1}}"
+            <image
+                    wx:if="{{rankOther.followState == 1}}"
+                    src="{{url}}followed-btn.png"
                    data-rank="{{rankOther}}"
                    bindtap="handleFollowed"
                    class="rank-followed rank-btn rank-center"/>
-            <image src="{{url}}attention.png"
-                   bindtap="handleNotFollowed"
-                    wx:else
-                   data-rank="{{rankOther}}"
-                   class="rank-attention  rank-btn rank-center"/>
 
-            <image src="{{url}}vote{{rankOther.voteState == 1 ? 'd' : ''}}.png"
+            <image
+                    wx:else
+                    src="{{url}}follow-btn.png"
+                   data-rank="{{rankOther}}"
+                   bindtap="handleNotFollowed"
+                   class="rank-followed rank-btn rank-center"/>
+
+            <image src="{{url}}vote{{rankOther.voteState == 1 ? 'd' : ''}}-btn.png"
                    data-rank="{{rankOther}}"
                    bindtap="handleVote"
                    class="rank-vote-btn rank-btn rank-center"/>

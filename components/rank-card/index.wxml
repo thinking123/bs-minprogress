@@ -1,6 +1,6 @@
 <view class="wrapper" id="rank-card-wrap" >
 
-    <image class="header-bg" src="{{url}}header-bg.png"/>
+    <image class="header-bg" src="{{url}}{{level !='gold' ? 'bg2' : 'bg1'}}.png"/>
     <!--<view class="rank-card-content-border"/>-->
 
     <image src="{{headerSrc}}" class="rank-card-header"/>
@@ -31,31 +31,30 @@
     <!--</view>-->
 
     <view class="rank-card-content-wrap  {{level !='gold' ? 'small-size' : ''}}">
-        <view class="item">
-            姓名：{{info.musicUserName}}
+        <view class="item name">
+            {{info.musicUserName}}
         </view>
         <view class="item">
-            学校：{{info.school}}
+            《{{info.school}}》
         </view>
         <view  class="item">
-            主打歌：{{info.musicName}}
+            《{{info.musicName}}》
         </view>
         <view  class="item">
-            票数：{{info.num ? info.num : 0}}
+            {{info.num ? info.num : 0}}票
         </view>
         <view class="rank-card-content">
-            <view bindtap="handleFollow" class="btn follow">
-                <image src="{{url}}attention-icon{{info.followState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>
-                <view>
-                    关注
-                </view>
-            </view>
-            <view bindtap="handleVote" class="btn">
-                <image src="{{url}}heart-icon{{info.voteState == 1 ? '-active' : ''}}.svg" class="btn-icon"/>
-                <view>
-                    投票
-                </view>
-            </view>
+            <image
+                    bindtap="handleFollow"
+                    src="{{url}}follow{{info.followState == 1 ? 'ed' : ''}}-btn.png"
+                    class="btn follow"/>
+
+
+            <image
+                    bindtap="handleVote"
+                    src="{{url}}vote{{info.voteState == 1 ? 'd' : ''}}-btn.png"
+                    class="btn vote"/>
+
         </view>
     </view>
 
