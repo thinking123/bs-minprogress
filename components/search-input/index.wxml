@@ -5,7 +5,7 @@
         <input type="text"
                id="search-input"
                class="input"
-               placeholder="学校"
+               placeholder="我的学校"
                placeholder-class="ph-cs"
                value="{{inputVal}}"
                cursor-spacing="{{cursorSpacing}}"

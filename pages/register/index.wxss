@@ -20,7 +20,7 @@
 }
 .picker-wrap{
     position: relative;
-    width: 378rpx;
+    width: 340rpx;
 }
 
 .drop-down-item{
@@ -36,7 +36,7 @@
     top:41.77%;
     left:208rpx;
     height: 4.49%;
-    width: 388rpx;
+    width: 350rpx;
 
     background-color: white;
 }
@@ -45,7 +45,7 @@
     top:47.75%;
     left:208rpx;
     height: 4.49%;
-    width: 388rpx;
+    width: 350rpx;
 
     background-color: white;
 }
@@ -54,7 +54,7 @@
     top:53.59%;
     left:208rpx;
     height: 4.49%;
-    width: 388rpx;
+    width: 350rpx;
 
     background-color: white;
 
@@ -66,7 +66,7 @@
     top:59.58%;
     left:208rpx;
     height: 4.49%;
-    width: 388rpx;
+    width: 350rpx;
 
     background-color: white;
 
@@ -88,7 +88,7 @@
     top:65.42%;
     left:208rpx;
     height: 4.49%;
-    width: 388rpx;
+    width: 345rpx;
 }
 
 .drop-down-item1{
