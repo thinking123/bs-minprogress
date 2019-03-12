@@ -367,9 +367,9 @@ Page({
         // })
 
         //
-        wx.navigateTo({
-            url: '/pages/register/index'
-        })
+        // wx.navigateTo({
+        //     url: '/pages/register/index'
+        // })
         // wx.navigateTo({
         //     url: '/pages/singer-home/index'
         // })
@@ -381,12 +381,12 @@ Page({
         //     url: '/pages/my-achieve-win-info-input/index'
         // })
         // wx.navigateTo({
-
-
+        //
+        //
         //     url: '/pages/my-achieve/index'
         // })
         // wx.navigateTo({
-        //     url: '/pages/upload-music/index?uploadType=wx'
+        //     url: '/pages/upload-music/index?uploadType=record'
         // })
     }
 })

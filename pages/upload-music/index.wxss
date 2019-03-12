@@ -87,6 +87,7 @@ page{
     width: 124rpx;
 }
 .upload-play{
+    margin-top: 306rpx;
     height: 100rpx;
     width: 100rpx;
 }
