@@ -17,8 +17,8 @@ page{
 
 .singer-icon{
     position: absolute;
-    top:14.53%;
-    left:498rpx;
+    top:28.04%;
+    left:474rpx;
     /*height: 9.28%;*/
     height: 120rpx;
     width: 120rpx;
@@ -26,42 +26,61 @@ page{
 
 .content-wrap{
     position: absolute;
-    top:34.63%;
+    top:34.33%;
     left:118rpx;
     height: 3.75%;
     width: 520rpx;
 
     color:white;
-    font-size:18rpx
+    font-size:18rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .row{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.row1{
-    margin-bottom: 8rpx;
+.row2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.row3{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .text{
+    margin-top: -1rpx;
     margin: 0 10rpx;
+}
+.text.name{
+    font-size: 22rpx;
+    font-weight: bold;
 }
 .header-icon{
     position: absolute;
-    top:24.42%;
+    top:24%;
     left:310rpx;
     height: 124rpx;
     width: 124rpx;
     border-radius: 124rpx;
+
+    border: 1px solid yellow;
 }
 
 .center-icon-wrap{
     position: absolute;
-    top:43.86%;
+    top:45.13%;
     left:50%;
     transform: translate(-50%,0);
     height: 17.22%;
     width: 230rpx;
     overflow: hidden;
+
 }
 .center-icon{
     position: absolute;
@@ -70,6 +89,7 @@ page{
     transform: translate(-50%,-50%);
     height: 230rpx;
     width: 230rpx;
+
 }
 
 
@@ -82,6 +102,7 @@ page{
     color:white;
     font-size:20rpx;
     overflow: hidden;
+    /*border: 1px solid yellow;*/
 }
 .song-item{
     display: flex;

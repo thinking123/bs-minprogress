@@ -1,5 +1,5 @@
 <view class="container">
-    <image src="{{url}}bg1.png" class="img"/>
+    <image src="{{url}}bg3.png" class="img"/>
 
     <image src="{{url}}icon.png"
            wx:if="{{user && user.ycdy == 1}}"
@@ -8,24 +8,26 @@
 
 
     <view class="content-wrap">
-        <view class="row1 row">
-            <view class="text">
-                姓名:{{user ? user.userName : ''}}
-            </view>
-            <view class="text">
-                学校:{{user ? user.schoolName : ''}}
-            </view>
+        <view class="text name">
+            {{user ? user.userName : ''}}
         </view>
-        <view class="row2 row" wx:if="{{!!mainSong}}">
-            <view class="text">主打歌:《{{mainSong.musicName}}》
+        <view class="text">
+            {{user ? user.schoolName : ''}}
+        </view>
+
+        <view class="row2" wx:if="{{!!mainSong}}">
+            <view class="text">《{{mainSong.musicName}}》
 
             </view>
-            <view class="text">
-                票数:{{mainSong.num}}
+            <view class="row3">
+                <view class="text">
+                    得票:{{mainSong.num}}
+                </view>
+                <view class="text">
+                    排名:{{mainSong.rank}}
+                </view>
             </view>
-            <view class="text">
-                区域排名:{{mainSong.rank}}
-            </view>
+
         </view>
     </view>
 

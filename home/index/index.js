@@ -370,9 +370,9 @@ Page({
         // wx.navigateTo({
         //     url: '/pages/register/index'
         // })
-        // wx.navigateTo({
-        //     url: '/pages/singer-home/index'
-        // })
+        wx.navigateTo({
+            url: '/pages/singer-home/index'
+        })
         // wx.navigateTo({
         //     url: '/pages/just-listen/index'
         // })
