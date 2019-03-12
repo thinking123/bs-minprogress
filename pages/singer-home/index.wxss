@@ -69,7 +69,7 @@ page{
     width: 124rpx;
     border-radius: 124rpx;
 
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 .center-icon-wrap{

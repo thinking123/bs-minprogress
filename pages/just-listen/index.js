@@ -321,6 +321,7 @@ Page({
         }
     },
     async _casualListenTopFive() {
+        return
         if(this.data.curMusic){
             const list = await casualListenTopFive(this.data.curMusic.schoolId, this.data.curMusic.musicId)
             this.setData({
