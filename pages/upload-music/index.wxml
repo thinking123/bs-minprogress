@@ -57,10 +57,13 @@
                 <view class="mg" bindtap="handleChecked">
                     是
                 </view>
+                <view class="space">
+
+                </view>
 
                 <view class="check-box" bindtap="handleUnChecked">
                     <image wx:if="{{checked === false}}"
-                           bindtap="handleChecked"
+                           bindtap="handleUnChecked"
                            src="{{url}}check-icon.png"/>
                 </view>
                 <view bindtap="handleUnChecked">

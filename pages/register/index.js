@@ -16,7 +16,12 @@ Page({
         schools: [],
         schoolIndex: -1,
 
+
+
         school: '',
+
+        schoolName:'',
+        cursorSpacing:'0',
         games: [],
         gameIndex: -1,
         regionIndex: -1,
@@ -41,6 +46,18 @@ Page({
             uploadType: 'wx'
         })
         this.submitData()
+    },
+    onShow(){
+        const res = wx.getSystemInfoSync()
+        const isAndroid = res.platform == "android"
+
+        const screenHeight = parseInt(res.screenHeight)
+
+        const cursorSpacing = 0.3 * screenHeight + 'px'
+        console.log('isAndroid' , isAndroid , cursorSpacing)
+        this.setData({
+            cursorSpacing:isAndroid ? '0' : cursorSpacing
+        })
     },
     onLoad(options) {
         const checkState = options && options.checkState ? options.checkState : ''
@@ -76,8 +93,8 @@ Page({
             singName ,
             userPointId ,
             userProvinceId ,
-            userSchoolId ,
-            shcoolName,
+            // userSchoolId ,
+            schoolName,
             userPhone,
             musicId
         } = await getRegisterById()
@@ -92,10 +109,10 @@ Page({
         })
         const gameIndex = this.data.games.findIndex(f=>f.id == userPointId)
         const selectedPoint = this.data.games[gameIndex]
-        const inputValOuter = shcoolName
-        const selectedSchool = {
-            id:userSchoolId
-        }
+        // const inputValOuter = shcoolName
+        // const selectedSchool = {
+        //     id:userSchoolId
+        // }
 
         this.setData({
             name:name,
@@ -104,8 +121,8 @@ Page({
             selectedProvince:selectedProvince,
             gameIndex:gameIndex,
             selectedPoint:selectedPoint,
-            inputValOuter:inputValOuter,
-            selectedSchool:selectedSchool,
+            schoolName:schoolName,
+            // selectedSchool:selectedSchool,
             musicId:musicId
         })
 
@@ -140,7 +157,8 @@ Page({
               userPhone:this.data.phone,
               userProvinceId:this.data.selectedProvince.id,
               userPointId:this.data.selectedPoint.id,
-              userSchoolId:this.data.selectedSchool.id,
+              // userSchoolId:this.data.selectedSchool.id,
+              schoolName:this.data.schoolName,
               singName:this.data.name
           }
 
@@ -272,17 +290,18 @@ Page({
     verifySubmit() {
         const pReg = /^[1][3,4,5,7,8][0-9]{9}$/;
 
-        console.log(this.data.name,
-            this.data.phone,
-            this.data.schoolIndex,
-            this.data.gameIndex,
-            this.data.regionIndex
-        )
+        const inputReg = /^[\u4e00-\u9fa5]{4,}$/
+        // console.log(this.data.name,
+        //         //     this.data.phone,
+        //         //     this.data.schoolIndex,
+        //         //     this.data.gameIndex,
+        //         //     this.data.regionIndex
+        //         // )
         return !isEmpty(this.data.name) &&
             pReg.test(this.data.phone) &&
+            inputReg.test(this.data.schoolName) &&
             this.data.selectedProvince &&
-            this.data.selectedPoint &&
-            this.data.selectedSchool
+            this.data.selectedPoint
     },
     hidetap() {
         this.setData({
@@ -301,7 +320,7 @@ Page({
     },
     bindSchoolInput(e) {
         this.setData({
-            school: e.detail.value
+            schoolName: e.detail.value
         })
     }
 

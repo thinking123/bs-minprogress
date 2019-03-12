@@ -49,7 +49,7 @@ Page({
         userPhone: '',
         userProvinceId: '',
         userPointId: '',
-        userSchoolId: '',
+        schoolName : '',
         checkState: '',
         musicId: '',
         singName: '',
@@ -93,6 +93,13 @@ Page({
             this.setData({
                 checked: false,
             })
+        }else{
+            if(this.data.checked === false){
+                this.setData({
+                    checked: '',
+                })
+            }
+
         }
         this.setData({
             showNotOriginDialog: false
@@ -105,6 +112,13 @@ Page({
             this.setData({
                 checked: true,
             })
+        }
+        else{
+            if(this.data.checked === true){
+                this.setData({
+                    checked: '',
+                })
+            }
         }
         this.setData({
             showOriginDialog: false
@@ -194,7 +208,7 @@ Page({
                     const {
                         userPointId,
                         userProvinceId,
-                        userSchoolId,
+                        schoolName ,
                         userPhone,
                         singName,
                         musicId,
@@ -203,7 +217,7 @@ Page({
                     this.setData({
                         userPointId: userPointId,
                         userProvinceId: userProvinceId,
-                        userSchoolId: userSchoolId,
+                        schoolName : schoolName ,
                         userPhone: userPhone,
                         singName: singName
                     })
@@ -519,7 +533,7 @@ Page({
             this.data.userPhone,
             this.data.userProvinceId,
             this.data.userPointId,
-            this.data.userSchoolId,
+            this.data.schoolName ,
         )
     },
     handleSubmit(e) {

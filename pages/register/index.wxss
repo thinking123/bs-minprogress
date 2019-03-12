@@ -85,10 +85,19 @@
 
 
 .search-input-school{
+    position: absolute;
     top:65.42%;
     left:208rpx;
     height: 4.49%;
     width: 350rpx;
+
+    background-color: white;
+
+    border-radius:3px;
+    color:#004990;
+    font-size:19px;
+    padding-left:8px;
+    font-weight:bolder;
 }
 
 .drop-down-item1{

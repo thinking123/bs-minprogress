@@ -254,8 +254,14 @@ image right width : 28  29
     justify-content: center;
     align-items: center;
 }
-.check-box-wrap > .mg{
-    margin-right: 32rpx;
+/*.check-box-wrap > .mg{*/
+    /*margin-right: 32rpx;*/
+/*}*/
+
+.check-box-wrap > .space{
+    height: 20rpx;
+    width: 32rpx;
+    /*border: 1px solid yellow;*/
 }
 .wrap > view{
     display: inline-block;

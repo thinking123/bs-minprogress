@@ -47,7 +47,7 @@ export function signUp(userName,
                        userPhone,
                        userProvinceId,
                        userPointId,
-                       userSchoolId) {
+                       userSchoolName) {
     const url = '/api/singUp'
     const loadingText = '正在注册...'
     const errMsg = '注册失败'
@@ -56,7 +56,7 @@ export function signUp(userName,
         userPhone: userPhone,
         userPointId: userPointId,
         userProvinceId: userProvinceId,
-        userSchoolId: userSchoolId,
+        userSchoolName: userSchoolName,
     }
     return post(url, data, loadingText).then(res => parseRes(res, errMsg))
 

@@ -4,6 +4,7 @@
     <input class=" input-name" placeholder="姓名"
            placeholder-class="ph-cs"
            value="{{name}}"
+           wx:if="{{!showError}}"
            cursor-spacing="100rpx"
            bindinput="bindNameInput"
 
@@ -12,6 +13,7 @@
     <!--<image src="{{url}}dropdown.png" class="drop-down-item2"/>-->
     <!--<image src="{{url}}dropdown.png" class="drop-down-item3"/>-->
     <input class=" input-phone"
+           wx:if="{{!showError}}"
            placeholder-class="ph-cs"
            type="number"
            placeholder="电话"
@@ -53,21 +55,30 @@
 
     <!--/>-->
 
+    <input class="search-input-school"
+           wx:if="{{!showError}}"
+           placeholder-class="ph-cs"
+           placeholder="我的学校"
+           bindinput="bindSchoolInput"
+           cursor-spacing="{{cursorSpacing}}"
+           value="{{schoolName}}"/>
 
-    <search-input
-            wx:if="{{!showError}}"
-            id="search-input-wrap"
-            bind:selected="handleSeletedSchool"
-            bind:input="handleInputSchool"
-            clear="{{clearInput}}"
-            inputValOuter="{{inputValOuter}}"
-                  provinceId="provinceIdstr"
-                  pointId="pointIdstr"
-                  showSearchList="{{showSearchList}}"
-            selectedProvince="{{selectedProvince}}"
-            selectedPoint="{{selectedPoint}}"
-            selectedSchool="{{selectedSchool}}"
-                  search-input-external="search-input-school"/>
+
+
+    <!--<search-input-->
+            <!--wx:if="{{!showError}}"-->
+            <!--id="search-input-wrap"-->
+            <!--bind:selected="handleSeletedSchool"-->
+            <!--bind:input="handleInputSchool"-->
+            <!--clear="{{clearInput}}"-->
+            <!--inputValOuter="{{inputValOuter}}"-->
+                  <!--provinceId="provinceIdstr"-->
+                  <!--pointId="pointIdstr"-->
+                  <!--showSearchList="{{showSearchList}}"-->
+            <!--selectedProvince="{{selectedProvince}}"-->
+            <!--selectedPoint="{{selectedPoint}}"-->
+            <!--selectedSchool="{{selectedSchool}}"-->
+                  <!--search-input-external="search-input-school"/>-->
 
     <!--<picker class=" input-game "-->
             <!--range="{{schools}}"-->
