@@ -28,13 +28,16 @@
             <view class="achieve-btn-wrap">
                 <image wx:if="{{item.hadGot}}" src="{{url}}got.png"
                        class="achieve-btn" data-item="{{item}}"/>
-                <image wx:if="{{item.canGet && !item.hadGot}}"
-                       bindtap="handleGet"
-                       src="{{url}}can-get.png"
-                       class="achieve-btn not" data-item="{{item}}"/>
-                <image wx:if="{{!item.canGet}}"
-                       src="{{url}}cant-get.png"
-                       class="achieve-btn not" data-item="{{item}}"/>
+                <block wx:else>
+                    <image wx:if="{{item.canGet}}"
+                           bindtap="handleGet"
+                           src="{{url}}can-get.png"
+                           class="achieve-btn not" data-item="{{item}}"/>
+                    <image wx:else
+                           src="{{url}}cant-get.png"
+                           class="achieve-btn not" data-item="{{item}}"/>
+                </block>
+
             </view>
 
         </view>
