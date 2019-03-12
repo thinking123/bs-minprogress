@@ -26,6 +26,9 @@
                 <view class="text">
                     排名:{{mainSong.rank}}
                 </view>
+                <view class="text">
+                    编号:{{mainSong.userCode}}
+                </view>
             </view>
 
         </view>
