@@ -659,8 +659,8 @@ Page({
             const {tempFiles} = res
             console.log('tempFiles', tempFiles)
             const fileSize = tempFiles[0].size
-            if (fileSize > 1024 * 1024 * 2) {
-                showMsg('文件超过2M')
+            if (fileSize > 1024 * 1024 * 20) {
+                showMsg('文件超过20M')
                 return
             }
             await this._uploadFile(tempFiles[0].path)
