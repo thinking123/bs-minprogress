@@ -92,7 +92,7 @@
                             images="{{images}}"/>
 
             <view class="music-swiper-tip">
-                上传专属封面
+                选择专属封面
             </view>
         </view>
 
