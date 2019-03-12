@@ -105,13 +105,14 @@ page{
     justify-content: center;
 }
 .achieve-btn{
-    width:145rpx;
-    height: 56rpx;
+    width: 100rpx;
+    height: 50rpx;
 }
 .achieve-btn.not{
     width: 100rpx;
     height: 50rpx;
 }
+
 .gz{
     position: absolute;
     top:86.21%;

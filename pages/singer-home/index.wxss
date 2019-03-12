@@ -26,7 +26,7 @@ page{
 
 .content-wrap{
     position: absolute;
-    top:34%;
+    top:33.5%;
     left:118rpx;
     height: 3.75%;
     width: 520rpx;

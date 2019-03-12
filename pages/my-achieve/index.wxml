@@ -27,7 +27,7 @@
             </view>
             <view class="achieve-btn-wrap">
                 <image wx:if="{{item.hadGot}}" src="{{url}}got.png"
-                       class="achieve-btn" data-item="{{item}}"/>
+                       class="achieve-btn got" data-item="{{item}}"/>
                 <block wx:else>
                     <image wx:if="{{item.canGet}}"
                            bindtap="handleGet"
