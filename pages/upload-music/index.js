@@ -250,6 +250,10 @@ Page({
 
 
             const images = await coverImg()
+
+
+
+
             // const temp = []
             // for (let i = 0; i < images.length; i++) {
             //     const l = `${i + 1}.jpg`
@@ -261,8 +265,14 @@ Page({
                 coverUrl: `${url}upload-btn.png`
             }
             images.push(uploadBtn)
+
+
+            const len = images.length
+            let centerIndex = parseInt((len + 1) / 2) - 1
+
             this.setData({
-                images: images
+                images: images,
+                selectedImageIndex:centerIndex
             })
 
 
@@ -659,8 +669,8 @@ Page({
             const {tempFiles} = res
             console.log('tempFiles', tempFiles)
             const fileSize = tempFiles[0].size
-            if (fileSize > 1024 * 1024 * 20) {
-                showMsg('文件超过20M')
+            if (fileSize > 1024 * 1024 * 6) {
+                showMsg('文件超过6M')
                 return
             }
             await this._uploadFile(tempFiles[0].path)

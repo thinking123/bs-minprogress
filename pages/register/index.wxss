@@ -93,11 +93,11 @@
 
     background-color: white;
 
-    border-radius:3px;
-    color:#004990;
-    font-size:19px;
-    padding-left:8px;
-    font-weight:bolder;
+    /*border-radius:3px;*/
+    /*color:#004990;*/
+    /*font-size:19px;*/
+    /*padding-left:8px;*/
+    /*font-weight:bolder;*/
 }
 
 .drop-down-item1{

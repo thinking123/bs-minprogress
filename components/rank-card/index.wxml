@@ -35,7 +35,7 @@
             {{info.musicUserName}}
         </view>
         <view class="item">
-            《{{info.school}}》
+            ({{info.school}})
         </view>
         <view  class="item">
             《{{info.musicName}}》
