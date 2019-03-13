@@ -3,6 +3,7 @@
     "music-slider": "../../components/music-slider/index",
     "lottery-dialog": "../../components/lottery-dialog/index",
     "lottery-dialog-no-prize": "../../components/lottery-dialog-no-prize/index",
-    "lottery-dialog-had-prize": "../../components/lottery-dialog-had-prize/index"
+    "lottery-dialog-had-prize": "../../components/lottery-dialog-had-prize/index",
+    "just-listen-lottery-tip-dialog": "../../components/just-listen-lottery-tip-dialog/index"
   }
 }

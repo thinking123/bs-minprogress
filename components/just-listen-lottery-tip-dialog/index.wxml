@@ -1,0 +1,11 @@
+<view class="get-my-achieve-wwgk-dialog" wx:if="{{visible}}" bindtap="handleOutHide">
+    <view class="just-listen-lottery-tip-dialog-mask"
+          id="mask"/>
+    <view class="just-listen-lottery-tip-dialog-body">
+        <image src="{{url}}bg.png"
+               class="just-listen-lottery-tip-dialog-bg"/>
+        <view class="just-listen-lottery-tip-dialog-return"
+              bindtap="handleHide"/>
+    </view>
+
+</view>

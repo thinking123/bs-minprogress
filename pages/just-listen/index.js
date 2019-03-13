@@ -49,6 +49,7 @@ Page({
         lotteryInfo:null,
         isCanLottery:false,
         curMusicHadLottery:false,
+        showLotteryTipDialog:false,
         lotteryMusic:null,
         // lotteryInfo:{
         //     prizeTitle:'恭喜您获得\n苹果手机一部',
@@ -59,7 +60,18 @@ Page({
         this.setData({
             showLotteryDialog:false,
             showNoLotteryDialog:false,
-            showHadLotteryDialog:false
+            showHadLotteryDialog:false,
+            showLotteryTipDialog:false
+        })
+    },
+    handleLotteryTipDialog(){
+        this.setData({
+            showLotteryTipDialog:false
+        })
+    },
+    handleTapLotteryTipDialog(){
+        this.setData({
+            showLotteryTipDialog:true
         })
     },
     handleSliderStart(e) {

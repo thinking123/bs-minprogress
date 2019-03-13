@@ -17,6 +17,14 @@ page{
     width: 100%;
 }
 
+.lottery-tip{
+    position: absolute;
+    top:19.04%;
+    left:576rpx;
+    height: 116rpx;
+    width: 98rpx;
+    z-index: 2;
+}
 /*
 top:76px
 */

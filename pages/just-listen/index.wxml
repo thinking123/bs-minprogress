@@ -5,6 +5,9 @@
     <!--<image class="bs-logo"-->
     <!--src="{{url}}bs-logo.png"/>-->
     <!--</view>-->
+    <image class="lottery-tip"
+           bindtap='handleTapLotteryTipDialog'
+           src="{{url}}lottery-icon.png"/>
 
     <view
             class="just-listen-wrap"
@@ -179,6 +182,9 @@
             lotteryInfo="{{lotteryInfo}}"
             visible="{{showHadLotteryDialog}}"/>
 
+    <just-listen-lottery-tip-dialog
+            bind:hidetap="handleLotteryTipDialog"
+            visible="{{showLotteryTipDialog}}"/>
     <account-locked-dialog
             visible="{{isLocked}}"/>
 </view>
