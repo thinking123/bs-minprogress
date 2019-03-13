@@ -19,18 +19,21 @@
            wx:if="{{selectedCity}}" />
     <rank-card class="rank-card-silver"
                wx:if="{{silver}}"
+               bind:tapheader="handleTapHeader"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
                bind:play="handleCardSingerHome"
                info="{{silver}}" level="silver"/>
     <rank-card class="rank-card-gold"
                wx:if="{{gold}}"
+               bind:tapheader="handleTapHeader"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
                bind:play="handleCardSingerHome"
                info="{{gold}}" level="gold"/>
     <rank-card class="rank-card-cuprum"
                wx:if="{{cuprum}}"
+               bind:tapheader="handleTapHeader"
                bind:follow="handleCardFollow"
                bind:vote="handleCardVote"
                bind:play="handleCardSingerHome"

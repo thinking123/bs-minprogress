@@ -32,6 +32,14 @@ Page({
         selectedZone:'hx',
         imgSize:{width:'',height:''}
     },
+    handleTapHeader(e){
+      const music = e.detail
+        const url = `/pages/singer-home/index?id=${music.userId}`
+        wx.navigateTo({
+            url: url
+        })
+
+    },
     handleCardFollow(e) {
         const rank = e.detail
         if(rank.followState == 1){

@@ -51,6 +51,20 @@ Page({
         showyNotEnoughDialog:false,
         // ,
         // testShow:true
+
+        showUploadDialog:false
+    },
+    handleHideDialog(e){
+        this.setData({
+            showUploadDialog:false
+        })
+    },
+    handleSubmitDialog(e){
+        const uploadType = e.detail
+        const url = `/pages/register-page/index?uploadType=${uploadType}&isTwo=${true}`
+        wx.redirectTo({
+            url: url
+        })
     },
     goToPrizePage(prize , type = 'notvirtual'){
         const url = `/pages/my-achieve-win-info-input/index?prize=${prize}&type=${type}`
@@ -81,8 +95,14 @@ Page({
     handleTapwwgk(e){
         console.log('handleTapwwgk')
         //前往歌手主页上传音乐
-        wx.navigateTo({
-            url: '/pages/singer-home/index'
+        // wx.navigateTo({
+        //     url: '/pages/singer-home/index'
+        // })
+
+        //直接显示上传歌曲，选择上传类型
+        this.setData({
+            showUploadDialog:true,
+            showwwgkDialog:false
         })
         // const prize = e.detail
     },
@@ -170,6 +190,7 @@ Page({
                 showdcjDialog:false,
                 showwwgkDialog:false,
                 showyljzDialog:false,
+                showUploadDialog:false,
             })
             await this._getAchievement()
         }catch (e) {

@@ -8,6 +8,7 @@
 
 
     <image  src="{{info.musicCover}}" class="gd"
+            bindtap="handleTapHeader"
            id="gd"
            style="width:{{diskWidth}};border-radius:{{diskWidth}};"
     />

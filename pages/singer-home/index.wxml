@@ -27,7 +27,7 @@
                     排名:{{mainSong.rank}}
                 </view>
                 <view class="text">
-                    编号:{{mainSong.userCode}}
+                    编号:{{user.userCode}}
                 </view>
             </view>
 
@@ -71,10 +71,10 @@
            src="{{url}}vote{{mainSong.voteState == 0 ? '' : 'd'}}-btn.png"
            class="vote"/>
 
-    <image bindtap="handleUpload"
-           wx:if="{{isSelf && user.isTwo == 1}}"
-           src="{{url}}upload-btn.png"
-           class="upload"/>
+    <!--<image bindtap="handleUpload"-->
+           <!--wx:if="{{isSelf && user.isTwo == 1}}"-->
+           <!--src="{{url}}upload-btn.png"-->
+           <!--class="upload"/>-->
 
     <upload-type-select-dialog
             bind:hidetap="handleHideDialog"

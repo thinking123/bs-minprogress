@@ -564,7 +564,7 @@ Page({
             //upload code
             let uploadType = option.uploadType
 
-            if (uploadType !== 'wx' || uploadType !== 'record') {
+            if (uploadType !== 'wx' && uploadType !== 'record') {
                 this.setData({
                     showRegister: true,
                     isFromRegister:true

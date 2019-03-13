@@ -4,6 +4,7 @@
     "get-my-achieve-wwgk-dialog":"../../components/get-my-achieve-wwgk-dialog/index",
     "get-my-achieve-ycdy-dialog":"../../components/get-my-achieve-ycdy-dialog/index",
     "get-my-achieve-yljz-dialog":"../../components/get-my-achieve-yljz-dialog/index",
-    "loggery-not-enough-dialog":"../../components/loggery-not-enough-dialog/index"
+    "loggery-not-enough-dialog":"../../components/loggery-not-enough-dialog/index",
+    "upload-type-select-dialog":"../../components/upload-type-select-dialog/index"
   }
 }

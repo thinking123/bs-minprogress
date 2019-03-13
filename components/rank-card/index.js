@@ -232,7 +232,9 @@ Component({
         url:url
     },
     methods: {
-
+        handleTapHeader(){
+            this.triggerEvent('tapheader' , this.data.info)
+        },
         adjust2(rank, width) {
             return
             let step = 10
