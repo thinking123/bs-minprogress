@@ -1,6 +1,6 @@
 import regeneratorRuntime from '../../libs/regenerator-runtime/runtime.js'
 import {getRankingList, followMusic, putfollowMusic, voteMusic, getProvince} from "../../http/http-business";
-import {showMsg} from "../../utils/util";
+import {showMsg , getRatioSize} from "../../utils/util";
 
 const app = getApp()
 const baseUrl = app.globalData.baseUrl
@@ -29,7 +29,8 @@ Page({
         isLoading: false,
         searchKey: '',
         hadSearched:false,
-        selectedZone:'hx'
+        selectedZone:'hx',
+        imgSize:{width:'',height:''}
     },
     handleCardFollow(e) {
         const rank = e.detail
@@ -80,6 +81,10 @@ Page({
         }
     },
     onLoad() {
+        const res = wx.getSystemInfoSync()
+
+        this.px2rpx = 750 / res.windowWidth;
+        this.winHeight = res.windowHeight;
         this.init()
     },
     async init() {
@@ -283,6 +288,20 @@ Page({
         }else{
             this._voteMusic(e.target.dataset.rank.id)
         }
+
+    },
+
+    handleBindload(e){
+        const originWidth = e.detail.width * this.px2rpx,
+                originHeight = e.detail.height * this.px2rpx,
+                viewWidth  = 604, viewHeight = this.winHeight * 0.1529* this.px2rpx
+
+        const size = getRatioSize(viewWidth , viewHeight ,originWidth ,  originHeight)
+
+        console.log('adjust size' , size)
+        this.setData({
+            imgSize:size
+        })
 
     },
     filterSpecWord(str){

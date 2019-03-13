@@ -4,8 +4,19 @@
         <image src="{{url}}logo.png"/>
     </view>
 
-    <image src="{{selectedCity.imgUrl}}" wx:if="{{selectedCity}}" class="img-title"/>
 
+    <!--<view class="img-title">-->
+        <!--<image src="{{selectedCity.imgUrl}}"-->
+               <!--mode="aspectFill"-->
+            <!---->
+               <!--wx:if="{{selectedCity}}" />-->
+    <!--</view>-->
+
+    <image src="{{selectedCity.imgUrl}}"
+           bindload="handleBindload"
+           style="width:{{imgSize.width}}rpx;height:{{imgSize.height}}rpx;"
+           class="img-title"
+           wx:if="{{selectedCity}}" />
     <rank-card class="rank-card-silver"
                wx:if="{{silver}}"
                bind:follow="handleCardFollow"

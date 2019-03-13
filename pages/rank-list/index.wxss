@@ -28,9 +28,18 @@
 .img-title{
     position: absolute;
     top:12.28%;
-    left:74rpx;
+    /*left:74rpx;*/
+    left: 50%;
+    transform: translateX(-50%);
     height: 15.29%;
     width: 604rpx;
+    overflow: hidden;
+}
+.img-title > image{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
 }
 
 .input-name-wrap{
