@@ -2,7 +2,7 @@
     <view class="get-my-achieve-wwgk-dialog-mask"
           id="mask"/>
     <view class="get-my-achieve-wwgk-dialog-body">
-        <image src="{{url}}bg.png"
+        <image src="{{url}}bg1.png"
                class="get-my-achieve-wwgk-dialog-bg"/>
         <view class="get-my-achieve-wwgk-dialog-return"
               bindtap="handleHide"/>

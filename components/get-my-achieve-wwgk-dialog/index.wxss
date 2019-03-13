@@ -51,7 +51,7 @@ h 433
     left:50%;
     top:50%;
     transform: translate(-51.07% , -50%);
-    height: 64.92%;
+    height: 70.61%;
     width: 664rpx;
 }
 .get-my-achieve-wwgk-dialog-bg{
