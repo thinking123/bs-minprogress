@@ -36,8 +36,8 @@ Page({
         // })
 
 
-        const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
-        wx.navigateTo({
+        const url = `/pages/register-page/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
+        wx.redirectTo({
             url: url
         })
     },
@@ -83,8 +83,8 @@ Page({
                 //     break
                 case 3:
                     //go to register
-                    wx.navigateTo({
-                        url: '/pages/register/index?from=home'
+                    wx.redirectTo({
+                        url: '/pages/register-page/index?from=home'
                     })
                     break
                 // this.setData({
@@ -147,8 +147,8 @@ Page({
     handleReWrite() {
 
         if (this.data.checkState == 4) {
-            const url = `/pages/register/index?checkState=${this.data.checkState}`
-            wx.navigateTo({
+            const url = `/pages/register-page/index?checkState=${this.data.checkState}`
+            wx.redirectTo({
                 url: url
             })
 
@@ -367,8 +367,8 @@ Page({
         // })
 
         //
-        // wx.navigateTo({
-        //     url: '/pages/register/index'
+        // wx.redirectTo({
+        //     url: '/pages/register-page/index'
         // })
         // wx.navigateTo({
         //     url: '/pages/singer-home/index'

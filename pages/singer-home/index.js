@@ -27,8 +27,8 @@ Page({
     },
     handleSubmitDialog(e){
         const uploadType = e.detail
-        const url = `/pages/upload-music/index?uploadType=${uploadType}&isTwo=${true}`
-        wx.navigateTo({
+        const url = `/pages/register-page/index?uploadType=${uploadType}&isTwo=${true}`
+        wx.redirectTo({
             url: url
         })
     },

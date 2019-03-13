@@ -1,0 +1,203 @@
+<view class="container">
+    <!--注册页面-->
+    <view wx:if="{{showRegister}}" class="container-page register">
+        <image src="{{url}}register-bg.png" class="img"/>
+
+        <input class=" input-register-name" placeholder="姓名"
+               placeholder-class="ph-cs"
+               value="{{name}}"
+               wx:if="{{!showError}}"
+               cursor-spacing="100rpx"
+               bindinput="bindUserNameInput"
+
+        />
+        <!--<image src="{{url}}dropdown.png" class="drop-down-item1"/>-->
+        <!--<image src="{{url}}dropdown.png" class="drop-down-item2"/>-->
+        <!--<image src="{{url}}dropdown.png" class="drop-down-item3"/>-->
+        <input class=" input-phone"
+               wx:if="{{!showError}}"
+               placeholder-class="ph-cs"
+               type="number"
+               placeholder="电话"
+               bindinput="bindPhoneInput"
+               cursor-spacing="100rpx"
+               value="{{phone}}"/>
+
+        <picker class="  input-school"
+                range="{{provinces}}"
+                range-key="provinceName"
+                value="{{regionIndex}}"
+                bindchange="handleRegion"
+        >
+            <view class="ph-cs picker-wrap">
+                <view wx:if="{{regionIndex === -1}}">省区</view>
+                <view>{{provinces[regionIndex].provinceName}}</view>
+                <image src="{{url}}dropdown.png" class="drop-down-item"/>
+            </view>
+        </picker>
+
+        <picker class=" input-region "
+                range="{{games}}"
+                range-key="pointName"
+                value="{{gameIndex}}"
+                bindchange="handleGame"
+        >
+            <view class="ph-cs picker-wrap">
+                <view wx:if="{{gameIndex === -1}}">赛点</view>
+                <view>{{games[gameIndex].pointName}}</view>
+                <image src="{{url}}dropdown.png" class="drop-down-item"/>
+            </view>
+        </picker>
+
+        <input class="search-input-school"
+               wx:if="{{!showError}}"
+               placeholder-class="ph-cs"
+               placeholder="我的学校"
+               bindinput="bindSchoolInput"
+               cursor-spacing="{{cursorSpacing}}"
+               value="{{schoolName}}"/>
+
+
+
+
+        <view class="btn-wrap">
+            <view class="record-online"
+                  bindtap="handleRecordSubmit"/>
+            <view class="load-fron-wx"
+                  bindtap="handleLoadFromWxSubmit"/>
+        </view>
+
+
+
+        <register-error-dialog visible="{{showError}}"
+                               bind:hidetap="hidetaperror"/>
+    </view>
+    <!--上传页面-->
+    <view wx:else  class="container-page1">
+
+        <view class="container-mask" bindtap="handleBack" id="container-mask"/>
+
+
+
+        <view class="music-wrap step1" wx:if="{{step1}}" id="step1" bindtap="handleBack">
+            <image src="{{url}}step1-bg.png"
+                   class="img"/>
+            <view class="music-content"  id="step1-content" bindtap="handleBack">
+
+                <image class="upload-dev upload-icon"
+                       wx:if="{{uploadType == 'wx'}}"
+                       bindtap="handleUploadFromWx"
+                       src="{{url}}upload.png"/>
+
+                <block wx:else>
+                    <block wx:if="{{!tempFilePath}}">
+                        <image class="upload-dev"
+                               wx:if="{{!isRecording}}"
+                               bindtap="handleRecord"
+                               src="{{url}}record.png"/>
+                        <image class="upload-dev"
+                               wx:else
+                               bindtap="handleRecord"
+                               src="{{url}}recording.png"/>
+                    </block>
+                    <block wx:else>
+                        <image class="upload-play"
+                               wx:if="{{!isPlayingRecord}}"
+                               bindtap="handlePlayingRecord"
+                               src="{{url}}record-play.png"/>
+                        <image class="upload-play"
+                               wx:else
+                               bindtap="handlePlayingRecord"
+                               src="{{url}}record-playing.png"/>
+                    </block>
+                </block>
+                <view class="upload-tip" bindtap="handleStartRecordOrUpload">
+                    {{uploadTip}}
+                </view>
+                <view class="reupload" bindtap="handleRestart">
+                    {{uploadType == 'wx' ? '重新导入' : '重新录制'}}
+                </view>
+                <input class=" input-name" placeholder="歌曲名称"
+                       placeholder-class="ph-cs"
+                       value="{{songName}}"
+                       bindinput="bindNameInput"
+                />
+                <view class="check-box-wrap">        是否为原创歌曲：
+                    <view class="check-box" bindtap="handleChecked">
+                        <image wx:if="{{checked === true}}"
+                               bindtap="handleChecked"
+                               src="{{url}}check-icon.png"/>
+                    </view>
+                    <view class="mg" bindtap="handleChecked">
+                        是
+                    </view>
+                    <view class="space">
+
+                    </view>
+
+                    <view class="check-box" bindtap="handleUnChecked">
+                        <image wx:if="{{checked === false}}"
+                               bindtap="handleUnChecked"
+                               src="{{url}}check-icon.png"/>
+                    </view>
+                    <view bindtap="handleUnChecked">
+                        否
+                    </view>
+                </view>
+
+
+            </view>
+            <view class="btn-wrap"   id="btn" bindtap="handleBack">
+                <view bindtap="handleToStep2" class="step1-btn">
+
+                </view>
+            </view>
+
+
+        </view>
+
+        <view  class="music-wrap step2" wx:else    id="step2" bindtap="handleBack">
+            <image src="{{url}}step2-bg.png"
+                   class="img"/>
+            <view class="music-content">
+                <cascade-swiper class="music-swiper"
+                                bind:upload="handleTapUploadBtn"
+                                bind:selected="handleCascadeSelected"
+                                images="{{images}}"/>
+
+                <view class="music-swiper-tip">
+                    选择专属封面
+                </view>
+            </view>
+
+
+
+            <view class="btn-wrap"   id="btn" bindtap="handleBack">
+                <view bindtap="handleSubmit" class="step1-btn">
+
+                </view>
+            </view>
+        </view>
+        <check-one-three-day-dialog visible="{{showDialog}}"
+                                    bind:hidetap="hidetap"/>
+        <upload-no-music-name-error-dialog visible="{{showNoMusicNameErrorDialog}}"
+                                           bind:hidetap="hideNoMusicNameErrorDialog"/>
+
+
+
+
+
+        <upload-music-not-origin-dialog
+                visible="{{showNotOriginDialog}}"
+                bind:argee="handleNotOriginAgree"
+                bind:hidetap="hideNotOriginDialog"/>
+
+        <upload-music-origin-dialog
+                visible="{{showOriginDialog}}"
+                bind:argee="handleOriginAgree"
+                bind:hidetap="hideOriginDialog"/>
+    </view>
+
+    <account-locked-dialog
+            visible="{{isLocked}}"/>
+</view>

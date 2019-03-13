@@ -29,8 +29,8 @@ Page({
     },
     handleSubmitDialog(e) {
         const uploadType = e.detail
-        const url = `/pages/upload-music/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
-        wx.navigateTo({
+        const url = `/pages/register-page/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
+        wx.redirectTo({
             url: url
         })
     },
@@ -47,8 +47,8 @@ Page({
     handleReWrite() {
 
         if (this.data.checkState == 4) {
-            const url = `/pages/register/index?checkState=${this.data.checkState}`
-            wx.navigateTo({
+            const url = `/pages/register-page/index?checkState=${this.data.checkState}`
+            wx.redirectTo({
                 url: url
             })
 

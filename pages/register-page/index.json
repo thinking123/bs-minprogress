@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "cascade-swiper":"../../components/cascade-swiper/index",
+    "dialog-wrap":"../../components/dialog-wrap/index",
+    "check-one-three-day-dialog":"../../components/check-one-three-day-dialog/index",
+    "upload-no-music-name-error-dialog":"../../components/upload-no-music-name-error-dialog/index",
+    "upload-music-origin-dialog":"../../components/upload-music-origin-dialog/index",
+    "upload-music-not-origin-dialog":"../../components/upload-music-not-origin-dialog/index",
+    "register-error-dialog":"../../components/register-error-dialog/index"
+  },
+  "disableSwipeBack": true
+}

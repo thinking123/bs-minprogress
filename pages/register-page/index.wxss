@@ -1,0 +1,530 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+
+}
+
+/*
+register page
+*/
+.register.container-page{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+}
+
+
+.register .img{
+    height: 100%;
+    width: 100%;
+}
+
+.register .ph-cs{
+    color:#004990;
+    font-size:35rpx;
+    margin-left: 0;
+    font-weight: bolder;
+}
+.register .picker-wrap{
+    position: relative;
+    width: 340rpx;
+}
+
+.register .drop-down-item{
+    position: absolute;
+    right: 14rpx;
+    top:50%;
+    transform: translateY(-50%);
+    height: 40rpx;
+    width: 42rpx;
+}
+.register .input-register-name{
+    position: absolute;
+    top:41.77%;
+    left:208rpx;
+    height: 4.49%;
+    width: 350rpx;
+
+    background-color: white;
+}
+.register .input-phone{
+    position: absolute;
+    top:47.75%;
+    left:208rpx;
+    height: 4.49%;
+    width: 350rpx;
+
+    background-color: white;
+}
+.register .input-school{
+    position: absolute;
+    top:53.59%;
+    left:208rpx;
+    height: 4.49%;
+    width: 350rpx;
+
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+}
+.register .input-region{
+    position: absolute;
+    top:59.58%;
+    left:208rpx;
+    height: 4.49%;
+    width: 350rpx;
+
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+}
+.register .input-game{
+    position: absolute;
+    top:65.42%;
+    left:208rpx;
+    height: 4.49%;
+    width: 388rpx;
+
+    background-color: white;
+}
+
+
+.register .search-input-school{
+    position: absolute;
+    top:65.42%;
+    left:208rpx;
+    height: 4.49%;
+    width: 350rpx;
+
+    background-color: white;
+
+    /*border-radius:3px;*/
+    /*color:#004990;*/
+    /*font-size:19px;*/
+    /*padding-left:8px;*/
+    /*font-weight:bolder;*/
+}
+
+.register .drop-down-item1{
+    position: absolute;
+    top:54.34%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}
+.register .drop-down-item2{
+    position: absolute;
+    top:60.33%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}
+
+.register .drop-down-item3{
+    position: absolute;
+    top:66.17%;
+    left:544rpx;
+    height: 3.14%;
+    width: 42rpx;
+    z-index: 100;
+}
+
+.register .btn-wrap{
+    position: absolute;
+    top:82.31%;
+    left:50%;
+    height: 7.66%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/*.btn-wrap > view{*/
+/*border: 1px solid yellow;*/
+/*}*/
+.register .record-online{
+    height: 100%;
+    width: 304rpx;
+    margin: 0 5rpx;
+}
+
+.register .load-fron-wx{
+    height: 100%;
+    width: 304rpx;
+    margin: 0 5rpx;
+}
+
+/*
+upload page
+*/
+
+.container-page1{
+    background-image: url('https://cdnpepsi.ysmine.com/register-bg2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin:0;
+    padding:0;
+}
+
+.container-mask{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.music-wrap{
+    position: absolute;
+    top:50%;
+    transform: translate(-50% , -50%);
+    width: 592rpx;
+    height: 842rpx;
+    left:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-wrap{
+    position: absolute;
+    left:50%;
+    bottom: 0;
+    transform: translate(-50% , 0);
+    /*border:2px solid yellow;*/
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.step1-btn{
+    height: 100%;
+    width: 302rpx;
+}
+.step2-btn{
+
+}
+.music-content{
+    width: 100%;
+    position: relative;
+    height: 712rpx;
+    width: 440rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.step1{
+
+}
+.step2{
+
+}
+.music-content-wrap{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 348rpx;
+    width: 442rpx;
+}
+.upload-dev{
+    position: relative;
+    margin-top: 306rpx;
+    height: 108rpx;
+    width: 82rpx;
+}
+.upload-dev.upload-icon{
+    height: 118rpx;
+    width: 124rpx;
+}
+.upload-play{
+    margin-top: 306rpx;
+    height: 100rpx;
+    width: 100rpx;
+}
+.upload-tip{
+    position: relative;
+    background-color:  #2E99EB;
+    color: white;
+    /*padding: 6rpx 18rpx;*/
+    width: 204rpx;
+    height: 42rpx;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.music-swiper-tip{
+    position: relative;
+    background-color:  #2E99EB;
+    color: white;
+    /*padding: 6rpx 18rpx;*/
+    width: 204rpx;
+    height: 42rpx;
+    font-size: 26rpx;
+    margin-top: 45rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reupload{
+
+    position: relative;
+    align-content: flex-end;
+    border-bottom: 1rpx solid white;
+    /*text-decoration-line: underline;*/
+    color: white;
+    font-size: 16rpx;
+    padding-bottom: 3rpx;
+    margin-left: auto;
+}
+
+.submit{
+
+    margin-top: 26rpx;
+    height: 128rpx;
+    width: 414rpx;
+}
+
+.img{
+    /*height: 74.51%;*/
+    /*width: 100%;*/
+    position: absolute;
+    /*top:5.25%;*/
+    /*left:0;*/
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.upload-icon-mkf{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:31.63%;
+    /*height: 9.75%;*/
+    height: 106rpx;
+    width: 82rpx;
+}
+.record{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:43.48%;
+    height: 3.3%;
+    width: 156rpx;
+}
+/*
+image left width : 36   42
+image right width : 28  29
+*/
+.upload-icon-wx{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:30.39%;
+    /*height: 9.3%;*/
+    height: 128rpx;
+    width: 130rpx;
+}
+
+.upload-icon-wx > image {
+    width: 100%;
+
+    height: 100%;
+}
+/*.upload-icon-wx::after{*/
+/*color:white;*/
+/*white-space: nowrap;*/
+/*font-size: 18rpx;*/
+/*position: absolute;*/
+/*content:'微信导入音乐';*/
+/*display: block;*/
+/*top:100%;*/
+/*left:50%;*/
+/*transform: translate(-50% , 2rpx);*/
+/*}*/
+
+.wx-tip{
+    color:white;
+    white-space: nowrap;
+    font-size: 18rpx;
+    position: absolute;
+    content:'微信导入音乐';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top:100%;
+    left:50%;
+    transform: translate(-50% , 2rpx);
+
+}
+.wx-upload-ok{
+
+}
+.progress-bar-text{
+    position: absolute;
+    top:43.86%;
+    left:500rpx;
+    height: 20rpx;
+    /*width: 36rpx;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-size: 18rpx;
+}
+.upload-text{
+
+}
+.input-name{
+    height: 58rpx;
+    width: 436rpx;
+    background-color: white;
+    margin-top: 12rpx;
+}
+
+
+.item{
+    height: 12rpx;
+    width: 12rpx;
+}
+
+.check-box-wrap{
+    margin-top: 24rpx;
+    color: white;
+    font-size: 30rpx;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/*.check-box-wrap > .mg{*/
+/*margin-right: 32rpx;*/
+/*}*/
+
+.check-box-wrap > .space{
+    height: 20rpx;
+    width: 32rpx;
+    /*border: 1px solid yellow;*/
+}
+.wrap > view{
+    display: inline-block;
+}
+.check-box{
+    height: 18rpx;
+    width: 18rpx;
+    position: relative;
+    background-color: #56638B;
+    /*border: 2rpx solid white;*/
+    margin-right: 6rpx;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.check-box > image{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 34rpx;
+    height: 34rpx;
+}
+.check-box-wrap:nth-child(2){
+    margin-right: 32rpx;
+}
+.check-box.active{
+    background-color: #004B93;
+}
+.check-box.checked{
+
+
+}
+/*.check-box.checked::after{*/
+/*!*position: absolute;*!*/
+/*!*left: 100%;*!*/
+/*transform: translateX(10rpx);*/
+/*!*top:0;*!*/
+/*content:'是';*/
+/*display: block;*/
+/*}*/
+/*.check-box.unchecked::after{*/
+/*!*position: absolute;*!*/
+/*!*top:0;*!*/
+/*!*left: 100%;*!*/
+/*transform: translateX(10rpx);*/
+/*content:'否';*/
+/*display: block;*/
+/*}*/
+.progress-bar-wrap{
+    position: absolute ;
+    top:43.86% ;
+    left:166rpx ;
+    height: 20rpx ;
+    width: 322rpx ;
+    border-radius: 10rpx;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+
+}
+/*.progress-bar-text1{*/
+/*position: absolute ;*/
+/*top:50%;*/
+/*transform: translate(10rpx , -50%);*/
+/*left: 100%;*/
+/*color:white;*/
+/*font-size: 18rpx;*/
+/*display: flex;*/
+/*justify-content: center;*/
+/*align-items: center;*/
+/*}*/
+.progress-bar{
+    height: 20rpx;
+    background-image: linear-gradient(135deg, #00A0E9 25%, transparent 25%, transparent 50%,#00A0E9 50%, #00A0E9 75%, transparent 75%, transparent);
+    background-size: 20rpx 20rpx;
+    animation: progress-bar-loading 1s linear infinite;
+}
+@keyframes progress-bar-loading {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40rpx 0;
+    }
+}
+
+.image-swap{
+    position: absolute;
+    top:83.08%;
+    left:206rpx;
+    height: 7.19%;
+    width: 342rpx;
+}
+
+.music-swiper{
+    margin-top: 310rpx;
+
+}

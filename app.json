@@ -1,7 +1,9 @@
 {
   "pages": [
+
     "home/video/index",
-    "home/index/index"
+    "home/index/index",
+    "pages/register-page/index"
   ],
   "subpackages": [
     {

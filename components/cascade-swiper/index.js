@@ -128,6 +128,9 @@ Component({
     },
     methods: {
         handleTap(e){
+            if(this.data.images.length == 0){
+                return
+            }
             const tapIndex = e.target.dataset.item
             console.log('handleTap' , tapIndex)
 
@@ -148,6 +151,9 @@ Component({
         },
         handleTouchStart(e) {
             console.log(e);
+            if(this.data.images.length == 0){
+                return
+            }
             var startX = e.changedTouches[0].pageX;
             this.setData({
                 startX: startX
@@ -155,6 +161,9 @@ Component({
         },
         handleTouchEnd(e) {
             console.log(e);
+            if(this.data.images.length == 0){
+                return
+            }
             var that = this;
             var endX = e.changedTouches[0].pageX;
             this.setData({
