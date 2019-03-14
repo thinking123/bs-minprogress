@@ -570,6 +570,8 @@ Page({
     onShareAppMessage(obj) {
         console.log('onShareAppMessage', obj)
 
-        return obj
+        return {
+            path:'/home/video/index'
+        }
     }
 })
