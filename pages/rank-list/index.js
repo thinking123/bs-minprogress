@@ -54,7 +54,7 @@ Page({
         if(rank.voteState == 1){
             showMsg('已经投票')
         }else{
-            this._voteMusic(e.detail.id)
+            this._voteMusic(rank)
         }
 
     },
@@ -114,6 +114,9 @@ Page({
         }
     },
     updateRank(res) {
+
+
+
         const musicList = this.data.musicList.map(m => {
             if (m.id === res.id) {
                 return res
@@ -135,6 +138,71 @@ Page({
             cuprum: rankListTopThree.length >= 2 ? rankListTopThree[2] : null,
         })
     },
+    async _updateCurPage(item){
+        try {
+
+
+            let zone = 1
+            switch (this.data.selectedZone) {
+                case 'hx':
+                    zone = 1;
+                    break
+                case 'cs':
+                    zone = 2;
+                    break
+                case 'sq':
+                    zone = 3;
+                    break
+            }
+
+            const reg = /\d+/
+
+            const key = this.data.searchKey
+            const isCode = reg.test(this.data.searchKey)
+            const musicPlayerName = !isCode && this.data.hadSearched ? key : ''
+            const musicPlayerCode = isCode && this.data.hadSearched ? key : ''
+
+            const curPage = Math.floor(item.rank / 10) + 1
+            const prePage = curPage - 1
+
+
+            let res =  await getRankingList(curPage, this.data.selectedCity.id, zone,musicPlayerName, musicPlayerCode)
+
+            let musicList = res.musicList
+
+            if(prePage > 0){
+                res =  await getRankingList(prePage, this.data.selectedCity.id, zone,musicPlayerName, musicPlayerCode)
+                musicList = [...res.musicList , ...musicList]
+            }
+
+            console.log('res musicList' , musicList)
+            let start = prePage > 0 ? (prePage - 1) * 10 : (curPage - 1) * 10
+            let del = prePage > 0 ? 20 : 10
+
+            const newList = [...this.data.musicList]
+            newList.splice(start , del , ...musicList)
+
+            console.log('update musicList' , newList)
+
+
+            const rankListTopThree = newList.slice(0, 3)
+
+            const rankListOther = newList.slice(3)
+
+
+            this.setData({
+                musicList: newList,
+                rankListTopThree: rankListTopThree,
+                rankListOther: rankListOther,
+                gold: rankListTopThree.length >= 0 ? rankListTopThree[0] : null,
+                silver: rankListTopThree.length >= 1 ? rankListTopThree[1] : null,
+                cuprum: rankListTopThree.length >= 2 ? rankListTopThree[2] : null,
+            })
+
+        }catch (e) {
+            showMsg(e)
+        }
+    },
     async _followMusic(musicId , rank) {
         try {
             const res = await followMusic(musicId, rank)
@@ -153,11 +221,11 @@ Page({
             showMsg(e)
         }
     },
-    async _voteMusic(musicId) {
+    async _voteMusic(rank) {
         try {
-            const res = await voteMusic(musicId)
-            this.updateRank(res)
-            console.log('voteMusic', res)
+            const res = await voteMusic(rank.id)
+            this._updateCurPage(rank)
+            console.log('voteMusic', rank)
         } catch (e) {
             showMsg(e)
         }
@@ -294,7 +362,7 @@ Page({
         if(rank.voteState == 1){
             showMsg('已经投票')
         }else{
-            this._voteMusic(e.target.dataset.rank.id)
+            this._voteMusic(e.target.dataset.rank)
         }
 
     },
