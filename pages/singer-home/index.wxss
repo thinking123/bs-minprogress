@@ -36,6 +36,8 @@ page{
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    /*margin-top: 4rpx;*/
 }
 .row{
     display: flex;
@@ -46,20 +48,28 @@ page{
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 6rpx;
 }
 .row3{
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 6rpx;
 }
 .text{
-    margin-top: -1rpx;
+    white-space: nowrap;
+    /*margin-top: -1rpx;*/
     margin: 0 10rpx;
+    line-height: 100%;
+}
+.content-wrap > view.text{
+    margin-top: 6rpx;
 }
 .text.name{
     font-size: 22rpx;
     font-weight: bold;
+
 }
 .header-icon{
     position: absolute;

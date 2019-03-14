@@ -7,7 +7,7 @@
 
 
 
-    <view class="content-wrap">
+    <view class="content-wrap" >
         <view class="text name">
             {{user ? user.userName : ''}}
         </view>
