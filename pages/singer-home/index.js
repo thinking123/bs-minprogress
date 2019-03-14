@@ -28,7 +28,7 @@ Page({
     handleSubmitDialog(e){
         const uploadType = e.detail
         const url = `/pages/register-page/index?uploadType=${uploadType}&isTwo=${true}`
-        wx.redirectTo({
+        wx.navigateTo({
             url: url
         })
     },

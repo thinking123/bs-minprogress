@@ -37,7 +37,7 @@ Page({
 
 
         const url = `/pages/register-page/index?checkState=${this.data.checkState}&musicId=${this.data.musicId}&uploadType=${uploadType}`
-        wx.redirectTo({
+        wx.navigateTo({
             url: url
         })
     },
@@ -83,7 +83,7 @@ Page({
                 //     break
                 case 3:
                     //go to register
-                    wx.redirectTo({
+                    wx.navigateTo({
                         url: '/pages/register-page/index?from=home'
                     })
                     break
@@ -148,7 +148,7 @@ Page({
 
         if (this.data.checkState == 4) {
             const url = `/pages/register-page/index?checkState=${this.data.checkState}`
-            wx.redirectTo({
+            wx.navigateTo({
                 url: url
             })
 
