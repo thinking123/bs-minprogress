@@ -115,24 +115,26 @@ export function getRankingList(pageNum,
     return get(url, data,loadingText).then(res => parseRes(res, errMsg))
 }
 //关注音乐
-export function followMusic(musicId) {
+export function followMusic(musicId , rank=0) {
     let url = '/api/rankingList/followMusic'
     const loadingText = '关注音乐...'
     const errMsg = '关注音乐失败'
     const params = {
-        musicId: musicId
+        musicId: musicId,
+        rank:rank
     }
     url = urlParams(url , params)
     return post(url, {},loadingText).then(res => parseRes(res, errMsg))
 }
 
 //取消关注音乐
-export function putfollowMusic(musicId) {
+export function putfollowMusic(musicId, rank=0) {
     let url = '/api/rankingList/putfollowMusic'
     const loadingText = '取消关注音乐...'
     const errMsg = '取消关注音乐失败'
     const params = {
-        musicId: musicId
+        musicId: musicId,
+        rank:rank
     }
     url = urlParams(url , params)
     return post(url, {},loadingText).then(res => parseRes(res, errMsg))

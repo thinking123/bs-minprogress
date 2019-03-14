@@ -43,9 +43,9 @@ Page({
     handleCardFollow(e) {
         const rank = e.detail
         if(rank.followState == 1){
-            this._putfollowMusic(rank.id)
+            this._putfollowMusic(rank.id, rank.rank)
         }else{
-            this._followMusic(rank.id)
+            this._followMusic(rank.id , rank.rank)
         }
 
     },
@@ -135,18 +135,18 @@ Page({
             cuprum: rankListTopThree.length >= 2 ? rankListTopThree[2] : null,
         })
     },
-    async _followMusic(musicId) {
+    async _followMusic(musicId , rank) {
         try {
-            const res = await followMusic(musicId)
+            const res = await followMusic(musicId, rank)
             this.updateRank(res)
             console.log('_followMusic', res)
         } catch (e) {
             showMsg(e)
         }
     },
-    async _putfollowMusic(musicId) {
+    async _putfollowMusic(musicId, rank) {
         try {
-            const res = await putfollowMusic(musicId)
+            const res = await putfollowMusic(musicId, rank)
             this.updateRank(res)
             console.log('_putfollowMusic', res)
         } catch (e) {
@@ -284,10 +284,10 @@ Page({
 
     },
     handleFollowed(e) {
-        this._putfollowMusic(e.target.dataset.rank.id)
+        this._putfollowMusic(e.target.dataset.rank.id,e.target.dataset.rank.rank)
     },
     handleNotFollowed(e) {
-        this._followMusic(e.target.dataset.rank.id)
+        this._followMusic(e.target.dataset.rank.id,e.target.dataset.rank.rank)
     },
     handleVote(e) {
         const rank = e.target.dataset.rank
